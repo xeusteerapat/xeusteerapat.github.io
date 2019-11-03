@@ -6,15 +6,15 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "env-cmd -f .env.development gatsby develop",
+    "develop": "env-cmd .env.development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy:github": "npm run build && node ./scripts/deploy-github"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.17.6",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-sass": "^2.1.20",

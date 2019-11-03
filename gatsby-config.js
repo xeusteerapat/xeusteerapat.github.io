@@ -1,3 +1,5 @@
+const dotenv = require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: "Full-Stack developer blog",
