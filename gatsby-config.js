@@ -5,7 +5,7 @@ require("dotenv").config({ path: `./.env.${env}` })
 
 module.exports = {
   siteMetadata: {
-    title: "Full-Stack developer blog",
+    title: "Hello, World",
     author: "Teerapat Prommarak",
   },
   plugins: [
