@@ -6,7 +6,7 @@ require("dotenv").config({ path: `./.env.${env}` })
 module.exports = {
   siteMetadata: {
     title: "Hello, World",
-    author: "Teerapat Prommarak",
+    author: "Xeus Prommarak",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
