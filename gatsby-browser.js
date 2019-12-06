@@ -1,1 +1,1 @@
-require("prismjs/themes/prism-solarizedlight.css")
+import "./static/themes/shades-of-purple.css"

@@ -38,7 +38,13 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          "gatsby-remark-prismjs",
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              aliases: { sh: "bash", js: "javascript" },
+              showLineNumbers: false,
+            },
+          },
         ],
       },
     },
