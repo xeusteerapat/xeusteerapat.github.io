@@ -1,22 +1,9 @@
-let env = process.env.NODE_ENV || "development"
-
-// This adds dotenv (for storing environment variables) to gatsby
-require("dotenv").config({ path: `./.env.${env}` })
-
 module.exports = {
   siteMetadata: {
     title: "Hello, World",
-    author: "Xeus Prommarak",
+    author: "Teerapat Prommarak",
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
-        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-      },
-    },
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
@@ -39,10 +26,13 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: "gatsby-remark-prismjs",
             options: {
-              aliases: { sh: "bash", js: "javascript" },
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
               showLineNumbers: false,
+              noInlineHighlight: false,
             },
           },
         ],
