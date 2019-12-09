@@ -4,6 +4,7 @@ module.exports = {
     author: "Teerapat Prommarak",
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
