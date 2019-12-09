@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{"Cuy+":function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),r=a.n(n),l=a("Bl7J"),c=a("hIod");t.default=function(){return r.a.createElement(l.a,null,r.a.createElement(c.a,{title:"Contact"}),r.a.createElement("h1",null,"Contact"),r.a.createElement("p",null,"The best way to reach me is via"," ",r.a.createElement("a",{href:"https://twitter.com/xeusteerapat",target:"_blank"},"@xeusteerapat")," ","on Twitter!"))}}}]);
+//# sourceMappingURL=component---src-pages-contact-js-6ec64eaad725c32cb446.js.map
