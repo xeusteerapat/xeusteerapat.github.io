@@ -2,11 +2,12 @@
 title: "MongoDB local setup"
 date: "2019-12-04"
 ---
-สวัสดีครับ วันนี้จะมาแนะนำการติดตั้ง MongoDB Community Edition ใน macOS นะครับ ซึ่งจริง ๆ แล้วก็ทำตามวิธีที่ทางเว็บไซต์ของ mongodb เลย แต่ก็จะมีการสร้าง folder สำหรับ datatbase เพิ่มเติมนิดหน่อย
+
+สวัสดีครับ วันนี้จะมาแนะนำการติดตั้ง MongoDB Community Edition ใน macOS นะครับ ซึ่งจริง ๆ แล้วก็ทำตามวิธีที่ทางเว็บไซต์ของ [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) เลย แต่ก็จะมีการสร้าง folder สำหรับ datatbase เพิ่มเติมนิดหน่อย
 
 MongoDB เป็นฐานข้อมูลแบบ NoSQL คือไม่มี relation ของตารางแบบ SQL แต่เก็บข้อมูลเป็นแบบ JSON (JavaScript Object Notation) แทน โดยจะเก็บเป็น key-value pair (มันก็คือ JSON นั่นเอง)
 
-วิธีการก็ตามขั้นตอนต่อไปนี้ครับ  
+วิธีการก็ตามขั้นตอนต่อไปนี้ครับ
 
 1. ติดตั้ง Home brew ก่อน
 
