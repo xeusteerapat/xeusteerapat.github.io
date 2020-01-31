@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "",
   siteMetadata: {
     title: "Hello, World",
     author: "Teerapat Prommarak",
