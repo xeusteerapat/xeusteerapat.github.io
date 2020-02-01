@@ -11,7 +11,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "clean": "rm -rf .cache",
+    "deploy": "npm run clean && gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
