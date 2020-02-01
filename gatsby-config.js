@@ -3,6 +3,10 @@ module.exports = {
   siteMetadata: {
     title: "Hello, World",
     author: "Teerapat Prommarak",
+    description:
+      "Full-stack web developer who always curiosity and learn new things.",
+    url: "https://xeusteerapat.github.io/",
+    twitterUsername: "@xeusteerapat",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
