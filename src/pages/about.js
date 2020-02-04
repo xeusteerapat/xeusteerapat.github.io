@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Head from "../components/head"
 
@@ -14,7 +13,17 @@ const AboutPage = () => {
       <p>I currently learning about web development.</p>
       <p>And also curious about ML/DL</p>
       <p>
-        <Link to="/contact">Want to work with me? Reach out.</Link>
+        <a href="https://xeusteerapat.github.io/resume/" target="_blank">
+          Resume
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://www.linkedin.com/in/teerapat-prommarak-44923697/"
+          target="_blank"
+        >
+          Linkedin
+        </a>
       </p>
     </Layout>
   )
