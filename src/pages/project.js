@@ -45,7 +45,3 @@ const Project = () => {
 
 export default Project
 
-// https://xeusteerapat.github.io/CC5-HTML-BASIC/
-// https://xeusteerapat.github.io/html-css-booking-form/
-// https://xeusteerapat.github.io/landing-page-codecamp/
-// https://xeusteerapat.github.io/pimclick-contact-form/
