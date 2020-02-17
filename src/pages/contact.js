@@ -8,11 +8,13 @@ const ContactPage = () => {
       <Head title="Contact" />
       <h1>Contact</h1>
       <p>
-        The best way to reach me is via{" "}
-        <a href="https://twitter.com/xeusteerapat" target="_blank">
-          @xeusteerapat
-        </a>{" "}
-        on Twitter!
+        <a href="https://twitter.com/xeusteerapat" target="_blank">Twitter</a>
+      </p>
+      <p>
+        <a href="https://github.com/xeusteerapat" target="_blank">Github</a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/teerapat-prommarak-44923697/" target="_blank">Linkedin</a>
       </p>
     </Layout>
   )
