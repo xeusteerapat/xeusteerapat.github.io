@@ -8,13 +8,22 @@ const ContactPage = () => {
       <Head title="Contact" />
       <h1>Contact</h1>
       <p>
-        <a href="https://twitter.com/xeusteerapat" target="_blank">Twitter</a>
+        <a href="https://twitter.com/xeusteerapat" target="_blank">
+          Twitter
+        </a>
       </p>
       <p>
-        <a href="https://github.com/xeusteerapat" target="_blank">Github</a>
+        <a href="https://github.com/xeusteerapat" target="_blank">
+          Github
+        </a>
       </p>
       <p>
-        <a href="https://www.linkedin.com/in/teerapat-prommarak-44923697/" target="_blank">Linkedin</a>
+        <a
+          href="https://www.linkedin.com/in/teerapat-prommarak-44923697/"
+          target="_blank"
+        >
+          Linkedin
+        </a>
       </p>
     </Layout>
   )

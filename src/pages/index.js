@@ -9,6 +9,7 @@ const IndexPage = () => {
       <Head title="Home" />
       <h1>Hello.</h1>
       <h2>I'm Teerapat, a (future) full-stack developer.</h2>
+      <p>Nice to meet you all!</p>
       <p>
         Need a developer? <Link to="/contact">Contact me.</Link>
       </p>
