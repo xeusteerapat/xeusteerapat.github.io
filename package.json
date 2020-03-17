@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "gatsby": "^2.17.6",
+    "gatsby": "^2.19.44",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-sass": "^2.1.20",
     "gatsby-plugin-sharp": "^2.2.36",
@@ -25,7 +25,7 @@
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-remark": "^2.6.38",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "prismjs": "^1.17.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
