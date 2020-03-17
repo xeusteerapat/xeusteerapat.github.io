@@ -1,6 +1,6 @@
 ---
-title: "Node/Express/Sequelize RESTful API"
-date: "2020-03-17"
+title: 'Node/Express/Sequelize RESTful API'
+date: '2020-03-17'
 ---
 
 สวัสดีครับผมมมม วันนี้จะขอนำเสนอบทความเกี่ยวกับการใช้ node.js ควบคู่กับ Sequelize.js ซึ่งเป็น Object Relational Mapping (ORM) ที่เป็นที่นิยมตัวนึงสำหรับไว้จัดการฐานข้อมูลที่เป็นแบบ Relational Database โดยผมจะแสดงการเชื่อมต่อระหว่าง express web server กับ sequelize แบบง่าย ๆ ก่อนนะครับ
@@ -84,12 +84,12 @@ npm i -D nodemon
 ## Create Express server
 
 ```javascript
-const express = require("express")
-const app = express()
+const express = require('express');
+const app = express();
 
 app.listen(5000, () => {
-  console.log("Server listening on port 5000...")
-})
+  console.log('Server listening on port 5000...');
+});
 ```
 
 run command `npm run dev` ที่ terminal ของเราดูครับ ถ้าได้แบบข้างล่าง ก็โอเคละครับบบบ
@@ -176,19 +176,19 @@ sequelize init:models
 
 ```javascript
 module.exports = (sequelize, DataTypes) => {
-  let player = sequelize.define("player", {
+  let player = sequelize.define('player', {
     name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(100)
     },
     position: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(100)
     },
     year: {
-      type: DataTypes.INTEGER,
-    },
-  })
-  return player
-}
+      type: DataTypes.INTEGER
+    }
+  });
+  return player;
+};
 ```
 
 ทีนี้ก็ทำการสร้าง database โดยใช้คำสั่ง
@@ -213,15 +213,15 @@ Database football_team created.
 กลับมาที่ server ของเราอีกครั้งนะครับ ทีนี้เราต้องทำการเชื่อมต่อกับ database ของเรา โดยอาศัยชุด code ที่ถูกเขียนไว้ใน `models/index.js` ซึ่งเราต้องทำการ import มาที่ `server.js` ก่อน ก็จะเขียนประมาณนี้ครับ
 
 ```javascript
-const express = require("express")
-const db = require("./models") // import db from models/index.js
-const app = express()
+const express = require('express');
+const db = require('./models'); // import db from models/index.js
+const app = express();
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {
-    console.log("Server is running on port 5000")
-  })
-})
+    console.log('Server is running on port 5000');
+  });
+});
 ```
 
 ถ้ากลับไปเช็คที่ terminal จะเห็นว่า server ของเราเชื่อมต่อกับ database ได้แล้ววววว
@@ -237,32 +237,32 @@ REST หรือ Representational State Transfer คือวิธีในก
 เนื่องจาก database ของเรายังไม่มีอะไร ดังนั้นผมจะทำการสร้างข้อมูลลงไปก่อนนะครับ แบบนี้
 
 ```javascript
-const express = require("express")
-const bodyParser = require("body-parser")
-const db = require("./models") // import db from models/index.js
-const app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
+const db = require('./models'); // import db from models/index.js
+const app = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // add new player to database with POST method
-app.post("/add-player", (req, res) => {
+app.post('/add-player', (req, res) => {
   let newPlayer = {
     name: req.body.name,
     position: req.body.position,
-    year: Number(req.body.year),
-  }
+    year: Number(req.body.year)
+  };
   db.player
     .create(newPlayer)
     .then(result => res.status(200).send(result))
-    .catch(err => res.status(400).send(err))
-})
+    .catch(err => res.status(400).send(err));
+});
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {
-    console.log("Server is running on port 5000...")
-  })
-})
+    console.log('Server is running on port 5000...');
+  });
+});
 ```
 
 ทีนี้เราจะใช้ tool อย่าง "Postman" เพื่อช่วยเราทำ post request ครับ ทำการเพิ่ม player เข้าไป ก็จะได้ประมาณนี้
@@ -285,10 +285,12 @@ mysql -u root -p
 `GET` method ก็คือการที่ให้เว็บแสดงข้อมูลตามที่มีการ request เข้ามาตาม url ที่ระบุไว้ ในที่นี้ผมจะให้เป็น `/players` นะครับ ก็ใช้ postman เหมือนเดิม แต่เปลี่ยนเป็น GET method ก็จะได้ players ทั้งหมดที่สร้างไว้ตั้งแต่ตอนแรกครับ
 
 ```javascript
-app.get("/players", (req, res) => {
-  db.player.findAll().then(result => res.status(200).send(result))
-})
+app.get('/players', (req, res) => {
+  db.player.findAll().then(result => res.status(200).send(result));
+});
 ```
+
+ก็จะได้ผลลัพธ์ประมาณนี้
 
 ![get](get.png)
 
@@ -297,17 +299,17 @@ app.get("/players", (req, res) => {
 ถ้าเราอยากจะเปลี่ยนแปลงข้อมูลของเรา ก็สามารถทำได้โดยใช้ PUT method ครับ ผมจะเปลี่ยนโดยอ้างอิงจาก id ของข้อมูลเป็นหลักนะครับ โดยจะเปลี่ยนชื่อของ player ก็สามารถทำได้แบบนี้
 
 ```javascript
-app.put("/edit-player/:id", (req, res) => {
+app.put('/edit-player/:id', (req, res) => {
   db.player
     .update({ name: req.body.name }, { where: { id: Number(req.params.id) } })
-    .then(() => res.status(200).send(req.body))
-})
+    .then(() => res.status(200).send(req.body));
+});
 
 db.sequelize.sync().then(() => {
   app.listen(5000, () => {
-    console.log("Server is running on port 5000...")
-  })
-})
+    console.log('Server is running on port 5000...');
+  });
+});
 ```
 
 เหมือนเดิมครับใช้ postman แต่เปลี่ยนเป็น put method แล้วใส่ endpoint ตาม code ของเรา ลองเปลี่ยนค่าจาก Pepe เป็น Martinelli ดู
@@ -323,11 +325,11 @@ db.sequelize.sync().then(() => {
 Method สุดท้ายก็ตรงตัวเลยครับ ลบข้อมูลออกจาก database ของเรา วิธีการก็คล้าย ๆ กับ PUT method ซึ่งผมจะลบโดยอ้างอิงจาก id เป็นหลัก
 
 ```javascript
-app.delete("/delete-player/:id", (req, res) => {
+app.delete('/delete-player/:id', (req, res) => {
   db.player
     .destroy({ where: { id: Number(req.params.id) } })
-    .then(() => res.send("Player deleted!"))
-})
+    .then(() => res.send('Player deleted!'));
+});
 ```
 
 ก้จะได้ผลลัพธ์ใน postman ดังนี้ครับ

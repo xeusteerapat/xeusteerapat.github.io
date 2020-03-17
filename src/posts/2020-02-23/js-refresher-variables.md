@@ -1,6 +1,6 @@
 ---
-title: "Javascript Refresher - Variables and data types"
-date: "2020-02-23"
+title: 'Javascript Refresher - Variables and data types'
+date: '2020-02-23'
 ---
 
 สวัสดีครับวันนี้จะมาเขียน blog เกี่ยวกับพื้นฐาน javascript เบื้องต้นนะครับ ช่วงนี้เรียนที่ codecamp เรื่องนี้พอดีเลยอยากจะทบทวนเก็บไว้อ่านสักหน่อย ที่จริงก็มีอยู่ใน [repository](https://github.com/xeusteerapat/javascript-refresher) ผมนี่แหละ แต่เป็นภาษาอังกฤษ (version ไม่แคร์ grammar 5555555) เนื้อหาก็เหมือนกันหมดเลยครับ (ก็ copy มานั่นแหละ 555555) ทำภาษาไทย เผื่อมีคนมาอ่าน
@@ -11,7 +11,7 @@ date: "2020-02-23"
 2. [The Modern JavaScript Tutorial](https://javascript.info/)
 3. [The Modern Javascript Bootcamp Course (2020)](https://www.udemy.com/course/javascript-beginners-complete-tutorial/) ใครชอบดูเป็นวิดีโอแนะนำอันนี้เลยครับ เหมาะกับมือใหม่ เข้าใจง่าย
 
-***ออกตัวก่อนนะครับว่าผมไม่ได้เก่งเลยยย ออกจะ beginner ด้วยซ้ำ เพียงแต่อยากเขียนเพื่อทบทวนความรู้ที่ได้รับมา ท่านใดเห็นว่าบทความผิด mention ผมที่ twitter ได้เลยครับ***
+**_ออกตัวก่อนนะครับว่าผมไม่ได้เก่งเลยยย ออกจะ beginner ด้วยซ้ำ เพียงแต่อยากเขียนเพื่อทบทวนความรู้ที่ได้รับมา ท่านใดเห็นว่าบทความผิด mention ผมที่ twitter ได้เลยครับ_**
 
 ## Variables declaration การประกาศตัวแปร
 
@@ -22,7 +22,7 @@ date: "2020-02-23"
 `let` keyword
 
 ```javascript
-let name = "Teerapat";
+let name = 'Teerapat';
 console.log(name); // prints "Teerapat"
 
 let myAge = 33;
@@ -56,16 +56,16 @@ weight + 1;
 
 ```javascript
 let myAge = 33;
-let resultWrapper = document.getElementById("result");
+let resultWrapper = document.getElementById('result');
 ```
 
 ## Scoping rules
 
 ในเว็บ Mozilla [let keyword mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) อธิบาย scoping rules ซึ่งแตกต่างจาก `var` เอาไว้ว่า
 
-> *Variables declared by let have their scope in the block for which they are defined, as well as in any contained sub-blocks.*
+> _Variables declared by let have their scope in the block for which they are defined, as well as in any contained sub-blocks._
 
-ซึ่งการใช้ `var` ถึงแม้ว่าจะอยู่คนละ block scope แต่ก็ยังสามารถเข้าถึงตัวแปรได้ ซึ่งอาจจะก่อให้เกิดผลเสียที่ debug ได้ยากได้ แต่การใช้ `let` และ `const` จะถูก block ไว้ 
+ซึ่งการใช้ `var` ถึงแม้ว่าจะอยู่คนละ block scope แต่ก็ยังสามารถเข้าถึงตัวแปรได้ ซึ่งอาจจะก่อให้เกิดผลเสียที่ debug ได้ยากได้ แต่การใช้ `let` และ `const` จะถูก block ไว้
 
 ตัวอย่างจาก MDN
 
@@ -135,7 +135,7 @@ typeof NaN; // "number"
 หรืออักขระนั่นเอง สามารถประไว้กายใต้ single quote หรือ double quotes ก็ได้
 
 ```javascript
-let address = "123 st. downtown";
+let address = '123 st. downtown';
 const firstname = 'Teerapat';
 ```
 
@@ -197,15 +197,15 @@ null === undefined; // false
 ถ้าเราใช้ `+` กับ `string` เราจะได้ข้อความที่ต่อกัน
 
 ```javascript
-let firstname = "Teerapat";
-let lastname = "Prommarak";
-let fullname = firstname + " " + lastname; // Teerapat Prommarak
+let firstname = 'Teerapat';
+let lastname = 'Prommarak';
+let fullname = firstname + ' ' + lastname; // Teerapat Prommarak
 ```
 
 ถ้าเราใช้ `+` กับ `strings` และ `number`, มันจะต่อกันกลายเป็น `string` โดยอัตโนมัติ
 
 ```javascript
-1 + "2"; // "12"
+1 + '2'; // "12"
 ```
 
 ### Shortened assigned การกำหนดค่าโดยเขียนแบบย่อ
@@ -217,7 +217,7 @@ num += 2; // equal num = num + 2
 
 ### Other operators ตัวดำเนินการประเภทอื่น ๆ
 
-Remainder `%`  การหาเศษจากการหาร  
+Remainder `%` การหาเศษจากการหาร  
 Power `**` การยกกำลัง
 
 ```javascript
@@ -271,7 +271,7 @@ false || false; // false
 ### Numeric conversion เปลี่ยนเป็น number
 
 ```javascript
-let num = "123"; // 123 as string
+let num = '123'; // 123 as string
 let realNum = Number(num); // 123 as number
 ```
 
@@ -305,7 +305,7 @@ string จะมีดัชนี (index), ในแต่ละตัวอั
 การใช้ `str.length` จะคืนค่าจำนวนตัวอักษร
 
 ```javascript
-let myFavSong = "My Stupid Mouth";
+let myFavSong = 'My Stupid Mouth';
 myFavSong.length; // 16, spaces include.
 ```
 
@@ -322,15 +322,15 @@ myFavsong[myFavSong.lenght - 1]; // h , last character
 ตัวแปรประเภท string ไม่สามารถเปลี่ยนค่าได้
 
 ```javascript
-let myFavSong = "My Stupid Mouth";
-myFavSong[0] = "D";
+let myFavSong = 'My Stupid Mouth';
+myFavSong[0] = 'D';
 console.log(myFavSong); // still "My Stupid Mouth"
 ```
 
 ### Uppercase and Lowercase การเปลี่ยนเป็นตัวพิมพ์ใหญ่ พิมพ์เล็ก
 
 ```javascript
-let myFavSong = "My Stupid Mouth";
+let myFavSong = 'My Stupid Mouth';
 myFavSong.toUpperCase(); // 'MY STUPID Mouth'
 myFavSong.toLowerCase(); // 'my stupid Mouth'
 ```
@@ -340,7 +340,7 @@ myFavSong.toLowerCase(); // 'my stupid Mouth'
 สามารถใช้ `str.slice(start, [end])` โดยที่ตัวเลขสุดท้ายจะไม่ถูกรวมเข้าไป
 
 ```javascript
-let myFavSong = "My Stupid Mouth";
+let myFavSong = 'My Stupid Mouth';
 myFavSong.slice(3, 9); // 'Stupid' space not include
 myFavSons.slice(11); // Mouth from 11 till the end
 ```
@@ -350,8 +350,8 @@ myFavSons.slice(11); // Mouth from 11 till the end
 ใช้ `str.indexOf` ถ้าไม่เจอ จะคืนค่าเป็น -1
 
 ```javascript
-myFavSong.indexOf("Mouth"); // 10
-myFavSong.indexOf("TEAM"); // -1 if not found
+myFavSong.indexOf('Mouth'); // 10
+myFavSong.indexOf('TEAM'); // -1 if not found
 ```
 
 ### includes, startWith and endsWith
@@ -361,11 +361,11 @@ myFavSong.indexOf("TEAM"); // -1 if not found
 การใช้ `endWith` จะเป็นการตรวจสอบว่าลงท้ายด้วย ... หรือไม่
 
 ```javascript
-myFavSong.includes("Mouth"); // true
-myFavSong.includes("TEAM"); // false
+myFavSong.includes('Mouth'); // true
+myFavSong.includes('TEAM'); // false
 
-myFavSong.startWith("My"); // true
-myFavSong.endsWith("Yes"); // false
+myFavSong.startWith('My'); // true
+myFavSong.endsWith('Yes'); // false
 ```
 
 ### Trimming white space การลบช่องว่างใน string
@@ -373,7 +373,7 @@ myFavSong.endsWith("Yes"); // false
 สามารถใช้ `str.trim()` แต่จะลบเฉพาะหัวกับท้ายเท่านั้น
 
 ```javascript
-let song = "      Back To You       ";
+let song = '      Back To You       ';
 song.trim(); // 'Back To You' spaces between are not remove
 ```
 
@@ -382,8 +382,8 @@ song.trim(); // 'Back To You' spaces between are not remove
 สามารถใช้ `replace`
 
 ```javascript
-let myFavSong = "My Stupid Mouth";
-myFavSong.replace("My", "Your"); //'Your Stupid Mounth'
+let myFavSong = 'My Stupid Mouth';
+myFavSong.replace('My', 'Your'); //'Your Stupid Mounth'
 ```
 
 ## Math Object การใช้ฟังก์ชั่นคณิตศาสตร์
@@ -408,11 +408,11 @@ Math.floor(Math.random() * 6) + 1; // result from 1 to 6
 ใช้สำหรับแปลงค่าเป็น number
 
 ```javascript
-parseInt("24"); // 24
-parseInt("24.54"); // get only 24
-parseFloat("24.54"); // 24.54
-parseFloat("2dsfsdf"); // 2
-parseInt("Deeeee"); // NaN
+parseInt('24'); // 24
+parseInt('24.54'); // get only 24
+parseFloat('24.54'); // 24.54
+parseFloat('2dsfsdf'); // 2
+parseInt('Deeeee'); // NaN
 ```
 
 สำหรับเนื้อหาบทนี้ ก็ขอจบไว้เท่านี้ก่อนนะครับ ไว้จะมาต่อเรื่อย ๆ ครับผม (ถ้ามีเวลา จะพยายามมี 55555555)
