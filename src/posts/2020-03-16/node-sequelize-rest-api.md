@@ -284,6 +284,12 @@ mysql -u root -p
 
 `GET` method ก็คือการที่ให้เว็บแสดงข้อมูลตามที่มีการ request เข้ามาตาม url ที่ระบุไว้ ในที่นี้ผมจะให้เป็น `/players` นะครับ ก็ใช้ postman เหมือนเดิม แต่เปลี่ยนเป็น GET method ก็จะได้ players ทั้งหมดที่สร้างไว้ตั้งแต่ตอนแรกครับ
 
+```javascript
+app.get("/players", (req, res) => {
+  db.player.findAll().then(result => res.status(200).send(result))
+})
+```
+
 ![get](get.png)
 
 ### PUT method
