@@ -1,6 +1,6 @@
 ---
 title: 'Basic React Todo List app'
-date: '2020-04-02'
+date: '2020-04-03'
 ---
 
 สวัสดีครับ วันนี้จะมาแนะนำการสร้าง Todo List app แบบง่าย ๆ นะครับ แน่นอนว่ามันอาจจะดูน่าเบื่อสำหรับบางคน แต่ผมว่ามันก็เป็นแบบฝึกที่ดีอันนึงในการเรียนรู้พื้นฐานของการสร้าง app แบบง่ายซึ่งมีการดำเนินการครบทั้ง Create Read Update และ Delete ถ้าเข้าใจแล้ว ก็สามารถต่อยอดไปยัง app ที่ซับซ้อนกว่านี้ได้ ผมเขียน blog นี้ไว้เพื่อทบกวนการเรียน React ของผมเอง ซึ่ง blog นี้ผมจะทำเป็น class component ก่อนนะครับ จากนั้นก็คิดว่าจะทำอีก blog นึงโดยใช้ React Hooks เริ่มกันเลยดีกว่าครับ :)
@@ -167,4 +167,50 @@ export default class TodoList extends Component {
 
 ![todo with props](todo_with_props.png)
 
-หน้าตาน่าเกลียดมาก ไว้เดี๋ยวค่อยแต่งอีกทีนะ 555555555
+ดูไม่ได้เล้ยยยย ไว้เดี๋ยวค่อยแต่งอีกทีนะ 555555555
+
+ต่อไปเราก็มาสร้าง `TodoForm.js` กัน โดยที่ form จะรับ input จาก user แล้วก็จะนำไปสร้างเก็บไว้ใน `state` จากนั้นก็จะส่งผ่าน props อีกทีเพื่อนำไป render ที่ `Todo` ครับ ซึ่ง form ของเรา เราต้องทำให้มันเป็น "Controlled Component" นั่นก็คือให้มันสามารถจัดการกับ state ของเราได้นั่นเอง
+
+```JSX
+import React, { Component } from 'react';
+
+export default class TodoForm extends Component {
+  state = { task: '' };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <form>
+        <label htmlFor="task">New Todo: </label>
+        <input
+          type="text"
+          placeholder="add new todo"
+          id="task"
+          name="task"
+          value={this.state.task}
+          onChange={this.handleChange}
+        />
+        <button>ADD</button>
+      </form>
+    );
+  }
+}
+```
+
+ทีนี้ลองมาดูกันว่า มีอะไรข้างใน `form` นี้บ้าง
+
+- `state = { task: '' }` จากที่อธิบายไว้ข้างบนนะครับ ว่าเราต้องการให้ `form` สามารถควบคุม input จาก user ได้ ดังนั้นเราจึงต้องประกาศ `state` โดยให้ `task` มีค่าเท่ากับ empty string ก่อน และเราต้องผ่านค่า `state` ลงไปใน `value` ของ `input` ด้วย
+- `handleChange` method ทำหน้าที่ `setState` ให้กับ `task` โดยกำหนดให้มีค่าเท่ากับ `e.target.value` ซึ่งก็คือค่า input ที่รับเข้ามานั่นเอง และผ่านค่าเข้าที่ event `onChange`
+
+ทีนี้ลองมาดูที่ React DevTools กันบ้างนะครับว่าที่เราเขียนไปนั้นโอเครึป่าว
+
+![react devtools](state_etarget.gif)
+
+ตอนนี้ `state` ของเราก็เปลี่ยนแปลงตาม input ที่ user พิมพ์เข้าไปแล้ววว
+
+## Create addNewTodo method
