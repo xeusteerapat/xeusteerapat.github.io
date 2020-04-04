@@ -1,6 +1,6 @@
-import React from "react"
-import Layout from "../components/layout"
-import Head from "../components/head"
+import React from 'react';
+import Layout from '../components/layout';
+import Head from '../components/head';
 
 const AboutPage = () => {
   return (
@@ -13,7 +13,11 @@ const AboutPage = () => {
       <p>I currently learning about web development.</p>
       <p>And also curious about ML/DL</p>
       <p>
-        <a href="https://xeusteerapat.github.io/resume/" target="_blank">
+        <a
+          href="https://xeusteerapat.github.io/resume/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Resume
         </a>
       </p>
@@ -21,12 +25,13 @@ const AboutPage = () => {
         <a
           href="https://www.linkedin.com/in/teerapat-prommarak-44923697/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Linkedin
         </a>
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

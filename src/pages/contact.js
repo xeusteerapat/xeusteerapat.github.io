@@ -1,6 +1,6 @@
-import React from "react"
-import Layout from "../components/layout"
-import Head from "../components/head"
+import React from 'react';
+import Layout from '../components/layout';
+import Head from '../components/head';
 
 const ContactPage = () => {
   return (
@@ -8,12 +8,20 @@ const ContactPage = () => {
       <Head title="Contact" />
       <h1>Contact</h1>
       <p>
-        <a href="https://twitter.com/xeusteerapat" target="_blank">
+        <a
+          href="https://twitter.com/xeusteerapat"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Twitter
         </a>
       </p>
       <p>
-        <a href="https://github.com/xeusteerapat" target="_blank">
+        <a
+          href="https://github.com/xeusteerapat"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Github
         </a>
       </p>
@@ -21,12 +29,13 @@ const ContactPage = () => {
         <a
           href="https://www.linkedin.com/in/teerapat-prommarak-44923697/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Linkedin
         </a>
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

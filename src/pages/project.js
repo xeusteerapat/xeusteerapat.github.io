@@ -1,6 +1,6 @@
-import React from "react"
-import Layout from "../components/layout"
-import Head from "../components/head"
+import React from 'react';
+import Layout from '../components/layout';
+import Head from '../components/head';
 
 const Project = () => {
   return (
@@ -11,6 +11,7 @@ const Project = () => {
         <a
           href="https://xeusteerapat.github.io/CC5-HTML-BASIC/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Basic HTML Layout
         </a>
@@ -19,6 +20,7 @@ const Project = () => {
         <a
           href="https://xeusteerapat.github.io/html-css-booking-form/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Booking form
         </a>
@@ -27,6 +29,7 @@ const Project = () => {
         <a
           href="https://xeusteerapat.github.io/pimclick-contact-form/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Pimclick Contact Form
         </a>
@@ -35,13 +38,13 @@ const Project = () => {
         <a
           href="https://xeusteerapat.github.io/landing-page-codecamp/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Landing page layout
         </a>
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default Project
-
+export default Project;
