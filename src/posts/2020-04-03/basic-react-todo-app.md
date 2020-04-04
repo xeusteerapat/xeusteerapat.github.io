@@ -475,7 +475,7 @@ Let's test in the browser!
 
 โอเคคคคค
 
-โดยรวมแล้วก็ประมาณนี้นะครับ ตอนแรกว่าจะเพิ่ม toggleComplete ด้วยแต่คิดว่าจะยาวเกินไป จริงๆ แล้วมีอยู่ใน [repository](https://github.com/xeusteerapat/todo-app-playground) นี้หมดเลย รวม styling แล้วด้วยยย หวังว่าจะมีประโยชน์ต่อผู้อ่านทุกท่านนะครับ
+โดยรวมแล้วก็ประมาณนี้นะครับ ตอนแรกว่าจะเพิ่ม toggleComplete ด้วยแต่คิดว่าจะยาวเกินไป ที่จริงเราสามารถเขียนได้หลายแบบมาก ไม่จำเป็นต้องตามที่ผมเขียนก็ได้ โดยเฉพาะเขียนโดยใช้ [React Hooks](https://reactjs.org/docs/hooks-intro.html) ซึ่งผมก็เขียน blog การเขียนด้วย React Hooks ด้วยเหมือนกัน ใครที่อยากดู code ทั้งหมด ก็เข้าไปดูใน [repository](https://github.com/xeusteerapat/todo-app-playground) นี้ได้หมดเลย รวม styling แล้วด้วยยย หวังว่าจะมีประโยชน์ต่อผู้อ่านทุกท่านนะครับ
 
 Happy Coding :)
 
