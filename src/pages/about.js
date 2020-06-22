@@ -14,7 +14,7 @@ const AboutPage = () => {
       <p>And also curious about ML/DL</p>
       <p>
         <a
-          href="https://xeusteerapat.github.io/resume/"
+          href="https://docs.google.com/document/d/1QL8sst5b5Qe8iujaYvTHpLN9UnNxfUwNjjV1ApR15ok/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
         >
