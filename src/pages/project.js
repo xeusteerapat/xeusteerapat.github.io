@@ -46,7 +46,7 @@ const Project = () => {
       </p>
       <p>
         <a
-          href="https://5ee9762c8caa623a47e300da--react-typescript-crud.netlify.app/"
+          href="https://react-typescript-crud.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
         >
