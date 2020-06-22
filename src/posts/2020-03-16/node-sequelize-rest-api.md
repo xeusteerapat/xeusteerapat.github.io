@@ -246,7 +246,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // add new player to database with POST method
-app.post('/add-player', (req, res) => {
+app.post('/players', (req, res) => {
   let newPlayer = {
     name: req.body.name,
     position: req.body.position,
@@ -299,7 +299,7 @@ app.get('/players', (req, res) => {
 ถ้าเราอยากจะเปลี่ยนแปลงข้อมูลของเรา ก็สามารถทำได้โดยใช้ PUT method ครับ ผมจะเปลี่ยนโดยอ้างอิงจาก id ของข้อมูลเป็นหลักนะครับ โดยจะเปลี่ยนชื่อของ player ก็สามารถทำได้แบบนี้
 
 ```javascript
-app.put('/edit-player/:id', (req, res) => {
+app.put('/players/:id', (req, res) => {
   db.player
     .update({ name: req.body.name }, { where: { id: Number(req.params.id) } })
     .then(() => res.status(200).send(req.body));
@@ -325,7 +325,7 @@ db.sequelize.sync().then(() => {
 Method สุดท้ายก็ตรงตัวเลยครับ ลบข้อมูลออกจาก database ของเรา วิธีการก็คล้าย ๆ กับ PUT method ซึ่งผมจะลบโดยอ้างอิงจาก id เป็นหลัก
 
 ```javascript
-app.delete('/delete-player/:id', (req, res) => {
+app.delete('/players/:id', (req, res) => {
   db.player
     .destroy({ where: { id: Number(req.params.id) } })
     .then(() => res.send('Player deleted!'));

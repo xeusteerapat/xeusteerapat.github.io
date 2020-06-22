@@ -7,6 +7,7 @@ const Project = () => {
     <Layout>
       <Head title="About Me" />
       <h1>My Project</h1>
+      <h2>Frontend</h2>
       <p>
         <a
           href="https://xeusteerapat.github.io/CC5-HTML-BASIC/"
@@ -27,11 +28,11 @@ const Project = () => {
       </p>
       <p>
         <a
-          href="https://xeusteerapat.github.io/pimclick-contact-form/"
+          href="https://xeusteerapat.github.io/bbc-clone/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Pimclick Contact Form
+          BBC Website clone
         </a>
       </p>
       <p>
@@ -41,6 +42,35 @@ const Project = () => {
           rel="noopener noreferrer"
         >
           Landing page layout
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://5ee9762c8caa623a47e300da--react-typescript-crud.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Simple React app with CRUD operations
+        </a>
+      </p>
+      <br />
+      <h2>Backend</h2>
+      <p>
+        <a
+          href="https://github.com/xeusteerapat/blog-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Graphql API for bloging app
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://github.com/xeusteerapat/node-typeorm-crud"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Node.js Typescript REST API
         </a>
       </p>
     </Layout>
