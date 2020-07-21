@@ -5,8 +5,31 @@ import Head from '../components/head';
 const Project = () => {
   return (
     <Layout>
-      <Head title="About Me" />
+      <Head title="Projects" />
       <h1>My Project</h1>
+      <h2>Fullstack Project</h2>
+      <p>
+        <a
+          href="https://www.youtube.com/watch?v=eCV7kTaMRPU"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Rider - Carpool application
+        </a>
+      </p>
+      <ul>- Fullstack Node/Express.js and React.js</ul>
+      <ul>- Integrate with Google Map API</ul>
+      <ul>
+        -{' '}
+        <a
+          href="https://github.com/Rider-Codecamp5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See github project
+        </a>
+      </ul>
+      <br />
       <h2>Frontend</h2>
       <p>
         <a
@@ -15,15 +38,6 @@ const Project = () => {
           rel="noopener noreferrer"
         >
           Basic HTML Layout
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://xeusteerapat.github.io/html-css-booking-form/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Booking form
         </a>
       </p>
       <p>
