@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import Head from "../components/head"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import Head from '../components/head';
 
 export const query = graphql`
   query($slug: String!) {
@@ -13,7 +13,7 @@ export const query = graphql`
       html
     }
   }
-`
+`;
 
 const Blog = props => {
   return (
@@ -25,7 +25,7 @@ const Blog = props => {
         dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
       ></div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;

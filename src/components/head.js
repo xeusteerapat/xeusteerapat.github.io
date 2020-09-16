@@ -1,8 +1,9 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import SEO from './seo';
 
-const Head = ({ title }) => {
+const Head = ({ title, author, description, twitterUsername }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -14,16 +15,24 @@ const Head = ({ title }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <Helmet
-      title={`${title} | ${data.site.siteMetadata.title}`}
-      author={`${data.site.siteMetadata.author}`}
-      description={`${data.site.siteMetadata.description}`}
-      twitterUsername={`${data.site.siteMetadata.twitterUsername}`}
-    />
-  )
-}
+    <>
+      <SEO
+        title={title}
+        author={author}
+        description={description}
+        twitterUsername={twitterUsername}
+      />
+      <Helmet
+        title={`${title} | ${data.site.siteMetadata.title}`}
+        author={`${data.site.siteMetadata.author}`}
+        description={`${data.site.siteMetadata.description}`}
+        twitterUsername={`${data.site.siteMetadata.twitterUsername}`}
+      />
+    </>
+  );
+};
 
-export default Head
+export default Head;
