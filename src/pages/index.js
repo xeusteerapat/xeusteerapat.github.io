@@ -12,7 +12,7 @@ const IndexPage = () => {
       <p>Nice to meet you all!</p>
       <p>
         My <Link to="/blog">Blog</Link> are about Node.js, React.js and some
-        interesting topic
+        random stuff.
       </p>
       <p>You can read more about me</p>
       <div>

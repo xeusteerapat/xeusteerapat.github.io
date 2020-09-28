@@ -1,6 +1,6 @@
 ---
-title: "MongoDB local setup"
-date: "2019-12-04"
+title: 'MongoDB local setup'
+date: '2019-12-04'
 ---
 
 สวัสดีครับ วันนี้จะมาแนะนำการติดตั้ง MongoDB Community Edition ใน macOS นะครับ ซึ่งจริง ๆ แล้วก็ทำตามวิธีที่ทางเว็บไซต์ของ [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) เลย แต่ก็จะมีการสร้าง folder สำหรับ datatbase เพิ่มเติมนิดหน่อย

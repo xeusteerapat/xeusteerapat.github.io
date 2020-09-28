@@ -1,6 +1,6 @@
 ---
-title: "2020 Resolutions"
-date: "2020-01-02"
+title: '2020 Resolutions'
+date: '2020-01-02'
 ---
 
 ## เป้าหมายในปี 2020

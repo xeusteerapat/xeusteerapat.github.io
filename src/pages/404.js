@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
+import React from 'react';
+import { Link } from 'gatsby';
+import Layout from '../components/layout';
 
 const NotFoundPage = () => {
   return (
@@ -10,7 +10,7 @@ const NotFoundPage = () => {
         <Link to="/">Back to Home</Link>
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

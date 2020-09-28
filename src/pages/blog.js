@@ -1,8 +1,8 @@
-import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/layout"
-import blogStyles from "./blog.module.scss"
-import Head from "../components/head"
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import Layout from '../components/layout';
+import blogStyles from './blog.module.scss';
+import Head from '../components/head';
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
@@ -21,7 +21,7 @@ const BlogPage = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Layout>
@@ -36,11 +36,11 @@ const BlogPage = () => {
                 <p>{edge.node.frontmatter.date}</p>
               </Link>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
