@@ -10,8 +10,21 @@ const AboutPage = () => {
       <p>
         Hello, My name is <b>Teerapat</b>
       </p>
-      <p>I currently learning about web development.</p>
-      <p>And also curious about ML/DL</p>
+      <div>
+        <p>I'm currently in Backend Developer role</p>
+        <p>My Skills are focusing on</p>
+        <ul>
+          <li>Node.js/Express.js</li>
+          <li>MongoDB</li>
+          <li>Graphql</li>
+        </ul>
+        <p>I also can develop web application using Frontend Tech like</p>
+        <ul>
+          <li>HTML/CSS</li>
+          <li>React</li>
+        </ul>
+        <p>And sometimes curious about ML/DL</p>
+      </div>
       <p>
         <a
           href="https://docs.google.com/document/d/1QL8sst5b5Qe8iujaYvTHpLN9UnNxfUwNjjV1ApR15ok/edit?usp=sharing"

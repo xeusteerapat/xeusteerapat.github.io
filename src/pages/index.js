@@ -10,20 +10,11 @@ const IndexPage = () => {
       <h1>Hello.</h1>
       <h2>I'm Teerapat</h2>
       <p>Nice to meet you all!</p>
-      <div>
-        <p>I'm currently in Backend Developer role</p>
-        <p>My Skills are focusing on</p>
-        <ul>
-          <li>Node.js/Express.js</li>
-          <li>MongoDB</li>
-          <li>Graphql</li>
-        </ul>
-        <p>I also can develop web application using Frontend Tech like</p>
-        <ul>
-          <li>HTML/CSS</li>
-          <li>React</li>
-        </ul>
-      </div>
+      <p>
+        My <Link to="/blog">Blog</Link> are about Node.js, React.js and some
+        interesting topic
+      </p>
+      <p>You can read more about me</p>
       <div>
         <p>
           See more in <Link to="/project">Projects</Link>
