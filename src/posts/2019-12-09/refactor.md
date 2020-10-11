@@ -17,7 +17,7 @@ for (let input of [creditCardInput, termsCheckBox, veggieSelect]) {
 }
 ```
 
-```shell
+```sh
 npm install -g gatsby-cli
 ```
 

@@ -29,13 +29,13 @@ date: '2020-04-03'
 
 เริ่มจากใช้ boiler plate ของการสร้าง react app ก่อนเลยครับใช้คำสั่ง `create-react-app`
 
-```shell
+```sh
 npx create-react-app todo-app
 ```
 
 จากนั้นก็เข้าไปที่ `todo-app` directoty
 
-```shell
+```sh
 cd todo-app
 ```
 
