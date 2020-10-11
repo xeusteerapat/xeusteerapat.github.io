@@ -4,27 +4,27 @@
 <ol>
 <li>ติดตั้ง Home brew ก่อน</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="0"><code class="grvsc-code"><span class="grvsc-line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">/usr/bin/ruby -e </span><span class="mtk8">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span></span></code></pre>
 <ol start="2">
 <li>จากนั้นให้พิมพ์คำสั่ง</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="1"><code class="grvsc-code"><span class="grvsc-line">brew tap mongodb/brew</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">brew tap mongodb/brew</span></span></code></pre>
 <ol start="3">
 <li>จากนั้นก็ติดตั้ง mongodb community</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="2"><code class="grvsc-code"><span class="grvsc-line">brew install mongodb-community@4.2</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">brew install mongodb-community@4.2</span></span></code></pre>
 <ol start="4">
 <li>MongoDB ก็จะถูกติดตั้งลงในเครื่องของเรา ทีนี้เราต้องสร้าง Folder ที่ใช้เก็บฐานข้อมูลใน root directory</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="3"><code class="grvsc-code"><span class="grvsc-line">sudo mkdir -p /data/db</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sudo mkdir -p /data/db</span></span></code></pre>
 <ol start="5">
 <li>แต่ทีนี้เราต้องเปิด permission เพื่อให้สามารถเขียนข้อมูลได้</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="4"><code class="grvsc-code"><span class="grvsc-line">sudo chown -R whoami ~/data/db</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sudo chown -R whoami ~/data/db</span></span></code></pre>
 <ol start="6">
 <li>เสร็จแล้วทีนี้ การเรียกใช้งานเพื่อ run service ของ mongodb ก็ทำได้โดย</li>
 </ol>
-<pre class="grvsc-container dark-default-dark" data-language="shell" data-index="5"><code class="grvsc-code"><span class="grvsc-line">mongod --dbpath &#39;fullpath/data/db&#39;</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="sh" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">mongod --dbpath </span><span class="mtk8">&#39;fullpath/data/db&#39;</span></span></code></pre>
 <p>คร่าว ๆ ก็ประมาณนี้ blog ต่อไปจะมาแนะนำการใช้งาน MongoDB คร่าว ๆ ครับ</p>
 <style class="grvsc-styles">
   .grvsc-container {
@@ -63,4 +63,6 @@
     background-color: #1E1E1E;
     color: #D4D4D4;
   }
+  .dark-default-dark .mtk1 { color: #D4D4D4; }
+  .dark-default-dark .mtk8 { color: #CE9178; }
 </style></div></div><footer class="footer-module--footer--R2bpz"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/mongodb-setup";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-7c8a4a9d5c0752ddb204.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f0f831b85231cf43a74a.js"],"component---src-pages-about-js":["/component---src-pages-about-js-68b035344153a8d0085d.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-a4032a18e98ca2902cd7.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-efce9f39744f45abb894.js"],"component---src-pages-index-js":["/component---src-pages-index-js-11cafa9af3c4a9cd3ca7.js"],"component---src-pages-project-js":["/component---src-pages-project-js-fdcfdd0ea7162aa5172a.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-3e92622c9138d89cd697.js"]};/*]]>*/</script><script src="/component---src-templates-blog-js-3e92622c9138d89cd697.js" async=""></script><script src="/c586bda9efbc7530837acf9773422eadb5d6eff5-68904bb2e262bedf1e30.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-7c8a4a9d5c0752ddb204.js" async=""></script><script src="/framework-64f3795d64a6338f8fd0.js" async=""></script><script src="/webpack-runtime-ea9be02880094cca286d.js" async=""></script></body></html>
