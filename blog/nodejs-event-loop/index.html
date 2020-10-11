@@ -4,7 +4,7 @@
 <li>Intermediate Javascript (asynchronous, callbacks)</li>
 </ul>
 <h2>What is the Event Loop?</h2>
-<p>Node.js คือ runtime เขียนโดย Javascript ซึ่งเราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน <strong>Single-Threaded</strong> ดังนั้น Event Loop คือสิ่งที่คอยจัดการ <strong>asynchronous non-blocking I/O operations</strong> ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง</p>
+<p>Node.js คือ runtime environment เพื่อดำเนินการ run Javascript ฝั่ง server side เราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน <strong>Single-Threaded</strong> ดังนั้น Event Loop คือสิ่งที่คอยจัดการ <strong>asynchronous non-blocking I/O operations</strong> ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง</p>
 <pre class="grvsc-container dark-default-dark" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">   ┌───────────────────────────┐</span></span>
 <span class="grvsc-line"><span class="mtk1">┌─&gt;│           timers          │</span></span>
 <span class="grvsc-line"><span class="mtk1">│  └─────────────┬─────────────┘</span></span>
