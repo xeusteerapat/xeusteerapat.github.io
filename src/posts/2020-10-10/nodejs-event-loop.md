@@ -11,7 +11,7 @@ date: '2020-10-10'
 
 ## What is the Event Loop?
 
-Node.js คือ runtime เขียนโดย Javascript ซึ่งเราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน **Single-Threaded** ดังนั้น Event Loop คือสิ่งที่คอยจัดการ **asynchronous non-blocking I/O operations** ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง
+Node.js คือ runtime environment เพื่อดำเนินการ run Javascript ฝั่ง server side เราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน **Single-Threaded** ดังนั้น Event Loop คือสิ่งที่คอยจัดการ **asynchronous non-blocking I/O operations** ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง
 
 ```bash
    ┌───────────────────────────┐
