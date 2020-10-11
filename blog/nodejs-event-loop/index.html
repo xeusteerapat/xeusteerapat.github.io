@@ -5,8 +5,8 @@
 </ul>
 <h2>What is the Event Loop?</h2>
 <p>Node.js คือ runtime environment เพื่อดำเนินการ run Javascript ฝั่ง server side เราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน <strong>Single-Threaded</strong> ดังนั้น Event Loop คือสิ่งที่คอยจัดการ <strong>asynchronous non-blocking I/O operations</strong> ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">   ┌───────────────────────────┐</span></span>
-<span class="grvsc-line"><span class="mtk1">┌─&gt;│           timers          │</span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">   ┌───────────────────────────┐</span></span>
+<span class="grvsc-line"><span class="mtk1">┌─</span><span class="mtk8">&gt;</span><span class="mtk1">│           timers          │</span></span>
 <span class="grvsc-line"><span class="mtk1">│  └─────────────┬─────────────┘</span></span>
 <span class="grvsc-line"><span class="mtk1">│  ┌─────────────┴─────────────┐</span></span>
 <span class="grvsc-line"><span class="mtk1">│  │     pending callbacks     │</span></span>
@@ -15,7 +15,7 @@
 <span class="grvsc-line"><span class="mtk1">│  │       idle, prepare       │</span></span>
 <span class="grvsc-line"><span class="mtk1">│  └─────────────┬─────────────┘      ┌───────────────┐</span></span>
 <span class="grvsc-line"><span class="mtk1">│  ┌─────────────┴─────────────┐      │   incoming:   │</span></span>
-<span class="grvsc-line"><span class="mtk1">│  │           poll            │&lt;─────┤  connections, │</span></span>
+<span class="grvsc-line"><span class="mtk1">│  │           poll            │</span><span class="mtk8">&lt;</span><span class="mtk1">─────┤  connections, │</span></span>
 <span class="grvsc-line"><span class="mtk1">│  └─────────────┬─────────────┘      │   data, etc.  │</span></span>
 <span class="grvsc-line"><span class="mtk1">│  ┌─────────────┴─────────────┐      └───────────────┘</span></span>
 <span class="grvsc-line"><span class="mtk1">│  │           check           │</span></span>
@@ -34,30 +34,30 @@
 <li><strong>Close callbacks</strong>: close event ต่างๆ เช่น <code>socket.on('close', ...)</code></li>
 </ul>
 <p>ทีนี้อาจจะยังมองภาพไม่ออกว่าแต่ละช่วงนั้น Event Loop มันทำงานของมันยังไงกันแน่ ต่อไปผมจะเอาแต่ละช่วงมาเขียนเป็น psuedo code ดูนะครับ เพื่อให้เข้าใจมากขึ้น</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3">//----- Totally FAKE code -----//</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3 mtki">//----- Totally FAKE code -----//</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// สมมติว่า run node index.js</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// สมมติว่า run node index.js</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// Tasks ต่างๆ ที่ Event Loop ต้องทำการตรวจสอบ</span></span>
-<span class="grvsc-line"><span class="mtk3">// และตัดสินใจว่าจะดำเนินการอย่างไรต่อไป</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">pendingTimers</span><span class="mtk1"> = [];</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">pendingOSTasks</span><span class="mtk1"> = [];</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">pendingOperations</span><span class="mtk1"> = [];</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// Tasks ต่างๆ ที่ Event Loop ต้องทำการตรวจสอบ</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// และตัดสินใจว่าจะดำเนินการอย่างไรต่อไป</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingTimers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingOSTasks</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingOperations</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// shouldContinue() คือตัวแทนการทำงานของ Event Loop </span></span>
-<span class="grvsc-line"><span class="mtk3">// ซึ่ง function นี้จะคืนค่า truthy หรือ falsy</span></span>
-<span class="grvsc-line"><span class="mtk4">function</span><span class="mtk1"> </span><span class="mtk11">shouldContinue</span><span class="mtk1">() {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk15">return</span><span class="mtk1"> (</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">pendingTimers</span><span class="mtk1">.</span><span class="mtk12">length</span><span class="mtk1"> || </span><span class="mtk12">pendingOSTasks</span><span class="mtk1">.</span><span class="mtk12">length</span><span class="mtk1"> || </span><span class="mtk12">pendingOperations</span><span class="mtk1">.</span><span class="mtk12">length</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// shouldContinue() คือตัวแทนการทำงานของ Event Loop </span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// ซึ่ง function นี้จะคืนค่า truthy หรือ falsy</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">shouldContinue</span><span class="mtk1">() {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> (</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk7">pendingTimers</span><span class="mtk1">.length </span><span class="mtk8">||</span><span class="mtk1"> </span><span class="mtk7">pendingOSTasks</span><span class="mtk1">.length </span><span class="mtk8">||</span><span class="mtk1"> </span><span class="mtk7">pendingOperations</span><span class="mtk1">.length</span></span>
 <span class="grvsc-line"><span class="mtk1">  );</span></span>
 <span class="grvsc-line"><span class="mtk1">}</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// เข้าสู่ Event Loop</span></span>
-<span class="grvsc-line"><span class="mtk15">while</span><span class="mtk1"> (</span><span class="mtk11">shouldContinue</span><span class="mtk1">()) {</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// เข้าสู่ Event Loop</span></span>
+<span class="grvsc-line"><span class="mtk8">while</span><span class="mtk1"> (</span><span class="mtk7">shouldContinue</span><span class="mtk1">()) {</span></span>
 <span class="grvsc-line"></span>
 <span class="grvsc-line"><span class="mtk1">}</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// exit back to terminal</span></span></code></pre>
+<span class="grvsc-line"><span class="mtk3 mtki">// exit back to terminal</span></span></code></pre>
 <h2>Event Loop's phases in Detail</h2>
 <p>รายละเอียดการทำงานในแต่ละช่วงของ Event Loop มีดังนี้</p>
 <ol>
@@ -87,13 +87,13 @@
 </ol>
 <p>บางคนอาจจะสงสัย ว่าอ้าว javascript เป็น single-threaded นี่ node เองก็ใช้ javascript แล้วทำไมไม่ใช่ single-thread ทั้งหมดล่ะ</p>
 <p>ลองมาดูตัวอย่างกันครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3">// thread.js</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> { </span><span class="mtk12">pbkdf2</span><span class="mtk1"> } = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;crypto&#39;</span><span class="mtk1">);</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3 mtki">// thread.js</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">pbkdf2</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;crypto&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">start</span><span class="mtk1"> = </span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">();</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">pbkdf2</span><span class="mtk1">(</span><span class="mtk8">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk8">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk7">100000</span><span class="mtk1">, </span><span class="mtk7">512</span><span class="mtk1">, </span><span class="mtk8">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">`1: Done in </span><span class="mtk4">${</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk4">}</span><span class="mtk8">ms`</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`1: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">);</span></span></code></pre>
 <p><code>pdkdf2</code> เป็น function ที่ใช้ทำการเข้ารหัส ในตัวอย่างจะใช้ <code>sha512</code> เป็น secure hash algorithm ทีนี้ลอง run <code>node thread.js</code> ดูครับ ก็จะได้ผลลัพธ์ประมาณนี้</p>
 <p><span
@@ -119,24 +119,24 @@
       />
     </span></p>
 <p>ทีนี้ลองเพิ่มไปอีก 3 ชุดคำสั่ง</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> { </span><span class="mtk12">pbkdf2</span><span class="mtk1"> } = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;crypto&#39;</span><span class="mtk1">);</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">pbkdf2</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;crypto&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">start</span><span class="mtk1"> = </span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">();</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">pbkdf2</span><span class="mtk1">(</span><span class="mtk8">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk8">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk7">100000</span><span class="mtk1">, </span><span class="mtk7">512</span><span class="mtk1">, </span><span class="mtk8">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">`1: Done in </span><span class="mtk4">${</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk4">}</span><span class="mtk8">ms`</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`1: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">);</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">pbkdf2</span><span class="mtk1">(</span><span class="mtk8">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk8">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk7">100000</span><span class="mtk1">, </span><span class="mtk7">512</span><span class="mtk1">, </span><span class="mtk8">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">`2: Done in </span><span class="mtk4">${</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk4">}</span><span class="mtk8">ms`</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`2: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">);</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">pbkdf2</span><span class="mtk1">(</span><span class="mtk8">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk8">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk7">100000</span><span class="mtk1">, </span><span class="mtk7">512</span><span class="mtk1">, </span><span class="mtk8">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">`3: Done in </span><span class="mtk4">${</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk4">}</span><span class="mtk8">ms`</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`3: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">);</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">pbkdf2</span><span class="mtk1">(</span><span class="mtk8">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk8">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk7">100000</span><span class="mtk1">, </span><span class="mtk7">512</span><span class="mtk1">, </span><span class="mtk8">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">`4: Done in </span><span class="mtk4">${</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk4">}</span><span class="mtk8">ms`</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`4: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">);</span></span></code></pre>
 <p>แล้ว run ดูอีกครั้งครับจะได้</p>
 <p><span
@@ -164,31 +164,31 @@
     </span></p>
 <p>อ้าววววว ทำไมเหมือนกับว่าเกิดขึ้นพร้อมกันเลยล่ะ? ถ้า node เป็น single-threaded จริง มันต้องทำตามลำดับ 1 --> 2 --> 3 --> 4 ใช้มั้ยครับ ดูจากรูปผม run หลายๆ ครั้งให้ดูเลย เพื่อให้เห็นชัดเจนว่ามันเกิดขึ้น ๆ พร้อมๆ กัน</p>
 <p>สาเหตุที่เป็นแบบนี้ ก็เพราะว่า standard module บางตัว (เช่น crypto) ที่มีการใช้ cpu ประมวลผลสูง node จะไม่ได้ run แค่ single-threaded แต่จะอาศัยตัวช่วยอย่าง <a href="http://docs.libuv.org/en/v1.x/threadpool.html">uv thread pool</a> โดยที่ค่าเริ่มต้นของ <code>uv_thread_pool</code> ก็คือ 4 ถ้าเราอยากให้มัน run แค่ thread เดียว ก็สามารถทำได้แบบนี้ครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3">// กำหนด UV_THREADPOOL_SIZE แบบนี้</span></span>
-<span class="grvsc-line"><span class="mtk3">// ใส่ไว้ข้างบนสุดของ code เมื่อกี้</span></span>
-<span class="grvsc-line"><span class="mtk12">process</span><span class="mtk1">.</span><span class="mtk12">env</span><span class="mtk1">.</span><span class="mtk12">UV_THREADPOOL_SIZE</span><span class="mtk1"> = </span><span class="mtk7">1</span><span class="mtk1">;</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3 mtki">// กำหนด UV_THREADPOOL_SIZE แบบนี้</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// ใส่ไว้ข้างบนสุดของ code เมื่อกี้</span></span>
+<span class="grvsc-line"><span class="mtk1">process.env.</span><span class="mtk7">UV_THREADPOOL_SIZE</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk6">1</span><span class="mtk1">;</span></span></code></pre>
 <p>แล้วทีนี้ลอง run ดูอีกครั้งครับ ผลที่ได้คือ</p>
 <p><img src="/path/to/dir/4fc972c7e6d9bf2c9b5336eea433f01a/single_thread.gif" alt="single threaded"></p>
 <p>ถ้าลองไปอ่านที่ <a href="http://docs.libuv.org/en/v1.x/threadpool.html">doc</a> ของ libuv จะพบว่าเราสามารถกำหนด <code>UV_THREADPOOL_SIZE</code> ได้ถึง 1024 ลองไปเล่นๆ กันดูได้ครับ สรุปคือ node จะใช้ Event Loop บน main thread และจะมี threadpool จาก libuv เอาไว้คอยจัดการพวก cpu intensive task</p>
 <h2>OS Operations</h2>
 <p>ต่อไปก็มาทำความเข้าใจเกี่ยวกับ <code>os operations</code> หรือ <code>pendingOSTasks</code> ที่ผมเขียนไว้ใน psuedo code ตัวอย่างนะครับ ซึ่งเป็นอีกตัวที่น่าสนใจเช่นกัน ลองดู code ตัวอย่างกันครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3">// async.js</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">https</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;https&#39;</span><span class="mtk1">)</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk3 mtki">// async.js</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">https</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;https&#39;</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">start</span><span class="mtk1"> = </span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">()</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk4">function</span><span class="mtk1"> </span><span class="mtk11">doRequest</span><span class="mtk1">() {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">https</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">request</span><span class="mtk1">(</span><span class="mtk8">&#39;https://www.google.com&#39;</span><span class="mtk1">, </span><span class="mtk12">res</span><span class="mtk1"> </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">on</span><span class="mtk1">(</span><span class="mtk8">&#39;data&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {});</span></span>
-<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">on</span><span class="mtk1">(</span><span class="mtk8">&#39;end&#39;</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">        </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk10">Date</span><span class="mtk1">.</span><span class="mtk11">now</span><span class="mtk1">() - </span><span class="mtk12">start</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">doRequest</span><span class="mtk1">() {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">https</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">request</span><span class="mtk1">(</span><span class="mtk11">&#39;https://www.google.com&#39;</span><span class="mtk1">, res </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;data&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {});</span></span>
+<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;end&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">        </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"><span class="mtk1">      });</span></span>
 <span class="grvsc-line"><span class="mtk1">    })</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">end</span><span class="mtk1">();</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">end</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"><span class="mtk1">}</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span></code></pre>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span></code></pre>
 <p>แล้ว run <code>node async.js</code> จะได้เป็น</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -213,12 +213,12 @@
       />
     </span></p>
 <p>ทีนี้ลองเพิ่มการเรียก function <code>doRequest()</code> ให้เป็นสัก 7 ครั้ง</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span>
-<span class="grvsc-line"><span class="mtk11">doRequest</span><span class="mtk1">()</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span>
+<span class="grvsc-line"><span class="mtk7">doRequest</span><span class="mtk1">()</span></span></code></pre>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 750px;"
@@ -286,17 +286,14 @@
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, transparent);
   }
   
-  .dark-default-dark {
-    background-color: #1E1E1E;
-    color: #D4D4D4;
-  }
-  .dark-default-dark .mtk1 { color: #D4D4D4; }
-  .dark-default-dark .mtk3 { color: #6A9955; }
-  .dark-default-dark .mtk4 { color: #569CD6; }
-  .dark-default-dark .mtk12 { color: #9CDCFE; }
-  .dark-default-dark .mtk11 { color: #DCDCAA; }
-  .dark-default-dark .mtk15 { color: #C586C0; }
-  .dark-default-dark .mtk8 { color: #CE9178; }
-  .dark-default-dark .mtk10 { color: #4EC9B0; }
-  .dark-default-dark .mtk7 { color: #B5CEA8; }
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .mtk6 { color: #D33682; }
 </style></div></div><footer class="footer-module--footer--R2bpz"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/nodejs-event-loop";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-bf305bc439d44ecd440e.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f0f831b85231cf43a74a.js"],"component---src-pages-about-js":["/component---src-pages-about-js-964b43c0071c4d187a80.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-a4032a18e98ca2902cd7.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-efce9f39744f45abb894.js"],"component---src-pages-index-js":["/component---src-pages-index-js-11cafa9af3c4a9cd3ca7.js"],"component---src-pages-project-js":["/component---src-pages-project-js-fdcfdd0ea7162aa5172a.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-3e92622c9138d89cd697.js"]};/*]]>*/</script><script src="/component---src-templates-blog-js-3e92622c9138d89cd697.js" async=""></script><script src="/c586bda9efbc7530837acf9773422eadb5d6eff5-68904bb2e262bedf1e30.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-bf305bc439d44ecd440e.js" async=""></script><script src="/framework-64f3795d64a6338f8fd0.js" async=""></script><script src="/webpack-runtime-b892319c18f88712707e.js" async=""></script></body></html>

@@ -10,93 +10,93 @@
 <p>เริ่มกันเลยดีกว่าครับ</p>
 <h2>Create project</h2>
 <p>สร้าง directory สำหรับ project ของเราก่อน</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">mkdir restful-node-sequelize && </span><span class="mtk11">cd</span><span class="mtk1"> restful-node-sequelize</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">mkdir restful-node-sequelize </span><span class="mtk8">&&</span><span class="mtk1"> </span><span class="mtk7">cd</span><span class="mtk1"> restful-node-sequelize</span></span></code></pre>
 <p>Initialize package ของเราก่อน</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm init -y</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm init -y</span></span></code></pre>
 <p>ติดตั้ง dependencies ดังต่อไปนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i express body-parser mysql2 sequelize --save</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i express body-parser mysql2 sequelize --save</span></span></code></pre>
 <p>ติดตั้ง <code>nodemon</code> สำหรับไว้ restart server แบบ automatic</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i -D nodemon</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i -D nodemon</span></span></code></pre>
 <p>แก้ไขคำสั่ง <code>script</code> ใน <code>package.json</code> นิดหน่อยครับ เพื่อที่เราจะได้ run คำสั่ง start server โดยให้เป็นดังนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1"> </span><span class="mtk8">&quot;scripts&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;dev&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;node server.js&quot;</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1"> </span><span class="mtk11">&quot;scripts&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;dev&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;node server.js&quot;</span></span>
 <span class="grvsc-line"><span class="mtk1">  }</span></span></code></pre>
 <p>เราจะได้ <code>package.json</code> ออกมาหน้าแบบนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">{</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;name&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;restful-node-sequelize&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;version&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;1.0.0&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;description&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;main&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;index.js&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;scripts&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;dev&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;nodemon server.js&quot;</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">{</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;name&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;restful-node-sequelize&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;version&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;1.0.0&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;description&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;main&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;index.js&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;scripts&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;dev&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;nodemon server.js&quot;</span></span>
 <span class="grvsc-line"><span class="mtk1">  },</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;keywords&quot;</span><span class="mtk1">: [],</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;author&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;license&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;ISC&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;dependencies&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;body-parser&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;^1.19.0&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;express&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;^4.17.1&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;mysql2&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;^2.1.0&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;sequelize&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;^5.21.5&quot;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;keywords&quot;</span><span class="mtk1">: [],</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;author&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;license&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;ISC&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;dependencies&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;body-parser&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;^1.19.0&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;express&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;^4.17.1&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;mysql2&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;^2.1.0&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;sequelize&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;^5.21.5&quot;</span></span>
 <span class="grvsc-line"><span class="mtk1">  },</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;devDependencies&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;nodemon&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;^2.0.2&quot;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;devDependencies&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;nodemon&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;^2.0.2&quot;</span></span>
 <span class="grvsc-line"><span class="mtk1">  }</span></span>
 <span class="grvsc-line"><span class="mtk1">}</span></span></code></pre>
 <p>สร้างไฟล์​ <code>server.js</code> สำหรับไว้ run server ของเราครับ</p>
 <p>คราวนี้ก็สร้าง express server app ของเราก่อน</p>
 <h2>Create Express server</h2>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">express</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;express&#39;</span><span class="mtk1">);</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">app</span><span class="mtk1"> = </span><span class="mtk11">express</span><span class="mtk1">();</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">listen</span><span class="mtk1">(</span><span class="mtk7">5000</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">&#39;Server listening on port 5000...&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">5000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server listening on port 5000...&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>run command <code>npm run dev</code> ที่ terminal ของเราดูครับ ถ้าได้แบบข้างล่าง ก็โอเคละครับบบบ</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">[nodemon] 2.0.2</span></span>
-<span class="grvsc-line"><span class="mtk1">[nodemon] to restart at any time, enter </span><span class="mtk8">`rs`</span></span>
-<span class="grvsc-line"><span class="mtk1">[nodemon] watching dir(s): *.*</span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">[nodemon] 2.0.2</span></span>
+<span class="grvsc-line"><span class="mtk1">[nodemon] to restart at any time, enter </span><span class="mtk11">`rs`</span></span>
+<span class="grvsc-line"><span class="mtk1">[nodemon] watching dir(s): </span><span class="mtk8">*</span><span class="mtk1">.</span><span class="mtk8">*</span></span>
 <span class="grvsc-line"><span class="mtk1">[nodemon] watching extensions: js,mjs,json</span></span>
-<span class="grvsc-line"><span class="mtk1">[nodemon] starting </span><span class="mtk8">`node server.js`</span></span>
+<span class="grvsc-line"><span class="mtk1">[nodemon] starting </span><span class="mtk11">`node server.js`</span></span>
 <span class="grvsc-line"><span class="mtk1">Server listening on port 5000...</span></span></code></pre>
 <h2>Create Database Models</h2>
 <p>กลับมาที่ sequelize กันบ้าง เราต้องติดตั้ง library เพิ่มเติมคือ sequelize-cli สำหรับไว้เป็นตัวช่วย config ค่าต่าง ๆ ของ database ของเรา เพื่อให้สามารถจัดการ code ของ database ได้ง่ายขึ้น</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i -g sequelize-cli</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">npm i -g sequelize-cli</span></span></code></pre>
 <p>เมื่อติดตั้งเสร็จเรียบร้อยแล้ว ให้ใช้คำสั่ง <code>init:config</code> เพื่อสร้าง configuration file ขึ้นมา</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize init:config</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize init:config</span></span></code></pre>
 <p>เราก็จะได้ <code>config.json</code> ไฟล์ใน folder <code>config</code> ออกมาหน้าตาเป็นแบบนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">{</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;development&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;username&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;root&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;password&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">null</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;database&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;database_development&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;host&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;dialect&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;operatorsAliases&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">false</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">{</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;development&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;username&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;root&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;password&quot;</span><span class="mtk1">: </span><span class="mtk5">null</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;database_development&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;host&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;dialect&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;operatorsAliases&quot;</span><span class="mtk1">: </span><span class="mtk5">false</span></span>
 <span class="grvsc-line"><span class="mtk1">  },</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;test&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;username&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;root&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;password&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">null</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;database&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;database_test&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;host&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;dialect&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;operatorsAliases&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">false</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;test&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;username&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;root&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;password&quot;</span><span class="mtk1">: </span><span class="mtk5">null</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;database_test&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;host&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;dialect&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;operatorsAliases&quot;</span><span class="mtk1">: </span><span class="mtk5">false</span></span>
 <span class="grvsc-line"><span class="mtk1">  },</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">&quot;production&quot;</span><span class="mtk1">: {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;username&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;root&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;password&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">null</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;database&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;database_production&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;host&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;dialect&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk8">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;operatorsAliases&quot;</span><span class="mtk12">:</span><span class="mtk1"> </span><span class="mtk4">false</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk11">&quot;production&quot;</span><span class="mtk1">: {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;username&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;root&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;password&quot;</span><span class="mtk1">: </span><span class="mtk5">null</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;database_production&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;host&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;127.0.0.1&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;dialect&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;mysql&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;operatorsAliases&quot;</span><span class="mtk1">: </span><span class="mtk5">false</span></span>
 <span class="grvsc-line"><span class="mtk1">  }</span></span>
 <span class="grvsc-line"><span class="mtk1">}</span></span></code></pre>
 <p>เราจะแก้ไขบางส่วนคือ password, database แล้วก็เพิ่ม timezone เข้าไปด้วยครับ จะได้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;password&quot;</span><span class="mtk1">: *****, </span><span class="mtk3">//  แล้วแต่ว่าตั้ง password ยังไงนะครับ</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;football_team&quot;</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">&quot;timezone&quot;</span><span class="mtk1">: </span><span class="mtk8">&quot;+07:00&quot;</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;password&quot;</span><span class="mtk1">: </span><span class="mtk8">*****</span><span class="mtk1">, </span><span class="mtk3 mtki">//  แล้วแต่ว่าตั้ง password ยังไงนะครับ</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;football_team&quot;</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk11">&quot;timezone&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;+07:00&quot;</span></span></code></pre>
 <p>ต่อไปก็ทำการสร้าง models การเก็บข้อมูลของเราครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize init:models</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize init:models</span></span></code></pre>
 <p>เราจะได้ folder <code>models</code> พร้อมกับ file <code>index.js</code> เพื่อที่เราจะได้เรียกใช้ตอนที่ทำการ connect เข้ากับ server ของเราครับ</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -131,38 +131,38 @@
 </ul>
 </li>
 </ul>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk10">module</span><span class="mtk1">.</span><span class="mtk10">exports</span><span class="mtk1"> = (</span><span class="mtk12">sequelize</span><span class="mtk1">, </span><span class="mtk12">DataTypes</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk4">let</span><span class="mtk1"> </span><span class="mtk12">player</span><span class="mtk1"> = </span><span class="mtk12">sequelize</span><span class="mtk1">.</span><span class="mtk11">define</span><span class="mtk1">(</span><span class="mtk8">&#39;player&#39;</span><span class="mtk1">, {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">name:</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk12">type:</span><span class="mtk1"> </span><span class="mtk12">DataTypes</span><span class="mtk1">.</span><span class="mtk11">STRING</span><span class="mtk1">(</span><span class="mtk7">100</span><span class="mtk1">)</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;player&#39;</span><span class="mtk1">, {</span></span>
+<span class="grvsc-line"><span class="mtk1">    name: {</span></span>
+<span class="grvsc-line"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">    },</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">position:</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk12">type:</span><span class="mtk1"> </span><span class="mtk12">DataTypes</span><span class="mtk1">.</span><span class="mtk11">STRING</span><span class="mtk1">(</span><span class="mtk7">100</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk1">    position: {</span></span>
+<span class="grvsc-line"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">    },</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">year:</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">      </span><span class="mtk12">type:</span><span class="mtk1"> </span><span class="mtk12">DataTypes</span><span class="mtk1">.</span><span class="mtk12">INTEGER</span></span>
+<span class="grvsc-line"><span class="mtk1">    year: {</span></span>
+<span class="grvsc-line"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">INTEGER</span></span>
 <span class="grvsc-line"><span class="mtk1">    }</span></span>
 <span class="grvsc-line"><span class="mtk1">  });</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk15">return</span><span class="mtk1"> </span><span class="mtk12">player</span><span class="mtk1">;</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1">;</span></span>
 <span class="grvsc-line"><span class="mtk1">};</span></span></code></pre>
 <p>ทีนี้ก็ทำการสร้าง database โดยใช้คำสั่ง</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize db:create</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">sequelize db:create</span></span></code></pre>
 <p>ถ้าได้แบบข้างล่างก็คือว่าโอเคครับบ</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">Sequelize CLI [Node: 13.7.0, CLI: 5.5.1, ORM: 5.21.5]</span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">Sequelize CLI [Node: 13.7.0, CLI: 5.5.1, ORM: 5.21.5]</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk1">Loaded configuration file </span><span class="mtk8">&quot;config/config.json&quot;</span><span class="mtk1">.</span></span>
-<span class="grvsc-line"><span class="mtk1">Using environment </span><span class="mtk8">&quot;development&quot;</span><span class="mtk1">.</span></span>
+<span class="grvsc-line"><span class="mtk1">Loaded configuration file </span><span class="mtk11">&quot;config/config.json&quot;</span><span class="mtk1">.</span></span>
+<span class="grvsc-line"><span class="mtk1">Using environment </span><span class="mtk11">&quot;development&quot;</span><span class="mtk1">.</span></span>
 <span class="grvsc-line"><span class="mtk1">(node:13477) [SEQUELIZE0004] DeprecationWarning: A boolean value was passed to options.operatorsAliases. This is a no-op with v5 and should be removed.</span></span>
 <span class="grvsc-line"><span class="mtk1">Database football_team created.</span></span></code></pre>
 <h2>Connecting database to server</h2>
 <p>กลับมาที่ server ของเราอีกครั้งนะครับ ทีนี้เราต้องทำการเชื่อมต่อกับ database ของเรา โดยอาศัยชุด code ที่ถูกเขียนไว้ใน <code>models/index.js</code> ซึ่งเราต้องทำการ import มาที่ <code>server.js</code> ก่อน ก็จะเขียนประมาณนี้ครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">express</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;express&#39;</span><span class="mtk1">);</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">db</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;./models&#39;</span><span class="mtk1">); </span><span class="mtk3">// import db from models/index.js</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">app</span><span class="mtk1"> = </span><span class="mtk11">express</span><span class="mtk1">();</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;./models&#39;</span><span class="mtk1">); </span><span class="mtk3 mtki">// import db from models/index.js</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">sequelize</span><span class="mtk1">.</span><span class="mtk11">sync</span><span class="mtk1">().</span><span class="mtk11">then</span><span class="mtk1">(() </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">listen</span><span class="mtk1">(</span><span class="mtk7">5000</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">&#39;Server is running on port 5000&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">sync</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">5000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server is running on port 5000&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"><span class="mtk1">  });</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>ถ้ากลับไปเช็คที่ terminal จะเห็นว่า server ของเราเชื่อมต่อกับ database ได้แล้ววววว</p>
@@ -194,30 +194,30 @@
 <p>REST หรือ Representational State Transfer คือวิธีในการสร้าง Web Service ประเภทหนึ่งที่อาศัย HTTP Methods (GET, POST, PUT, DELETE) ในการทำงาน และส่งผลกลับมาในรูปแบบของ JSON โดยสามารถรับส่งข้อมูลไปมาข้าม Platform ได้อย่างสะดวก ซึ่งในแต่ละ methods เราจะทำการสร้างความสัมพันธ์กับ database ดังต่อไปนี้</p>
 <h3>POST method</h3>
 <p>เนื่องจาก database ของเรายังไม่มีอะไร ดังนั้นผมจะทำการสร้างข้อมูลลงไปก่อนนะครับ แบบนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">express</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;express&#39;</span><span class="mtk1">);</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">bodyParser</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;body-parser&#39;</span><span class="mtk1">);</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">db</span><span class="mtk1"> = </span><span class="mtk11">require</span><span class="mtk1">(</span><span class="mtk8">&#39;./models&#39;</span><span class="mtk1">); </span><span class="mtk3">// import db from models/index.js</span></span>
-<span class="grvsc-line"><span class="mtk4">const</span><span class="mtk1"> </span><span class="mtk12">app</span><span class="mtk1"> = </span><span class="mtk11">express</span><span class="mtk1">();</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">bodyParser</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;body-parser&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;./models&#39;</span><span class="mtk1">); </span><span class="mtk3 mtki">// import db from models/index.js</span></span>
+<span class="grvsc-line"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">use</span><span class="mtk1">(</span><span class="mtk12">bodyParser</span><span class="mtk1">.</span><span class="mtk11">json</span><span class="mtk1">());</span></span>
-<span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">use</span><span class="mtk1">(</span><span class="mtk12">bodyParser</span><span class="mtk1">.</span><span class="mtk11">urlencoded</span><span class="mtk1">({ </span><span class="mtk12">extended:</span><span class="mtk1"> </span><span class="mtk4">false</span><span class="mtk1"> }));</span></span>
+<span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">json</span><span class="mtk1">());</span></span>
+<span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">urlencoded</span><span class="mtk1">({ extended: </span><span class="mtk5">false</span><span class="mtk1"> }));</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk3">// add new player to database with POST method</span></span>
-<span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">post</span><span class="mtk1">(</span><span class="mtk8">&#39;/players&#39;</span><span class="mtk1">, (</span><span class="mtk12">req</span><span class="mtk1">, </span><span class="mtk12">res</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk4">let</span><span class="mtk1"> </span><span class="mtk12">newPlayer</span><span class="mtk1"> = {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">name:</span><span class="mtk1"> </span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">body</span><span class="mtk1">.</span><span class="mtk12">name</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">position:</span><span class="mtk1"> </span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">body</span><span class="mtk1">.</span><span class="mtk12">position</span><span class="mtk1">,</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk12">year:</span><span class="mtk1"> </span><span class="mtk10">Number</span><span class="mtk1">(</span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">body</span><span class="mtk1">.</span><span class="mtk12">year</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk3 mtki">// add new player to database with POST method</span></span>
+<span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">post</span><span class="mtk1">(</span><span class="mtk11">&#39;/players&#39;</span><span class="mtk1">, (req, res) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">newPlayer</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">    name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    position: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">position</span><span class="mtk1">,</span></span>
+<span class="grvsc-line"><span class="mtk1">    year: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">year</span><span class="mtk1">)</span></span>
 <span class="grvsc-line"><span class="mtk1">  };</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">player</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">create</span><span class="mtk1">(</span><span class="mtk12">newPlayer</span><span class="mtk1">)</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">then</span><span class="mtk1">(</span><span class="mtk12">result</span><span class="mtk1"> </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">status</span><span class="mtk1">(</span><span class="mtk7">200</span><span class="mtk1">).</span><span class="mtk11">send</span><span class="mtk1">(</span><span class="mtk12">result</span><span class="mtk1">))</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">catch</span><span class="mtk1">(</span><span class="mtk12">err</span><span class="mtk1"> </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">status</span><span class="mtk1">(</span><span class="mtk7">400</span><span class="mtk1">).</span><span class="mtk11">send</span><span class="mtk1">(</span><span class="mtk12">err</span><span class="mtk1">));</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">player</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">create</span><span class="mtk1">(</span><span class="mtk7">newPlayer</span><span class="mtk1">)</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">then</span><span class="mtk1">(result </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">status</span><span class="mtk1">(</span><span class="mtk6">200</span><span class="mtk1">).</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">result</span><span class="mtk1">))</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">catch</span><span class="mtk1">(err </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">status</span><span class="mtk1">(</span><span class="mtk6">400</span><span class="mtk1">).</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">err</span><span class="mtk1">));</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">sequelize</span><span class="mtk1">.</span><span class="mtk11">sync</span><span class="mtk1">().</span><span class="mtk11">then</span><span class="mtk1">(() </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">listen</span><span class="mtk1">(</span><span class="mtk7">5000</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">&#39;Server is running on port 5000...&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">sync</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">5000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server is running on port 5000...&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"><span class="mtk1">  });</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>ทีนี้เราจะใช้ tool อย่าง "Postman" เพื่อช่วยเราทำ post request ครับ ทำการเพิ่ม player เข้าไป ก็จะได้ประมาณนี้</p>
@@ -246,7 +246,7 @@
       />
     </span></p>
 <p>เรายังสามารถเช็ค database ของเรา ผ่านทาง <code>mysql-cli</code> ใน terminal หรือใครจะเช็คจาก mySQL workbench ก็ได้เหมือนกันครับ เราสามรถเรียกดู table ที่สร้างไว้โดยใช้คำสัง SQL ปกติได้เลยครับ (ผมเพิ่มเข้าไปอีก 3-4 จะได้ดูมีข้อมูลหน่อย)</p>
-<pre class="grvsc-container dark-default-dark" data-language="bash" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">mysql -u root -p</span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk1">mysql -u root -p</span></span>
 <span class="grvsc-line"><span class="mtk1">// จากนั้นก็ใส่ password ลงไป</span></span></code></pre>
 <p>ลองใช้คำสั่ง <code>SELECT * FROM football_team.players</code> ดู ก็จะได้แบบนี้</p>
 <p><span
@@ -275,8 +275,8 @@
     </span></p>
 <h3>GET method</h3>
 <p><code>GET</code> method ก็คือการที่ให้เว็บแสดงข้อมูลตามที่มีการ request เข้ามาตาม url ที่ระบุไว้ ในที่นี้ผมจะให้เป็น <code>/players</code> นะครับ ก็ใช้ postman เหมือนเดิม แต่เปลี่ยนเป็น GET method ก็จะได้ players ทั้งหมดที่สร้างไว้ตั้งแต่ตอนแรกครับ</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">get</span><span class="mtk1">(</span><span class="mtk8">&#39;/players&#39;</span><span class="mtk1">, (</span><span class="mtk12">req</span><span class="mtk1">, </span><span class="mtk12">res</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">player</span><span class="mtk1">.</span><span class="mtk11">findAll</span><span class="mtk1">().</span><span class="mtk11">then</span><span class="mtk1">(</span><span class="mtk12">result</span><span class="mtk1"> </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">status</span><span class="mtk1">(</span><span class="mtk7">200</span><span class="mtk1">).</span><span class="mtk11">send</span><span class="mtk1">(</span><span class="mtk12">result</span><span class="mtk1">));</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;/players&#39;</span><span class="mtk1">, (req, res) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">player</span><span class="mtk1">.</span><span class="mtk7">findAll</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(result </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">status</span><span class="mtk1">(</span><span class="mtk6">200</span><span class="mtk1">).</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">result</span><span class="mtk1">));</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>ก็จะได้ผลลัพธ์ประมาณนี้</p>
 <p><span
@@ -305,15 +305,15 @@
     </span></p>
 <h3>PUT method</h3>
 <p>ถ้าเราอยากจะเปลี่ยนแปลงข้อมูลของเรา ก็สามารถทำได้โดยใช้ PUT method ครับ ผมจะเปลี่ยนโดยอ้างอิงจาก id ของข้อมูลเป็นหลักนะครับ โดยจะเปลี่ยนชื่อของ player ก็สามารถทำได้แบบนี้</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">put</span><span class="mtk1">(</span><span class="mtk8">&#39;/players/:id&#39;</span><span class="mtk1">, (</span><span class="mtk12">req</span><span class="mtk1">, </span><span class="mtk12">res</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">player</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">update</span><span class="mtk1">({ </span><span class="mtk12">name:</span><span class="mtk1"> </span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">body</span><span class="mtk1">.</span><span class="mtk12">name</span><span class="mtk1"> }, { </span><span class="mtk12">where:</span><span class="mtk1"> { </span><span class="mtk12">id:</span><span class="mtk1"> </span><span class="mtk10">Number</span><span class="mtk1">(</span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">params</span><span class="mtk1">.</span><span class="mtk12">id</span><span class="mtk1">) } })</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">then</span><span class="mtk1">(() </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">status</span><span class="mtk1">(</span><span class="mtk7">200</span><span class="mtk1">).</span><span class="mtk11">send</span><span class="mtk1">(</span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">body</span><span class="mtk1">));</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">put</span><span class="mtk1">(</span><span class="mtk11">&#39;/players/:id&#39;</span><span class="mtk1">, (req, res) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">player</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">update</span><span class="mtk1">({ name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1"> }, { where: { id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">) } })</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">status</span><span class="mtk1">(</span><span class="mtk6">200</span><span class="mtk1">).</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">));</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span>
 <span class="grvsc-line"></span>
-<span class="grvsc-line"><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">sequelize</span><span class="mtk1">.</span><span class="mtk11">sync</span><span class="mtk1">().</span><span class="mtk11">then</span><span class="mtk1">(() </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">listen</span><span class="mtk1">(</span><span class="mtk7">5000</span><span class="mtk1">, () </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk10">console</span><span class="mtk1">.</span><span class="mtk11">log</span><span class="mtk1">(</span><span class="mtk8">&#39;Server is running on port 5000...&#39;</span><span class="mtk1">);</span></span>
+<span class="grvsc-line"><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">sync</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">5000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server is running on port 5000...&#39;</span><span class="mtk1">);</span></span>
 <span class="grvsc-line"><span class="mtk1">  });</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>เหมือนเดิมครับใช้ postman แต่เปลี่ยนเป็น put method แล้วใส่ endpoint ตาม code ของเรา ลองเปลี่ยนค่าจาก Pepe เป็น Martinelli ดู</p>
@@ -368,10 +368,10 @@
     </span></p>
 <h3>DELETE method</h3>
 <p>Method สุดท้ายก็ตรงตัวเลยครับ ลบข้อมูลออกจาก database ของเรา วิธีการก็คล้าย ๆ กับ PUT method ซึ่งผมจะลบโดยอ้างอิงจาก id เป็นหลัก</p>
-<pre class="grvsc-container dark-default-dark" data-language="javascript" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk12">app</span><span class="mtk1">.</span><span class="mtk11">delete</span><span class="mtk1">(</span><span class="mtk8">&#39;/players/:id&#39;</span><span class="mtk1">, (</span><span class="mtk12">req</span><span class="mtk1">, </span><span class="mtk12">res</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> {</span></span>
-<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk12">db</span><span class="mtk1">.</span><span class="mtk12">player</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">destroy</span><span class="mtk1">({ </span><span class="mtk12">where:</span><span class="mtk1"> { </span><span class="mtk12">id:</span><span class="mtk1"> </span><span class="mtk10">Number</span><span class="mtk1">(</span><span class="mtk12">req</span><span class="mtk1">.</span><span class="mtk12">params</span><span class="mtk1">.</span><span class="mtk12">id</span><span class="mtk1">) } })</span></span>
-<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk11">then</span><span class="mtk1">(() </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk12">res</span><span class="mtk1">.</span><span class="mtk11">send</span><span class="mtk1">(</span><span class="mtk8">&#39;Player deleted!&#39;</span><span class="mtk1">));</span></span>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">delete</span><span class="mtk1">(</span><span class="mtk11">&#39;/players/:id&#39;</span><span class="mtk1">, (req, res) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span>
+<span class="grvsc-line"><span class="mtk1">  </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">player</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">destroy</span><span class="mtk1">({ where: { id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">) } })</span></span>
+<span class="grvsc-line"><span class="mtk1">    .</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk11">&#39;Player deleted!&#39;</span><span class="mtk1">));</span></span>
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <p>ก้จะได้ผลลัพธ์ใน postman ดังนี้ครับ</p>
 <p><span
@@ -480,17 +480,15 @@
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, transparent);
   }
   
-  .dark-default-dark {
-    background-color: #1E1E1E;
-    color: #D4D4D4;
-  }
-  .dark-default-dark .mtk1 { color: #D4D4D4; }
-  .dark-default-dark .mtk11 { color: #DCDCAA; }
-  .dark-default-dark .mtk8 { color: #CE9178; }
-  .dark-default-dark .mtk12 { color: #9CDCFE; }
-  .dark-default-dark .mtk4 { color: #569CD6; }
-  .dark-default-dark .mtk7 { color: #B5CEA8; }
-  .dark-default-dark .mtk10 { color: #4EC9B0; }
-  .dark-default-dark .mtk3 { color: #6A9955; }
-  .dark-default-dark .mtk15 { color: #C586C0; }
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .mtk5 { color: #B58900; }
+  .solarized-light .mtk3 { color: #93A1A1; }
 </style></div></div><footer class="footer-module--footer--R2bpz"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/node-sequelize-rest-api";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-bf305bc439d44ecd440e.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f0f831b85231cf43a74a.js"],"component---src-pages-about-js":["/component---src-pages-about-js-964b43c0071c4d187a80.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-a4032a18e98ca2902cd7.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-efce9f39744f45abb894.js"],"component---src-pages-index-js":["/component---src-pages-index-js-11cafa9af3c4a9cd3ca7.js"],"component---src-pages-project-js":["/component---src-pages-project-js-fdcfdd0ea7162aa5172a.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-3e92622c9138d89cd697.js"]};/*]]>*/</script><script src="/component---src-templates-blog-js-3e92622c9138d89cd697.js" async=""></script><script src="/c586bda9efbc7530837acf9773422eadb5d6eff5-68904bb2e262bedf1e30.js" async=""></script><script src="/styles-9b6f388623a2ec93d35f.js" async=""></script><script src="/app-bf305bc439d44ecd440e.js" async=""></script><script src="/framework-64f3795d64a6338f8fd0.js" async=""></script><script src="/webpack-runtime-b892319c18f88712707e.js" async=""></script></body></html>
