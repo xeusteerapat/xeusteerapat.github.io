@@ -1,24 +1,45 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Head from '../components/head';
+import Img from 'gatsby-image';
 
-const AboutPage = () => {
+const AboutPage = ({ data }) => {
+  const profileStyle = {
+    width: '20%',
+    height: 'auto',
+    borderRadius: '50%',
+    marginBottom: '1.5rem'
+  };
+
   return (
     <Layout>
       <Head title="About Me" />
       <h1>About Me</h1>
+      <Img fluid={data.imageOne.childImageSharp.fluid} style={profileStyle} />
       <p>
         Hello, My name is <b>Teerapat</b>
       </p>
       <div>
-        <p>I'm currently in Backend Developer role</p>
+        <p>
+          I'm currently in Backend Developer role at{' '}
+          <a
+            href="https://www.vonder.co.th"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vonder
+          </a>
+        </p>
         <p>My Skills are focusing on</p>
         <ul>
-          <li>Node.js/Express.js</li>
+          <li>Node/Express</li>
           <li>MongoDB</li>
           <li>Graphql</li>
         </ul>
-        <p>I also can develop web application using Frontend Tech like</p>
+        <p>
+          I also can develop web application using Frontend Technology such as
+        </p>
         <ul>
           <li>HTML/CSS</li>
           <li>React</li>
@@ -48,3 +69,21 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+export const fluidImage = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid(maxWidth: 300) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`;
+
+export const query = graphql`
+  query {
+    imageOne: file(relativePath: { eq: "images/profile_photo.jpg" }) {
+      ...fluidImage
+    }
+  }
+`;
