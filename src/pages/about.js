@@ -48,7 +48,7 @@ const AboutPage = ({ data }) => {
       </div>
       <p>
         <a
-          href="https://docs.google.com/document/d/1QL8sst5b5Qe8iujaYvTHpLN9UnNxfUwNjjV1ApR15ok/edit?usp=sharing"
+          href="https://app.enhancv.com/share/82acfaf1?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic"
           target="_blank"
           rel="noopener noreferrer"
         >
