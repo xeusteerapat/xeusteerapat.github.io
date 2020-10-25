@@ -8,7 +8,7 @@ const Project = () => {
       <Head title="Projects" />
       <h1>My Project</h1>
       <h2>Fullstack Project</h2>
-      <p>
+      <h4>
         <a
           href="https://www.youtube.com/watch?v=eCV7kTaMRPU"
           target="_blank"
@@ -16,7 +16,7 @@ const Project = () => {
         >
           Rider - Carpool application
         </a>
-      </p>
+      </h4>
       <ul>- Fullstack Node/Express.js and React.js</ul>
       <ul>- Integrate with Google Map API</ul>
       <ul>
@@ -29,6 +29,35 @@ const Project = () => {
           See github project
         </a>
       </ul>
+      <h4>
+        <a
+          href="https://friendly-mestorf-a0d642.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Favorite Links
+        </a>
+      </h4>
+      <p>Create a personal favorite links</p>
+      <ul>- Netlify serverless functions</ul>
+      <ul>
+        -{' '}
+        <a href="https://fauna.com" target="_blank" rel="noopener noreferrer">
+          FaunaDB database and Graphql API
+        </a>
+      </ul>
+      <ul>- React and Bootstrap</ul>
+      <ul>
+        -{' '}
+        <a
+          href="https://github.com/xeusteerapat/fauna-jamstack"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See github project
+        </a>
+      </ul>
+
       <br />
       <h2>Frontend</h2>
       <p>
