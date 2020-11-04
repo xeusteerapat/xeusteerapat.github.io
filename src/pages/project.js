@@ -116,6 +116,25 @@ const Project = () => {
           Node.js Typescript REST API
         </a>
       </p>
+      <p>
+        <a
+          href="https://github.com/xeusteerapat/nexus-prisma"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          E-Commerce products Graphql API
+        </a>
+        <ul>
+          - You can check the{' '}
+          <a
+            href="https://www.nexus-products-dev.digital"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Graphql Playground
+          </a>
+        </ul>
+      </p>
     </Layout>
   );
 };
