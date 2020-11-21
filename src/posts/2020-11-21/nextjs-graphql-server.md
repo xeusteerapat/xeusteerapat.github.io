@@ -20,7 +20,7 @@ cd nextjs-graphql-server-example
 yarn dev
 ```
 
-แล้วไปที่ ```http://localhost:3000``` ก็จะเห็นหน้าตาแบบรูปข้างล่าง
+แล้วไปที่ `http://localhost:3000` ก็จะเห็นหน้าตาแบบรูปข้างล่าง
 
 ![next start](next_start.png)
 
@@ -38,9 +38,9 @@ yarn dev
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
-}
+  res.statusCode = 200;
+  res.json({ name: 'John Doe' });
+};
 ```
 
 ถ้าใครเคยพัฒนา application ด้วย node.js/express มาก่อน ก็ร้องอ๋อเลยทีเดียว เพราะมันคือการสร้าง express handler นั่นเอง จาก [document](https://nextjs.org/docs/api-routes/introduction) เค้าก็จะบอกว่า ถ้าเราสร้างไฟล์ไว้ข้างใน `pages/api` มันก็จะนำชื่อไฟล์มาสร้างเป็น api route ให้เราเลย ถ้าอยากรู้ว่าหน้าตา response เป็นอย่างไร ก็เข้าไปที่ `http://localhost:3000/api/hello`
@@ -90,34 +90,34 @@ const resolvers = {
     async users() {
       return [
         {
-          firstname: "Teerapat",
-          lastname: "Prommarak",
+          firstname: 'Teerapat',
+          lastname: 'Prommarak',
           age: 34,
           occupation: 'Software Engineer'
         },
         {
-          firstname: "Mesut",
-          lastname: "Ozil",
+          firstname: 'Mesut',
+          lastname: 'Ozil',
           age: 31,
           occupation: 'Professional Footballer'
         },
         {
-          firstname: "Bill",
-          lastname: "Gate",
+          firstname: 'Bill',
+          lastname: 'Gate',
           age: 65,
           occupation: 'Entrepreneur'
-        },
-      ]
-    },
-  },
+        }
+      ];
+    }
+  }
 };
 
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 };
 
 export default apolloServer.createHandler({ path: '/api/graphql' });
@@ -234,16 +234,16 @@ const resolvers = {
       } catch (error) {
         throw error;
       }
-    },
-  },
+    }
+  }
 };
 
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 };
 
 export default apolloServer.createHandler({ path: '/api/graphql' });
@@ -288,7 +288,7 @@ const fetchBeer = async query => {
   const response = await axios({
     method: 'POST',
     url: '/api/graphql',
-    data: JSON.stringify({ query }),
+    data: JSON.stringify({ query })
   });
 
   return response.data;
@@ -315,7 +315,7 @@ export default function Home() {
   return (
     <div>
       <h1
-        className='text-5xl'
+        className="text-5xl"
         style={{ textAlign: 'center', paddingTop: '3rem' }}
       >
         PUNK IPA

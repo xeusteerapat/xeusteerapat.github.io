@@ -3,7 +3,7 @@ title: 'Node.js Event Loop'
 date: '2020-10-10'
 ---
 
-สวัสดีครับ ไม่ได้เขียน blog มานานเป็นเดือนละ เนื่องจากผมค่อนข้างยุ่งกับการเปลี่ยนงานใหม่และงานก็ค่อนข้างถาโถมเข้ามาแบบเยอะเลยทีเดียว (555) แต่ก็ยังพอมีเวลาไปศึกษา ```node.js``` เพิ่มเติมอยู่บ้าง โดยเฉพาะการทำงานภายในของตัว ```node.js``` เอง ซึ่ง blog นี้ก็จะนำเสนอเกี่ยวกับ **Event Loop** ซึ่งมีบทบาทสำคัญเป็นอย่างมากในตัว ```node.js``` core หวังว่าจะเป็นประโยชน์ต่อคนที่กำลังศึกษา ```node.js``` อยู่นะครับ code และเนื้อหาหลักๆ ผมจะอ้างอิงจาก [Node JS: Advanced Concepts](https://www.udemy.com/course/advanced-node-for-developers/) ของ [Stephen Grider](https://twitter.com/ste_grider) ครับผม
+สวัสดีครับ ไม่ได้เขียน blog มานานเป็นเดือนละ เนื่องจากผมค่อนข้างยุ่งกับการเปลี่ยนงานใหม่และงานก็ค่อนข้างถาโถมเข้ามาแบบเยอะเลยทีเดียว (555) แต่ก็ยังพอมีเวลาไปศึกษา `node.js` เพิ่มเติมอยู่บ้าง โดยเฉพาะการทำงานภายในของตัว `node.js` เอง ซึ่ง blog นี้ก็จะนำเสนอเกี่ยวกับ **Event Loop** ซึ่งมีบทบาทสำคัญเป็นอย่างมากในตัว `node.js` core หวังว่าจะเป็นประโยชน์ต่อคนที่กำลังศึกษา `node.js` อยู่นะครับ code และเนื้อหาหลักๆ ผมจะอ้างอิงจาก [Node JS: Advanced Concepts](https://www.udemy.com/course/advanced-node-for-developers/) ของ [Stephen Grider](https://twitter.com/ste_grider) ครับผม
 
 ## Prerequisite
 
@@ -34,16 +34,16 @@ Node.js คือ runtime environment เพื่อดำเนินการ
    └───────────────────────────┘
 ```
 
-*Ref: [The Node.js Event Loop, Timers, and ```process.nextTick()```](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)*
+_Ref: [The Node.js Event Loop, Timers, and `process.nextTick()`](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)_
 
-สมมติว่าเราเขียน code ในไฟล์ ```index.js``` แล้วเราจะใช้คำสั่ง run ```node index.js``` แต่ละช่วง Event Loop จะมีการทำงานดังต่อไปนี้
+สมมติว่าเราเขียน code ในไฟล์ `index.js` แล้วเราจะใช้คำสั่ง run `node index.js` แต่ละช่วง Event Loop จะมีการทำงานดังต่อไปนี้
 
-- **Timers**: เป็นการจัดการเกี่ยวกับเวลา เช่น ```setTimeout()``` หรือ ```setInterval()```
+- **Timers**: เป็นการจัดการเกี่ยวกับเวลา เช่น `setTimeout()` หรือ `setInterval()`
 - **Pending callbacks**: เป็นช่วงที่ต้องจัดการเกี่ยวกับ callbacks ต่างๆ
 - **Idle, prepare**: เป็นช่วงเวลาที่ event loop กลับไปอยู่ที่สถานะ "รอ" เพื่อให้ tasks ใดๆ ดำเนินการเสร็จ เดี๋ยวผมจะลงรายละเอียดอีกทีนะครับ
 - **Poll**: จัดการเกี่ยวกับ I/O event ต่างๆ
-- **Check**: ```setImmediate()``` callbacks
-- **Close callbacks**: close event ต่างๆ เช่น ```socket.on('close', ...)```
+- **Check**: `setImmediate()` callbacks
+- **Close callbacks**: close event ต่างๆ เช่น `socket.on('close', ...)`
 
 ทีนี้อาจจะยังมองภาพไม่ออกว่าแต่ละช่วงนั้น Event Loop มันทำงานของมันยังไงกันแน่ ต่อไปผมจะเอาแต่ละช่วงมาเขียนเป็น psuedo code ดูนะครับ เพื่อให้เข้าใจมากขึ้น
 
@@ -67,9 +67,7 @@ function shouldContinue() {
 }
 
 // เข้าสู่ Event Loop
-while (shouldContinue()) {
-
-}
+while (shouldContinue()) {}
 
 // exit back to terminal
 ```
@@ -78,16 +76,16 @@ while (shouldContinue()) {
 
 รายละเอียดการทำงานในแต่ละช่วงของ Event Loop มีดังนี้
 
-1. **Event Loop** จะตรวจสอบว่ามี  task ใน ```pendingTimers``` หรือไม่ ซึ่งก็คือ ```setTimeout()``` และ ```setInterval()``` ถ้ามี ก็จะทำการ execute callbacks function ที่อยู่ใน ```pendingTimers``` เหล่านั้น
-2. ต่อไปก็คือการตรวจสอบว่ามี ```pendingOSTasks``` และ  ```pendingOperations``` อยู่หรือไม่ เช่น การเรียก ```httpServer.listen(PORT)``` หรือการเรียกใช้ file system module ```fs```
+1. **Event Loop** จะตรวจสอบว่ามี task ใน `pendingTimers` หรือไม่ ซึ่งก็คือ `setTimeout()` และ `setInterval()` ถ้ามี ก็จะทำการ execute callbacks function ที่อยู่ใน `pendingTimers` เหล่านั้น
+2. ต่อไปก็คือการตรวจสอบว่ามี `pendingOSTasks` และ `pendingOperations` อยู่หรือไม่ เช่น การเรียก `httpServer.listen(PORT)` หรือการเรียกใช้ file system module `fs`
 3. จากนั้น Event Loop จะเข้าสู่ **idle, prepare** รอที่จะดำเนินการต่อไปเมื่อ
-    - ทำ ```pendingOSTasks``` เสร็จ
-    - ทำ ```pendingOperations``` เสร็จ
-    - timer ถึงเวลาที่กำหนดและดำเนินการเรียก callback function ในนั้น
-4. ตรวจสอบ ```pendingTimers``` อีกครั้งและเรียก ```setImmediate``` function
-5. จัดการ ```close event``` เช่น  ```socket.on('close', ...)``` หรือ ```readStream.on('close', ...)```
+   - ทำ `pendingOSTasks` เสร็จ
+   - ทำ `pendingOperations` เสร็จ
+   - timer ถึงเวลาที่กำหนดและดำเนินการเรียก callback function ในนั้น
+4. ตรวจสอบ `pendingTimers` อีกครั้งและเรียก `setImmediate` function
+5. จัดการ `close event` เช่น `socket.on('close', ...)` หรือ `readStream.on('close', ...)`
 
-ถ้ามี ```pendingTask``` ใดใดสักอันหนึ่งที่มี task อยู่ข้างใน (length > 0) ```shouldContinue()``` ก็จะคืนค่าเป็น ```true``` Event Loop ก็จะดำเนินวัฏจักรของมันไปเรื่อยๆ (```while (true) {}```) จนกว่าทุก ๆ ```pendingTask``` หมดไป ```shouldContinue()``` ก็จะคืนค่าเป็น ```false``` และออกมาจาก loop นั่นเอง
+ถ้ามี `pendingTask` ใดใดสักอันหนึ่งที่มี task อยู่ข้างใน (length > 0) `shouldContinue()` ก็จะคืนค่าเป็น `true` Event Loop ก็จะดำเนินวัฏจักรของมันไปเรื่อยๆ (`while (true) {}`) จนกว่าทุก ๆ `pendingTask` หมดไป `shouldContinue()` ก็จะคืนค่าเป็น `false` และออกมาจาก loop นั่นเอง
 
 ## Is Node.js single-threaded?
 
@@ -95,7 +93,7 @@ while (shouldContinue()) {
 
 คำตอบคือ...
 
-***ทั้งใช่ และไม่ใช่...***
+**_ทั้งใช่ และไม่ใช่..._**
 
 เริ่มงงกันแล้วใช่มั้ยครับ 555
 
@@ -173,9 +171,9 @@ process.env.UV_THREADPOOL_SIZE = 1;
 
 ```javascript
 // async.js
-const https = require('https')
+const https = require('https');
 
-const start = Date.now()
+const start = Date.now();
 
 function doRequest() {
   https
@@ -188,7 +186,7 @@ function doRequest() {
     .end();
 }
 
-doRequest()
+doRequest();
 ```
 
 แล้ว run `node async.js` จะได้เป็น
@@ -198,12 +196,12 @@ doRequest()
 ทีนี้ลองเพิ่มการเรียก function `doRequest()` ให้เป็นสัก 7 ครั้ง
 
 ```javascript
-doRequest()
-doRequest()
-doRequest()
-doRequest()
-doRequest()
-doRequest()
+doRequest();
+doRequest();
+doRequest();
+doRequest();
+doRequest();
+doRequest();
 ```
 
 ![more async](more_async.png)
