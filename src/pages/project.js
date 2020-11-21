@@ -14,49 +14,55 @@ const Project = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Rider - Carpool application
+          <ul>Rider - Carpool application</ul>
         </a>
       </h4>
-      <ul>- Fullstack Node/Express.js and React.js</ul>
-      <ul>- Integrate with Google Map API</ul>
-      <ul>
-        -{' '}
-        <a
-          href="https://github.com/Rider-Codecamp5"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          See github project
-        </a>
-      </ul>
+      <div>
+        <ul>- Fullstack Node/Express.js and React.js</ul>
+        <ul>- Integrate with Google Map API</ul>
+        <ul>
+          -{' '}
+          <a
+            href="https://github.com/Rider-Codecamp5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See github project
+          </a>
+        </ul>
+      </div>
       <h4>
-        <a
-          href="https://friendly-mestorf-a0d642.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Favorite Links
-        </a>
+        <ul>
+          <a
+            href="https://friendly-mestorf-a0d642.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Favorite Links
+          </a>
+        </ul>
       </h4>
-      <p>Create a personal favorite links</p>
-      <ul>- Netlify serverless functions</ul>
-      <ul>
-        -{' '}
-        <a href="https://fauna.com" target="_blank" rel="noopener noreferrer">
-          FaunaDB database and Graphql API
-        </a>
-      </ul>
-      <ul>- React and Bootstrap</ul>
-      <ul>
-        -{' '}
-        <a
-          href="https://github.com/xeusteerapat/fauna-jamstack"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          See github project
-        </a>
-      </ul>
+      <div>
+        <p>Create a personal favorite links</p>
+        <ul>- Netlify serverless functions</ul>
+        <ul>
+          -{' '}
+          <a href="https://fauna.com" target="_blank" rel="noopener noreferrer">
+            FaunaDB database and Graphql API
+          </a>
+        </ul>
+        <ul>- React and Bootstrap</ul>
+        <ul>
+          -{' '}
+          <a
+            href="https://github.com/xeusteerapat/fauna-jamstack"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See github project
+          </a>
+        </ul>
+      </div>
 
       <br />
       <h2>Frontend</h2>
