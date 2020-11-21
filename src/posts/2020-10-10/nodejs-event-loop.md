@@ -58,7 +58,7 @@ const pendingTimers = [];
 const pendingOSTasks = [];
 const pendingOperations = [];
 
-// shouldContinue() คือตัวแทนการทำงานของ Event Loop 
+// shouldContinue() คือตัวแทนการทำงานของ Event Loop
 // ซึ่ง function นี้จะคืนค่า truthy หรือ falsy
 function shouldContinue() {
   return (
