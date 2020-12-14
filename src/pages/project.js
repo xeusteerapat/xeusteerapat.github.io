@@ -1,9 +1,17 @@
 import React from 'react';
 import Layout from '../components/layout';
 import Head from '../components/head';
+import ExternalLink from '../../static/external-link.svg';
 import projectStyles from './project.module.scss';
 
 const Project = () => {
+  const logoStyle = {
+    width: '25px',
+    height: 'auto',
+    marginRight: '1px',
+    marginBottom: '-5px'
+  };
+
   return (
     <Layout>
       <Head title="Projects" />
@@ -23,6 +31,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
           <br />
@@ -31,6 +40,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Github
           </a>
         </div>
@@ -45,6 +55,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
           <br />
@@ -53,6 +64,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Github
           </a>
         </div>
@@ -70,6 +82,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
         </div>
@@ -83,6 +96,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
         </div>
@@ -95,6 +109,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
         </div>
@@ -108,6 +123,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
         </div>
@@ -126,6 +142,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Github
           </a>
         </div>
@@ -140,6 +157,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Github
           </a>
         </div>
@@ -153,6 +171,7 @@ const Project = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
             Demo
           </a>
         </div>
