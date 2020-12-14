@@ -1,146 +1,162 @@
 import React from 'react';
 import Layout from '../components/layout';
 import Head from '../components/head';
+import projectStyles from './project.module.scss';
 
 const Project = () => {
   return (
     <Layout>
       <Head title="Projects" />
-      <h1>My Project</h1>
-      <h2>Fullstack Project</h2>
-      <h4>
-        <a
-          href="https://www.youtube.com/watch?v=eCV7kTaMRPU"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <ul>Rider - Carpool application</ul>
-        </a>
-      </h4>
+      <h1>My Projects</h1>
       <div>
-        <ul>- Fullstack Node/Express.js and React.js</ul>
-        <ul>- Integrate with Google Map API</ul>
-        <ul>
-          -{' '}
+        <h2 className={projectStyles.header}>Fullstack</h2>
+      </div>
+      <div className={projectStyles.wrapper}>
+        <div className={projectStyles.item}>
+          <h4>Rider - Carpool App</h4>
+          <p>- Fullstack Node/Express.js and React.js</p>
+          <p>- MySQL/Sequelize Database</p>
+          <p>- Integrate with Google Map API</p>
+          <p>- Socket.IO</p>
+          <a
+            href="https://www.youtube.com/watch?v=eCV7kTaMRPU"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo
+          </a>
+          <br />
           <a
             href="https://github.com/Rider-Codecamp5"
             target="_blank"
             rel="noopener noreferrer"
           >
-            See github project
+            Github
           </a>
-        </ul>
-      </div>
-      <h4>
-        <ul>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Favorite Links</h4>
+          <p>- Personal favorite links</p>
+          <p>- Netlify serverless functions</p>
+          <p>- FaunaDB database and Graphql API</p>
+          <p>- React and Bootstrap</p>
           <a
             href="https://friendly-mestorf-a0d642.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Favorite Links
+            Demo
           </a>
-        </ul>
-      </h4>
-      <div>
-        <p>Create a personal favorite links</p>
-        <ul>- Netlify serverless functions</ul>
-        <ul>
-          -{' '}
-          <a href="https://fauna.com" target="_blank" rel="noopener noreferrer">
-            FaunaDB database and Graphql API
-          </a>
-        </ul>
-        <ul>- React and Bootstrap</ul>
-        <ul>
-          -{' '}
+          <br />
           <a
             href="https://github.com/xeusteerapat/fauna-jamstack"
             target="_blank"
             rel="noopener noreferrer"
           >
-            See github project
+            Github
           </a>
-        </ul>
+        </div>
       </div>
-
-      <br />
-      <h2>Frontend</h2>
-      <p>
-        <a
-          href="https://xeusteerapat.github.io/CC5-HTML-BASIC/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Basic HTML Layout
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://xeusteerapat.github.io/bbc-clone/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          BBC Website clone
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://xeusteerapat.github.io/landing-page-codecamp/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Landing page layout
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://react-typescript-crud.netlify.app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Simple React app with CRUD operations
-        </a>
-      </p>
-      <br />
-      <h2>Backend</h2>
-      <p>
-        <a
-          href="https://github.com/xeusteerapat/blog-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Graphql API for bloging app
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://github.com/xeusteerapat/node-typeorm-crud"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Node.js Typescript REST API
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://github.com/xeusteerapat/nexus-prisma"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          E-Commerce products Graphql API
-        </a>
-        <ul>
-          - You can check the{' '}
+      <div>
+        <h2 className={projectStyles.header}>Frontend</h2>
+      </div>
+      <div className={projectStyles.wrapper}>
+        <div className={projectStyles.item}>
+          <h4>BBC Website clone</h4>
+          <p>- HTML5</p>
+          <p>- CSS Grid</p>
+          <a
+            href="https://xeusteerapat.github.io/bbc-clone/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Basic HTML Layout</h4>
+          <p>- HTML5</p>
+          <p>- CSS Grid & Flexbox</p>
+          <p>- API request</p>
+          <a
+            href="https://xeusteerapat.github.io/CC5-HTML-BASIC/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Landing page layout</h4>
+          <p>- HTML5</p>
+          <p>- CSS Grid & Flexbox</p>
+          <a
+            href="https://xeusteerapat.github.io/landing-page-codecamp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>React Typescript</h4>
+          <p>- React</p>
+          <p>- Typescript</p>
+          <p>- CRUD operations</p>
+          <a
+            href="https://react-typescript-crud.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Demo
+          </a>
+        </div>
+      </div>
+      <div>
+        <h2 className={projectStyles.header}>Backend</h2>
+      </div>
+      <div className={projectStyles.wrapper}>
+        <div className={projectStyles.item}>
+          <h4>Graphql API for bloging app</h4>
+          <p>- Apollo server Graphql</p>
+          <p>- Typescript</p>
+          <p>- User authentication</p>
+          <a
+            href="https://github.com/xeusteerapat/blog-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Node.js Typescript REST API</h4>
+          <p>- Backend api with node.js and typescript</p>
+          <p>- MySQL database with TypeORM</p>
+          <p>- CRUD operations</p>
+          <p>- User authentication</p>
+          <a
+            href="https://github.com/xeusteerapat/node-typeorm-crud"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>E-Commerce Graphql API</h4>
+          <p>- Graphql API with nexus schema</p>
+          <p>- Database tool with Prisma</p>
+          <p>- CRUD operations</p>
           <a
             href="https://www.nexus-products-dev.digital"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Graphql Playground
+            Demo
           </a>
-        </ul>
-      </p>
+        </div>
+      </div>
     </Layout>
   );
 };
