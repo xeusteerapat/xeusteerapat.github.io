@@ -14,7 +14,9 @@ const IndexPage = () => {
         My <Link to="/blog">Blog</Link> are about Node.js, React.js and some
         random stuff.
       </p>
-      <p>You can read more about me</p>
+      <p>
+        You can read more <Link to="/about">About</Link> me
+      </p>
       <div>
         <p>
           See more in <Link to="/project">Projects</Link>
