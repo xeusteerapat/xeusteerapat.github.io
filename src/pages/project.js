@@ -68,6 +68,30 @@ const Project = () => {
             Github
           </a>
         </div>
+        <div className={projectStyles.item}>
+          <h4>Foody - E-Commerce</h4>
+          <p>- E-Commerce food shop</p>
+          <p>- Commerce.js API</p>
+          <p>- React</p>
+          <p>- Stripe payment</p>
+          <a
+            href="https://commercejs-react.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Demo
+          </a>
+          <br />
+          <a
+            href="https://github.com/xeusteerapat/commercejs-react"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
       </div>
       <div>
         <h2 className={projectStyles.header}>Frontend</h2>
