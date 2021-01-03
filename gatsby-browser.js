@@ -1,2 +1,2 @@
-// require("prismjs/themes/prism-solarizedlight.css")
-// import("./static/themes/prism-material-light.css")
+require('./static/themes/prism-material-light.css');
+// import('./static/themes/prism-material-light.css');
