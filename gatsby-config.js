@@ -5,7 +5,7 @@ module.exports = {
     author: 'Teerapat Prommarak',
     description:
       'Full-stack web developer who always curiosity and learn new things.',
-    url: 'https://xeusteerapat.github.io/',
+    url: 'https://curiousdev.in.th',
     twitterUsername: '@xeusteerapat'
   },
   plugins: [
