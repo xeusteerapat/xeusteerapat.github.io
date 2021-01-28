@@ -30,7 +30,9 @@ const Head = ({ title, author, description, twitterUsername }) => {
         author={`${data.site.siteMetadata.author}`}
         description={`${data.site.siteMetadata.description}`}
         twitterUsername={`${data.site.siteMetadata.twitterUsername}`}
-      />
+      >
+        <html lang="th" />
+      </Helmet>
     </>
   );
 };
