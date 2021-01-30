@@ -17,12 +17,21 @@ const AboutPage = ({ data }) => {
       <Head title="About Me" />
       <h1>About Me</h1>
       <Img fluid={data.imageOne.childImageSharp.fluid} style={profileStyle} />
-      <p>
+      <h3>
         Hello, My name is <b>Teerapat</b>
-      </p>
+      </h3>
       <div>
         <p>
-          I'm currently in Backend Developer role at{' '}
+          Former Construction Engineer <span>👷🏻‍♂️</span>
+        </p>
+        <p>
+          Former Research Assistant <span>👨‍🔬</span>
+        </p>
+        <p>
+          Former 3D CAD Engineer (Piping works) <span>🏭</span>
+        </p>
+        <p>
+          And now, I'm currently in Backend Developer role at{' '}
           <a
             href="https://www.vonder.co.th"
             target="_blank"
