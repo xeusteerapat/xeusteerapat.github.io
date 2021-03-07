@@ -151,6 +151,29 @@ const Project = () => {
             Demo
           </a>
         </div>
+        <div className={projectStyles.item}>
+          <h4>PM2.5 Watcher</h4>
+          <p>- Next.js</p>
+          <p>- Apex Chart</p>
+          <p>- API Request</p>
+          <a
+            href="https://pm25-watcher.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Demo
+          </a>
+          <br />
+          <a
+            href="https://github.com/xeusteerapat/pm25-watcher"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
       </div>
       <div>
         <h2 className={projectStyles.header}>Backend</h2>
