@@ -66,7 +66,7 @@ const AboutPage = ({ data }) => {
       </p>
       <p>
         <a
-          href="https://www.linkedin.com/in/teerapat-prommarak-44923697/"
+          href="https://www.linkedin.com/in/teerapat-prommarak/"
           target="_blank"
           rel="noopener noreferrer"
         >
