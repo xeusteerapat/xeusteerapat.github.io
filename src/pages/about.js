@@ -57,7 +57,7 @@ const AboutPage = ({ data }) => {
       </div>
       <p>
         <a
-          href="https://app.enhancv.com/share/82acfaf1?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic"
+          href="https://resume-teerapat-prommarak.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
