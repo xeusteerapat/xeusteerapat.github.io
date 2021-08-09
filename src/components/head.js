@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import SEO from './seo';
+import Seo from './seo';
 
 const Head = ({ title, author, description, twitterUsername }) => {
   const data = useStaticQuery(graphql`
@@ -19,7 +19,7 @@ const Head = ({ title, author, description, twitterUsername }) => {
 
   return (
     <>
-      <SEO
+      <Seo
         title={title}
         author={author}
         description={description}
