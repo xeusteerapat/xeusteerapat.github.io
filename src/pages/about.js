@@ -9,7 +9,7 @@ const AboutPage = ({ data }) => {
     width: '20%',
     height: 'auto',
     borderRadius: '50%',
-    marginBottom: '1.5rem'
+    marginBottom: '1.5rem',
   };
 
   return (
@@ -44,6 +44,8 @@ const AboutPage = ({ data }) => {
         <ul>
           <li>Node/Express</li>
           <li>MongoDB</li>
+          <li>Typescript</li>
+          <li>Serverless Framework (AWS Lambda)</li>
           <li>Graphql</li>
         </ul>
         <p>
