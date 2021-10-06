@@ -9,7 +9,7 @@ const Project = () => {
     width: '25px',
     height: 'auto',
     marginRight: '1px',
-    marginBottom: '-5px'
+    marginBottom: '-5px',
   };
 
   return (
@@ -179,6 +179,23 @@ const Project = () => {
         <h2 className={projectStyles.header}>Backend</h2>
       </div>
       <div className={projectStyles.wrapper}>
+        <div className={projectStyles.item}>
+          <h4>E-Commerce API</h4>
+          <p>- Node.js/Typescript</p>
+          <p>- Serverless Framework</p>
+          <p>- AWS Lambda</p>
+          <p>- AWS S3</p>
+          <p>- AWS Cognito</p>
+          <p>- DynamoDB</p>
+          <a
+            href="https://github.com/xeusteerapat/ecommly-api"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
         <div className={projectStyles.item}>
           <h4>Graphql API for bloging app</h4>
           <p>- Apollo server Graphql</p>
