@@ -31,13 +31,13 @@ const AboutPage = ({ data }) => {
           Former 3D CAD Engineer (Piping works) <span>🏭</span>
         </p>
         <p>
-          And now, I'm currently in Backend Developer role at{' '}
+          And now, I'm Software Engineer at{' '}
           <a
-            href="https://www.vonder.co.th"
+            href="https://mohara.co"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Vonder
+          MOHARA
           </a>
         </p>
         <p>My Skills are focusing on</p>
