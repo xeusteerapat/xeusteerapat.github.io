@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "gatsby": "^3.11.0",
+    "gatsby": "3.13.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.4.0",
     "gatsby-plugin-postcss": "^4.11.0",
