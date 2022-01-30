@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-pages-blog-js","path":"/blog/","result":{"pageContext":{}},"staticQueryHashes":["314376288","3159585216","3364050859","4152315797","440568431"]}
+{
+    "componentChunkName": "component---src-templates-blog-list-js",
+    "path": "/blog",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"date":"2021-01-03","title":"2020 & 2021"},"fields":{"slug":"review-resolution-2020-2021"}}},{"node":{"frontmatter":{"date":"2020-11-21","title":"Create Graphql server in Next.js"},"fields":{"slug":"nextjs-graphql-server"}}},{"node":{"frontmatter":{"date":"2020-10-10","title":"Node.js Event Loop"},"fields":{"slug":"nodejs-event-loop"}}},{"node":{"frontmatter":{"date":"2020-08-31","title":"Filter"},"fields":{"slug":"filter"}}},{"node":{"frontmatter":{"date":"2020-05-30","title":"New macbook pro"},"fields":{"slug":"new-macbook-pro"}}},{"node":{"frontmatter":{"date":"2020-05-07","title":"Rest API with node and Typescript"},"fields":{"slug":"rest-api-with-node-typescript"}}}]}},"pageContext":{"limit":6,"skip":0,"numPages":3,"currentPage":1}},
+    "staticQueryHashes": ["3159585216","3364050859","4152315797","440568431"]}

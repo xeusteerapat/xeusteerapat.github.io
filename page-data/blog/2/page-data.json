@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-list-js",
+    "path": "/blog/2",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"date":"2020-04-04","title":"Todo List app with React Hooks"},"fields":{"slug":"todo-app-react-hooks"}}},{"node":{"frontmatter":{"date":"2020-04-03","title":"Basic React Todo List app"},"fields":{"slug":"basic-react-todo-app"}}},{"node":{"frontmatter":{"date":"2020-03-18","title":"Node-Sequelize with complicated relationships"},"fields":{"slug":"node-sequelize-complex-relation"}}},{"node":{"frontmatter":{"date":"2020-03-17","title":"Node/Express/Sequelize RESTful API"},"fields":{"slug":"node-sequelize-rest-api"}}},{"node":{"frontmatter":{"date":"2020-02-23","title":"Javascript Refresher - Variables and data types"},"fields":{"slug":"js-refresher-variables"}}},{"node":{"frontmatter":{"date":"2020-02-15","title":"Javascript Bangkok 1.0.0"},"fields":{"slug":"js-bangkok-2020"}}}]}},"pageContext":{"limit":6,"skip":6,"numPages":3,"currentPage":2}},
+    "staticQueryHashes": ["3159585216","3364050859","4152315797","440568431"]}
