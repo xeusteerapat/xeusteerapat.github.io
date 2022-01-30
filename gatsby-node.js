@@ -5,7 +5,7 @@ module.exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode });
+    const slug = path.basename(node.fileAbsolutePath, '.md');
 
     createNodeField({
       node,
@@ -18,6 +18,7 @@ module.exports.onCreateNode = ({ node, actions, getNode }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const blogTemplate = path.resolve('./src/templates/blog.js');
+
   const res = await graphql(`
     query {
       allMarkdownRemark {
