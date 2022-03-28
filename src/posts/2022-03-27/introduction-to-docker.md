@@ -3,6 +3,12 @@ title: 'Introduction to Docker'
 date: '2022-03-27'
 ---
 
+Many times we write programs and we want our programs to work properly without any external factors interfering. or do not want our program to affect other programs in the machine We may take our program to run in the **Virtual Machine (VM)** to solve the above problem.
+
+But using a VM has its limitations. Our computers need a lot of resources in order to emulate and run an OS in one VM. The CPU and RAM are used as if another computer shared its resources. Just bring it to our program to run only one. And it's even worse when we want to run multiple programs.
+
+both the use of resources both the speed of opening and closing those programs and the difficulty in managing to fix All these problems can be avoided by using Docker.
+
 ## What is Docker?
 
 - Docker is a platform for creating and running containers.
@@ -14,13 +20,13 @@ in long version...
 
 ![Screen Shot 2564-08-22 at 12.41.58.png](Screen_Shot_2564-08-22_at_12.41.58.png)
 
-- The container is an **instance** of an image that runs a program (in short)
-- The container is a **process** or a set of processes that have a grouping of resources specifically assign to it
-- After we installed Docker, then we automatically installed **Linux Virtual Machine**
+- The container is an **instance** of an image that runs a program.
+- The container is a **process** or a set of processes that have a grouping of resources specifically assign to it.
+- After we installed Docker, then we automatically installed **Linux Virtual Machine**.
 
 ## Docker Architecture
 
-Docker uses a client-server architecture. Docker client talks to Docker Daemon (server) via REST API
+Docker uses a client-server architecture. Docker client talks to Docker Daemon (server) via **REST API**
 
 ![Screen Shot 2564-08-22 at 12.44.16.png](Screen_Shot_2564-08-22_at_12.44.16.png)
 
@@ -40,7 +46,20 @@ Docker helps us run software without worrying about **setup or install dependenc
 - Distribute your web application to others on your team.
 - Deploy your application to live production servers.
 
+## Docker Installation
+
+Depends on your operating system, you can follow the installation instruction from [Docker Official website](https://docs.docker.com/get-docker/). After install successfully, you can verify installation with command:
+
+```shell
+docker --version
+
+Docker version 20.10.12, build e91ed57
+## if you this message above, which means docker is successfully installed
+```
+
 ## Docker CLI
+
+Here are some frequency use commands to manage images and containers.
 
 - `docker run <IMAGE_NAME>` run specific image
 - `docker run <IMAGE_NAME>` command but those specific commands must be specified in the image
@@ -56,7 +75,7 @@ Docker helps us run software without worrying about **setup or install dependenc
 
 ### Create Docker Images
 
-- `Dockerfile` is a configuration file on how the container should behave
+- `Dockerfile` is a configuration file on how the container should behave. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using `docker build` command, users can create an automated build that executes several command-line instructions in succession.
     
 ![dockerfile.jpg](dockerfile.jpg)
     
@@ -314,14 +333,23 @@ If we want to stop all containers, we'll run a command
 docker-compose down
 ```
 
-## Resources
+## Summary
 
-- [https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
-- [https://docs.docker.com/engine/faq/](https://docs.docker.com/engine/faq/)
-- [https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine)
-- [https://www.bmc.com/blogs/docker-101-introduction/](https://www.bmc.com/blogs/docker-101-introduction/)
-- [https://medium.com/i-gear-geek/docker-คือ-เริ่มต้นกับ-docker-56d0ba499ae8](https://medium.com/i-gear-geek/docker-%E0%B8%84%E0%B8%B7%E0%B8%AD-%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%9A-docker-56d0ba499ae8)
-- [https://www.youtube.com/watch?v=tPMk5UCvucM](https://www.youtube.com/watch?v=tPMk5UCvucM)
-- [https://docker-curriculum.com/#introduction](https://docker-curriculum.com/#introduction)
-- [https://devopswithdocker.com/part1/](https://devopswithdocker.com/part1/)
-- [https://code.coursesity.com/docker-interview-questions](https://code.coursesity.com/docker-interview-questions)
+- Docker can be used in many operating systems
+- Docker consume less resources than Virtual Machine
+- Reduce the problem of working in different environments (or different OS)
+- We can choose to use different docker images created by people from the central Docker registry like [Docker Hub](https://hub.docker.com/) which can reduce development time consuming.
+
+I hope it will be useful for anyone who is studying `Docker`. Personally, I use `Docker` for almost application in everyday life either my full-time job or side project. Next time I'll write a blog post about application deployment using `Docker` and integration with cloud provider. Happy Coding :)
+
+## Credits and References
+
+- [Docker and Kubernetes - The Complete Guide](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
+- [Docker Engine FAQ](https://docs.docker.com/engine/faq/)
+- [How is Docker different from a virtual machine?](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine)
+- [Introduction To Docker: A Beginner’s Guide](https://www.bmc.com/blogs/docker-101-introduction/)
+- [Docker คือ … (เริ่มต้นกับ Docker)](https://medium.com/i-gear-geek/docker-%E0%B8%84%E0%B8%B7%E0%B8%AD-%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%9A-docker-56d0ba499ae8)
+- [https://docker-curriculum.com](https://docker-curriculum.com/#introduction)
+- [DevOps with Docker](https://devopswithdocker.com/part-1/1-getting-started)
+- [50 Must-Prepare Docker Interview Questions and Answers in 2021](https://code.coursesity.com/docker-interview-questions)
+- [Docker in 5 minutes](https://www.borntodev.com/2020/02/26/docker-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%AA%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B9%86-%E0%B9%83%E0%B8%995%E0%B8%99%E0%B8%B2%E0%B8%97%E0%B8%B5/)
