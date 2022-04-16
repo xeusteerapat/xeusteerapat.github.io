@@ -94,6 +94,71 @@ const Project = () => {
         </div>
       </div>
       <div>
+        <h2 className={projectStyles.header}>Backend</h2>
+      </div>
+      <div className={projectStyles.wrapper}>
+        <div className={projectStyles.item}>
+          <h4>E-Commerce API</h4>
+          <p>- Node.js/Typescript</p>
+          <p>- Serverless Framework</p>
+          <p>- AWS Lambda</p>
+          <p>- AWS S3</p>
+          <p>- AWS Cognito</p>
+          <p>- DynamoDB</p>
+          <a
+            href="https://github.com/xeusteerapat/ecommly-api"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Graphql API for bloging app</h4>
+          <p>- Apollo server Graphql</p>
+          <p>- Typescript</p>
+          <p>- User authentication</p>
+          <a
+            href="https://github.com/xeusteerapat/blog-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>Node.js Typescript REST API</h4>
+          <p>- Backend api with node.js and typescript</p>
+          <p>- MySQL database with TypeORM</p>
+          <p>- CRUD operations</p>
+          <p>- User authentication</p>
+          <a
+            href="https://github.com/xeusteerapat/node-typeorm-crud"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Github
+          </a>
+        </div>
+        <div className={projectStyles.item}>
+          <h4>E-Commerce Graphql API</h4>
+          <p>- Graphql API with nexus schema</p>
+          <p>- Database tool with Prisma</p>
+          <p>- CRUD operations</p>
+          <a
+            href="https://www.nexus-products-dev.digital"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={ExternalLink} alt="See more" style={logoStyle} />
+            Demo
+          </a>
+        </div>
+      </div>
+      <div>
         <h2 className={projectStyles.header}>Frontend</h2>
       </div>
       <div className={projectStyles.wrapper}>
@@ -172,71 +237,6 @@ const Project = () => {
           >
             <img src={ExternalLink} alt="See more" style={logoStyle} />
             Github
-          </a>
-        </div>
-      </div>
-      <div>
-        <h2 className={projectStyles.header}>Backend</h2>
-      </div>
-      <div className={projectStyles.wrapper}>
-        <div className={projectStyles.item}>
-          <h4>E-Commerce API</h4>
-          <p>- Node.js/Typescript</p>
-          <p>- Serverless Framework</p>
-          <p>- AWS Lambda</p>
-          <p>- AWS S3</p>
-          <p>- AWS Cognito</p>
-          <p>- DynamoDB</p>
-          <a
-            href="https://github.com/xeusteerapat/ecommly-api"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={ExternalLink} alt="See more" style={logoStyle} />
-            Github
-          </a>
-        </div>
-        <div className={projectStyles.item}>
-          <h4>Graphql API for bloging app</h4>
-          <p>- Apollo server Graphql</p>
-          <p>- Typescript</p>
-          <p>- User authentication</p>
-          <a
-            href="https://github.com/xeusteerapat/blog-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={ExternalLink} alt="See more" style={logoStyle} />
-            Github
-          </a>
-        </div>
-        <div className={projectStyles.item}>
-          <h4>Node.js Typescript REST API</h4>
-          <p>- Backend api with node.js and typescript</p>
-          <p>- MySQL database with TypeORM</p>
-          <p>- CRUD operations</p>
-          <p>- User authentication</p>
-          <a
-            href="https://github.com/xeusteerapat/node-typeorm-crud"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={ExternalLink} alt="See more" style={logoStyle} />
-            Github
-          </a>
-        </div>
-        <div className={projectStyles.item}>
-          <h4>E-Commerce Graphql API</h4>
-          <p>- Graphql API with nexus schema</p>
-          <p>- Database tool with Prisma</p>
-          <p>- CRUD operations</p>
-          <a
-            href="https://www.nexus-products-dev.digital"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={ExternalLink} alt="See more" style={logoStyle} />
-            Demo
           </a>
         </div>
       </div>
