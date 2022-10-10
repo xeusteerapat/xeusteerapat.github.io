@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="th"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="twitter:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" name="twitter:title" content="Interesting Node.js Core Concepts"/><meta data-react-helmet="true" name="twitter:creator" content="@xeusteerapat"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" property="og:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" property="og:title" content="Interesting Node.js Core Concepts"/><meta data-react-helmet="true" property="og:url" content="https://curiousdev.in.th/blog/interesting-nodejs-core-concepts"/><meta data-react-helmet="true" name="description" content="Full-stack web developer who always curiosity and learn new things."/><meta name="generator" content="Gatsby 4.11.2"/><style data-href="/styles.e62f0ddf7a67a11ff9d5.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#fafafa;color:#90a4ae;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#cceae7;color:#263238}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#7c4dff}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}.header-module--header--knWBH{padding:1rem 0 3rem}.header-module--title--aK00B{color:#000;font-size:3rem;text-decoration:none}.header-module--nav-list--K4gaB{display:flex;list-style-type:none;margin:0}.header-module--nav-item--2oc8C{color:#999;font-size:.9rem;margin-right:1.3rem;text-decoration:none}.header-module--nav-item--2oc8C:hover{color:#666}.header-module--active-nav-item--bs\+bA{color:#333}.footer-module--footer--Z1xkR{margin-top:3rem}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{-webkit-text-decoration-skip:objects;background-color:transparent;text-decoration:underline}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font:112.5%/1.45em georgia,serif;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{word-wrap:break-word;-ms-font-feature-settings:"kern","liga","clig","calt";-webkit-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt";color:rgba(0,0,0,.8);font-family:sans-serif;font-kerning:normal;font-weight:400}img{margin:0 0 1.45rem;max-width:100%;padding:0}h1{font-size:2.25rem}h1,h2{text-rendering:optimizeLegibility;color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0}h2{font-size:1.62671rem}h3{font-size:1.38316rem}h3,h4{text-rendering:optimizeLegibility;color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0}h4{font-size:1rem}h5{font-size:.85028rem}h5,h6{text-rendering:optimizeLegibility;color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0}h6{font-size:.78405rem}hgroup{margin:0 0 1.45rem;padding:0}ol,ul{list-style-image:none;list-style-position:outside;margin:0 0 1.45rem 1.45rem;padding:0}dd,dl,figure,p{margin:0 0 1.45rem;padding:0}pre{word-wrap:normal;background:rgba(0,0,0,.04);border-radius:3px;font-size:.85rem;line-height:1.42;margin:0 0 1.45rem;overflow:auto;padding:1.45rem}table{border-collapse:collapse;font-size:1rem;line-height:1.45rem;width:100%}fieldset,table{margin:0 0 1.45rem;padding:0}blockquote{margin:0 1.45rem 1.45rem;padding:0}form,iframe,noscript{margin:0 0 1.45rem;padding:0}hr{background:rgba(0,0,0,.2);border:none;height:1px;margin:0 0 calc(1.45rem - 1px);padding:0}address{margin:0 0 1.45rem;padding:0}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-bottom:.725rem;margin-left:1.45rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";border-bottom:1px solid rgba(0,0,0,.12);padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{content:" ";letter-spacing:-.2em}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.layout-module--container--RoCXy{display:flex;flex-direction:column;margin:0 auto;max-width:750px;min-height:100vh;padding:1rem}.layout-module--container--RoCXy a,.layout-module--container--RoCXy a:visited{color:#000}.layout-module--container--RoCXy a:hover{color:#474444}.layout-module--content--FwTjf{flex-grow:1}.project-module--header--amEJ\+{margin-top:3rem}.project-module--wrapper--rVF1Z{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin:0;max-width:1100px;padding:0}.project-module--wrapper--rVF1Z .project-module--item--50wj\+{background:#f4f4f4;display:block;margin:.5rem;padding:1rem;width:330px}.project-module--wrapper--rVF1Z .project-module--item--50wj\+ p{margin-bottom:5px}.project-module--wrapper--rVF1Z .project-module--item--50wj\+ a{display:inline-block;margin-top:.75rem;text-decoration:none}.blog-module--posts--p4vu7{list-style-type:none;margin:0}.blog-module--post--AganZ{margin:1rem 0}.blog-module--post--AganZ a{background:#f4f4f4;color:#000;display:block;padding:1rem;text-decoration:none}.blog-module--post--AganZ a:hover{background:#e4e4e4}.blog-module--post--AganZ h2{margin-bottom:0}.blog-module--post--AganZ p{color:#777;font-size:.8rem;font-style:italic}</style><title data-react-helmet="true">Interesting Node.js Core Concepts | Hello, World</title><link as="script" rel="preload" href="/webpack-runtime-def905dae29ebdfc1eb7.js"/><link as="script" rel="preload" href="/framework-36ffe1d2ede05bc0dee8.js"/><link as="script" rel="preload" href="/app-90555cd028dd5f9bbbc6.js"/><link as="script" rel="preload" href="/29be24fd8fd242d7bb211404da9fead0e0da9ddb-f3f683b66a13f30078bf.js"/><link as="script" rel="preload" href="/component---src-templates-blog-js-21c273a9e1edea0f5fcc.js"/><link as="fetch" rel="preload" href="/page-data/blog/interesting-nodejs-core-concepts/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3159585216.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3364050859.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/4152315797.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/440568431.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--RoCXy"><div class="layout-module--content--FwTjf"><header class="header-module--header--knWBH"><h1><a class="header-module--title--aK00B" href="/">Hello, World</a><a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" style="position:absolute;top:47px;display:inline-block"><img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg"/></a></h1><nav><ul class="header-module--nav-list--K4gaB"><li><a class="header-module--nav-item--2oc8C" href="/">Home</a></li><li><a class="header-module--nav-item--2oc8C" href="/blog">Blog</a></li><li><a class="header-module--nav-item--2oc8C" href="/about">About</a></li><li><a class="header-module--nav-item--2oc8C" href="/project">Projects</a></li><li><a class="header-module--nav-item--2oc8C" href="/contact">Contact</a></li></ul></nav></header><h1>Interesting Node.js Core Concepts</h1><p>2022-05-14</p><div><p>I have been using Node.js for around 2-3 years. Most of the time is about building REST API or GraphQL API. Every project uses Node.js libraries a lot to help the team bootstrapping the project easily and quickly. Sometimes I feel like I jumped into building the API too quickly, instead of understanding its internal core concept first. Today, I just finished the <strong><a href="https://app.pluralsight.com/library/courses/nodejs-advanced/table-of-contents">Advanced Node.js</a></strong> from <strong><a href="https://www.pluralsight.com/">Pluralsight</a></strong> taught by <strong><a href="https://twitter.com/samerbuna">Samer Buna</a></strong> and I found many interesting topics I would like to share to other people. I think it would be great if you learn these concept of Node.js before building the REST API from other courses or tutorials. I also recommend you check out this course (no affiliate)</p>
+<h2>Node.js and Javascript Engine</h2>
+<p>As you already known, Node.js runs on the V8 engine give us an ability to execute Javascript code outside the browser. But actually, V8 is just a one options from many. Node.js also can use other Javascript engine as a VM like <strong><a href="https://github.com/nodejs/node-chakracore">node-chakracore</a></strong>. Unfortunately, this project seems no longer active anymore.</p>
+<p>you can use command <code>node --v8-options</code> to list the options features from V8 engine. Here I list all <code>--harmony</code> flag, which means you need to provide <code>--harmony</code> flag in order to get these features work.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.638297872340424%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABOElEQVQoz22R6W7CMBCE8xRtgV70IIAg90VCDjvBiU0g9P0fZiovQWqr/hiNbcnfzu4aZsaRMIWoHuA1Z4RyQCwUrKLFOhd4DUvMnJQ0dVI8ehn5xN5hqjW+T8azYcYVvPwAqz7C4kdsSgmLKThalYTNFDaVxHb0ddHhPeF4iysqRopKPPs5ubFMGKKyhduc4DQnuHUPnyv4TMETAzxxJtAqF+TzqMTMzfASFHiwEtxtItL9NiY3VglDxiV9DrsvBO0FvhiogL5r4GdaE2AeXVPdQNr/agQqBN2FAKE4IxIDAiZhle3YZkstPnl7muVPgE72C7iMK6RcUiqdToOTpkfAFIKmR9hesMgOlE6n1IAb5C+MgGbKEBSCFuLUPbldSbhVB5tfF2XuD1ikDT52nAavN/ofTAO/AToW4+NERH32AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="v8 options"
+        title="v8 options"
+        src="/static/e34d2a68f78140f1f6a07b05d746504f/1d69c/v8-options.png"
+        srcset="/static/e34d2a68f78140f1f6a07b05d746504f/4dcb9/v8-options.png 188w,
+/static/e34d2a68f78140f1f6a07b05d746504f/5ff7e/v8-options.png 375w,
+/static/e34d2a68f78140f1f6a07b05d746504f/1d69c/v8-options.png 750w,
+/static/e34d2a68f78140f1f6a07b05d746504f/78797/v8-options.png 1125w,
+/static/e34d2a68f78140f1f6a07b05d746504f/aa440/v8-options.png 1500w,
+/static/e34d2a68f78140f1f6a07b05d746504f/319c6/v8-options.png 2980w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<h2>REPL</h2>
+<p>You might have played around with the REPL after you installed Node.js on your machine. It give us a convenience way to interact with Javascript in the terminal. Here are some useful tips when you use the REPL in Node.js</p>
+<h3>Auto-Complete</h3>
+<p>You can double press <code>Tab</code> button to list all global objects in Node.js</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.93617021276595%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAACBUlEQVQoz22Q2W8SURTG59EYNampaNkKLWWH2YFhhm0YFgeqJG3iiwmx2lS7RASU1ib+5/d+5hxDHxofbnLuWX7n+47ydf1bfPmxEfPrpZhfLcWnm5X4cH7FuevbP+Ls+08xv1mJb7/uxefFRpwvb8XF6o7zHy8X3HOxvhdni424XN8JJecG2C3ZeHGkIusOcFDv4VmminS9i4zTx/MjFVGtiX27jSepInbyBgrtESLlGp4elJHzBjjiPg0FL4DSCE9k3hvKhOFJazSTWTeQkXJNVnsTmW0Gck91ZM4bSC2YyqjWlOlaV9rjmUxaLa6Zw/dS9ScyUqlLM5hKpdoLka51sKc60IJjFNtjVlTuvuXtryt1ZBo+nOkpq48bLqzRDCm7jd2iDT045t6dvAndD6Go/oTtJK0WKr0Q+dYQb6oNlDpjtkbxYcNHY3KKhOEhpjVRD09gDN4hXeui6k949gGY9wasLq67KLZHHNNNKSYgxRnHhzWesVqCkkJSS3CtP8Vho8e31fshlG2ClFS6IfatNl6VbLZB2+n4WyVRzeFzkLqsG3CNnKTszj8gKSQlMd19sLlVSRCCUz5ueEiaLXaRMFucT5ge18guLSLLVhBCKbSGfGiyE9ObHFMjQQkSVZ2HmIYZanj8eJnu8tspmDDI8naAgI9f5PG/XP9vH4FfFiy2/BcmrkmldUGZzQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="auto complete"
+        title="auto complete"
+        src="/static/0d6dfdd6114d9e3db647d557ba2bc9b4/1d69c/auto-complete.png"
+        srcset="/static/0d6dfdd6114d9e3db647d557ba2bc9b4/4dcb9/auto-complete.png 188w,
+/static/0d6dfdd6114d9e3db647d557ba2bc9b4/5ff7e/auto-complete.png 375w,
+/static/0d6dfdd6114d9e3db647d557ba2bc9b4/1d69c/auto-complete.png 750w,
+/static/0d6dfdd6114d9e3db647d557ba2bc9b4/78797/auto-complete.png 1125w,
+/static/0d6dfdd6114d9e3db647d557ba2bc9b4/aa440/auto-complete.png 1500w,
+/static/0d6dfdd6114d9e3db647d557ba2bc9b4/59173/auto-complete.png 3014w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>It also works on any object in Node.js as well, such as <code>http.</code> and double press <code>Tab</code></p>
+<pre class="grvsc-container solarized-light" data-language="shell" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&gt; http.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">http.__proto__             http.constructor           http.hasOwnProperty        http.isPrototypeOf</span></span>
+<span class="grvsc-line"><span class="grvsc-source">http.propertyIsEnumerable  http.toLocaleString        http.toString              http.valueOf</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">http.Agent                 http.ClientRequest         http.IncomingMessage       http.METHODS</span></span>
+<span class="grvsc-line"><span class="grvsc-source">http.OutgoingMessage       http.STATUS_CODES          http.Server                http.ServerResponse</span></span>
+<span class="grvsc-line"><span class="grvsc-source">http._connectionListener   http.createServer          http.get                   http.globalAgent</span></span>
+<span class="grvsc-line"><span class="grvsc-source">http.maxHeaderSize         http.request               http.validateHeaderName    http.validateHeaderValue</span></span></code></pre>
+<p>You can access to the last evaluated value by using the <code>_</code> variable and also can assign to another variable too.</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> Math.</span><span class="mtk7">random</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk6">0.7172339982201723</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> </span><span class="mtk7">_</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk6">0.7172339982201723</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">lastVal</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">_</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk5">undefined</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> </span><span class="mtk7">lastVal</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk6">0.7172339982201723</span></span></span></code></pre>
+<p>The special commands in Node.js REPL is <code>.</code> (dot), if you type command <code>.</code> and press double <code>Tab</code></p>
+<pre class="grvsc-container solarized-light" data-language="shell" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&gt; .</span></span>
+<span class="grvsc-line"><span class="grvsc-source">break   clear   editor  exit    help    load    save</span></span></code></pre>
+<p>If you type command <code>.help</code> and enter it will list all commands above with its description</p>
+<pre class="grvsc-container solarized-light" data-language="shell" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&gt; .help</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.break    Sometimes you get stuck, this gets you out</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.clear    Alias for .break</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.editor   Enter editor mode</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.exit     Exit the REPL</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.help     Print this help message</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.load     Load JS from a file into the REPL session</span></span>
+<span class="grvsc-line"><span class="grvsc-source">.save     Save all evaluated commands in this REPL session to a file</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Press Ctrl+C to abort current expression, Ctrl+D to exit the REPL</span></span></code></pre>
+<p>You can use <code>.editor</code> to enter the <code>editor</code> mode that give you the multi-line editor in the REPL and press <code>ctrl+D</code> when you done. You can learn more REPL in official documentation.</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> .</span><span class="mtk7">editor</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// Entering editor mode (Ctrl+D to finish, Ctrl+C to cancel)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">add</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (x, y) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">x</span><span class="mtk1"> </span><span class="mtk8">+</span><span class="mtk1"> </span><span class="mtk7">y</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.17021276595745%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAy0lEQVQoz6WP3QqCQBSE9yXKyn40DbxIK1N3Vw13jSIqgqDe/1EmPPYHdlNdDGeZWb5zhk2ExmJzQqD3sBOFSbqup1zDESVcWcJOCoz5K3OEpmnFBVxRkt+dSRg+B4u2J8jjFfJ4ga/3mJUHePkWU1UvGC5XpEGYE3gYrTBY5uT1yVPkdwJRA0dhBitRFPbDDOY8RXuafBBvej5H6/6uYBWUWVH+vKD68Ah+EV3opRrx7kx1zUXWAH67gI3mHMYfgAawF9Q1jbe6/0BvjSHWIQQ4QgQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="repl editor"
+        title="repl editor"
+        src="/static/ce35ddbf93c4e44e0b4e608a3072cd8a/1d69c/dot-editor.png"
+        srcset="/static/ce35ddbf93c4e44e0b4e608a3072cd8a/4dcb9/dot-editor.png 188w,
+/static/ce35ddbf93c4e44e0b4e608a3072cd8a/5ff7e/dot-editor.png 375w,
+/static/ce35ddbf93c4e44e0b4e608a3072cd8a/1d69c/dot-editor.png 750w,
+/static/ce35ddbf93c4e44e0b4e608a3072cd8a/78797/dot-editor.png 1125w,
+/static/ce35ddbf93c4e44e0b4e608a3072cd8a/e2d3b/dot-editor.png 1466w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>You can load the Javascript file into the REPL using <code>.load</code> command</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.14893617021278%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB6klEQVQ4y5WS+W7aQBjE/QypAuYs4KRg8G3s9YEvfHEYklZR3/9FvFPtNqVVS0nyx0+rlXZHM/N9wrJqWjk/tKvq1MrFsV0Ux1YvmtaKDm0UP7dO1LRfyLaduEk7c9N26iY3EUTFRUdxMTQDzMMcEklhlWfImxpjK4KoEHRVF6JKIGqEn90bCD3No4yhGdCJl9ORs6WSl1HJD+hkHdCR4dGhtaFdldD7lUNFldBff64hDM0QI2sDUQ8gbUssjwUesw3kfQlSZQiKDaYkwcRJoG2PGNkROsyN5l132Nc89DQPfZVgoLvoaRa6moOOFqJv+JyeRjAwAnxex+jr/mt87yrCOEghRSWkuMRDUmMWV5DjGvNg+/Oj6vGOuQPF5T32Xk1cQ7B3T9CLE9S8gVGdYdbs3sAsT7CrJyjpHjOSYWCGXFT8T9RLZCXZ8ana5Rnr+hlqdsA8LDEjKRdiPPg57657I+ol8iquEZ6/wyhO8I4v8JsXuPtvXIg9kLyM99fhcb03RQVW9NRNeeFsklM34XcWkW3AYlNivH6fOy44skKM7Yivzp1s425h/R6CSnC/cviaXLp7S1BN93B2X6GzoRQn2PUzHv38n3jvdmhXZxhFAzmquCjjz4l+FB6ZdcVEPi3XnL/X4yOCPwD227HUuaVCsQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="repl load"
+        title="repl load"
+        src="/static/235cea3282f4542079222b8e5dc21b3d/1d69c/repl-load.png"
+        srcset="/static/235cea3282f4542079222b8e5dc21b3d/4dcb9/repl-load.png 188w,
+/static/235cea3282f4542079222b8e5dc21b3d/5ff7e/repl-load.png 375w,
+/static/235cea3282f4542079222b8e5dc21b3d/1d69c/repl-load.png 750w,
+/static/235cea3282f4542079222b8e5dc21b3d/78797/repl-load.png 1125w,
+/static/235cea3282f4542079222b8e5dc21b3d/ccf0c/repl-load.png 1428w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<h2>Global Object, Process, and Buffer</h2>
+<p>You can use <code>global</code> objects in Node.js without using the <code>require</code> keyword. One of the most important global object is <code>process</code> so, let's talk it</p>
+<h3>Process</h3>
+<p>The <code>process</code> object provides information about, and control over, the current Node.js process application and its environment. You most you use in Node.js app is might be <code>process.env</code> to manage user environment. Here are some other useful properties of <code>process</code> object</p>
+<p>You can use <code>process.versions</code> to list all version numbers and its dependencies</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> process.versions</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  node: </span><span class="mtk11">&#39;16.15.0&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  v8: </span><span class="mtk11">&#39;9.4.146.24-node.20&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  uv: </span><span class="mtk11">&#39;1.43.0&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  zlib: </span><span class="mtk11">&#39;1.2.11&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  brotli: </span><span class="mtk11">&#39;1.0.9&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  ares: </span><span class="mtk11">&#39;1.18.1&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  modules: </span><span class="mtk11">&#39;93&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  nghttp2: </span><span class="mtk11">&#39;1.47.0&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  napi: </span><span class="mtk11">&#39;8&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  llhttp: </span><span class="mtk11">&#39;6.0.4&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  openssl: </span><span class="mtk11">&#39;1.1.1n+quic&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  cldr: </span><span class="mtk11">&#39;40.0&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  icu: </span><span class="mtk11">&#39;70.1&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  tz: </span><span class="mtk11">&#39;2021a3&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  unicode: </span><span class="mtk11">&#39;14.0&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  ngtcp2: </span><span class="mtk11">&#39;0.1.0-DEV&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  nghttp3: </span><span class="mtk11">&#39;0.1.0-DEV&#39;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<p>You can use <code>process.release</code> to get the label of your Node.js version in your machine.</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&gt;</span><span class="mtk1"> process.release</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  name: </span><span class="mtk11">&#39;node&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  lts: </span><span class="mtk11">&#39;Gallium&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  sourceUrl: </span><span class="mtk11">&#39;https://nodejs.org/download/release/v16.15.0/node-v16.15.0.tar.gz&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  headersUrl: </span><span class="mtk11">&#39;https://nodejs.org/download/release/v16.15.0/node-v16.15.0-headers.tar.gz&#39;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<p>The process object is an instance of the <code>Event Emitter</code> so you can listen to specific events on the process</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// process object</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">process.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;exit&#39;</span><span class="mtk1">, code </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// do one final synchronouse operation</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// before the node process terminates</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`About to exit with code ${</span><span class="mtk7">code</span><span class="mtk11">}`</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">process.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;uncaughtException&#39;</span><span class="mtk1">, err </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// something went wrong and unhandle</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// clean up and exit</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">error</span><span class="mtk1">(</span><span class="mtk7">err</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  process.</span><span class="mtk7">exit</span><span class="mtk1">(</span><span class="mtk6">1</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// keep the event loop running</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">process.stdin.</span><span class="mtk7">resume</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// trigger a ReferenceError exception</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">notExistFunc</span><span class="mtk1">();</span></span></span></code></pre>
+<p>TODO Process จะกลับมาอธิบายใหม่</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.127659574468087%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA10lEQVQY002Pa3KEIBCEPYigovJQEd1VIMmazf0v1VszG1L58VXDVE1Pd6Wtxe3xjf36wZY/8Xxc+DoybtuO4zgYay1jjIFzDlprjOPIf2IYBvR9DyklqkZKBO+RY8T5a3A/7qzneSLnjJQSa4wR+75jnmdmmiY2U0qh67q3oRQCVmuEZcHqF6zrikCEwG9i2zZ47xkyoZTFpG1bRgjBVFR5SR8I1xMhZU5G12mJoEpUj5bIgIyoHmmhpOOErVKQxqF2C4Q2aJqGL9V1/aflXSiz/3Myo4QvlgiSgXucCngAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="process"
+        title="process"
+        src="/static/c54324b9540a04981c7988f702c2cb43/1d69c/process-exit.png"
+        srcset="/static/c54324b9540a04981c7988f702c2cb43/4dcb9/process-exit.png 188w,
+/static/c54324b9540a04981c7988f702c2cb43/5ff7e/process-exit.png 375w,
+/static/c54324b9540a04981c7988f702c2cb43/1d69c/process-exit.png 750w,
+/static/c54324b9540a04981c7988f702c2cb43/78797/process-exit.png 1125w,
+/static/c54324b9540a04981c7988f702c2cb43/aa440/process-exit.png 1500w,
+/static/c54324b9540a04981c7988f702c2cb43/0faf1/process-exit.png 1956w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<h3>Buffer</h3>
+<p>The <code>Buffer</code> class is heavily use in Node.js in order to work with the binary streams of data. When converting between <code>Buffers</code> and strings, a character encoding may be specified. If no character encoding is specified, <code>UTF-8</code> will be used as the default. The Buffer is a lower-level data structure to represent a sequence of binary data that cannot be resized when Buffer is allowcate.</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">Buffer</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;buffer&#39;</span><span class="mtk1">);</span></span></span></code></pre>
+<p>TODO Buffer จะกลับมาอธิบายใหม่ with String decoder</p>
+<h2>Require Function</h2>
+<p><code>require</code> is a <strong>must</strong> understanding how it works in Node.js module. To execute the <code>require</code> call, Node.js goes through the following sequence of steps:</p>
+<ol>
+<li>Resolving: Find the absolute file path of a module.</li>
+<li>Loading: Determined by the content of the file at the resolved path.</li>
+<li>Wrapping: Gives every module in its private scope, and makes <code>require</code> local to every module.</li>
+<li>Evaluating: Excute the code.</li>
+<li>Caching: When <code>require</code> the same module, we don't need to go over all steps again.</li>
+</ol>
+<p>Here are what you will get when <code>console.log(module);</code> in Javascript file</p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">Module</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  id: </span><span class="mtk11">&#39;.&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  path: </span><span class="mtk11">&#39;/Users/teerapatprommarak/Project/nodejs/for-node-blog&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  exports: {},</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  filename: </span><span class="mtk11">&#39;/Users/teerapatprommarak/Project/nodejs/for-node-blog/module.js&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  loaded: </span><span class="mtk5">false</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  children: [],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  paths: [</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/Users/teerapatprommarak/Project/nodejs/for-node-blog/node_modules&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/Users/teerapatprommarak/Project/nodejs/node_modules&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/Users/teerapatprommarak/Project/node_modules&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/Users/teerapatprommarak/node_modules&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/Users/node_modules&#39;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">&#39;/node_modules&#39;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  ]</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<style class="grvsc-styles">
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line > * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: ' ';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .mtk5 { color: #B58900; }
+  .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+</style></div><giscus-widget repo="xeusteerapat/xeusteerapat.github.io" repoid="MDEwOlJlcG9zaXRvcnkyMTkyNTY4NzY=" category="General" categoryid="DIC_kwDODRGYLM4COf8-" mapping="title" reactionsenabled="1" emitmetadata="0" inputposition="bottom" theme="light" lang="en"></giscus-widget></div><footer class="footer-module--footer--Z1xkR"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/interesting-nodejs-core-concepts";window.___webpackCompilationHash="b8b3abad5cce8b6e7ee5";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-82df740e7cad994d0af0.js"],"app":["/app-90555cd028dd5f9bbbc6.js"],"component---src-pages-404-js":["/component---src-pages-404-js-e8b720adbc24c2b6c3f8.js"],"component---src-pages-about-js":["/component---src-pages-about-js-b8201ecf0ff82e0ffddd.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-845da3ad8fcfd5c124c4.js"],"component---src-pages-index-js":["/component---src-pages-index-js-85f9d49174cadf918b54.js"],"component---src-pages-project-js":["/component---src-pages-project-js-034d335cb8eb605de224.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-21c273a9e1edea0f5fcc.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-4bf5a2327a0341f2ca02.js"]};/*]]>*/</script><script src="/polyfill-82df740e7cad994d0af0.js" nomodule=""></script><script src="/component---src-templates-blog-js-21c273a9e1edea0f5fcc.js" async=""></script><script src="/29be24fd8fd242d7bb211404da9fead0e0da9ddb-f3f683b66a13f30078bf.js" async=""></script><script src="/app-90555cd028dd5f9bbbc6.js" async=""></script><script src="/framework-36ffe1d2ede05bc0dee8.js" async=""></script><script src="/webpack-runtime-def905dae29ebdfc1eb7.js" async=""></script></body></html>
