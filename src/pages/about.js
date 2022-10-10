@@ -17,9 +17,9 @@ const AboutPage = ({ data }) => {
       <Head title="About Me" />
       <h1>About Me</h1>
       <Img fluid={data.imageOne.childImageSharp.fluid} style={profileStyle} />
-      <h3>
+      <h2>
         Hello, My name is <b>Teerapat</b>
-      </h3>
+      </h2>
       <div>
         <p>
           Former Construction Engineer <span>👷🏻‍♂️</span>
@@ -32,12 +32,8 @@ const AboutPage = ({ data }) => {
         </p>
         <p>
           And now, I'm Software Engineer at{' '}
-          <a
-            href="https://mohara.co"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          MOHARA
+          <a href="https://mohara.co" target="_blank" rel="noopener noreferrer">
+            MOHARA
           </a>
         </p>
         <p>My Skills are focusing on</p>
