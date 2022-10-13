@@ -55,7 +55,7 @@ const AboutPage = ({ data }) => {
       </div>
       <p>
         <a
-          href="https://resume-teerapat-prommarak.vercel.app/"
+          href="https://teerapat-2022-resume.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
