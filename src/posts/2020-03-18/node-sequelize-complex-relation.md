@@ -1,6 +1,7 @@
 ---
 title: 'Node-Sequelize with complicated relationships'
 date: '2020-03-18'
+published: true
 ---
 
 ต่อเนื่องจาก [blog ที่แล้วนะครับ](https://xeusteerapat.github.io/blog/node-sequelize-rest-api) ผมก็ได้เขียนเกี่ยวกับการทำงานระหว่าง Node.js กับ Sequelize.js ซึ่งเอาไว้จัดการกับ database แบบที่มี table เดียวแบบง่าย ๆ ว่าต้องทำเบื้องต้นอย่างไรบ้าง คราวนี้ผมจะลองเขียนกับ database ที่มีความซับซ้อนมากขึ้นอีกหน่อย โดยจะมี ER Diagram ดังรูปข้างล่างครับ

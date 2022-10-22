@@ -1,6 +1,7 @@
 ---
 title: 'Refactor My Blog'
 date: '2019-12-09'
+published: true
 ---
 
 I just refactored my blog based on Markdown files. เพราะดูทรงแล้ว Contentful ไม่ตอบโจทย์การทำ Syntax Highlighting เท่าไหร่ (ที่จริงอาจจะมีวิธีทำได้) เมื่อลองบวกลบคูณหารดูแล้ว ใช้ Markdown ตั้งแต่แรกเลยน่าจะโอเคกว่า

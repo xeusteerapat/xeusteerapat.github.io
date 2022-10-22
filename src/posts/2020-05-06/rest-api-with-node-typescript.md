@@ -1,6 +1,7 @@
 ---
 title: 'Rest API with node and Typescript'
 date: '2020-05-07'
+published: true
 ---
 
 สวัสดีครับ วันนี้ขอนำเสนอบทความเกี่ยวกับการใช้ Node.js และ Typescript เพื่อสร้าง Rest API นะครับ เนื่องจากว่าได้รับมอบหมายให้ใช้ Typescript ทำโปรเจ็คขึ้นมาตัวนึง เลยคิดว่าเขียน blog ไว้ด้วยเลยดีกว่า ภาพรวมก็จะคล้าย ๆ กับ [บทความก่อนหน้า](https://xeusteerapat.github.io/blog/node-sequelize-rest-api) แต่ว่าคราวนี้ผมเปลี่ยนไปใช้ ORM อีกตัวนึงนั่นก็คือ [TypeORM](https://typeorm.io/#/) สาเหตุที่ไม่ได้ใช้ Sequelize เหมือนครั้งก่อนเพราะว่าตัวอย่างใน Doc ของ Sequlize ที่ใช้ Typescript มีน้อยมากกก (อ่านดูแล้วไม่ได้ช่วยอะไรใดๆ เลย 555555) แล้วทีนี้ลองมาศึก TypeORM ดู พบว่าเค้าเขียนเพื่อรองรับกับ Typescript โดยเฉพาะเลย อีกทั้งการทำ CRUD ก็คล้ายๆ กับวิธีการของ Sequelize ดังนั้นก็เลยเปลี่ยนมาใช้ TypeORM ครับ

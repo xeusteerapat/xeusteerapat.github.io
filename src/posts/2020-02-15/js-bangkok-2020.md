@@ -1,6 +1,7 @@
 ---
 title: 'Javascript Bangkok 1.0.0'
 date: '2020-02-15'
+published: true
 ---
 
 ![js-bangkok-2020](js_bkk_01.jpg)

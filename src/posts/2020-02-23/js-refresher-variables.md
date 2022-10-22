@@ -1,6 +1,7 @@
 ---
 title: 'Javascript Refresher - Variables and data types'
 date: '2020-02-23'
+published: true
 ---
 
 สวัสดีครับวันนี้จะมาเขียน blog เกี่ยวกับพื้นฐาน javascript เบื้องต้นนะครับ ช่วงนี้เรียนที่ codecamp เรื่องนี้พอดีเลยอยากจะทบทวนเก็บไว้อ่านสักหน่อย ที่จริงก็มีอยู่ใน [repository](https://github.com/xeusteerapat/javascript-refresher) ผมนี่แหละ แต่เป็นภาษาอังกฤษ (version ไม่แคร์ grammar 5555555) เนื้อหาก็เหมือนกันหมดเลยครับ (ก็ copy มานั่นแหละ 555555) ทำภาษาไทย เผื่อมีคนมาอ่าน

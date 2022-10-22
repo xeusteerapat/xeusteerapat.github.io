@@ -1,6 +1,7 @@
 ---
 title: 'Node.js Event Loop'
 date: '2020-10-10'
+published: true
 ---
 
 สวัสดีครับ ไม่ได้เขียน blog มานานเป็นเดือนละ เนื่องจากผมค่อนข้างยุ่งกับการเปลี่ยนงานใหม่และงานก็ค่อนข้างถาโถมเข้ามาแบบเยอะเลยทีเดียว (555) แต่ก็ยังพอมีเวลาไปศึกษา `node.js` เพิ่มเติมอยู่บ้าง โดยเฉพาะการทำงานภายในของตัว `node.js` เอง ซึ่ง blog นี้ก็จะนำเสนอเกี่ยวกับ **Event Loop** ซึ่งมีบทบาทสำคัญเป็นอย่างมากในตัว `node.js` core หวังว่าจะเป็นประโยชน์ต่อคนที่กำลังศึกษา `node.js` อยู่นะครับ code และเนื้อหาหลักๆ ผมจะอ้างอิงจาก [Node JS: Advanced Concepts](https://www.udemy.com/course/advanced-node-for-developers/) ของ [Stephen Grider](https://twitter.com/ste_grider) ครับผม

@@ -1,6 +1,7 @@
 ---
 title: 'Node/Express/Sequelize RESTful API'
 date: '2020-03-17'
+published: true
 ---
 
 สวัสดีครับผมมมม วันนี้จะขอนำเสนอบทความเกี่ยวกับการใช้ node.js ควบคู่กับ Sequelize.js ซึ่งเป็น Object Relational Mapping (ORM) ที่เป็นที่นิยมตัวนึงสำหรับไว้จัดการฐานข้อมูลที่เป็นแบบ Relational Database โดยผมจะแสดงการเชื่อมต่อระหว่าง express web server กับ sequelize แบบง่าย ๆ ก่อนนะครับ

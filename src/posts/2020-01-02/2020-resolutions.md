@@ -1,6 +1,7 @@
 ---
 title: '2020 Resolutions'
 date: '2020-01-02'
+published: true
 ---
 
 ## เป้าหมายในปี 2020

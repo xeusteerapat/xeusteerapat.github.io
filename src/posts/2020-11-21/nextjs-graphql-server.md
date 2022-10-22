@@ -1,6 +1,7 @@
 ---
 title: 'Create Graphql server in Next.js'
 date: '2020-11-21'
+published: true
 ---
 
 สวัสดีครับ วันนี้จะมาแนะนำการสร้าง Graphql server ใน Next.js project กัน หลายคนอาจจะสงสัยนะครับว่า อ้าว Next.js เป็น React Framework ไม่ใช่เหรอ แล้วมันเอามาทำ Graphql server ได้ยังไง ตอนแรกผมก็งงๆ แบบนี้เหมือนกัน แต่ลองไปค้นคว้าเพิ่มเติมดูพบว่า ตั้งแต่ Next.js version 9 เป็นต้นมา เราสามารถสร้าง api route ได้เองใน project ของเราเลย ซึ่งก็สามารถสร้างได้ทั้ง REST api ปกติ หรือว่า Graphql api ก็ได้เช่นกัน ทีนี้มีขั้นตอนการทำยังไง เรามาเริ่มกันเลยครับ

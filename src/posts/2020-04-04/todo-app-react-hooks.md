@@ -1,6 +1,7 @@
 ---
 title: 'Todo List app with React Hooks'
 date: '2020-04-04'
+published: true
 ---
 
 จาก [blog ที่แล้วเราได้ลองเขียน](https://xeusteerapat.github.io/blog/basic-react-todo-app) Todo list app แบบใช้ class component กันไปแล้ว คราวนี้ผมจะมาเขียน Todo list เหมือนเดิมแต่ว่าเปลี่ยนมาใช้เป็น React Hooks แทนนะครับ ซึ่งเจ้าตัว Hooks เนี่ยหลัก ๆ แล้ว React Team พัฒนาขึ้นมาโดยมีวัตถุประสงค์หลัก ๆ คือ

@@ -1,6 +1,7 @@
 ---
 title: 'This is just a first post'
 date: '2019-11-03'
+published: true
 ---
 
 สวัสดีครับ...

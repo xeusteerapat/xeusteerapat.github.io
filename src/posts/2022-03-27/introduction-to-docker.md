@@ -1,6 +1,7 @@
 ---
 title: 'Introduction to Docker'
 date: '2022-03-27'
+published: true
 ---
 
 Many times we write programs and we want our programs to work properly without any external factors interfering. or do not want our program to affect other programs in the machine We may take our program to run in the **Virtual Machine (VM)** to solve the above problem.
