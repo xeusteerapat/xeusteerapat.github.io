@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-blog-list-js",
     "path": "/blog/4",
-    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"date":"2019-11-03","title":"This is just a first post"},"fields":{"slug":"first-post"}}}]}},"pageContext":{"limit":6,"skip":18,"numPages":4,"currentPage":4}},
+    "result": {"data":{"allMarkdownRemark":{"edges":[]}},"pageContext":{"limit":6,"skip":18,"numPages":4,"currentPage":4}},
     "staticQueryHashes": ["3159585216","3364050859","4152315797","440568431"]}
