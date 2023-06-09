@@ -17,7 +17,7 @@
   "dependencies": {
     "@giscus/react": "^2.0.2",
     "dotenv": "^10.0.0",
-    "gatsby": "^4.11.2",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.4.0",
     "gatsby-plugin-postcss": "^4.11.0",
