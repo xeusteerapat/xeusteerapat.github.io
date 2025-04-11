@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Paginator from '../../components/Paginator.astro';
+import { SITE } from '../../config';
+
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await Astro.glob('../../posts/**/*.md');
+	const filteredPosts = allPosts
+		.filter((post) => post.frontmatter.published !== false)
+		.sort(
+			(a, b) =>
+				new Date(b.frontmatter.date).valueOf() -
+				new Date(a.frontmatter.date).valueOf()
+		);
+
+	return paginate(filteredPosts, { pageSize: SITE.postsPerPage });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout
+	title='Blog | Hello, World'
+	description='Blog posts about web development and technology'
+>
+	<div class='blog-container'>
+		<h1 class='blog-title'>Blog</h1>
+
+		<div class='post-list'>
+			{
+				page.data.map((post) => {
+					// Extract post slug from file path
+					// Format: /Users/.../src/posts/2019-11-03/first-post.md -> first-post
+					const pathParts = post.file.split('/');
+					const fileName = pathParts[pathParts.length - 1];
+					const slug = fileName.replace('.md', '');
+
+					// Format date
+					const formattedDate = new Date(
+						post.frontmatter.date
+					).toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+					});
+
+					return (
+						<article class='post-card'>
+							<a href={`/blog/${slug}`} class='post-link'>
+								<h2 class='post-title'>{post.frontmatter.title}</h2>
+								<time class='post-date'>{formattedDate}</time>
+
+								{post.frontmatter.description && (
+									<p class='post-excerpt'>{post.frontmatter.description}</p>
+								)}
+
+								<div class='read-more'>
+									<span class='read-more-text'>
+										Read more
+										<svg
+											xmlns='http://www.w3.org/2000/svg'
+											class='arrow-icon'
+											fill='none'
+											viewBox='0 0 24 24'
+											stroke='currentColor'
+										>
+											<path
+												stroke-linecap='round'
+												stroke-linejoin='round'
+												stroke-width='2'
+												d='M9 5l7 7-7 7'
+											/>
+										</svg>
+									</span>
+								</div>
+							</a>
+						</article>
+					);
+				})
+			}
+		</div>
+
+		<Paginator
+			currentPage={page.currentPage}
+			totalPages={page.lastPage}
+			disablePrevious={page.url.prev === undefined}
+			disableNext={page.url.next === undefined}
+		/>
+	</div>
+</BaseLayout>
+
+<style>
+	.blog-container {
+		max-width: 48rem;
+		margin: 0 auto;
+	}
+
+	.blog-title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #1f2937;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.post-card {
+		background-color: white;
+		border: 1px solid #e5e7eb;
+		border-radius: 0.5rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		transition:
+			box-shadow 0.2s,
+			transform 0.2s;
+	}
+
+	.post-card:hover {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+	}
+
+	.post-link {
+		display: block;
+		padding: 1.5rem;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.post-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin-bottom: 0.5rem;
+		transition: color 0.2s;
+	}
+
+	.post-card:hover .post-title {
+		color: #0284c7;
+	}
+
+	.post-date {
+		display: block;
+		font-size: 0.875rem;
+		color: #6b7280;
+		margin-bottom: 0.75rem;
+	}
+
+	.post-excerpt {
+		color: #4b5563;
+		margin-bottom: 1rem;
+	}
+
+	.read-more {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.read-more-text {
+		display: inline-flex;
+		align-items: center;
+		color: #0284c7;
+		font-weight: 500;
+		font-size: 0.875rem;
+	}
+
+	.arrow-icon {
+		width: 1rem;
+		height: 1rem;
+		margin-left: 0.25rem;
+	}
+</style>

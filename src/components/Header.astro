@@ -1,0 +1,139 @@
+---
+import { SITE } from '../config';
+---
+
+<header class="header">
+  <div class="header-container">
+    <div class="brand">
+      <a href="/" class="site-title">{SITE.title}</a>
+      <a
+        href="https://webring.wonderful.software#curiousdev.in.th"
+        title="วงแหวนเว็บ"
+        class="webring"
+      >
+        <img
+          alt="วงแหวนเว็บ"
+          width="32"
+          height="32"
+          src="https://webring.wonderful.software/webring.black.svg"
+          class="webring-image"
+        />
+      </a>
+    </div>
+    
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="/" class="nav-item">Home</a>
+        </li>
+        <li>
+          <a href="/blog" class="nav-item">Blog</a>
+        </li>
+        <li>
+          <a href="/about" class="nav-item">About</a>
+        </li>
+        <li>
+          <a href="/contact" class="nav-item">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    padding: 1.5rem 0;
+  }
+  
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  @media (min-width: 768px) {
+    .header-container {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .brand {
+      margin-bottom: 0;
+    }
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  @media (min-width: 768px) {
+    .site-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .site-title:hover {
+    color: #0284c7;
+  }
+  
+  .webring {
+    margin-left: 0.75rem;
+  }
+  
+  .webring-image {
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+  
+  .webring-image:hover {
+    opacity: 0.8;
+  }
+  
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  
+  .nav-item {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .nav-item:hover {
+    color: #0284c7;
+  }
+  
+  .nav-item[aria-current="page"] {
+    color: #0284c7;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  // Add aria-current="page" to active nav links
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === window.location.pathname || 
+        (link.getAttribute('href') === '/blog' && window.location.pathname.startsWith('/blog/'))) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+</script>

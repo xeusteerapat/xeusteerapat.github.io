@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | Hello, World" description="Page not found">
+  <div class="flex items-center justify-center min-h-[60vh] py-12">
+    <div class="text-center">
+      <h1 class="text-6xl font-bold text-primary-600 mb-4">404</h1>
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6">Page Not Found</h2>
+      <p class="text-gray-600 max-w-md mx-auto mb-8">
+        Sorry, we couldn't find the page you're looking for. Perhaps you've mistyped the URL or the page has been moved.
+      </p>
+      <a href="/" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+</BaseLayout>
