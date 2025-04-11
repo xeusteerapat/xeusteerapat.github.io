@@ -5,7 +5,7 @@ import { SITE } from '../config';
 <header class="header">
   <div class="header-container">
     <div class="brand">
-      <a href="/" class="site-title">{SITE.title}</a>
+      <a href={import.meta.env.BASE_URL} class="site-title">{SITE.title}</a>
       <a
         href="https://webring.wonderful.software#curiousdev.in.th"
         title="วงแหวนเว็บ"
@@ -24,16 +24,16 @@ import { SITE } from '../config';
     <nav>
       <ul class="nav-list">
         <li>
-          <a href="/" class="nav-item">Home</a>
+          <a href={import.meta.env.BASE_URL} class="nav-item">Home</a>
         </li>
         <li>
-          <a href="/blog" class="nav-item">Blog</a>
+          <a href={import.meta.env.BASE_URL + 'blog'} class="nav-item">Blog</a>
         </li>
         <li>
-          <a href="/about" class="nav-item">About</a>
+          <a href={import.meta.env.BASE_URL + 'about'} class="nav-item">About</a>
         </li>
         <li>
-          <a href="/contact" class="nav-item">Contact</a>
+          <a href={import.meta.env.BASE_URL + 'contact'} class="nav-item">Contact</a>
         </li>
       </ul>
     </nav>
@@ -130,9 +130,14 @@ import { SITE } from '../config';
 <script>
   // Add aria-current="page" to active nav links
   const navLinks = document.querySelectorAll('nav a');
+  const basePath = import.meta.env.BASE_URL;
+  const currentPath = window.location.pathname;
+  
   navLinks.forEach(link => {
-    if (link.getAttribute('href') === window.location.pathname || 
-        (link.getAttribute('href') === '/blog' && window.location.pathname.startsWith('/blog/'))) {
+    const href = link.getAttribute('href');
+    if (href === currentPath || 
+        href === basePath && (currentPath === basePath || currentPath === '/') ||
+        href === basePath + 'blog' && currentPath.startsWith(basePath + 'blog')) {
       link.setAttribute('aria-current', 'page');
     }
   });
