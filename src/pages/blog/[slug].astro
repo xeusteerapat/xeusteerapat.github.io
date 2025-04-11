@@ -11,9 +11,17 @@ export async function getStaticPaths() {
     const fileName = pathParts[pathParts.length - 1];
     const slug = fileName.replace('.md', '');
     
+    // Process image paths to make them relative to post directory
+    const content = post.compiledContent();
+    const updatedPost = {
+      ...post,
+      // Add metadata about the post directory to use for image resolution
+      postDirectory: pathParts.slice(-2)[0]
+    };
+    
     return {
       params: { slug },
-      props: { post }
+      props: { post: updatedPost }
     };
   });
 }
