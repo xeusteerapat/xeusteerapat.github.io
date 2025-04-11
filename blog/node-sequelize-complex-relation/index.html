@@ -1,29 +1,7 @@
-<!DOCTYPE html><html lang="th"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.7"/><meta data-react-helmet="true" name="description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" property="og:url" content="https://curiousdev.in.th/blog/node-sequelize-complex-relation"/><meta data-react-helmet="true" property="og:title" content="Node-Sequelize with complicated relationships"/><meta data-react-helmet="true" property="og:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@xeusteerapat"/><meta data-react-helmet="true" name="twitter:title" content="Node-Sequelize with complicated relationships"/><meta data-react-helmet="true" name="twitter:description" content="Full-stack web developer who always curiosity and learn new things."/><style data-href="/styles.b74fcce386d682139b69.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#fafafa;color:#90a4ae;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#cceae7;color:#263238}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#7c4dff}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}.header-module--header--92758{padding:1rem 0 3rem}.header-module--title--68ad3{color:#000;font-size:3rem;text-decoration:none}.header-module--nav-list--2b881{display:flex;list-style-type:none;margin:0}.header-module--nav-item--da873{color:#999;font-size:.9rem;margin-right:1.3rem;text-decoration:none}.header-module--nav-item--da873:hover{color:#666}.header-module--active-nav-item--6ecf9{color:#333}.footer-module--footer--675c6{margin-top:3rem}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{-webkit-text-decoration-skip:objects;background-color:transparent;text-decoration:underline}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font:112.5%/1.45em georgia,serif;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{word-wrap:break-word;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt";color:rgba(0,0,0,.8);font-family:sans-serif;font-kerning:normal;font-weight:400}img{margin:0 0 1.45rem;max-width:100%;padding:0}h1{font-size:2.25rem}h1,h2{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h2{font-size:1.62671rem}h3{font-size:1.38316rem}h3,h4{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h4{font-size:1rem}h5{font-size:.85028rem}h5,h6{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h6{font-size:.78405rem}hgroup{margin:0 0 1.45rem;padding:0}ol,ul{list-style-image:none;list-style-position:outside;margin:0 0 1.45rem 1.45rem;padding:0}dd,dl,figure,p{margin:0 0 1.45rem;padding:0}pre{word-wrap:normal;background:rgba(0,0,0,.04);border-radius:3px;font-size:.85rem;line-height:1.42;margin:0 0 1.45rem;overflow:auto;padding:1.45rem}table{border-collapse:collapse;font-size:1rem;line-height:1.45rem;width:100%}fieldset,table{margin:0 0 1.45rem;padding:0}blockquote{margin:0 1.45rem 1.45rem;padding:0}form,iframe,noscript{margin:0 0 1.45rem;padding:0}hr{background:rgba(0,0,0,.2);border:none;height:1px;margin:0 0 calc(1.45rem - 1px);padding:0}address{margin:0 0 1.45rem;padding:0}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-bottom:.725rem;margin-left:1.45rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";border-bottom:1px solid rgba(0,0,0,.12);padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{content:" ";letter-spacing:-.2em}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.layout-module--container--46809{display:flex;flex-direction:column;margin:0 auto;max-width:750px;min-height:100vh;padding:1rem}.layout-module--container--46809 a,.layout-module--container--46809 a:visited{color:#000}.layout-module--container--46809 a:hover{color:#474444}.layout-module--content--1704e{flex-grow:1}.project-module--header--6a610{margin-top:3rem}.project-module--wrapper--ad517{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin:0;max-width:1100px;padding:0}.project-module--wrapper--ad517 .project-module--item--e74c2{background:#f4f4f4;display:block;margin:.5rem;padding:1rem;width:330px}.project-module--wrapper--ad517 .project-module--item--e74c2 p{margin-bottom:5px}.project-module--wrapper--ad517 .project-module--item--e74c2 a{display:inline-block;margin-top:.75rem;text-decoration:none}.blog-module--posts--a78be{list-style-type:none;margin:0}.blog-module--post--0206a{margin:1rem 0}.blog-module--post--0206a a{background:#f4f4f4;color:#000;display:block;padding:1rem;text-decoration:none}.blog-module--post--0206a a:hover{background:#e4e4e4}.blog-module--post--0206a h2{margin-bottom:0}.blog-module--post--0206a p{color:#777;font-size:.8rem;font-style:italic}</style><title data-react-helmet="true">Node-Sequelize with complicated relationships | Hello, World</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--46809"><div class="layout-module--content--1704e"><header class="header-module--header--92758"><h1><a class="header-module--title--68ad3" href="/">Hello, World</a><a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" style="position:absolute;top:47px;display:inline-block"><img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg"/></a></h1><nav><ul class="header-module--nav-list--2b881"><li><a class="header-module--nav-item--da873" href="/">Home</a></li><li><a class="header-module--nav-item--da873" href="/blog">Blog</a></li><li><a class="header-module--nav-item--da873" href="/about">About</a></li><li><a class="header-module--nav-item--da873" href="/project">Projects</a></li><li><a class="header-module--nav-item--da873" href="/contact">Contact</a></li></ul></nav></header><h1>Node-Sequelize with complicated relationships</h1><p>2020-03-18</p><div><p>ต่อเนื่องจาก <a href="https://xeusteerapat.github.io/blog/node-sequelize-rest-api">blog ที่แล้วนะครับ</a> ผมก็ได้เขียนเกี่ยวกับการทำงานระหว่าง Node.js กับ Sequelize.js ซึ่งเอาไว้จัดการกับ database แบบที่มี table เดียวแบบง่าย ๆ ว่าต้องทำเบื้องต้นอย่างไรบ้าง คราวนี้ผมจะลองเขียนกับ database ที่มีความซับซ้อนมากขึ้นอีกหน่อย โดยจะมี ER Diagram ดังรูปข้างล่างครับ</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 85.1063829787234%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAABt0lEQVQ4y32UW6+CQAyE+f8/zzcfUESDeAEEbyhoT74mQ2AxZ5PNLt3uTDvbEpmZfb9f+28cDgfb7/eW57n1fT85C+9GMnw+H7vf79Z1nT2fT9/Ldr1efR6PR3u9Xg7yeDysbVu/C4nsAyCG5XJpp9PJbrebVVVl7/fb1uu1EwCQJImv3MmyzH0Zl8vFzuez+zugJhFhhBkQgMWsM/ZkgQ/gTHyFEYVaKE30IkpSbZrGJzqyEhHRpWlqu93OSYURiV3MRVE4CNExiQCNiA47e/yJCmDpPgByiWhg4TWZElkp4hMOQAEMM4xAhxmmMRurnNhDAJG0YqAjwDNA9FitVlbXtRvRKY5jf0kRbLdbf3EkYZAy+pVlOQGNYJXwKglAcNS3yorU8QMMEHxUiwMgh5vNZhY6AACG3UAAgLAi0UxDgLiol1aEKma1GufacwYhwKyTlMO+ZMKMZtQhe6WKxsiDHRsakzYEk14ep0SpEBmXKYtxv7JX3bIHHDAmhEQ79DIX1BFjTXDWA4UDG6QQ8Pp8TwCVooocMPRcLBae3lgW/RTGpeUp//qnkTZ9G0Ylv1//T/0c/gDCwi+HmT6YsQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="ERD Artist System"
-        title="ERD Artist System"
-        src="/static/0d9fd758cfb5325fd5eebcf3cce8c07e/1d69c/ERD_Artist.png"
-        srcset="/static/0d9fd758cfb5325fd5eebcf3cce8c07e/4dcb9/ERD_Artist.png 188w,
-/static/0d9fd758cfb5325fd5eebcf3cce8c07e/5ff7e/ERD_Artist.png 375w,
-/static/0d9fd758cfb5325fd5eebcf3cce8c07e/1d69c/ERD_Artist.png 750w,
-/static/0d9fd758cfb5325fd5eebcf3cce8c07e/78797/ERD_Artist.png 1125w,
-/static/0d9fd758cfb5325fd5eebcf3cce8c07e/aa440/ERD_Artist.png 1500w,
-/static/0d9fd758cfb5325fd5eebcf3cce8c07e/016a8/ERD_Artist.png 1576w"
-        sizes="(max-width: 750px) 100vw, 750px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>Node-Sequelize with complicated relationships | Hello, World</title><meta name="description"><meta property="og:image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_assets/_slug_.5Zos-WDK.css">
+<style>.comments[data-astro-cid-on2fnc7p]{margin-top:2rem}.comments-title[data-astro-cid-on2fnc7p]{font-size:1.25rem;font-weight:600;color:#1f2937;margin-bottom:1rem}.giscus-container[data-astro-cid-on2fnc7p]{margin-top:1rem}.blog-post[data-astro-cid-bvzihdzo]{margin-bottom:2rem}.blog-title[data-astro-cid-bvzihdzo]{font-size:2rem;font-weight:700;color:#1f2937;margin-bottom:.5rem}@media (min-width: 768px){.blog-title[data-astro-cid-bvzihdzo]{font-size:2.25rem}}.blog-date[data-astro-cid-bvzihdzo]{display:block;font-size:.875rem;color:#6b7280;margin-bottom:2rem}.blog-content[data-astro-cid-bvzihdzo]{margin-top:1.5rem;line-height:1.7}.blog-content[data-astro-cid-bvzihdzo] h2{font-size:1.5rem;font-weight:600;color:#1f2937;margin:2rem 0 1rem}.blog-content[data-astro-cid-bvzihdzo] h3{font-size:1.25rem;font-weight:600;color:#1f2937;margin:1.5rem 0 1rem}.blog-content[data-astro-cid-bvzihdzo] p{margin-bottom:1.25rem}.blog-content[data-astro-cid-bvzihdzo] img{max-width:100%;height:auto;display:block;margin:2rem auto;border-radius:4px;box-shadow:0 2px 4px #0000001a}.blog-content[data-astro-cid-bvzihdzo] ul,.blog-content[data-astro-cid-bvzihdzo] ol{margin-left:2rem;margin-bottom:1.25rem}.blog-content[data-astro-cid-bvzihdzo] li{margin-bottom:.5rem}.blog-content[data-astro-cid-bvzihdzo] a{color:#0284c7;text-decoration:none}.blog-content[data-astro-cid-bvzihdzo] a:hover{text-decoration:underline}.comments-section[data-astro-cid-bvzihdzo]{margin-top:4rem;padding-top:2rem;border-top:1px solid #e5e7eb}
+</style></head> <body style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f9fafb;" data-astro-cid-37fxchfa> <div class="container-main" style="flex-grow: 1;" data-astro-cid-37fxchfa> <header class="header" data-astro-cid-3ef6ksr2> <div class="header-container" data-astro-cid-3ef6ksr2> <div class="brand" data-astro-cid-3ef6ksr2> <a href="/" class="site-title" data-astro-cid-3ef6ksr2>Hello, World</a> <a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" class="webring" data-astro-cid-3ef6ksr2> <img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg" class="webring-image" data-astro-cid-3ef6ksr2> </a> </div> <nav data-astro-cid-3ef6ksr2> <ul class="nav-list" data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-item" data-astro-cid-3ef6ksr2>Home</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-item" data-astro-cid-3ef6ksr2>Blog</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/about" class="nav-item" data-astro-cid-3ef6ksr2>About</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/contact" class="nav-item" data-astro-cid-3ef6ksr2>Contact</a> </li> </ul> </nav> </div> </header>  <script type="module">const e=document.querySelectorAll("nav a");e.forEach(t=>{(t.getAttribute("href")===window.location.pathname||t.getAttribute("href")==="/blog"&&window.location.pathname.startsWith("/blog/"))&&t.setAttribute("aria-current","page")});</script> <main style="padding-top: 2rem; padding-bottom: 2rem;" data-astro-cid-37fxchfa>  <article class="blog-post" data-astro-cid-bvzihdzo> <h1 class="blog-title" data-astro-cid-bvzihdzo>Node-Sequelize with complicated relationships</h1> <time class="blog-date" data-astro-cid-bvzihdzo>March 18, 2020</time> <div class="blog-content" data-astro-cid-bvzihdzo>  <p>ต่อเนื่องจาก <a href="https://xeusteerapat.github.io/blog/node-sequelize-rest-api">blog ที่แล้วนะครับ</a> ผมก็ได้เขียนเกี่ยวกับการทำงานระหว่าง Node.js กับ Sequelize.js ซึ่งเอาไว้จัดการกับ database แบบที่มี table เดียวแบบง่าย ๆ ว่าต้องทำเบื้องต้นอย่างไรบ้าง คราวนี้ผมจะลองเขียนกับ database ที่มีความซับซ้อนมากขึ้นอีกหน่อย โดยจะมี ER Diagram ดังรูปข้างล่างครับ</p>
+<p><img  src="/_assets/ERD_Artist.Bfsavu2Y_1g3q3S.webp" alt="ERD Artist System" width="1576" height="1344" loading="lazy" decoding="async"></p>
 <p>สำหรับท่านที่เซียนแล้วอาจจะเห็นว่าไม่เท่าไหร่ แต่ผมมือใหม่ไง 555555 ก็คิดว่ามันดูซับซ้อนแหละ อย่างน้อยก็เยอะกว่า blog ที่แล้ว ส่วนใครที่ยังงงเกี่ยว ER Diagram ก็ลองศึกษาเกี่ยวกับ database เบื้องต้นมาก่อนนะครับ ทีนี้เรามาลองไล่ดูความสัมพันธ์ของแต่ละ Entity โดยความสัมพันธ์แต่ละแบบจะเป็นตัวกำหนดว่า ฝั่งไหนจะเก็บ foreign key ของอีกฝั่ง</p>
 <ul>
 <li>Artist and Address เป็นแบบ <strong>Many-to-One</strong> ดังนั้น <code>addressId</code> ต้องเป็น foreign key ของ table <code>artist</code></li>
@@ -33,148 +11,136 @@
 <li>Artist and Instrument เป็นแบบ <strong>Many-to-Many</strong> ดังนั้นต้องสร้าง table ขึ้นมาอีกอันนึง และเก็บค่าทั้ง <code>artistId</code> และ <code>instrumentId</code></li>
 <li>Instrument and Song เป็นแบบ <strong>Many-to-Many</strong> ดังนั้นต้องสร้าง table ขึ้นมาอีกอันนึง และเก็บค่าทั้ง <code>instrumentId</code> และ <code>songId</code></li>
 </ul>
-<h2>Project setup</h2>
+<h2 id="project-setup">Project setup</h2>
 <p>การติดตั้ง dependencies ต่าง ๆ ทำเหมือนกับ <a href="https://xeusteerapat.github.io/blog/node-sequelize-rest-api">blog ที่แล้ว</a> แต่ทีนี้สิ่งที่ต่างกันก็จะเป็นในส่วนของ models ของเราครับ เพราะต้องมีไฟล์เพิ่มขึ้นมาตามตารางที่เพิ่มขึ้นครับ สร้างไฟล์ใน folder models ดังต่อไปนี้</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 414px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 88.82978723404256%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACJElEQVQ4y5WUyYoTURSG+wXUnuxO6ta5Q00hlYSkKompDN1uxEY3LTS461bEATeOCxVXIiK4dyfic/hyv5wTC2Oiqe7Foc6Fy3+/v86w4XkeyPfhEyE1BtNWCmstjDGwxsA5J7lSCj7f8/2/8uXYYEFNBAoj3Gok+Pn4KYbZCFmeoygKzGYz9Pt9ETmPqAhyQuSjVlfI2wYHQ4O6p+QhrfWKQCUhEcEawqVND++eBPjxKYJxDcxmU4zHYyHNsgzD4RBhGKKEWEvINEzYaxOKXEP5hCBw88eslWAxPlcScsKEl7c8vHkY4vvHCNomQpjnGbrdLvI8lwKV9yv/odZzwkGXMB0QSBvEcSxULMT5crXXChpDuLLt4flZgK/vI5CO0O/nGAwGaLfbaDablXQrhPs1hcORxtGhhjYOSRIjSRIJJlwsRqVlJtza8fDgxOHzixCKHFppijRNEUWRCF6oD5lwd0/h+IbF6bGFsaG0Cken0xHbtVpNKBetLwv/IdSEnasKJ0cWL+85KLKI40jouDBMyNYbjYacqy1rwvauwtkdh1f3HYyLZeS4KNw2/OXW4eDzuSzv7StcLzTu3raoe760CzdyGYuWS8H/WzaEzW0Pz04DfHkdIIxTTCYTGT2m6vV6KyP3L8qVtrmWadw8MDJ6JRkvCI4LVbkcvbePQnz7MF8ORTESQl4KrVZr7VJYESxfDawPZ+cL1/xesEEQVC6FUvAXCbj5iK58cVEAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="models"
-        title="models"
-        src="/static/0e4f9451bf2c7a48df360f579c2be82d/b910a/models.png"
-        srcset="/static/0e4f9451bf2c7a48df360f579c2be82d/4dcb9/models.png 188w,
-/static/0e4f9451bf2c7a48df360f579c2be82d/5ff7e/models.png 375w,
-/static/0e4f9451bf2c7a48df360f579c2be82d/b910a/models.png 414w"
-        sizes="(max-width: 414px) 100vw, 414px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
-<h3><code>address.js</code></h3>
+<p><img  src="/_assets/models.CyeOC4FE_2bqd4P.webp" alt="models" width="414" height="368" loading="lazy" decoding="async"></p>
+<h3 id="addressjs"><code>address.js</code></h3>
 <p>จากความสัมพันธ์พบว่ามีการเก็บค่า <code>addr</code> เพียงอย่างเดียว อ้อออ ผมลืมบอกไปว่า ถ้าเราใช้ sequelize มันจะสร้าง id ให้เราอัตโนมัติครับ เราไม่ต้องระบุลงไปใน models ดังนั้นก็จะได้ code ของ <code>address.js</code> แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">address</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;address&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    addr: { type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1"> }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">address</span><span class="mtk1">.</span><span class="mtk7">associate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> models </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">address</span><span class="mtk1">.</span><span class="mtk7">hasMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">artist</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">address</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> address <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'address'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">addr</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  address<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token parameter">models</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    address<span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>artist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> address<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <p>สิ่งที่แตกต่างจาก blog ก่อนนหน้านี้ ก็คือเราต้องทำการระบุด้วยว่า <code>address</code> มีความสัมพันธ์กับตารางอื่นอย่างไรบ้าง ถ้าเลื่อนขึ้นไปดูข้างบนที่ผมอธิบายไว้ว่า Artist and Address เป็นแบบ <strong>Many-to-One</strong> ดังนั้น ก็จะได้เป็น <code>address.hasMany(models.artist)</code></p>
-<h3><code>artist.js</code></h3>
+<h3 id="artistjs"><code>artist.js</code></h3>
 <p>จาก ER เราจะเห็น artist มีความเกี่ยวข้องกับหลาย entity มาก เมื่อเราทำการ define models ก็จะได้ออกมาเป็นแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">artist</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;artist&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    },</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    phoneNumber: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">10</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">associate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> models </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">belongsTo</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">address</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">hasMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">song</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">hasMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">album</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">belongsToMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">instrument</span><span class="mtk1">, { through: </span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">play</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">artist</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> artist <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'artist'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">phoneNumber</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  artist<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token parameter">models</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    artist<span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    artist<span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>song<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    artist<span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>album<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    artist<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>instrument<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">through</span><span class="token operator">:</span> models<span class="token punctuation">.</span>play <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> artist<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <p>จาก syntax ก็เห็นว่าค่อนข้างตรงไปตรงมากับความสัมพันธที่อธิบายไว้ข้างต้นนะครับ โดยที่ถ้าเป็น Many-to-Many ก็จะมีการเพิ่มตารางขึ้นมา <code>{ through: models.play }</code></p>
-<h3><code>album.js</code></h3>
+<h3 id="albumjs"><code>album.js</code></h3>
 <p>Album มีเอี่ยวกับ Artist และ Song ก็จะเขียนได้เป็นแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">album</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;album&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    },</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    releaseDate: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">DATE</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">album</span><span class="mtk1">.</span><span class="mtk7">associate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> models </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">album</span><span class="mtk1">.</span><span class="mtk7">hasMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">song</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">album</span><span class="mtk1">.</span><span class="mtk7">belongsTo</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">artist</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">album</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
-<h3><code>instrument.js</code></h3>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> album <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'album'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">releaseDate</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">DATE</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  album<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token parameter">models</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    album<span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>song<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    album<span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>artist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> album<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="instrumentjs"><code>instrument.js</code></h3>
 <p>instrument มีความสัมพันธ์เป็นแบบ Many-to-Many กับทั้ง Artist และ Song ดังนั้นก็จะเขียนได้เป็น</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">instrument</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;instrument&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">instrument</span><span class="mtk1">.</span><span class="mtk7">associate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> models </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">instrument</span><span class="mtk1">.</span><span class="mtk7">belongsToMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">artist</span><span class="mtk1">, { through: </span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">play</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">instrument</span><span class="mtk1">.</span><span class="mtk7">belongsToMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">song</span><span class="mtk1">, { through: </span><span class="mtk11">&#39;InstrumentSong&#39;</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">instrument</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
-<h3><code>song.js</code></h3>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> instrument <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'instrument'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  instrument<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token parameter">models</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    instrument<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>artist<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">through</span><span class="token operator">:</span> models<span class="token punctuation">.</span>play <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    instrument<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>song<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">through</span><span class="token operator">:</span> <span class="token string">'InstrumentSong'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> instrument<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="songjs"><code>song.js</code></h3>
 <p>ความสัมพันธ์ของ Song กับตัวอื่นๆ มีทั้ง Many-to-One และ Many-to-Many เราจะ define model ของ song ได้เป็นแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">song</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;song&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">STRING</span><span class="mtk1">(</span><span class="mtk6">100</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">associate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> models </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">belongsTo</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">artist</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">belongsTo</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">album</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">belongsToMany</span><span class="mtk1">(</span><span class="mtk7">models</span><span class="mtk1">.</span><span class="mtk7">instrument</span><span class="mtk1">, { through: </span><span class="mtk11">&#39;InstrumentSong&#39;</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">song</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> song <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'song'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">STRING</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  song<span class="token punctuation">.</span><span class="token function-variable function">associate</span> <span class="token operator">=</span> <span class="token parameter">models</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    song<span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>artist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    song<span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>album<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    song<span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>instrument<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">through</span><span class="token operator">:</span> <span class="token string">'InstrumentSong'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> song<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <p>โดยเราต้องเพิ่ม table ที่เพิ่มเข้ามาเพื่อเชื่อมความสัมพันธ์ระหว่าง instrument เพราะเป็นแบบ Many-to-Many ผมตั้งชื่อว่า InstrumentSong ละกัน</p>
-<h3><code>play.js</code></h3>
+<h3 id="playjs"><code>play.js</code></h3>
 <p>เป็น table ของความสัมพันธ์ระหว่าง Artist และ Instrument โดยที่เก็บค่า minute code ก็จะได้แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">module</span><span class="mtk1">.</span><span class="mtk8">exports</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (sequelize, DataTypes) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">play</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">define</span><span class="mtk1">(</span><span class="mtk11">&#39;play&#39;</span><span class="mtk1">, {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    minute: { type: </span><span class="mtk7">DataTypes</span><span class="mtk1">.</span><span class="mtk7">INTEGER</span><span class="mtk1"> }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">play</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
-<h2>Create Database</h2>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">sequelize<span class="token punctuation">,</span> DataTypes</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> play <span class="token operator">=</span> sequelize<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'play'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">minute</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> DataTypes<span class="token punctuation">.</span><span class="token constant">INTEGER</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> play<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="create-database">Create Database</h2>
 <p>ทีนี้ทำการสร้าง database โดยใช้คำสั่ง</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">sequelize db:create</span></span></span></code></pre>
-<h2>Create Express server</h2>
+<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash">sequelize db:create
+</code></pre>
+<h2 id="create-express-server">Create Express server</h2>
 <p>สร้าง Express server แบบเดียวกันกับครั้งก่อนเลยครับ</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">bodyParser</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;body-parser&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;./models&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">json</span><span class="mtk1">());</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">urlencoded</span><span class="mtk1">({ extended: </span><span class="mtk5">false</span><span class="mtk1"> }));</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">sync</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">4000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server listening on port 4000...&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./models'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">extended</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span>sequelize<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Server listening on port 4000...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>แล้วก็ start server ที่ terminal ด้วยคำสั่ง</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm run dev</span></span></span></code></pre>
-<h2>Create new Entity</h2>
+<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> run dev
+</code></pre>
+<h2 id="create-new-entity">Create new Entity</h2>
 <p>เมื่อทุกอย่างเรียบร้อยแล้ว ทีนี้ก็มาถึงขั้นตอนการเพิ่มข้อมูลต่าง ๆ ลงไปในฐานข้อมูลบ้างนะครับ สังเกตได้ว่า Entity set ของเรามีความสัมพันธ์กันหลายรูปแบบมาก ถ้าเราไม่อัพเดทให้ถูกต้องตามขั้นตอน เราจะไม่สามารถสร้างข้อมูลลง database ได้ครับ หลักการสำคัญก็คือ <strong><em>ต้องเพิ่มข้อมูลลงใน table ที่ไม่มี foreign key อยู่ เป็นลำดับแรก</em></strong> ซึ่งถ้าเราย้อนกลับไปดูใน ER Diagram พร้อมกับความสัมพันธ์ของแต่ละ entity set จะพบว่า <strong>address</strong> ไม่มี foreign key ที่มาจาก table อื่นอยู่เลย ดังนั้นเราต้องทำการเริ่มจาก address ก่อนครับ แต่ละขั้นตอน ผมจะอธิบายเป็นขั้นตอนดังนี้นะครับ</p>
 <ul>
 <li>Create <code>newAddress</code> ภายใน table เราจะได้ <code>addressId</code> เพื่อที่จะนำไปใส่ใน table <code>artist</code></li>
@@ -183,212 +149,65 @@
 <li>Create <code>newSong</code> โดยนำ id ของทั้ง <code>artist</code> และ <code>album</code> มาเก็บไว้</li>
 </ul>
 <p>Code ใน express server ก็จะได้แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="javascript" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">bodyParser</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;body-parser&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;./models&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">json</span><span class="mtk1">());</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">urlencoded</span><span class="mtk1">({ extended: </span><span class="mtk5">true</span><span class="mtk1"> }));</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">post</span><span class="mtk1">(</span><span class="mtk11">&#39;/add-artist&#39;</span><span class="mtk1">, </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req, res) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">newAddress</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">address</span><span class="mtk1">.</span><span class="mtk7">create</span><span class="mtk1">({ addr: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">addr</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">newArtist</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">artist</span><span class="mtk1">.</span><span class="mtk7">create</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    phoneNumber: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">phoneNumber</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    addressId: </span><span class="mtk7">newAddress</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1"> </span><span class="mtk3 mtki">// ได้มาจากการ create new address</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">newAlbum</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">album</span><span class="mtk1">.</span><span class="mtk7">create</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    releaseDate: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">releaseDate</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    artistId: </span><span class="mtk7">newArtist</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1"> </span><span class="mtk3 mtki">// ได้มาจากการ create new artist</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">newSong</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">create</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    name: </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">.</span><span class="mtk7">song</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    artistId: </span><span class="mtk7">newArtist</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">, </span><span class="mtk3 mtki">// ได้มาจากการ create new artist</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    albumId: </span><span class="mtk7">newAlbum</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1"> </span><span class="mtk3 mtki">// ได้มาจากการ create new album</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">status</span><span class="mtk1">(</span><span class="mtk6">201</span><span class="mtk1">).</span><span class="mtk7">send</span><span class="mtk1">({ </span><span class="mtk7">newAddress</span><span class="mtk1">, </span><span class="mtk7">newArtist</span><span class="mtk1">, </span><span class="mtk7">newAlbum</span><span class="mtk1">, </span><span class="mtk7">newSong</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">db</span><span class="mtk1">.</span><span class="mtk7">sequelize</span><span class="mtk1">.</span><span class="mtk7">sync</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(() </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">4000</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">&#39;Server listening on port 4000...&#39;</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span></code></pre>
-<h2>API Testing with Postman</h2>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./models'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">extended</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/add-artist'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newAddress <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span>address<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">addr</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>addr <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> newArtist <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span>artist<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    <span class="token literal-property property">phoneNumber</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>phoneNumber<span class="token punctuation">,</span>
+    <span class="token literal-property property">addressId</span><span class="token operator">:</span> newAddress<span class="token punctuation">.</span>id <span class="token comment">// ได้มาจากการ create new address</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> newAlbum <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span>album<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    <span class="token literal-property property">releaseDate</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>releaseDate<span class="token punctuation">,</span>
+    <span class="token literal-property property">artistId</span><span class="token operator">:</span> newArtist<span class="token punctuation">.</span>id <span class="token comment">// ได้มาจากการ create new artist</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> newSong <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span>song<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>song<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    <span class="token literal-property property">artistId</span><span class="token operator">:</span> newArtist<span class="token punctuation">.</span>id<span class="token punctuation">,</span> <span class="token comment">// ได้มาจากการ create new artist</span>
+    <span class="token literal-property property">albumId</span><span class="token operator">:</span> newAlbum<span class="token punctuation">.</span>id <span class="token comment">// ได้มาจากการ create new album</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> newAddress<span class="token punctuation">,</span> newArtist<span class="token punctuation">,</span> newAlbum<span class="token punctuation">,</span> newSong <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span>sequelize<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Server listening on port 4000...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="api-testing-with-postman">API Testing with Postman</h2>
 <p>เราก็จะทำการ test API ด้วย Postman เหมือนเดิม แต่ทีนี้จะใช้การเพิ่มข้อมูลแบบ raw data อ้อออ แล้วก็ตรง <code>bodyParser.urlencoded</code> ต้องเปลี่ยนเป็น <code>extended: true</code> เพราะว่าเราต้องทำการ nested ข้อมูลด้วย หน้าตาประมาณนี้นะครับ</p>
-<pre class="grvsc-container solarized-light" data-language="json" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;name&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;Red Hot Chili Peppers&quot;</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;phoneNumber&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;111111111&quot;</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;addr&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;Los Angeles, California, U.S.&quot;</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;album&quot;</span><span class="mtk1">: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;name&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;Stadium Arcadium&quot;</span><span class="mtk1">,</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;releaseDate&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;2006-05-05&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  },</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;song&quot;</span><span class="mtk1">: {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;name&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;Dani California&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-json" data-language="json"><code is:raw="" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Red Hot Chili Peppers"</span><span class="token punctuation">,</span>
+  <span class="token property">"phoneNumber"</span><span class="token operator">:</span> <span class="token string">"111111111"</span><span class="token punctuation">,</span>
+  <span class="token property">"addr"</span><span class="token operator">:</span> <span class="token string">"Los Angeles, California, U.S."</span><span class="token punctuation">,</span>
+  <span class="token property">"album"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Stadium Arcadium"</span><span class="token punctuation">,</span>
+    <span class="token property">"releaseDate"</span><span class="token operator">:</span> <span class="token string">"2006-05-05"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"song"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Dani California"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>ใน Postman</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 54.255319148936174%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRElEQVQoz4VS2Y7CMAzM//8cbzwhUehBL7VJc5a2mZVNy6KlsJFGPmKPxk5E27bIsgx936NpGvazLGd7vV5RFDm6roOUkmu+gbjEMAzcYK0F+UopdG2DqmqglEQvJeeNMVyjjYFzbhd0LzYnhMCWm+ocbZogOANnzTNPNaN3mKYJ8zzvgglJ4TiOXEiNznm2nHMa3vs17xCDwXS/I8aIZVneIKqq4jGpgXyCXHdSliXUMOD1xM3GuAtRFAWPkiQJDocDKL7dbjgej7hcLrxoue6RFG9kn46gZlo4kZ5OJyagXJqm/MoEIqL90Ejf1LHCjZCa6Nvkec6kpGjzsTv0B4WkROvHS6Zpxr6xFlIphg+BC5enCrzYd4jkfEbZdLAjYEKE9gu0n6HdjMFNHNOdHeMKfIWo65q/w+9uHkM98Y+ivwp/AJ9dU+MKBs5tAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="raw data"
-        title="raw data"
-        src="/static/c35e0de98dda9328103a02d8a597c7e6/1d69c/raw_data.png"
-        srcset="/static/c35e0de98dda9328103a02d8a597c7e6/4dcb9/raw_data.png 188w,
-/static/c35e0de98dda9328103a02d8a597c7e6/5ff7e/raw_data.png 375w,
-/static/c35e0de98dda9328103a02d8a597c7e6/1d69c/raw_data.png 750w,
-/static/c35e0de98dda9328103a02d8a597c7e6/78797/raw_data.png 1125w,
-/static/c35e0de98dda9328103a02d8a597c7e6/acf8f/raw_data.png 1340w"
-        sizes="(max-width: 750px) 100vw, 750px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/raw_data.CoDekuBU_uX5bL.webp" alt="raw data" width="1340" height="730" loading="lazy" decoding="async"></p>
 <p>ผลลัพธ์ที่ได้จากทำการ post request</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 90.42553191489361%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACEklEQVQ4y42T2W7bMBBF9f/f1gLpS5CgdR1v2heKFCVRFucUpOO2CeLEBC4kQtDBnTszSVekjFph7cg0TUzjSKctdl7iuzaGeXY455jvUKKLIwGqtUbrnl4pjDHx3mvN2LcsVhOOeI/I50qatmN3ONGogVYN1K2h62102eoRo4eL+zOMi/9SSVkWpFnGsgj1S021azDjyuzg7MGtMDlYVsEFnV+fN5Q0TUNd17GksTWkD1uavWL7BM8/hJdn4bARts9QpT4UzmcnCbCgxS0MVU9/bJhUjx2gq4W+E6wB1cCgJQJFQEQ+VFJVFWVZIl7Qp4YubTHWs8ywOGEeYR7lrzOJj9sukwALupacPWzJniraaiE/QnES7OD/A15hchtYlVW8TMpy+rah/X0iO/qYX7oTqlw4bqEp/ZuSPwQWRREdhgxNqTCFwo0TzoE1wmSJZdtBWBzvXN4ABoXTH2rqXYlWZ4Ze0Ap0J7hZ8Osl05D1Z9ALML8Ax24g/b4hf0xJD2c2j7D/JaR7IdtDfhS8918Dr00JGZaPR/pTSZlJhGX7kCGcXsLo3JFhnucReHYL3b5CVz3ndY0/ratEeR8EF3N3NuU6NvUmp84dqvWYHib7dju+nMMIfG2KbUwcm+alQCkftyM0JWxI3166fpfDIEGYh4l2WzKUXcxt9/PfHIYM2+oO4HX11pDbm0/vf7hv9f4AVOp4O3p2/GIAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="post result"
-        title="post result"
-        src="/static/4bce3f2356246c17aba08bcb3fc1edff/1d69c/result.png"
-        srcset="/static/4bce3f2356246c17aba08bcb3fc1edff/4dcb9/result.png 188w,
-/static/4bce3f2356246c17aba08bcb3fc1edff/5ff7e/result.png 375w,
-/static/4bce3f2356246c17aba08bcb3fc1edff/1d69c/result.png 750w,
-/static/4bce3f2356246c17aba08bcb3fc1edff/78797/result.png 1125w,
-/static/4bce3f2356246c17aba08bcb3fc1edff/1e093/result.png 1376w"
-        sizes="(max-width: 750px) 100vw, 750px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/result.BCaD7sIu_Z1mKRyq.webp" alt="post result" width="1376" height="1244" loading="lazy" decoding="async"></p>
 <p>จะเห็นมีการนำเอา id ของแต่ละ table ที่มีความสัมพันธ์กันมาใช้อย่างเป็นลำดับขั้นตอน</p>
 <p>Blog นี้ก็ขอจบเพียงเท่านี้ก่อนนะครับ blog หน้าอาจจะมาเขียนเพิ่มเติมเกี่ยวกับการ query data ออกมาโดยใช้ method ต่างๆ ครับ อ้อออออ <a href="https://github.com/xeusteerapat/node-sequelize-complex-relational">Repo</a> อยู่ตรงนี้นะครับบบ</p>
-<p>Happy Coding :)</p>
-<style class="grvsc-styles">
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line > * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: ' ';
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-  .solarized-light { background-color: #FDF6E3; }
-  .solarized-light .mtki { font-style: italic; }
-  .solarized-light .mtkb { font-weight: bold; }
-  .solarized-light .mtk8 { color: #859900; }
-  .solarized-light .mtk1 { color: #657B83; }
-  .solarized-light .mtk13 { color: #073642; }
-  .solarized-light .mtk7 { color: #268BD2; }
-  .solarized-light .mtk11 { color: #2AA198; }
-  .solarized-light .mtk6 { color: #D33682; }
-  .solarized-light .mtk5 { color: #B58900; }
-  .solarized-light .mtk3 { color: #93A1A1; }
-  .solarized-light .grvsc-line-highlighted::before {
-    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
-    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
-  }
-</style></div></div><footer class="footer-module--footer--675c6"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/node-sequelize-complex-relation";window.___webpackCompilationHash="4bf95f7728bf04a57b20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-31951725b1a6558f9f0d.js"],"app":["/app-ef6207db08b990b06ae6.js"],"component---src-pages-404-js":["/component---src-pages-404-js-61f6414544b80e121d84.js"],"component---src-pages-about-js":["/component---src-pages-about-js-b8efd7bc516092470ab6.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-f96812ce3162ac8f2ed0.js"],"component---src-pages-index-js":["/component---src-pages-index-js-20a25a0f04261802c809.js"],"component---src-pages-project-js":["/component---src-pages-project-js-fd2519f15cc7acf5df75.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-7b7f92ed00ae16e8a5ed.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-4717fe2d1199588ae052.js"]};/*]]>*/</script><script src="/polyfill-31951725b1a6558f9f0d.js" nomodule=""></script><script src="/app-ef6207db08b990b06ae6.js" async=""></script><script src="/framework-7602ebf8463c9f95f087.js" async=""></script><script src="/webpack-runtime-3b3144b6118cc3b72fff.js" async=""></script></body></html>
+<p>Happy Coding :)</p>  </div> </article> <div class="comments-section" data-astro-cid-bvzihdzo> <section class="comments" data-astro-cid-on2fnc7p> <h2 class="comments-title" data-astro-cid-on2fnc7p>Comments</h2> <div class="giscus-container" data-astro-cid-on2fnc7p> <script src="https://giscus.app/client.js" data-repo="xeusteerapat/xeusteerapat.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyMTkyNTY4NzY=" data-category="General" data-category-id="DIC_kwDODRGYLM4COf8-" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async>
+    </script> </div> </section>  </div>  </main> </div> <footer class="footer" data-astro-cid-sz7xmlte> <div class="container-main footer-content" data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://github.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>GitHub</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://twitter.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Twitter</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://www.linkedin.com/in/teerapat-prommarak/" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>LinkedIn</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-sz7xmlte></path> </svg> </a> </div> <p class="copyright" data-astro-cid-sz7xmlte>
+Created by Teerapat Prommarak, © 2025 </p> </div> </footer>  </body></html> 
