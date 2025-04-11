@@ -15,7 +15,7 @@ published: true
 
 ลองมาดูหน้าตาคร่าว ๆ ของเจ้า React hooks กันก่อนโดยเปรียบเทียบกับ class component แบบเดิม โดยผมจะทำเป็น counter app ง่าย ๆ ก่อนนะครับ
 
-```JSX
+```jsx
 import React from "react";
 
 export default class App extends React.Component {
@@ -47,7 +47,7 @@ export default class App extends React.Component {
 
 แล้วทีนี้ลองเปลี่ยนมาเขียนโดยใช้ Hooks กันบ้าง
 
-```JSX
+```jsx
 import React, { useState } from "react";
 
 const App = () => {
@@ -98,7 +98,7 @@ npx create-react-app todo-app-with-hooks
 
 โครงสร้างของ App ก็จะเป็นเหมือนกับ blog ก่อนหน้าเลยนะครับ คือเราจะเก็บ methods ต่างๆ ไว้ใน `TodoApp.js` แล้วให้ component อื่นเรียกผ่าน props ผมจะสร้าง mock up เพื่อให้ render todo คร่าวๆ สัก 2-3 อันเพื่อให้เห็นภาพก่อนนะครับ และเราก็จะใช้งานมันผ่าน `useState` ครับผม
 
-```JSX
+```jsx
 // TodoApp.js
 import React, { useState } from 'react';
 import TodoList from './TodoList';
@@ -126,7 +126,7 @@ export default TodoApp;
 
 ทีนี้เราก็สร้าง component `TodoList` ขึ้นมา ข้างในก็มีการใช้ function `map` ค่าของ `task` เข้ากับแต่ `Todo` ครับ พร้อมกับส่งค่า `task` ผ่าน `props` เพื่อนำไปใช้ใน `Todo.js` ต่อไป แบบนี้
 
-```JSX
+```jsx
 // TodoList.js
 import React from 'react';
 import Todo from './Todo';
@@ -146,7 +146,7 @@ export default TodoList;
 
 ต่อไปใน `Todo.js` ก็สร้าง list ของแต่ละ task ขึ้นมาแบบนี้
 
-```JSX
+```jsx
 // Todo.js
 import React from 'react';
 
@@ -171,7 +171,7 @@ export default Todo;
 
 App ของเราก็มีฟังก์ชั่นการใช้งานเหมือนเดิมเลยคือ create update delete ได้เหมือนครั้งก่อน เริ่มต้นที่ addNewTodo กันก่อนเลยครับ แต่ก่อนอื่นต้องสร้าง form component ใน `TodoForm.js` ซะก่อนน แบบนี้
 
-```JSX
+```jsx
 import React from 'react';
 
 const TodoForm = () => {
@@ -190,7 +190,7 @@ export default TodoForm;
 
 แล้วก็ import เข้าไปที่ `TodoApp.js` แบบนี้
 
-```JSX
+```jsx
   <div>
     <h1>Todo App</h1>
     <TodoForm />
@@ -200,7 +200,7 @@ export default TodoForm;
 
 ต่อไปก็สร้าง method สำหรับเพิ่ม todo ลงไปใน `TodoApp.js` แบบนี้ แล้วก็ส่งผ่าน props เหมือนเดิม (เกือบลืม ต้องใช้ `uuid` เพื่อสร้าง `id` ให้กับแต่ละ `todo` ด้วยนะครับ)
 
-```JSX
+```jsx
 import React, { useState } from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
@@ -233,7 +233,7 @@ export default TodoApp;
 
 อย่างที่เคยเกริ่นไว้ตั้งแต่ตอนต้นนะครับว่าเราสามารถใช้ concept ของ hooks แชร์ logic ระหว่าง component ได้ โดยทำการสร้าง `customHook` function ขึ้นมา จากนั้นก็ import มาใช้เหมือนกับ function ทั่วไป ผมจะสร้าง folder ชื่อว่า `hooks` ขึ้นมาใน `src` directory จากนั้นก็สร้างไฟล์ชื่อว่า `useInputState.js` โดยที่จะสร้างฟังก์ชั่นเพื่อควบคุมการทำงานของ input form ไว้ในนี้ครับ
 
-```JSX
+```jsx
 import { useState } from 'react';
 
 const useInputState = (initialValue) => {
@@ -263,7 +263,7 @@ export default useInputState;
 
 ทีนี้ `TodoForm.js` เราจะใช้งาน method `addNewTodo` ร่วมกับตัว `useInputState` แบบนี้
 
-```JSX
+```jsx
 import React from 'react';
 import useInputState from '../hooks/useInputState';
 
@@ -300,7 +300,7 @@ export default TodoForm;
 
 ผมจะทำคล้าย ๆ กับ blog ก่อนหน้านี้นะครับ โดยจะสร้าง `EditTodoForm.js` แล้วใช้การคลิก edit button เพื่อ toggle ให้มันโชว์ขึ้นมา แล้วผมก็จะสร้าง method `updateTodo` ใน `TodoApp.js` เพื่อส่งผ่าน `props` มาด้วยครับ
 
-```JSX
+```jsx
 // updateTodo in TodoApp.js
   const updateTodo = (todoId, newTask) => {
     const updatedTodos = todos.map((todo) =>
@@ -312,7 +312,7 @@ export default TodoForm;
 
 คราวนี้เพื่อให้ button สามารถ toggle ได้ ผมจะใช้ hooks เข้ามาช่วยโดยการสร้าง `useToggle` ขึ้นมาครับ
 
-```JSX
+```jsx
 // useToggle.js
 import { useState } from 'react';
 
@@ -332,7 +332,7 @@ export default useToggle;
 
 มากันที่ `EditTodoForm.js` ทีนี้ผมจะ reuse logic ของ `useInputState` เพื่อใช้กับ `EditTodoForm` เพราะว่าเป็นการทำงานกับ form แบบเดียวกันเลย เพียงแต่ input เปลี่ยนไปเท่านั้น เริ่มเห็นประโยชน์ของ hooks แล้วใช่มั้ยล่ะครับ
 
-```JSX
+```jsx
 // EditTodoForm.js
 import React from 'react';
 import useInputState from '../hooks/useInputState';
@@ -361,7 +361,7 @@ export default EditTodoForm;
 
 กลับมาที่ `Todo.js` เราก็ทำการ import `EditTodoForm` component เข้ามาโดยที่ทำงานร่วมกับ logic ของ `useToggle` เพื่อ toggle edit form แบบนี้
 
-```JSX
+```jsx
 // Todo.js
 import React from 'react';
 import EditTodoForm from './EditTodoForm';
@@ -394,7 +394,7 @@ export default Todo;
 
 สังเกตว่าผมจะผ่านค่า `toggleEditForm={toggle}` ด้วยเนื่องจาก `EditTodoForm` ต้องเรียก method `toggle` นี้ด้วยหลังจากที่เรา update todo เสร็จเพื่อทำให้ edit form หายไปนั่นเอง
 
-```JSX
+```jsx
 // EditTodoForm.js
 import React from 'react';
 import useInputState from '../hooks/useInputState';
@@ -432,7 +432,7 @@ Coooooool!!!
 
 สุดท้ายแล้วนะครับ ผมก็จะทำการสร้าง method สำหรับลบ todo ออกจาก list ผ่านการกดปุ่ม delete ที่เราสร้างไว้ ก็เช่นเคยครับ กลับไปสร้างที่ `TodoApp.js` แล้วเรียกผ่าน `props` เพื่อใช้งานใน `Todo.js`
 
-```JSX
+```jsx
 // TodoApp.js
 import React, { useState } from 'react';
 import TodoList from './TodoList';
@@ -478,7 +478,7 @@ export default TodoApp;
 
 TodoList.js
 
-```JSX
+```jsx
 // TodoList.js
 import React from 'react';
 import Todo from './Todo';
@@ -504,7 +504,7 @@ export default TodoList;
 
 และที่ delete button ก็เพิ่ม `onClick` event เข้าไปและเรียกใช้ method `deleteTodo`
 
-```JSX
+```jsx
 // Todo.js
 import React from 'react';
 import EditTodoForm from './EditTodoForm';

@@ -91,7 +91,7 @@ Behind the scene
 
 ### Example building Redis image
 
-```Dockerfile
+```dockerfile
 # Use an existing docker image as a base
 FROM alpine
 
@@ -212,7 +212,7 @@ app.listen(8080, () => {
 
 Let's create the `Dockerfile`
 
-```Dockerfile
+```dockerfile
 FROM node:alpine
 
 WORKDIR /usr/app
@@ -286,7 +286,7 @@ app.listen(8081, () => console.log('server running on port 8081'));
 
 Then create `Dockerfile` to build Node.js app image
 
-```Dockerfile
+```dockerfile
 FROM node:alpine
 
 WORKDIR '/app'

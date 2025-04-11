@@ -52,7 +52,7 @@ cd todo-app
 
 ภายในไฟล์ `index.js`
 
-```JSX
+```jsx
 // index.js
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -63,7 +63,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 ภายในไฟล์ `App.js`
 
-```JSX
+```jsx
 import React from 'react';
 
 const App = () => {
@@ -83,7 +83,7 @@ export default App;
 
 ต่อไปก็ทำการสร้าง folder `components` เพื่อเก็บ components ต่างๆ ไว้ โดยสร้างตามที่เกริ่นไว้ตอนต้นเลยครับ ผมจะเริ่มจาก `TodoList.js` และผมก็จะกำหนด `state` ของ `todos` เป็น array ไว้เลยแบบนี้
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 
 export default class TodoList extends Component {
@@ -105,7 +105,7 @@ export default class TodoList extends Component {
 
 สาเหตุผลที่ทำเป็น array เนื่องจากเราต้องการที่จะ render ตัว todo ออกมาเป็น list รายการต่าง ๆ ดังนั้นเราจึงต้องเก็บไว้ในรูปของ array เพื่อให้ง่ายต่อการสร้าง components ด้วยการวนลูปนั่นเอง จากนั้นเราก็ทำการ `import` เข้าไปที่ไฟล์ `App.js` เลยครับ
 
-```JSX
+```jsx
 import React from 'react';
 import TodoList from './components/TodoList';
 
@@ -126,7 +126,7 @@ export default App;
 
 ต่อไปก็ทำการสร้าง component `Todo.js` ขึ้นมา เพื่อแสดงรายการ todo แต่ละอัน โดยมีปุ่มเพื่อ edit และ delete แบบนี้
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 
 export default class Todo extends Component {
@@ -144,7 +144,7 @@ export default class Todo extends Component {
 
 สังเกตเห็นว่าผมผ่านค่า `this.props.task` ลงไปใน `li` element ซึงยังไม่มีการกำหนดค่า `props` เหล่านั้นใน parent component (ก็คือ `TodoList`) ดังนั้นผมต้องกลับไปตั้งค่า `props` ใน `TodoList.js` ก่อน แบบนี้
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 import Todo from './Todo';
 
@@ -172,7 +172,7 @@ export default class TodoList extends Component {
 
 ต่อไปเราก็มาสร้าง `TodoForm.js` กัน โดยที่ form จะรับ input จาก user แล้วก็จะนำไปสร้างเก็บไว้ใน `state` จากนั้นก็จะส่งผ่าน `props` อีกทีเพื่อนำไป render ที่ `Todo` ครับ ซึ่ง form ของเรา เราต้องทำให้มันเป็น "Controlled Component" นั่นก็คือให้มันสามารถจัดการกับ state ของเราได้นั่นเอง
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 
 export default class TodoForm extends Component {
@@ -218,7 +218,7 @@ export default class TodoForm extends Component {
 
 ทีนี้ก็มาสร้างวิธีที่จะเพิ่ม todo จาก form นะครับ ถ้าย้อนกลับขึ้นไปดูโครงสร้างของ app ข้างบน เราจะเห็นว่า `TodoList.js` เป็น Parent Component ของ `Todo.js` อีกที ดังนั้น เราต้องสร้าง method `addNewTodo` ไว้ที่ `TodoList.js` แล้วทำการส่ง method นี้ผ่านทาง `props` ไปยัง `TodoForm.js` อีกที
 
-```JSX
+```jsx
 // TodoList.js
 import React, { Component } from 'react';
 import Todo from './Todo';
@@ -249,7 +249,7 @@ export default class TodoList extends Component {
 
 จากนั้นกลับไปที่ `TodoForm.js` เราต้องเพิ่ม `handleSubmit` เพื่อรับเอา `addNewTodo` มาใช้งานอีกทีแบบนี้
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 
@@ -298,7 +298,7 @@ export default class TodoForm extends Component {
 
 ในการที่จะลบ todo แต่ละอันออกนั้น เราต้องสร้าง id ให้กับมันก่อน (โดยการใช้ uuid) ทีนี้ก็ทำคล้ายๆ กับ method `addNewTodo` ครับ โดยสร้างไว้ที่ `TodoList` component จากนั้นส่งผ่าน `props` ไปยัง component ที่จะใช้งาน ซึ่งก็คือ `Todo.js` นั่นเอง อ้อออ อย่าลืมส่งผ่าน `id` ผ่าน `props` ไปด้วยนะครับ
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
@@ -347,7 +347,7 @@ export default class TodoList extends Component {
 
 มาดูกันที่ `deleteTodo` method นะครับ เราจะผ่านค่า `id` ลงไปเพื่อนำไปตรวจสอบกับแต่ละ `todo` ว่าตรงกันหรือไม่ ถ้าตรงกัน เราก็จะ filter `todo` ตัวนั้นออกไป และนำค่าที่เหลือมา `setState` อีกครั้ง จากนั้น ไปที่ `Todo.js` เพื่อนำ method `deleteTodo` ไปใช้กับ delete button แบบนี้
 
-```JSX
+```jsx
 import React, { Component } from 'react';
 
 export default class Todo extends Component {
@@ -386,7 +386,7 @@ Coooool!
 
 หน้าตาของ code ที่ได้ก็จะเป็นแบบนี้
 
-```JSX
+```jsx
 // Todo.js
 import React, { Component } from 'react';
 
@@ -445,7 +445,7 @@ export default class Todo extends Component {
 
 ตามที่เกริ่นไว้ตอนต้นว่า method `handleUpdate` ต้องสร้างไว้ที่ Parent component แล้วเรียกผ่าน `props` ดังนั้นก็ไปสร้างกันเลยครับ (code อื่นๆ เหมือนเดิม แค่เพิ่ม `updateTodo` ต่อจาก `deleteTodo` แล้วก็อย่างลืมส่งผ่าน `props` ใน component `<Todo/>` ด้วยนะครับ)
 
-```JSX
+```jsx
 // update todo
   updateTodo = (id, updateTask) => {
     const updatedTodos = this.state.todos.map(todo => {
@@ -462,7 +462,7 @@ export default class Todo extends Component {
 
 function `updateTodo` ก็จะรับ parameter 2 ตัวนั่นก็คือ id และ updateTask จากนั้นเราก็เช็คดูว่า id ของ todo นั้น ๆ ตรงกันกับตัวที่เราจะ edit ใหม่รึป่าว ถ้าตรงกันก็แทนค่าใหม่ด้วย `updateTask` และ return array ของ `todos` ใหม่ออกมา คราวนี้ภายใน `handleUpdate` method ก็สามารถเรียกใช้ `updateTodo` ได้เป็นแบบนี้
 
-```JSX
+```jsx
 handleUpdate = e => {
     e.preventDefault();
     this.props.updateTodo(this.props.id, this.state.task);
