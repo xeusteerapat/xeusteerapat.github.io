@@ -1,0 +1,1 @@
+const n=document.querySelectorAll("nav a"),t="/",e=window.location.pathname;n.forEach(r=>{const a=r.getAttribute("href");(a===e||a===t&&(e===t||e==="/")||a===t+"blog"&&e.startsWith(t+"blog"))&&r.setAttribute("aria-current","page")});

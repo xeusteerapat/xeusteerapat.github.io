@@ -1,35 +1,15 @@
-<!DOCTYPE html><html lang="th"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.9"/><meta data-react-helmet="true" name="description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" property="og:url" content="https://curiousdev.in.th/blog/basic-react-todo-app"/><meta data-react-helmet="true" property="og:title" content="Basic React Todo List app"/><meta data-react-helmet="true" property="og:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@xeusteerapat"/><meta data-react-helmet="true" name="twitter:title" content="Basic React Todo List app"/><meta data-react-helmet="true" name="twitter:description" content="Full-stack web developer who always curiosity and learn new things."/><style data-href="/styles.b74fcce386d682139b69.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#fafafa;color:#90a4ae;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#cceae7;color:#263238}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#7c4dff}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}.header-module--header--92758{padding:1rem 0 3rem}.header-module--title--68ad3{color:#000;font-size:3rem;text-decoration:none}.header-module--nav-list--2b881{display:flex;list-style-type:none;margin:0}.header-module--nav-item--da873{color:#999;font-size:.9rem;margin-right:1.3rem;text-decoration:none}.header-module--nav-item--da873:hover{color:#666}.header-module--active-nav-item--6ecf9{color:#333}.footer-module--footer--675c6{margin-top:3rem}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{-webkit-text-decoration-skip:objects;background-color:transparent;text-decoration:underline}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font:112.5%/1.45em georgia,serif;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{word-wrap:break-word;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt";color:rgba(0,0,0,.8);font-family:sans-serif;font-kerning:normal;font-weight:400}img{margin:0 0 1.45rem;max-width:100%;padding:0}h1{font-size:2.25rem}h1,h2{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h2{font-size:1.62671rem}h3{font-size:1.38316rem}h3,h4{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h4{font-size:1rem}h5{font-size:.85028rem}h5,h6{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h6{font-size:.78405rem}hgroup{margin:0 0 1.45rem;padding:0}ol,ul{list-style-image:none;list-style-position:outside;margin:0 0 1.45rem 1.45rem;padding:0}dd,dl,figure,p{margin:0 0 1.45rem;padding:0}pre{word-wrap:normal;background:rgba(0,0,0,.04);border-radius:3px;font-size:.85rem;line-height:1.42;margin:0 0 1.45rem;overflow:auto;padding:1.45rem}table{border-collapse:collapse;font-size:1rem;line-height:1.45rem;width:100%}fieldset,table{margin:0 0 1.45rem;padding:0}blockquote{margin:0 1.45rem 1.45rem;padding:0}form,iframe,noscript{margin:0 0 1.45rem;padding:0}hr{background:rgba(0,0,0,.2);border:none;height:1px;margin:0 0 calc(1.45rem - 1px);padding:0}address{margin:0 0 1.45rem;padding:0}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-bottom:.725rem;margin-left:1.45rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";border-bottom:1px solid rgba(0,0,0,.12);padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{content:" ";letter-spacing:-.2em}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.layout-module--container--46809{display:flex;flex-direction:column;margin:0 auto;max-width:750px;min-height:100vh;padding:1rem}.layout-module--container--46809 a,.layout-module--container--46809 a:visited{color:#000}.layout-module--container--46809 a:hover{color:#474444}.layout-module--content--1704e{flex-grow:1}.project-module--header--6a610{margin-top:3rem}.project-module--wrapper--ad517{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin:0;max-width:1100px;padding:0}.project-module--wrapper--ad517 .project-module--item--e74c2{background:#f4f4f4;display:block;margin:.5rem;padding:1rem;width:330px}.project-module--wrapper--ad517 .project-module--item--e74c2 p{margin-bottom:5px}.project-module--wrapper--ad517 .project-module--item--e74c2 a{display:inline-block;margin-top:.75rem;text-decoration:none}.blog-module--posts--a78be{list-style-type:none;margin:0}.blog-module--post--0206a{margin:1rem 0}.blog-module--post--0206a a{background:#f4f4f4;color:#000;display:block;padding:1rem;text-decoration:none}.blog-module--post--0206a a:hover{background:#e4e4e4}.blog-module--post--0206a h2{margin-bottom:0}.blog-module--post--0206a p{color:#777;font-size:.8rem;font-style:italic}</style><title data-react-helmet="true">Basic React Todo List app | Hello, World</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--46809"><div class="layout-module--content--1704e"><header class="header-module--header--92758"><h1><a class="header-module--title--68ad3" href="/">Hello, World</a><a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" style="position:absolute;top:47px;display:inline-block"><img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg"/></a></h1><nav><ul class="header-module--nav-list--2b881"><li><a class="header-module--nav-item--da873" href="/">Home</a></li><li><a class="header-module--nav-item--da873" href="/blog">Blog</a></li><li><a class="header-module--nav-item--da873" href="/about">About</a></li><li><a class="header-module--nav-item--da873" href="/project">Projects</a></li><li><a class="header-module--nav-item--da873" href="/contact">Contact</a></li></ul></nav></header><h1>Basic React Todo List app</h1><p>2020-04-03</p><div><p>สวัสดีครับ วันนี้จะมาแนะนำการสร้าง Todo List app แบบง่าย ๆ นะครับ แน่นอนว่ามันอาจจะดูน่าเบื่อสำหรับบางคน แต่ผมว่ามันก็เป็นแบบฝึกที่ดีอันนึงในการเรียนรู้พื้นฐานของการสร้าง app แบบง่ายซึ่งมีการดำเนินการครบทั้ง Create Read Update และ Delete ถ้าเข้าใจแล้ว ก็สามารถต่อยอดไปยัง app ที่ซับซ้อนกว่านี้ได้ ผมเขียน blog นี้ไว้เพื่อทบกวนการเรียน React ของผมเอง ซึ่ง blog นี้ผมจะทำเป็น class component ก่อนนะครับ จากนั้นก็คิดว่าจะทำอีก blog นึงโดยใช้ React Hooks เริ่มกันเลยดีกว่าครับ :)</p>
-<h2>Prerequisite</h2>
+<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>Basic React Todo List app | Hello, World</title><meta name="description"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_assets/_slug_.5Zos-WDK.css">
+<link rel="stylesheet" href="/_assets/_slug_.rCULUuHh.css"></head> <body style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f9fafb;" data-astro-cid-37fxchfa> <div class="container-main" style="flex-grow: 1;" data-astro-cid-37fxchfa> <header class="header" data-astro-cid-3ef6ksr2> <div class="header-container" data-astro-cid-3ef6ksr2> <div class="brand" data-astro-cid-3ef6ksr2> <a href="/" class="site-title" data-astro-cid-3ef6ksr2>Hello, World</a> <a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" class="webring" data-astro-cid-3ef6ksr2> <img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg" class="webring-image" data-astro-cid-3ef6ksr2> </a> </div> <nav data-astro-cid-3ef6ksr2> <ul class="nav-list" data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-item" data-astro-cid-3ef6ksr2>Home</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-item" data-astro-cid-3ef6ksr2>Blog</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/about" class="nav-item" data-astro-cid-3ef6ksr2>About</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/contact" class="nav-item" data-astro-cid-3ef6ksr2>Contact</a> </li> </ul> </nav> </div> </header>  <script type="module" src="/_assets/Header.astro_astro_type_script_index_0_lang.DT_jaKul.js"></script> <main style="padding-top: 2rem; padding-bottom: 2rem;" data-astro-cid-37fxchfa>  <article class="blog-post" data-astro-cid-bvzihdzo> <h1 class="blog-title" data-astro-cid-bvzihdzo>Basic React Todo List app</h1> <time class="blog-date" data-astro-cid-bvzihdzo>April 3, 2020</time> <div class="blog-content" data-astro-cid-bvzihdzo>  <p>สวัสดีครับ วันนี้จะมาแนะนำการสร้าง Todo List app แบบง่าย ๆ นะครับ แน่นอนว่ามันอาจจะดูน่าเบื่อสำหรับบางคน แต่ผมว่ามันก็เป็นแบบฝึกที่ดีอันนึงในการเรียนรู้พื้นฐานของการสร้าง app แบบง่ายซึ่งมีการดำเนินการครบทั้ง Create Read Update และ Delete ถ้าเข้าใจแล้ว ก็สามารถต่อยอดไปยัง app ที่ซับซ้อนกว่านี้ได้ ผมเขียน blog นี้ไว้เพื่อทบกวนการเรียน React ของผมเอง ซึ่ง blog นี้ผมจะทำเป็น class component ก่อนนะครับ จากนั้นก็คิดว่าจะทำอีก blog นึงโดยใช้ React Hooks เริ่มกันเลยดีกว่าครับ :)</p>
+<h2 id="prerequisite">Prerequisite</h2>
 <ul>
 <li>HTML/CSS/Javascript เน้นๆ หน่อยว่าใช้ ES6 syntax</li>
 <li>Basic การสร้าง React component, <code>props</code>, <code>state</code> เบื้องต้น</li>
 <li>Node.js การ install dependencies ต่าง ๆ</li>
 <li>Basic Git</li>
 </ul>
-<h2>App overview</h2>
+<h2 id="app-overview">App overview</h2>
 <p>เรามาวางโครงสร้างของตัว app กันก่อนดีกว่าว่า เราจะให้ components แต่ละอันมีลักษณะอย่างไร ซึ่งจริง ๆ แล้วก็ทำได้หลายแบบนะครับ ส่วนตัวผมขอสร้างตามรูปข้างล่าง</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 668px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 137.2340425531915%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAABYlAAAWJQFJUiTwAAADUElEQVRIx41VbW/bNhDO//8Rw/ZhL8C+dJ+2Di3qNg3axN0M2G4wW5ETJ1b0QvFFlGnLlqhnOMZybVlpe8DpTuTp4R1PfHhW1zXa0owd2kMlWa/X8H0fVVUdxZ7RQ0qJMAyRJAmyLDsCOQw+9DebDa6urroBOecYDAYYj8dQSn1XlqSMsZOYs+ZluVwiz/PO0mmOFqXFGqWqaLxdzR6wKAq3IpVMwQRe2coFCiHcPPnW2iOlkjszTNMUcRQjiRNEYYSZP4PONDKZgaccUkjnK6mgnH1SKRQylZ0CCimwxRYWFiVKyLV0lsYauz16K1CiwAaF+/YEkCmGKIvAJQdX3SoygVQycK3BVyW4KZGuNVLFugED9ghbPu2L03KnlXXW2hprY3AbKPx5McWLV0PcCQOuko49zBhiGcLk1G291yVZvdM8h5ICicjhhwY3wRLR0iDtAkx4ikDmuA0F7lm213misOA5Ap7hUSgsUo1I5EiVQZgaCMUgMn4K+Bgq3D9IeDdTfPh4idF4jH8HA3i+7+Zvr19i3P8dtuDwzy9w/vNPGPzxN/I5g847usyiFCwssAhyzGYcYbjC4kEjCAxYUiC8v8eDP4XkKyyuA/j9/zD7Zw4TSmRanQKqOIIKQ0w8D71eD553g9FwhH7/E7RWCG7e4frTC9QbifnHK7z/9Rf4vTeoOYfMOjKUcYzKGFS7Y0SHnxjFrFaQUiAXPmT8GXVloO7mYNefoW9nsEIcnf8vgFEEGQSYTqc4f/sW49EI/ctLvH71GsHDHR69Nxh9+A0oUty9v0Dvxx8wefkXasaeyZBz1FoDqxVgDIo0pQPuxnQYAqscyNVTDAGQKgWrNWRnhjS5Y5nKWggpnb8tS+fbGmhYscaxL3exx4D0kbVPjFJVX4KshaajlqZY7uit3sU17NMJ2DB1I+13OoptvmyksylxHDslTiRLV8J2u3U8SB0nMKK4siz3Y82fQOR7+mMzhiAIXHlUAmVIvt6dYSJZWoRYuhknpbgVNbINSKvSas8JZdvsVZecXAG0SvuOaDbdkUeSYDKZON8eNKV9Ox41hUrquulIoiiC53knGbXlrCl3NBphOBy6hjx3F38LbA9IAcYYt/nUuXbZ7Wy/luH/XGAkG0Z+IxYAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="todo app"
-        title="todo app"
-        src="/static/435af63ab12b771c13e1462e213f98db/74866/todo_app.png"
-        srcset="/static/435af63ab12b771c13e1462e213f98db/4dcb9/todo_app.png 188w,
-/static/435af63ab12b771c13e1462e213f98db/5ff7e/todo_app.png 375w,
-/static/435af63ab12b771c13e1462e213f98db/74866/todo_app.png 668w"
-        sizes="(max-width: 668px) 100vw, 668px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/todo_app.BM66LTe2_Z168lmN.webp" alt="todo app" width="668" height="916" loading="lazy" decoding="async"></p>
 <p>ถ้าเราทำการแบ่ง component ย่อยๆ ก็จะได้ว่า</p>
 <ul>
 <li>App component ตัวใหญ่สุด เป็นที่เก็บ components ย่อยต่างๆ</li>
@@ -37,385 +17,291 @@
 <li>TodoList สำหรับเก็บตัว component todo แต่ละรายการ</li>
 <li>Todo ก็คือ component เล็กสุดที่แสดงรายการ todo ซึ่งสามารถ edit และ delete ได้</li>
 </ul>
-<h2>Create Project</h2>
+<h2 id="create-project">Create Project</h2>
 <p>เริ่มจากใช้ boiler plate ของการสร้าง react app ก่อนเลยครับใช้คำสั่ง <code>create-react-app</code></p>
-<pre class="grvsc-container solarized-light" data-language="sh" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npx create-react-app todo-app</span></span></span></code></pre>
+<pre class="language-sh" data-language="sh"><code is:raw="" class="language-sh">npx create-react-app todo-app
+</code></pre>
 <p>จากนั้นก็เข้าไปที่ <code>todo-app</code> directoty</p>
-<pre class="grvsc-container solarized-light" data-language="sh" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">cd</span><span class="mtk1"> todo-app</span></span></span></code></pre>
+<pre class="language-sh" data-language="sh"><code is:raw="" class="language-sh"><span class="token builtin class-name">cd</span> todo-app
+</code></pre>
 <p>จากนั้นก็ลอง <code>yarn start</code> เพื่อ start development mode เมื่อเข้าไปที่ <code>localhost:3000</code> ก็จะเห็นหน้าตา react app แบบนี้</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 88.82978723404256%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACnElEQVQ4y4VUXU/TYBTez/DGGBj93Lquo+3Wruvala4bnwMEMUpGBBMFogKGENGIBoxGgsavRC6IMYomJl54Y4wXxAv/gxf+l8f0wIZANy6evO9pz3ne87znvCfGJ1VEgUt0H9qSdrge7I/8/w+xdmQsL4MTM2CYJNnh2ti3Io1FkkkaWFZCd20S3tpraOMzTTsEJypopSwWKVPSwHQlUFxcR0KzYc3fQ+XZR2Qvz8Fd2YTSO04H8EmtNWGDLFxZLoW0P4zy4x2Y00uoPN/F8JffSBolZC/NQqmcB8tIdPBx2SclixmYM7dRCLPa+oDBdz9gXFmANbuKgZ3vqH36RZmGCqLuMnacTEgb8DfeUoC98BDW3F1c+PkH/dvf4Cw/gbvyFLn6DRhTt/YLJGltJIfFILk1ePdfYmh3j9YQ9uI6qi8+Izc5j0zfBBGfSkikKR3xcwz0i9coyN/Yhrf2CsHme8qy981XmFeXIaqFZrVbSt6vsA4mLsK6focKI7v9mNj7C21sGomsi+LSI3ScOduyFyMaO5QtQy4Nwl3dojtUR6dg33yA4uIGFYRaJqVHN3b0E9LACWkIYRAvg+kUIOV9aKNTOO2pxhpGF58mMIJC6OIVxDkZrJgBm1ARZyR0dvAHfg2fNOIUk2mSNjPMF8soOAGy+RLUnAO7VIXlBFBzRbJNu4y8EyBneTCsHmiGC7Pgk0931qaDj0h2vD64fj8Rh0E9lSEE1RrylkdwS1XYToCeYBCO1wurGMArD6DSNwLddA8JG6mGqYcSG7LjbAqMlIVoeBB0B4Lpg9dd+kZ+wv6VdLIy+Z+QfLR1NPCiglQhoHbJVMegjdShjtQhGSXwYTYHDS0cm49t52H4FGkmCgpYPk3gEpm2A/YfjNNaGgYVgwAAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="react_app"
-        title="react_app"
-        src="/static/dea5be3a65036b82f8cb44d85688ef9c/1d69c/react_app.png"
-        srcset="/static/dea5be3a65036b82f8cb44d85688ef9c/4dcb9/react_app.png 188w,
-/static/dea5be3a65036b82f8cb44d85688ef9c/5ff7e/react_app.png 375w,
-/static/dea5be3a65036b82f8cb44d85688ef9c/1d69c/react_app.png 750w,
-/static/dea5be3a65036b82f8cb44d85688ef9c/78797/react_app.png 1125w,
-/static/dea5be3a65036b82f8cb44d85688ef9c/ae953/react_app.png 1132w"
-        sizes="(max-width: 750px) 100vw, 750px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/react_app.BXoLDPUQ_1UsucK.webp" alt="react_app" width="1132" height="1008" loading="lazy" decoding="async"></p>
 <p>เปิด working directory ของเราด้วย vscode ก็จะเห็นว่าข้างในประกอบด้วย files และ folders มากมายนะครับ ผมขอไม่ลงรายละเอียดนะครับ คิดว่าทุกคนคงพอเข้าใจมาบ้างแล้ว</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 402px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 141.48936170212767%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAABYlAAAWJQFJUiTwAAADJ0lEQVRIx5VVy47bRhDcf8gtQFbiY2b4Et8PUSRFipS4WkdJDAcIYOeQix0EsHMwcsohuQT+ByO/kI+soHu92pVt7dKHlghhVKzuquq5UMqC6y7ghx5e/f0tuqFBGERYLpcIwwhJkiLLcuR5gSRJQOcfqgshJKSwIJXAi5c9mmYFy3IQhiEWC59B4zjhCoIQpikeLAZ0bAvSi/D163+RDgfU5RLb3YiyLKFpOnTdOBadf6gupFRQUkFYNpwnPyEqakRhiDTNmNHn/kRMzgLSh+t4WAQLtL8WyKsQ67qFZdnM7raVx4BOGEqh+HDYLRF1eyz8EI7tQH4YNJ2ZAnYHKC0IQ4Phr6Fdv0VWlDgcDmiaNYZhy+pOmd/JDDVdoi4kXv6ow3NdtovvB3Ac98tbVkrhci7x3SDxzxuTBRnHPbquQxTFmM3mMAzzCPqgKDct04zIPhJVLrDwIxTFksHI1FmWMdvpolDLhkQRG3h+fcl26fuBQeu6QVmuGPgLAEkUHSquYf/wFmGcol2vUVU1J2a1qibb565lw4Tlx/DrLbdH7Ci/xJaep1rnKMo3M4lno4n3f87YJsOwQ9u23C558b4ok2aoGxJpKLFvTbiux0uBihgS4MdA54DvRNEVqkTD66dfIUlzNjax22x6FmY+1062yjnQe4ASZSrwy1MDtm0jjm+MTSxJYdt2mDll/HOMPzX2TOL7rcK7300Wo++3aJoGXbfB1dWeme7312wnesG5KB6jN9ckulLizQvBTGihErs0Tfmbli39fj8tZ1tmlecSQ6fw128moihiZpvNBut1y89t2/GymBQ9wxSwpMQzV4dxKZAXJapV9SF2OTOjFm+t86jKBKiEwHNPQ2QrrOqGGVFCyNTULi2IyUm5PZDsXISZj2pVc3tkFwKlotY9b3HC8lHAqIoQRAHyrOB9SD6kPNM6I5HIOpOSQjmWloP0j/8Qtwfsxy3fervdiHEcGbjv+0l5PmFolyOU68M7Ri/k6FGrNMfJWSaGwnIgnvwML4hwNY5Yty3PjViSynQDTrpG7xgqiCCFVDZsy8aNP29uval3MgH+DwbWUAucjVYIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="vscode"
-        title="vscode"
-        src="/static/e30e6d554c8480b457f835773a80d220/0ec92/vscode.png"
-        srcset="/static/e30e6d554c8480b457f835773a80d220/4dcb9/vscode.png 188w,
-/static/e30e6d554c8480b457f835773a80d220/5ff7e/vscode.png 375w,
-/static/e30e6d554c8480b457f835773a80d220/0ec92/vscode.png 402w"
-        sizes="(max-width: 402px) 100vw, 402px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/vscode.GfVR35mU_2uaT7n.webp" alt="vscode" width="402" height="568" loading="lazy" decoding="async"></p>
 <p>ทีนี้ผมจะลบทุกอย่างใน directory <code>src</code> ออกหมดเลยครับ เราจะสร้างเองตั้งแต่เริ่มต้น ใครจะเก็บไว้ก็ได้นะครับไม่มีปัญหา แล้วก็ผมขอเพิ่ม css library เข้าอีกตัวนึงเพิ่มจัดการความสวยงาม (ซึงผมเองก็ไม่ถนัดเท่าไหร่เล้ยยยย 5555555) โดยผมจะใช้ <a href="https://semantic-ui.com/">semantic-ui</a> ครับ เราก็เอา cdn ไปแปะไว้ที่ <code>./public/index.html</code> ได้เลย จากนั้นภายใน folder <code>src</code> สร้างไฟล์ขึ้นมา 2 ไฟล์ครับคือ <code>index.js</code> และ <code>App.js</code></p>
 <p>ภายในไฟล์ <code>index.js</code></p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// index.js</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">ReactDOM</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react-dom&#39;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">App</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./App&#39;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">ReactDOM</span><span class="mtk1">.</span><span class="mtk7">render</span><span class="mtk1">(</span><span class="mtk3">&lt;</span><span class="mtk8">App</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span><span class="mtk1">, </span><span class="mtk7">document</span><span class="mtk1">.</span><span class="mtk7">getElementById</span><span class="mtk1">(</span><span class="mtk11">&#39;root&#39;</span><span class="mtk1">))</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token comment">// index.js</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
 <p>ภายในไฟล์ <code>App.js</code></p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">App</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span><span class="mtk1">Hi, React</span><span class="mtk3">&lt;/</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk7">App</span><span class="mtk1">;</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hi, React</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre>
 <p>ที่ Browser เราก็จะได้ app หน้าตาแบบนี้</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 522px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 58.51063829787234%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABnklEQVQoz5WQW2/aQBCF/f9/Ag8kVAKkvvDaCjcKfSgpSGmatI3a9AZ4HdsYbK8v2Gvjr1qjIBoppRnpaEZzOTNnjEIpVFlSlhVFoSiriiTNiJO0iddhhL8KCGWMTFL8dUAkE4JINvFytWYVhE1NxilGnCQopYCaIAzRtrAEjus18e3Xb9x8vuXy6iPm2TmvXg95Y57x7uI9H65vuJhMmx69MJASg7rh+tu25T6pFeTFToVeHmcbIiDZ5I2incKq8Zu8xPB/3qGWFu7SZ76woMy59ODFl4ooWOM4LsK2sYUgSjOQEk5OUJ7H/dLHtm0sIcjzAuoEww0XVJmL4/rcff+B2iR8chQvr1LiWLKwLH79njGfz1nLGMKQ+vSUwvMQrocQgtlsRprlbIt7DC2rLLdUVcUxq+uaSkN/5fGXtpoDjH6/jxAWg8GAVqvFdDplMplyPnrLcDjcEz0ADT15kGvyu04M0zQZj8eMRiN6vR7tdptut0un00HXHi6vHxE8hUZynuf/lHnoj5lxOPDU8P+S7QmP4VkXPveCY4R/ANsLmJ1g1VfgAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="react"
-        title="react"
-        src="/static/16c34cb3fd2027e26e4ec68d875c45fd/29492/react.png"
-        srcset="/static/16c34cb3fd2027e26e4ec68d875c45fd/4dcb9/react.png 188w,
-/static/16c34cb3fd2027e26e4ec68d875c45fd/5ff7e/react.png 375w,
-/static/16c34cb3fd2027e26e4ec68d875c45fd/29492/react.png 522w"
-        sizes="(max-width: 522px) 100vw, 522px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/react.DhQeXK_T_ZckBpI.webp" alt="react" width="522" height="306" loading="lazy" decoding="async"></p>
 <p>ต่อไปก็ทำการสร้าง folder <code>components</code> เพื่อเก็บ components ต่างๆ ไว้ โดยสร้างตามที่เกริ่นไว้ตอนต้นเลยครับ ผมจะเริ่มจาก <code>TodoList.js</code> และผมก็จะกำหนด <code>state</code> ของ <code>todos</code> เป็น array ไว้เลยแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoList</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { todos: [] };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span><span class="mtk1">TodoList</span><span class="mtk3">&lt;/</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk1">Feed a cat</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk1">Walk a dog</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk1">Learn react</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;/</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">TodoList</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">Feed a cat</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">Walk a dog</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">Learn react</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>สาเหตุผลที่ทำเป็น array เนื่องจากเราต้องการที่จะ render ตัว todo ออกมาเป็น list รายการต่าง ๆ ดังนั้นเราจึงต้องเก็บไว้ในรูปของ array เพื่อให้ง่ายต่อการสร้าง components ด้วยการวนลูปนั่นเอง จากนั้นเราก็ทำการ <code>import</code> เข้าไปที่ไฟล์ <code>App.js</code> เลยครับ</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">TodoList</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./components/TodoList&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">App</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk8">TodoList</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk7">App</span><span class="mtk1">;</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> TodoList <span class="token keyword">from</span> <span class="token string">'./components/TodoList'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">TodoList</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre>
 <p>หน้าตา app ก็จะเปลี่ยนเป็น</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 59.04255319148937%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABbUlEQVQoz6WPUY+aQBCA+f//5vpiYtI28cUXm+YqnApVkLYn4MIKCywoy9eI2lxNH+56k3yZmU3m2xlL64b6yrlOZU5ZaRKREiVi4HkXEcd7nqOYXZxwKNSFXCHzS75hGdNjeoY4dR2NOkDfDYNB+IPHxzkz54m56+EH2+GtKEuKqkVVmko3lLWmqvWQrVrl1FnCPs046oqve9iImkKmCJGijQHXxYQhsqoQQtC2LUf9E1VIdlGMlBKRpkh5wOr7Fo7FsG7fHXlK4VfeccgEURSTa41xHNrNBlEURFFE0zSUakepcpJEkJ2F4pKt6XTKt7mNbdvYjoPvLQg233kZ/ZXXhDWZTPjw8MB4PGY0GvHx02dmsy8XUd8PcD77Wg/9i/oe669NbgN3/VuwTqcTWZaxXC4HPM8jSZJ/fvCqk7uuQynFarVisViwXq9xXff9wjAM2W63+L5PEAT/L7wNncXGmD+8W3gfbxXdhL8BkGagK/5M8TsAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="todo list component"
-        title="todo list component"
-        src="/static/df6f1bb5e5255493fada0e7a819c450f/50383/TodoList_Com.png"
-        srcset="/static/df6f1bb5e5255493fada0e7a819c450f/4dcb9/TodoList_Com.png 188w,
-/static/df6f1bb5e5255493fada0e7a819c450f/5ff7e/TodoList_Com.png 375w,
-/static/df6f1bb5e5255493fada0e7a819c450f/50383/TodoList_Com.png 740w"
-        sizes="(max-width: 740px) 100vw, 740px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/TodoList_Com.ChSv87E6_1r2rdN.webp" alt="todo list component" width="740" height="438" loading="lazy" decoding="async"></p>
 <p>ต่อไปก็ทำการสร้าง component <code>Todo.js</code> ขึ้นมา เพื่อแสดงรายการ todo แต่ละอัน โดยมีปุ่มเพื่อ edit และ delete แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">Edit</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">Delete</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Todo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Edit</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Delete</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>task<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>สังเกตเห็นว่าผมผ่านค่า <code>this.props.task</code> ลงไปใน <code>li</code> element ซึงยังไม่มีการกำหนดค่า <code>props</code> เหล่านั้นใน parent component (ก็คือ <code>TodoList</code>) ดังนั้นผมต้องกลับไปตั้งค่า <code>props</code> ใน <code>TodoList.js</code> ก่อน แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./Todo&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoList</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { todos: [{ task: </span><span class="mtk11">&#39;Feed a cat&#39;</span><span class="mtk1"> }, { task: </span><span class="mtk11">&#39;Walk a dog&#39;</span><span class="mtk1"> }] };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">todos</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">.</span><span class="mtk7">map</span><span class="mtk1">(todo </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk3">&lt;</span><span class="mtk8">Todo</span><span class="mtk1"> </span><span class="mtk3">task</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span><span class="mtk1">TodoList</span><span class="mtk3">&lt;/</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">todos</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Todo <span class="token keyword">from</span> <span class="token string">'./Todo'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Feed a cat'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Walk a dog'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Todo</span></span> <span class="token attr-name">task</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">TodoList</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ul</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>ผมทำการเพิ่มรายการลงไปใน state <code>todos</code> เพื่อเก็บตัวแปร <code>task</code> (ในอนาคตก็มี <code>id</code>, <code>isComplete</code> อีก แต่ตอนนี้เอาแค่นี้ก่อน) ซึ่งเป็นตัวที่แสดงเนื้อหาของ todo จากนั้นผมก็เอามา map เข้าไปใน <code>Todo</code> component แล้วผ่านค่า <code>task</code> ให้เป็นหนึ่งใน <code>props</code> ของ <code>Todo</code> ครับ จากนี้เราก็สามารถแสดงรายการ <code>task</code> นี้ได้ที่ child component แล้วววแบบนี้</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 658px; "
-    >
-      <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 64.8936170212766%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAABt0lEQVQ4y5WSSY/aQBCF/f9/A0mYXHPhB4y4cUJikfCENcYmMG2zGby1jdtf1M0yI3KAeVK5nktdz6+rbCmlkFJyzjl5XrASPmWpmLsejusxHE8Y2G8MhyNmzty8Cz8gihMOUcQhim/ZqqqKUnFDWZ5QMjI82GxNOM6cqbdgJnyE8FkJQXg8kmQ5SVaQZhKZF2Qyx5IyI1pO2W7WiPd3wqzk11jhb0OCwEe8C+KyBNeF11d2WWbObbZ7ylNEehiy2+1wXQ8/CLCMq+JALiVxFJEr+L2FVBZsNhsTxzRD+T5qMCDKpKntwwOnIiWO16Rpwm6353g8YjWbTVzvL7b9xnQ6YzQa4v0Zs16vP+ZQVeipqAu/Ql3oRwWsVqvFz5cXarUa9XqdRqPBt+8/6Pf75yalzg1a6ML13KuL8DlXt5rFA3xufCYs7UCjKAq63S5hGCKEoN1uM5lM/hN7BOMw05sTAtu2WSwWeJ5nZpgkCdcPfklQu9POtCvXdZnNZibr2v2VHgpeD6VpSq/XY7/fs1qtDNfCXxbUjziOjaNOp4PjOObqy+XytuXPy3na4f1my7K8+zWewz+vEuh6dvYMBgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="todo with props"
-        title="todo with props"
-        src="/static/6f5b57ea3c4e67a9312db4380a97978c/889a4/todo_with_props.png"
-        srcset="/static/6f5b57ea3c4e67a9312db4380a97978c/4dcb9/todo_with_props.png 188w,
-/static/6f5b57ea3c4e67a9312db4380a97978c/5ff7e/todo_with_props.png 375w,
-/static/6f5b57ea3c4e67a9312db4380a97978c/889a4/todo_with_props.png 658w"
-        sizes="(max-width: 658px) 100vw, 658px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-    </span></p>
+<p><img  src="/_assets/todo_with_props.jrcKXbIr_Z3gKLT.webp" alt="todo with props" width="658" height="428" loading="lazy" decoding="async"></p>
 <p>ดูไม่ได้เล้ยยยย ไว้เดี๋ยวค่อยแต่งอีกทีนะ 555555555</p>
-<p>ต่อไปเราก็มาสร้าง <code>TodoForm.js</code> กัน โดยที่ form จะรับ input จาก user แล้วก็จะนำไปสร้างเก็บไว้ใน <code>state</code> จากนั้นก็จะส่งผ่าน <code>props</code> อีกทีเพื่อนำไป render ที่ <code>Todo</code> ครับ ซึ่ง form ของเรา เราต้องทำให้มันเป็น "Controlled Component" นั่นก็คือให้มันสามารถจัดการกับ state ของเราได้นั่นเอง</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoForm</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { task: </span><span class="mtk11">&#39;&#39;</span><span class="mtk1"> };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleChange</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      [</span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">]: </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">value</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">form</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">label</span><span class="mtk1"> </span><span class="mtk3">htmlFor</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span><span class="mtk3">&gt;</span><span class="mtk1">New Todo: </span><span class="mtk3">&lt;/</span><span class="mtk7">label</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">input</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">type</span><span class="mtk8">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">placeholder</span><span class="mtk8">=</span><span class="mtk11">&quot;add new todo&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">id</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">value</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">onChange</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleChange</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">ADD</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">form</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<p>ต่อไปเราก็มาสร้าง <code>TodoForm.js</code> กัน โดยที่ form จะรับ input จาก user แล้วก็จะนำไปสร้างเก็บไว้ใน <code>state</code> จากนั้นก็จะส่งผ่าน <code>props</code> อีกทีเพื่อนำไป render ที่ <code>Todo</code> ครับ ซึ่ง form ของเรา เราต้องทำให้มันเป็น “Controlled Component” นั่นก็คือให้มันสามารถจัดการกับ state ของเราได้นั่นเอง</p>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoForm</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>form</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span> <span class="token attr-name">htmlFor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">New Todo: </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span>
+          <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+          <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add new todo<span class="token punctuation">"</span></span>
+          <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span>
+          <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span>
+          <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">ADD</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>form</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>ทีนี้ลองมาดูกันว่า มีอะไรข้างใน <code>form</code> นี้บ้าง</p>
 <ul>
 <li><code>state = { task: '' }</code> จากที่อธิบายไว้ข้างบนนะครับ ว่าเราต้องการให้ <code>form</code> สามารถควบคุม input จาก user ได้ ดังนั้นเราจึงต้องประกาศ <code>state</code> โดยให้ <code>task</code> มีค่าเท่ากับ empty string ก่อน และเราต้องผ่านค่า <code>state</code> ลงไปใน <code>value</code> ของ <code>input</code> ด้วย</li>
 <li><code>handleChange</code> method ทำหน้าที่ <code>setState</code> ให้กับ <code>task</code> โดยกำหนดให้มีค่าเท่ากับ <code>e.target.value</code> ซึ่งก็คือค่า input ที่รับเข้ามานั่นเอง และผ่านค่าเข้าที่ event <code>onChange</code></li>
 </ul>
 <p>ทีนี้ลองมาดูที่ React DevTools กันบ้างนะครับว่าที่เราเขียนไปนั้นโอเครึป่าว</p>
-<p><img src="/path/to/dir/56caacbefa7bdb5da0c6a48e71047829/state_etarget.gif" alt="react devtools"></p>
+<p><img  src="/_assets/state_etarget.D5UULagK_ZB2wix.webp" alt="react devtools" width="1430" height="982" loading="lazy" decoding="async"></p>
 <p>ตอนนี้ <code>state</code> ของเราก็เปลี่ยนแปลงตาม input ที่ user พิมพ์เข้าไปแล้ววว</p>
-<h2>Create addNewTodo method</h2>
+<h2 id="create-addnewtodo-method">Create addNewTodo method</h2>
 <p>ทีนี้ก็มาสร้างวิธีที่จะเพิ่ม todo จาก form นะครับ ถ้าย้อนกลับขึ้นไปดูโครงสร้างของ app ข้างบน เราจะเห็นว่า <code>TodoList.js</code> เป็น Parent Component ของ <code>Todo.js</code> อีกที ดังนั้น เราต้องสร้าง method <code>addNewTodo</code> ไว้ที่ <code>TodoList.js</code> แล้วทำการส่ง method นี้ผ่านทาง <code>props</code> ไปยัง <code>TodoForm.js</code> อีกที</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// TodoList.js</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./Todo&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">TodoForm</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./TodoForm&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoList</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { todos: [{ task: </span><span class="mtk11">&#39;Feed a cat&#39;</span><span class="mtk1"> }, { task: </span><span class="mtk11">&#39;Walk a dog&#39;</span><span class="mtk1"> }] };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// add new todo</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">addNewTodo</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> newTask </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({ todos: [</span><span class="mtk8">...</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">, </span><span class="mtk7">newTask</span><span class="mtk1">] });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">todos</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">.</span><span class="mtk7">map</span><span class="mtk1">(todo </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk3">&lt;</span><span class="mtk8">Todo</span><span class="mtk1"> </span><span class="mtk3">task</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span><span class="mtk1">TodoList</span><span class="mtk3">&lt;/</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk8">TodoForm</span><span class="mtk1"> </span><span class="mtk3">addNewTodo</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">addNewTodo</span><span class="mtk9">}</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">todos</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token comment">// TodoList.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Todo <span class="token keyword">from</span> <span class="token string">'./Todo'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> TodoForm <span class="token keyword">from</span> <span class="token string">'./TodoForm'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Feed a cat'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Walk a dog'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// add new todo</span>
+  <span class="token function-variable function">addNewTodo</span> <span class="token operator">=</span> <span class="token parameter">newTask</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">,</span> newTask<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Todo</span></span> <span class="token attr-name">task</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">TodoList</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">TodoForm</span></span> <span class="token attr-name">addNewTodo</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>addNewTodo<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ul</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>จากนั้นกลับไปที่ <code>TodoForm.js</code> เราต้องเพิ่ม <code>handleSubmit</code> เพื่อรับเอา <code>addNewTodo</code> มาใช้งานอีกทีแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">v4</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">uuid</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;uuid&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoForm</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { task: </span><span class="mtk11">&#39;&#39;</span><span class="mtk1"> };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleChange</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      [</span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">]: </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">value</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleSubmit</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">preventDefault</span><span class="mtk1">();</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">addNewTodo</span><span class="mtk1">({ </span><span class="mtk8">...</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">, id: </span><span class="mtk7">uuid</span><span class="mtk1">() , isComplete: </span><span class="mtk5">false</span><span class="mtk1">});</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({ task: </span><span class="mtk11">&#39;&#39;</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">form</span><span class="mtk1"> </span><span class="mtk3">onSubmit</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleSubmit</span><span class="mtk9">}</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">label</span><span class="mtk1"> </span><span class="mtk3">htmlFor</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span><span class="mtk3">&gt;</span><span class="mtk1">New Todo: </span><span class="mtk3">&lt;/</span><span class="mtk7">label</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">input</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">type</span><span class="mtk8">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">placeholder</span><span class="mtk8">=</span><span class="mtk11">&quot;add new todo&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">id</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">value</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">onChange</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleChange</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">ADD</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">form</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> v4 <span class="token keyword">as</span> uuid <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'uuid'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoForm</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleSubmit</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">addNewTodo</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">,</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token function">uuid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token literal-property property">isComplete</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>form</span> <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleSubmit<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>label</span> <span class="token attr-name">htmlFor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">New Todo: </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>label</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span>
+          <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+          <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add new todo<span class="token punctuation">"</span></span>
+          <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span>
+          <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span>
+          <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">ADD</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>form</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
 <p>จาก function <code>handleSubmit</code> เราสามารถเรียก method <code>addNewTodo</code> ผ่านทาง <code>props</code> ได้เลย โดย method <code>addNewTodo</code> รับพารามิเตอร์หนึ่งตัวซึ่งก็คือ <code>newTask</code> นั่นหมายความว่าเราสามารถผ่านค่า <code>this.state</code> แล้วก้ถือโอกาสนี้เพิ่ม <code>id</code> เพื่อที่นำไปใช้ตรวจสอบกับ method อื่นๆ รวมถึงนำไปสร้างเป็น <code>key</code> properties ด้วย และ <code>isComplete</code> เพื่อที่จะนำไปเช็คว่า task ไหนที่เสร็จแล้วบ้าง แล้วทีนี้ผมต้องการให้ input ,มัน reset เป็นค่าว่างๆ ด้วย ผมจึงต้อง <code>setState</code> กลับไปให้เป็น empty string อีกรอบ คราวนี้ลองเพิ่ม todo ที่ browser กันดูครับ</p>
-<p><img src="/path/to/dir/2c99f389d3a709b44be972aba7b8b774/add_new_todo.gif" alt="add new todo"></p>
+<p><img  src="/_assets/add_new_todo.aNelx2zR_Z163uwb.webp" alt="add new todo" width="828" height="612" loading="lazy" decoding="async"></p>
 <p>เรียบร้อยยย เพิ่มได้ละ</p>
-<h2>Deleting Todo</h2>
+<h2 id="deleting-todo">Deleting Todo</h2>
 <p>ในการที่จะลบ todo แต่ละอันออกนั้น เราต้องสร้าง id ให้กับมันก่อน (โดยการใช้ uuid) ทีนี้ก็ทำคล้ายๆ กับ method <code>addNewTodo</code> ครับ โดยสร้างไว้ที่ <code>TodoList</code> component จากนั้นส่งผ่าน <code>props</code> ไปยัง component ที่จะใช้งาน ซึ่งก็คือ <code>Todo.js</code> นั่นเอง อ้อออ อย่าลืมส่งผ่าน <code>id</code> ผ่าน <code>props</code> ไปด้วยนะครับ</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./Todo&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">TodoForm</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./TodoForm&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">TodoList</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    todos: [</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      { task: </span><span class="mtk11">&#39;Feed a cat&#39;</span><span class="mtk1">, id: </span><span class="mtk6">1</span><span class="mtk1">, isComplete: </span><span class="mtk5">false</span><span class="mtk1"> },</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      { task: </span><span class="mtk11">&#39;Walk a dog&#39;</span><span class="mtk1">, id: </span><span class="mtk6">2</span><span class="mtk1">, isComplete: </span><span class="mtk5">false</span><span class="mtk1"> }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    ]</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// add new todo</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">addNewTodo</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> newTask </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({ todos: [</span><span class="mtk8">...</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">, </span><span class="mtk7">newTask</span><span class="mtk1">] });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3 mtki">// delte todo</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">deleteTodo</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> id </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      todos: [</span><span class="mtk8">...</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">.</span><span class="mtk7">filter</span><span class="mtk1">(todo </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> </span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1"> </span><span class="mtk8">!==</span><span class="mtk1"> </span><span class="mtk7">id</span><span class="mtk1">)]</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">todos</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">.</span><span class="mtk7">map</span><span class="mtk1">(todo </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk8">Todo</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">task</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">key</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">id</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">deleteTodo</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">deleteTodo</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span><span class="mtk1">TodoList</span><span class="mtk3">&lt;/</span><span class="mtk7">h1</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk8">TodoForm</span><span class="mtk1"> </span><span class="mtk3">addNewTodo</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">addNewTodo</span><span class="mtk9">}</span><span class="mtk1"> </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">todos</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">ul</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Todo <span class="token keyword">from</span> <span class="token string">'./Todo'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> TodoForm <span class="token keyword">from</span> <span class="token string">'./TodoForm'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Feed a cat'</span><span class="token punctuation">,</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">isComplete</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token string">'Walk a dog'</span><span class="token punctuation">,</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">isComplete</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// add new todo</span>
+  <span class="token function-variable function">addNewTodo</span> <span class="token operator">=</span> <span class="token parameter">newTask</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">,</span> newTask<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// delte todo</span>
+  <span class="token function-variable function">deleteTodo</span> <span class="token operator">=</span> <span class="token parameter">id</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">todos</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> todo<span class="token punctuation">.</span>id <span class="token operator">!==</span> id<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> todos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">Todo</span></span>
+          <span class="token attr-name">task</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span>
+          <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span>
+          <span class="token attr-name">id</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">.</span>id<span class="token punctuation">}</span></span>
+          <span class="token attr-name">deleteTodo</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>deleteTodo<span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">TodoList</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span><span class="token class-name">TodoForm</span></span> <span class="token attr-name">addNewTodo</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>addNewTodo<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>ul</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>todos<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>ul</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>มาดูกันที่ <code>deleteTodo</code> method นะครับ เราจะผ่านค่า <code>id</code> ลงไปเพื่อนำไปตรวจสอบกับแต่ละ <code>todo</code> ว่าตรงกันหรือไม่ ถ้าตรงกัน เราก็จะ filter <code>todo</code> ตัวนั้นออกไป และนำค่าที่เหลือมา <code>setState</code> อีกครั้ง จากนั้น ไปที่ <code>Todo.js</code> เพื่อนำ method <code>deleteTodo</code> ไปใช้กับ delete button แบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleDelete</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">deleteTodo</span><span class="mtk1">(</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">Edit</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk1"> </span><span class="mtk3">onClick</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleDelete</span><span class="mtk9">}</span><span class="mtk3">&gt;</span><span class="mtk1">Delete</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Todo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">handleDelete</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">deleteTodo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Edit</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleDelete<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Delete</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>task<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>เช็คกันที่ browser อีกที</p>
-<p><img src="/path/to/dir/4d063b4903b074608cbb367500bf7821/delete_todo.gif" alt="delete todo"></p>
+<p><img  src="/_assets/delete_todo.Dc-iwMU1_ZjAjHN.webp" alt="delete todo" width="812" height="674" loading="lazy" decoding="async"></p>
 <p>Coooool!</p>
-<h2>Edit todo</h2>
+<h2 id="edit-todo">Edit todo</h2>
 <p>คราวนี้ก็มาถึงส่วนของการ edit แต่ละ todo กันบ้าง function นี้อาจจะดูซับซ้อนนิดหน่อย ผมจะเรียงเป็นข้อๆ แบบนี้</p>
 <ul>
 <li>เพิ่ม <code>state</code> เข้ามาอีก 2 ตัว <code>isEditing</code> และ <code>task</code> โดยให้ค่าเริ่มต้นของ <code>isEditing</code> เป็น <code>false</code> โดยมีหลักการดังนี้
@@ -429,188 +315,87 @@
 <li>สร้าง method เพื่อ submit form หลังจากที่ edit เสร็จเรียบร้อย เพื่อทำงานร่วมกับ <code>onSubmit</code> event ที่ <code>editForm</code> โดยที่ method นี้ต้องกลับไปสร้างที่ Parent component แล้วเรียกผ่าน <code>props</code> มาเหมือนเดิม</li>
 </ul>
 <p>หน้าตาของ code ที่ได้ก็จะเป็นแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// Todo.js</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">React</span><span class="mtk1">, { </span><span class="mtk7">Component</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;react&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">Todo</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> Component {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  state </span><span class="mtk8">=</span><span class="mtk1"> { isEditing: </span><span class="mtk5">false</span><span class="mtk1">, task: </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk1"> };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleDelete</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">deleteTodo</span><span class="mtk1">(</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">toggleEditForm</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({ isEditing: </span><span class="mtk8">!</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">isEditing</span><span class="mtk1"> });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleUpdate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">preventDefault</span><span class="mtk1">();</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3 mtki">// we need to create this call this method via props</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">handleChange</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      [</span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">name</span><span class="mtk1">]: </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">target</span><span class="mtk1">.</span><span class="mtk7">value</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">render</span><span class="mtk1">() {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">content</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">isEditing</span><span class="mtk1">) {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk7">content</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">form</span><span class="mtk1"> </span><span class="mtk3">action</span><span class="mtk8">=</span><span class="mtk11">&quot;&quot;</span><span class="mtk1"> </span><span class="mtk3">onSubmit</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleUpdate</span><span class="mtk9">}</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">&lt;</span><span class="mtk7">input</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">              </span><span class="mtk3">type</span><span class="mtk8">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">              </span><span class="mtk3">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">              </span><span class="mtk3">value</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">              </span><span class="mtk3">onChange</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleChange</span><span class="mtk9">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk3">&gt;</span><span class="mtk1">Save</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;/</span><span class="mtk7">form</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    } </span><span class="mtk8">else</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk7">content</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk1"> </span><span class="mtk3">onClick</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">toggleEditForm</span><span class="mtk9">}</span><span class="mtk3">&gt;</span><span class="mtk1">Edit</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">button</span><span class="mtk1"> </span><span class="mtk3">onClick</span><span class="mtk8">=</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">handleDelete</span><span class="mtk9">}</span><span class="mtk3">&gt;</span><span class="mtk1">Delete</span><span class="mtk3">&lt;/</span><span class="mtk7">button</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">          </span><span class="mtk3">&lt;</span><span class="mtk7">li</span><span class="mtk3">&gt;</span><span class="mtk9">{</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk9">}</span><span class="mtk3">&lt;/</span><span class="mtk7">li</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      );</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">content</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token comment">// Todo.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Todo</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">isEditing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token literal-property property">task</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>task <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleDelete</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">deleteTodo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">toggleEditForm</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">isEditing</span><span class="token operator">:</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>isEditing <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleUpdate</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// we need to create this call this method via props</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> content<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>isEditing<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      content <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleUpdate<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>input</span>
+              <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+              <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>task<span class="token punctuation">"</span></span>
+              <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>task<span class="token punctuation">}</span></span>
+              <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">}</span></span>
+            <span class="token punctuation">/></span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">Save</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>form</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      content <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>toggleEditForm<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Edit</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleDelete<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Delete</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>li</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>task<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>li</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> content<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
 <p>ตามที่เกริ่นไว้ตอนต้นว่า method <code>handleUpdate</code> ต้องสร้างไว้ที่ Parent component แล้วเรียกผ่าน <code>props</code> ดังนั้นก็ไปสร้างกันเลยครับ (code อื่นๆ เหมือนเดิม แค่เพิ่ม <code>updateTodo</code> ต่อจาก <code>deleteTodo</code> แล้วก็อย่างลืมส่งผ่าน <code>props</code> ใน component <code>&#x3C;Todo/></code> ด้วยนะครับ)</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// update todo</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">updateTodo</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (id, updateTask) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">updatedTodos</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">todos</span><span class="mtk1">.</span><span class="mtk7">map</span><span class="mtk1">(todo </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk7">todo</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1"> </span><span class="mtk8">===</span><span class="mtk1"> </span><span class="mtk7">id</span><span class="mtk1">) {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk8">return</span><span class="mtk1"> { </span><span class="mtk8">...</span><span class="mtk7">todo</span><span class="mtk1">, task: </span><span class="mtk7">updateTask</span><span class="mtk1"> };</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">todo</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      todos: </span><span class="mtk7">updatedTodos</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    });</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span></code></pre>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token comment">// update todo</span>
+  <span class="token function-variable function">updateTodo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">id<span class="token punctuation">,</span> updateTask</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> updatedTodos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">todo</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>todo<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>todo<span class="token punctuation">,</span> <span class="token literal-property property">task</span><span class="token operator">:</span> updateTask <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> todo<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">todos</span><span class="token operator">:</span> updatedTodos
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <p>function <code>updateTodo</code> ก็จะรับ parameter 2 ตัวนั่นก็คือ id และ updateTask จากนั้นเราก็เช็คดูว่า id ของ todo นั้น ๆ ตรงกันกับตัวที่เราจะ edit ใหม่รึป่าว ถ้าตรงกันก็แทนค่าใหม่ด้วย <code>updateTask</code> และ return array ของ <code>todos</code> ใหม่ออกมา คราวนี้ภายใน <code>handleUpdate</code> method ก็สามารถเรียกใช้ <code>updateTodo</code> ได้เป็นแบบนี้</p>
-<pre class="grvsc-container solarized-light" data-language="jsx" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">handleUpdate</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> e </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">e</span><span class="mtk1">.</span><span class="mtk7">preventDefault</span><span class="mtk1">();</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">updateTodo</span><span class="mtk1">(</span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">props</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">, </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">state</span><span class="mtk1">.</span><span class="mtk7">task</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">this</span><span class="mtk1">.</span><span class="mtk7">setState</span><span class="mtk1">({isEditing: </span><span class="mtk5">false</span><span class="mtk1">})</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  };</span></span></span></code></pre>
-<p>Let's test in the browser!</p>
-<p><img src="/path/to/dir/772ad650085784839e67f4d8050ffd79/edit_todo.gif" alt="edit todo"></p>
+<pre class="language-jsx" data-language="jsx"><code is:raw="" class="language-jsx"><span class="token function-variable function">handleUpdate</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">updateTodo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>id<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">isEditing</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Let’s test in the browser!</p>
+<p><img  src="/_assets/edit_todo.CQgYT_Cw_Z1MWPkV.webp" alt="edit todo" width="686" height="554" loading="lazy" decoding="async"></p>
 <p>โอเคคคคค</p>
 <p>โดยรวมแล้วก็ประมาณนี้นะครับ ตอนแรกว่าจะเพิ่ม toggleComplete ด้วยแต่คิดว่าจะยาวเกินไป ที่จริงเราสามารถเขียนได้หลายแบบมาก ไม่จำเป็นต้องตามที่ผมเขียนก็ได้ โดยเฉพาะเขียนโดยใช้ <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> ซึ่งผมก็เขียน blog การเขียนด้วย React Hooks ด้วยเหมือนกัน ใครที่อยากดู code ทั้งหมด ก็เข้าไปดูใน <a href="https://github.com/xeusteerapat/todo-app-playground">repository</a> นี้ได้หมดเลย รวม styling แล้วด้วยยย หวังว่าจะมีประโยชน์ต่อผู้อ่านทุกท่านนะครับ</p>
 <p>Happy Coding :)</p>
-<p><em><a href="https://www.udemy.com/course/modern-react-bootcamp/">Reference: The Modern React Bootcamp (Hooks, Context, NextJS, Router)</a></em></p>
-<style class="grvsc-styles">
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line > * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: ' ';
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-  .solarized-light { background-color: #FDF6E3; }
-  .solarized-light .mtkb { font-weight: bold; }
-  .solarized-light .mtki { font-style: italic; }
-  .solarized-light .mtk1 { color: #657B83; }
-  .solarized-light .mtk7 { color: #268BD2; }
-  .solarized-light .mtk3 { color: #93A1A1; }
-  .solarized-light .mtk8 { color: #859900; }
-  .solarized-light .mtk11 { color: #2AA198; }
-  .solarized-light .mtk13 { color: #073642; }
-  .solarized-light .mtk9 { color: #D30102; }
-  .solarized-light .mtk5 { color: #B58900; }
-  .solarized-light .mtk6 { color: #D33682; }
-  .solarized-light .grvsc-line-highlighted::before {
-    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
-    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
-  }
-</style></div></div><footer class="footer-module--footer--675c6"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/basic-react-todo-app";window.___webpackCompilationHash="94e20cd6aa9c4a3eeb94";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0331ad3611257a24bd80.js"],"component---src-pages-404-js":["/component---src-pages-404-js-0e6af2cd7680156ccdc5.js"],"component---src-pages-about-js":["/component---src-pages-about-js-12ba874488f09c48bf7d.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-3c426355a62e6db94474.js"],"component---src-pages-index-js":["/component---src-pages-index-js-5b1974ddbc88df87e727.js"],"component---src-pages-project-js":["/component---src-pages-project-js-cc21247651fca94b9a7c.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-2e70681adbedcac4fe6a.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-4928e115e0ce8d207656.js"]};/*]]>*/</script><script src="/app-0331ad3611257a24bd80.js" async=""></script><script src="/framework-28b1dd818f52b3fd496a.js" async=""></script><script src="/webpack-runtime-91a77cf6ee6c05287092.js" async=""></script></body></html>
+<p><em><a href="https://www.udemy.com/course/modern-react-bootcamp/">Reference: The Modern React Bootcamp (Hooks, Context, NextJS, Router)</a></em></p>  </div> </article> <div class="comments-section" data-astro-cid-bvzihdzo> <section class="comments" data-astro-cid-on2fnc7p> <h2 class="comments-title" data-astro-cid-on2fnc7p>Comments</h2> <div class="giscus-container" data-astro-cid-on2fnc7p> <script src="https://giscus.app/client.js" data-repo="xeusteerapat/xeusteerapat.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyMTkyNTY4NzY=" data-category="General" data-category-id="DIC_kwDODRGYLM4COf8-" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async>
+    </script> </div> </section>  </div>  </main> </div> <footer class="footer" data-astro-cid-sz7xmlte> <div class="container-main footer-content" data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://github.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>GitHub</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://twitter.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Twitter</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://www.linkedin.com/in/teerapat-prommarak/" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>LinkedIn</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-sz7xmlte></path> </svg> </a> </div> <p class="copyright" data-astro-cid-sz7xmlte>
+Created by Teerapat Prommarak, © 2025 </p> </div> </footer>  </body></html> 
