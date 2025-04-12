@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://curiousdev.in.th',
   trailingSlash: 'ignore',
+  base: '/',
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
