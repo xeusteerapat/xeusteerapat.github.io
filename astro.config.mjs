@@ -5,14 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://curiousdev.in.th',
-  base: '/',
   trailingSlash: 'ignore',
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     build: {
-      assetsInlineLimit: 0
-    }
+      assetsInlineLimit: 0,
+    },
   },
   markdown: {
     syntaxHighlight: 'prism',
