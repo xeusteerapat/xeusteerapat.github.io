@@ -1,109 +1,162 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>Rest API with node and Typescript | Hello, World</title><meta name="description"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_assets/_slug_.5Zos-WDK.css">
-<link rel="stylesheet" href="/_assets/_slug_.rCULUuHh.css"></head> <body style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f9fafb;" data-astro-cid-37fxchfa> <div class="container-main" style="flex-grow: 1;" data-astro-cid-37fxchfa> <header class="header" data-astro-cid-3ef6ksr2> <div class="header-container" data-astro-cid-3ef6ksr2> <div class="brand" data-astro-cid-3ef6ksr2> <a href="/" class="site-title" data-astro-cid-3ef6ksr2>Hello, World</a> <a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" class="webring" data-astro-cid-3ef6ksr2> <img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg" class="webring-image" data-astro-cid-3ef6ksr2> </a> </div> <nav data-astro-cid-3ef6ksr2> <ul class="nav-list" data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-item" data-astro-cid-3ef6ksr2>Home</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-item" data-astro-cid-3ef6ksr2>Blog</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/about" class="nav-item" data-astro-cid-3ef6ksr2>About</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/contact" class="nav-item" data-astro-cid-3ef6ksr2>Contact</a> </li> </ul> </nav> </div> </header>  <script type="module" src="/_assets/Header.astro_astro_type_script_index_0_lang.DT_jaKul.js"></script> <main style="padding-top: 2rem; padding-bottom: 2rem;" data-astro-cid-37fxchfa>  <article class="blog-post" data-astro-cid-bvzihdzo> <h1 class="blog-title" data-astro-cid-bvzihdzo>Rest API with node and Typescript</h1> <time class="blog-date" data-astro-cid-bvzihdzo>May 7, 2020</time> <div class="blog-content" data-astro-cid-bvzihdzo>  <p>สวัสดีครับ วันนี้ขอนำเสนอบทความเกี่ยวกับการใช้ Node.js และ Typescript เพื่อสร้าง Rest API นะครับ เนื่องจากว่าได้รับมอบหมายให้ใช้ Typescript ทำโปรเจ็คขึ้นมาตัวนึง เลยคิดว่าเขียน blog ไว้ด้วยเลยดีกว่า ภาพรวมก็จะคล้าย ๆ กับ <a href="https://xeusteerapat.github.io/blog/node-sequelize-rest-api">บทความก่อนหน้า</a> แต่ว่าคราวนี้ผมเปลี่ยนไปใช้ ORM อีกตัวนึงนั่นก็คือ <a href="https://typeorm.io/#/">TypeORM</a> สาเหตุที่ไม่ได้ใช้ Sequelize เหมือนครั้งก่อนเพราะว่าตัวอย่างใน Doc ของ Sequlize ที่ใช้ Typescript มีน้อยมากกก (อ่านดูแล้วไม่ได้ช่วยอะไรใดๆ เลย 555555) แล้วทีนี้ลองมาศึก TypeORM ดู พบว่าเค้าเขียนเพื่อรองรับกับ Typescript โดยเฉพาะเลย อีกทั้งการทำ CRUD ก็คล้ายๆ กับวิธีการของ Sequelize ดังนั้นก็เลยเปลี่ยนมาใช้ TypeORM ครับ</p>
+<!DOCTYPE html><html lang="th"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.9"/><meta data-react-helmet="true" name="description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" property="og:url" content="https://curiousdev.in.th/blog/rest-api-with-node-typescript"/><meta data-react-helmet="true" property="og:title" content="Rest API with node and Typescript"/><meta data-react-helmet="true" property="og:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@xeusteerapat"/><meta data-react-helmet="true" name="twitter:title" content="Rest API with node and Typescript"/><meta data-react-helmet="true" name="twitter:description" content="Full-stack web developer who always curiosity and learn new things."/><style data-href="/styles.b74fcce386d682139b69.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#fafafa;color:#90a4ae;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#cceae7;color:#263238}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#7c4dff}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}.header-module--header--92758{padding:1rem 0 3rem}.header-module--title--68ad3{color:#000;font-size:3rem;text-decoration:none}.header-module--nav-list--2b881{display:flex;list-style-type:none;margin:0}.header-module--nav-item--da873{color:#999;font-size:.9rem;margin-right:1.3rem;text-decoration:none}.header-module--nav-item--da873:hover{color:#666}.header-module--active-nav-item--6ecf9{color:#333}.footer-module--footer--675c6{margin-top:3rem}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{-webkit-text-decoration-skip:objects;background-color:transparent;text-decoration:underline}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font:112.5%/1.45em georgia,serif;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{word-wrap:break-word;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt";color:rgba(0,0,0,.8);font-family:sans-serif;font-kerning:normal;font-weight:400}img{margin:0 0 1.45rem;max-width:100%;padding:0}h1{font-size:2.25rem}h1,h2{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h2{font-size:1.62671rem}h3{font-size:1.38316rem}h3,h4{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h4{font-size:1rem}h5{font-size:.85028rem}h5,h6{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h6{font-size:.78405rem}hgroup{margin:0 0 1.45rem;padding:0}ol,ul{list-style-image:none;list-style-position:outside;margin:0 0 1.45rem 1.45rem;padding:0}dd,dl,figure,p{margin:0 0 1.45rem;padding:0}pre{word-wrap:normal;background:rgba(0,0,0,.04);border-radius:3px;font-size:.85rem;line-height:1.42;margin:0 0 1.45rem;overflow:auto;padding:1.45rem}table{border-collapse:collapse;font-size:1rem;line-height:1.45rem;width:100%}fieldset,table{margin:0 0 1.45rem;padding:0}blockquote{margin:0 1.45rem 1.45rem;padding:0}form,iframe,noscript{margin:0 0 1.45rem;padding:0}hr{background:rgba(0,0,0,.2);border:none;height:1px;margin:0 0 calc(1.45rem - 1px);padding:0}address{margin:0 0 1.45rem;padding:0}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-bottom:.725rem;margin-left:1.45rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";border-bottom:1px solid rgba(0,0,0,.12);padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{content:" ";letter-spacing:-.2em}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.layout-module--container--46809{display:flex;flex-direction:column;margin:0 auto;max-width:750px;min-height:100vh;padding:1rem}.layout-module--container--46809 a,.layout-module--container--46809 a:visited{color:#000}.layout-module--container--46809 a:hover{color:#474444}.layout-module--content--1704e{flex-grow:1}.project-module--header--6a610{margin-top:3rem}.project-module--wrapper--ad517{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin:0;max-width:1100px;padding:0}.project-module--wrapper--ad517 .project-module--item--e74c2{background:#f4f4f4;display:block;margin:.5rem;padding:1rem;width:330px}.project-module--wrapper--ad517 .project-module--item--e74c2 p{margin-bottom:5px}.project-module--wrapper--ad517 .project-module--item--e74c2 a{display:inline-block;margin-top:.75rem;text-decoration:none}.blog-module--posts--a78be{list-style-type:none;margin:0}.blog-module--post--0206a{margin:1rem 0}.blog-module--post--0206a a{background:#f4f4f4;color:#000;display:block;padding:1rem;text-decoration:none}.blog-module--post--0206a a:hover{background:#e4e4e4}.blog-module--post--0206a h2{margin-bottom:0}.blog-module--post--0206a p{color:#777;font-size:.8rem;font-style:italic}</style><title data-react-helmet="true">Rest API with node and Typescript | Hello, World</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--46809"><div class="layout-module--content--1704e"><header class="header-module--header--92758"><h1><a class="header-module--title--68ad3" href="/">Hello, World</a><a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" style="position:absolute;top:47px;display:inline-block"><img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg"/></a></h1><nav><ul class="header-module--nav-list--2b881"><li><a class="header-module--nav-item--da873" href="/">Home</a></li><li><a class="header-module--nav-item--da873" href="/blog">Blog</a></li><li><a class="header-module--nav-item--da873" href="/about">About</a></li><li><a class="header-module--nav-item--da873" href="/project">Projects</a></li><li><a class="header-module--nav-item--da873" href="/contact">Contact</a></li></ul></nav></header><h1>Rest API with node and Typescript</h1><p>2020-05-07</p><div><p>สวัสดีครับ วันนี้ขอนำเสนอบทความเกี่ยวกับการใช้ Node.js และ Typescript เพื่อสร้าง Rest API นะครับ เนื่องจากว่าได้รับมอบหมายให้ใช้ Typescript ทำโปรเจ็คขึ้นมาตัวนึง เลยคิดว่าเขียน blog ไว้ด้วยเลยดีกว่า ภาพรวมก็จะคล้าย ๆ กับ <a href="https://xeusteerapat.github.io/blog/node-sequelize-rest-api">บทความก่อนหน้า</a> แต่ว่าคราวนี้ผมเปลี่ยนไปใช้ ORM อีกตัวนึงนั่นก็คือ <a href="https://typeorm.io/#/">TypeORM</a> สาเหตุที่ไม่ได้ใช้ Sequelize เหมือนครั้งก่อนเพราะว่าตัวอย่างใน Doc ของ Sequlize ที่ใช้ Typescript มีน้อยมากกก (อ่านดูแล้วไม่ได้ช่วยอะไรใดๆ เลย 555555) แล้วทีนี้ลองมาศึก TypeORM ดู พบว่าเค้าเขียนเพื่อรองรับกับ Typescript โดยเฉพาะเลย อีกทั้งการทำ CRUD ก็คล้ายๆ กับวิธีการของ Sequelize ดังนั้นก็เลยเปลี่ยนมาใช้ TypeORM ครับ</p>
 <p><a href="https://github.com/xeusteerapat/node-typeorm-crud">Github Repo</a></p>
-<h2 id="what-is-typescript">What is Typescript?</h2>
+<h2>What is Typescript?</h2>
 <p>Typescript เป็น super set ของ Javascript นั่นหมายความว่าทุกอย่างที่ Javascript เขียนได้ ก็สามารถเขียนใน Typescript ได้เช่นกัน แล้วมันต่างจาก Javascript ยังไง? เรารู้กันอยู่แล้วว่า Javascript เป็น Dynamic Typed คือไม่ต้องประกาศว่าเป็น number, string, boolean บลาๆๆๆ แต่ Typescript นั้นเป็น Static Typed ทำให้เราสามารถเขียน Javascript ได้โดยมี type กำกับ และสุดท้าย Typescript ก็จะถูก compile ให้กลายเป็น Javascript ธรรมดาเพื่อให้ใช้งานได้ใน browser ทั่วไปครับ</p>
 <p>บทความนี้ผมเขียนโดยใช้ Typescript ก็จริงแต่ว่าจะไม่ได้เน้นการใช้ Features ที่ advance มากนัก เพราะผมเองก็เพิ่งหัดเขียน Typescript ได้ไม่นานเท่าไหร่ สำหรับคนที่มีพื้นฐาน Javascript อยู่แล้วก็สามารถทำตามได้อย่างไม่ยากครับ</p>
 <p>เริ่มกันเลยครับ</p>
-<h2 id="project-setup">Project Setup</h2>
+<h2>Project Setup</h2>
 <p>ใครที่ยังไม่ลง Typescript ก็สามรถติดตั้งได้ผ่าน <code>npm</code> ครับ</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> typescript ts-node
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm install -g typescript ts-node</span></span></span></code></pre>
 <p>ทีนี้ลองเช็คดูว่าติดตั้งเรียบร้อยดีมั้ยโดยพิมพ์</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash">tsc <span class="token parameter variable">-h</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">tsc -h</span></span></span></code></pre>
 <p>ขึ้นแบบรูปข้างล่างก็โอเคครับ</p>
-<p><img  src="/_assets/tsc.BicXkYKJ_1d0GTp.webp" alt="tsc" width="1482" height="892" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 60.1063829787234%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACBUlEQVQoz41SZ3PaUBBUZjJWQoJpwYBAoEKThEWVACGKKKHbQ1yS/JP8+83cgTxO4g/5cPNOD3Zvd98J01/PqLtrVJ0l1M4MSstH0fZRavrIN0YoNDxI1hCSOUDWDJDseoibHuL6ArFKgKgyQrTkIaqcS6j3TsjfrpHQp8gaK0jWGqlKgGQ5wLUyhij18T7r4Crn4irnQMy6EHMuRKkHUXLwIe/+UYLW3SFrLJAx5ii1tqg4d8g3VkjoY8TUEdK1gPuPhf5/lRDXfbxLt/GlOmOyhv8IvXuAbG8gWSseRpZoOgH+VhTWC6HS2iJVmTLoc3GImOrjWh0hrvlI6JN/yELg6/71nVBxjlDbO1ZHl2EudIZ9CKDvZHmCcu/IDghX698jro0534jchyDbX6F19pxbRB68mUtISiCKpjl5RtW9gzE4wRieoPeOqLr3uKkFEIhIttfIWUu2KL6RC1XkQpwqT2GPn5jA8h448/rghNb0OwsTQrtkgf5EPU0iJfQgdObMJQq3ax58U5+zZbW9P9vu7KF1D2yfCcu9A180Ro8oNjdnteaSgfQ4rE4evMRBeRHJecCGV416OmkrBLJKck3vG9vuzn9Cae3YSqY+5w0oNbdMRD25oIcgEhJCRFT6pRfoRyIkcHv2g4MmpaSCrJMqWp1PxbNKIqYoyEH6Ek3oKGMs8BvHbmWC7RSr0QAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="tsc"
+        title="tsc"
+        src="/static/426d237ce56a3d85c4a8489aa63e0166/1d69c/tsc.png"
+        srcset="/static/426d237ce56a3d85c4a8489aa63e0166/4dcb9/tsc.png 188w,
+/static/426d237ce56a3d85c4a8489aa63e0166/5ff7e/tsc.png 375w,
+/static/426d237ce56a3d85c4a8489aa63e0166/1d69c/tsc.png 750w,
+/static/426d237ce56a3d85c4a8489aa63e0166/78797/tsc.png 1125w,
+/static/426d237ce56a3d85c4a8489aa63e0166/a83dd/tsc.png 1482w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>คราวนี้ก็สร้างโฟลเดอร์ขึ้นมา</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">mkdir</span> node-typescript-rest-api <span class="token operator">&#x26;&#x26;</span> <span class="token builtin class-name">cd</span> node-typescript-rest-api
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">mkdir node-typescript-rest-api </span><span class="mtk8">&amp;&amp;</span><span class="mtk1"> </span><span class="mtk7">cd</span><span class="mtk1"> node-typescript-rest-api</span></span></span></code></pre>
 <p>Initialize package โดยใช้คำสั่ง</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> init <span class="token parameter variable">-y</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm init -y</span></span></span></code></pre>
 <p>จากนั้นก็ install dependencies ดังต่อไปนี้</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> express body-parser mysql2 reflect-metadata typeorm <span class="token parameter variable">--save</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm install express body-parser mysql2 reflect-metadata typeorm --save</span></span></span></code></pre>
 <p>ทีนี้ install devDependencies คือ typescript และ nodemon</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-D</span> typescript nodemon
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm install -D typescript nodemon</span></span></span></code></pre>
 <p>เนื่องจากว่าเราจะใช้ Typescript ในการเขียนใช่มั้ยครับ โดย Typescript จะช่วยในการตรวจสอบ type ของตัวแปรต่างๆภายใน code ที่เราเขียน รวมไปถึง type ของ Library ที่เราจะนำมาใช้ด้วย แต่ว่า Libray ส่วนมากถูกเขียนขึ้นมาจาก Javascript เป็นหลัก ดังนั้นเราจำเป็นต้องติดตั้ง package เสริมคือ <a href="http://definitelytyped.org/"><strong>Definitely Typed</strong></a> เพื่อให้ Typescript ทำงานกับ Library ที่เราใช้งานได้อย่างเต็มความสามารถ โดยติดตั้ง package ดังต่อไปนี้</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-D</span> @types/express @types/body-parser
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm install -D @types/express @types/body-parser</span></span></span></code></pre>
 <p>คราวนี้ต้องมาตั้งค่า configuration file ของ Typescript กันก่อนโดยสร้างไฟล์ <code>tsconfig.json</code> ขึ้นมาเพื่อเป็นการบอก typescript compiler ว่าจะต้องจัดการกับไฟล์ <code>.ts</code> ในโปรเจ็คอย่างไรบ้าง ที่จริงมันมีรายละเอียดการตั้งค่าเยอะมาก แต่ในที่นี้ผมตั้งค่าตาม Document ของ TypeORM เป็นหลักนะครับ</p>
-<pre class="language-json" data-language="json"><code is:raw="" class="language-json"><span class="token comment">// tsconfig.json</span>
-<span class="token punctuation">{</span>
-  <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"lib"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"es5"</span><span class="token punctuation">,</span> <span class="token string">"es6"</span><span class="token punctuation">,</span> <span class="token string">"dom"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token string">"es5"</span><span class="token punctuation">,</span>
-    <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"commonjs"</span><span class="token punctuation">,</span>
-    <span class="token property">"moduleResolution"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
-    <span class="token property">"emitDecoratorMetadata"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">"experimentalDecorators"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="json" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// tsconfig.json</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;compilerOptions&quot;</span><span class="mtk1">: {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;lib&quot;</span><span class="mtk1">: [</span><span class="mtk11">&quot;es5&quot;</span><span class="mtk1">, </span><span class="mtk11">&quot;es6&quot;</span><span class="mtk1">, </span><span class="mtk11">&quot;dom&quot;</span><span class="mtk1">],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;target&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;es5&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;module&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;commonjs&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;moduleResolution&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;node&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;emitDecoratorMetadata&quot;</span><span class="mtk1">: </span><span class="mtk5">true</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&quot;experimentalDecorators&quot;</span><span class="mtk1">: </span><span class="mtk5">true</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>จากนั้นก็สร้างไฟล์ <code>ormconfig.json</code> ขึ้นมาเพื่อควบคุมการทำงานของ TypeORM</p>
-<pre class="language-json" data-language="json"><code is:raw="" class="language-json"><span class="token comment">// ormconfig.json</span>
-<span class="token punctuation">{</span>
-  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"mysql"</span><span class="token punctuation">,</span>
-  <span class="token property">"host"</span><span class="token operator">:</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span>
-  <span class="token property">"port"</span><span class="token operator">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>
-  <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"YOUR_USERNAME"</span><span class="token punctuation">,</span>
-  <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"YOUR_PASSWORD"</span><span class="token punctuation">,</span>
-  <span class="token property">"database"</span><span class="token operator">:</span> <span class="token string">"YOUR_DATABASE_NAME"</span><span class="token punctuation">,</span>
-  <span class="token property">"entities"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"src/entity/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"logging"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token property">"synchronize"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="json" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// ormconfig.json</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;type&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;mysql&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;host&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;localhost&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;port&quot;</span><span class="mtk1">: </span><span class="mtk6">3306</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;username&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;YOUR_USERNAME&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;password&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;YOUR_PASSWORD&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;database&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;YOUR_DATABASE_NAME&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;entities&quot;</span><span class="mtk1">: [</span><span class="mtk11">&quot;src/entity/*.ts&quot;</span><span class="mtk1">],</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;logging&quot;</span><span class="mtk1">: </span><span class="mtk5">true</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">&quot;synchronize&quot;</span><span class="mtk1">: </span><span class="mtk5">true</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>จากนั้นก็ไปสร้าง database ไว้ที่ mysql ครับ โดยใช้คำสั่งพิมพ์ลงไปที่ terminal (หรือใครจะสร้างด้วยวิธีอื่นก็ได้นะ)</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash">mysql<span class="token operator">></span> create database rest_api_typescript<span class="token punctuation">;</span>
-mysql<span class="token operator">></span> use rest_api_typescript<span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">mysql</span><span class="mtk8">&gt;</span><span class="mtk1"> create database rest_api_typescript</span><span class="mtk8">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">mysql</span><span class="mtk8">&gt;</span><span class="mtk1"> use rest_api_typescript</span><span class="mtk8">;</span></span></span></code></pre>
 <p>เกือบลืม สร้าง Folder structure แบบนี้นะครับ</p>
-<p><img  src="/_assets/folder_structure.BehKxaVd_ZK9FuQ.webp" alt="folder structure" width="364" height="564" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 364px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 154.7872340425532%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEI0lEQVRIx5WW12/qdhTH89KhW1Xqzd5hb7MMNh5gG9vsMMIMmXe2UaVKldr3qlKrPvW5/+23OoeENPcCSR8O4J/Nh3O+Z7HmSVkI56voTO/QvbxDsXEOu3ODcvsaamXE52Tt8x/QmnzE6M1PEM0eNv0ydsPqZ7Z2ECvCk7SgVIYQS0P4UxXky2eIKw34sw6yRhfpUgf5ch+i1WPzZWxsBwuLgXRjL6JiL1SC897A9JcpfCkXsjuAUhkxlGA56wyyM+DP+1EdOyGFAQ/vcyAd7Ec1HMVNKG0bk+/fwZ9x2TOtNkFKP4VkDyA7Q6jVMZ8dJUrY/gT0BEhhnyRM+KsWfE4R0XwNufIZNv0Sh7bhy7Ote3N47cnNYTsLoPdAHcdxE/GuDWHcg0eoIFU8xYZfwoZvZuu+PLZYHm0pjIH0Ql4cJQwcR0r48SoJt1mGJ11FwR1Asvscpl6bcKJWweZAeuBYMHEQ1/HznYaLaRNRqQnJ6SN5ryFBE2qTPVwJfLhJuuwEJHwTdLF2/Q92tRHypVOI1hmDBLUFqtmtgLw65P8CtwMSNiNFvGr+ihOtD9nqodiYQq2MkTW7COUqc+DKkEnDY8HgAjc6N0gqNQhKg8PMWT2GPGT8RRrSgyeCiZOkCXf0AZLVQVprcriUFNKNMv0i4Kchr0cNfHHxNw6LY0hmBwm1hYTS5Az70uWlLbc0KZvhMr7u/oYDtY9s8RTu2Rto1QnrGCs0lg6FhRqSJUcOEqaFUMZFQmtx2ZC2VNj/T8OkieOEgfTEhVirIKt3oNUnKDWniMl1brmdFS33ecjBmYYbYQtfDf/CrtxDWm0gVWxzDSa11ss0fPKLQRm7sRJejf+Ex5xCdwew2tc8xijbEan2kjp8DGMvpODb4e/YKl1BEMsQ9DZihToX9H5EmyfkmZBV7NBFSMHroIovh39gw7iFqDdhtC65uKmXfWn72XDnHu6FFayHVFhJEU4kisN4iSc0aReVaxC0FgJZB9svGl+hGfC7oAZbEGHH0wipbdQHb+F0b6HXz3l0EZAy/VzHsIcU9n5YQSh3b6LNE4b0Iw8zpQ4brYOM0Z1le9lOeQDSRa5QgCjLENQGCu6IlxLtEVpM1f7b+aD1pstL63Lt4QPVoVfSEVB1eJM2IlKVvQvnK7z5vKnyfLXSGelLy2qBh4/AsKYhZujIWwM43Rueha3xR5TbV5wks3XJNWl3rmG1rxYW+hNgQNYQUjX40g57Ry1HAyEq1xEUXT6jMbd+vwUXJecRGFAQ1HREDB2i2WcvivVz1Abv4PZuWT+jecFSrNp+T5ISThcQThVYI/q/Q1+m/zHUcmSU9cN48blpMwNSLRb0AiRNQt7qcZeQh6Qfeci6nV7Bn1ndMWsz72bQ7SANWpUXPOnE5p1pxWfe52fiv/Ea07Fm7uzNAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="folder structure"
+        title="folder structure"
+        src="/static/dc538accc31a54ff49c5fa7545f1761d/e45a9/folder_structure.png"
+        srcset="/static/dc538accc31a54ff49c5fa7545f1761d/4dcb9/folder_structure.png 188w,
+/static/dc538accc31a54ff49c5fa7545f1761d/e45a9/folder_structure.png 364w"
+        sizes="(max-width: 364px) 100vw, 364px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>เท่านี้ก็ติดตั้งทุกอย่างเสร็จหมดละครับบบ มาเริ่มเขียน code กันเลย</p>
-<h2 id="create-express-server">Create Express Server</h2>
+<h2>Create Express Server</h2>
 <p>สร้าง Server เพื่อเริ่มต้นการทำงาน application ได้ดังนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// index.ts</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Application <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> bodyParser <span class="token keyword">from</span> <span class="token string">'body-parser'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createConnection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'typeorm'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> playerRouter <span class="token keyword">from</span> <span class="token string">'./routes/player'</span><span class="token punctuation">;</span>
-
-<span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>connection <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> app<span class="token operator">:</span> Application <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/players'</span><span class="token punctuation">,</span> playerRouter<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">🔥🔥🔥 Server is listening on port 8080 🔥🔥🔥</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// index.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk5">*</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Application</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk5">*</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">bodyParser</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;body-parser&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">createConnection</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;typeorm&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk7">playerRouter</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;./routes/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">createConnection</span><span class="mtk1">().</span><span class="mtk7">then</span><span class="mtk1">(connection </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">app</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Application</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk7">bodyParser</span><span class="mtk1">.</span><span class="mtk7">json</span><span class="mtk1">());</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">use</span><span class="mtk1">(</span><span class="mtk11">&#39;/players&#39;</span><span class="mtk1">, </span><span class="mtk7">playerRouter</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">app</span><span class="mtk1">.</span><span class="mtk7">listen</span><span class="mtk1">(</span><span class="mtk6">8080</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`🔥🔥🔥 Server is listening on port 8080 🔥🔥🔥`</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span></code></pre>
 <p>และสร้าง route สำหรับ player แบบนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> Request<span class="token punctuation">,</span> Response <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> router<span class="token operator">:</span> Router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
-    &#x3C;h1>Get all players&#x3C;/h1>
-  </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk5">*</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Router</span><span class="mtk1">, </span><span class="mtk7">Request</span><span class="mtk1">, </span><span class="mtk7">Response</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Router</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">.</span><span class="mtk7">Router</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;/&#39;</span><span class="mtk1">, (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk11">`</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">    &lt;h1&gt;Get all players&lt;/h1&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">  `</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">});</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk1">;</span></span></span></code></pre>
 <p>ลอง run app ดูครับ ด้วยคำสั่ง</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash"><span class="token function">npm</span> start
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">npm start</span></span></span></code></pre>
 <p>ถ้าได้แบบในรูปก็ถือว่าสำเร็จครับ</p>
-<p><img  src="/_assets/start_app.BoZGNP1b_WGnHr.webp" alt="start app" width="2050" height="664" loading="lazy" decoding="async"></p>
-<h2 id="create-model-entity">Create Model Entity</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.4468085106383%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABHElEQVQY05WQTW+CQBRFWdVq20SlfCho7IDCBLS2FNAURbC17tz4///KaUDsoummi5PJu3fefTNP0eN3Bn7OMNihexs0L0ObZfSnBaq/p+9u6YpNfVb0nIpNTVdktddzt9yN19xaCYotP5ksj1jhAWt+ZBh+MVoc0f2Cnsjou3nd/BN4xbkMunr318BFuEbKFWKWYjsxpkgwRYo6SXkYJbSGcc1NQ+sPKr0Ka9spikwzvCjDj3IW8Z7pa8ZgnqIHKzrjtL70HxR7+YF8O+NFZ8TzCWt+wAhKzKBEneaYskR39qhujiEvWrU7zdvVVLUqqv0XGH6B8hJtkfEJOzxgyILHaY7mlTyFO8IwoWMnzXcS2tYv7ITOqHldo30DoC6tniQe2IQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="start app"
+        title="start app"
+        src="/static/80b1d17ad078fa62eaf7530e7e189649/1d69c/start_app.png"
+        srcset="/static/80b1d17ad078fa62eaf7530e7e189649/4dcb9/start_app.png 188w,
+/static/80b1d17ad078fa62eaf7530e7e189649/5ff7e/start_app.png 375w,
+/static/80b1d17ad078fa62eaf7530e7e189649/1d69c/start_app.png 750w,
+/static/80b1d17ad078fa62eaf7530e7e189649/78797/start_app.png 1125w,
+/static/80b1d17ad078fa62eaf7530e7e189649/aa440/start_app.png 1500w,
+/static/80b1d17ad078fa62eaf7530e7e189649/966ce/start_app.png 2050w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<h2>Create Model Entity</h2>
 <p>ขั้นตอนต่อไปก็มาทำการสร้าง Player entity เก็บข้อมูลนักฟุตบอล ซึ่งก็คือ table ใน database ของเรานั่นเอง ในที่นี้ผมจะเก็บข้อมูลดังนี้</p>
 <ul>
 <li><code>id</code> เป็น number</li>
@@ -112,212 +165,462 @@ router<span class="token punctuation">.</span><span class="token function">get</
 <li><code>position</code> เป็น string</li>
 </ul>
 <p>เมื่อนำมาเขียนตาม Document ของ TypeORM ก็จะได้แบบนี้ครับ</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// entity/Player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Entity<span class="token punctuation">,</span> Column<span class="token punctuation">,</span> PrimaryGeneratedColumn <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'typeorm'</span><span class="token punctuation">;</span>
-
-<span class="token decorator"><span class="token at operator">@</span><span class="token function">Entity</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token punctuation">{</span>
-  <span class="token decorator"><span class="token at operator">@</span><span class="token function">PrimaryGeneratedColumn</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
-
-  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Column</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-
-  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Column</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  age<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
-
-  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Column</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  position<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// entity/Player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Entity</span><span class="mtk1">, </span><span class="mtk7">Column</span><span class="mtk1">, </span><span class="mtk7">PrimaryGeneratedColumn</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;typeorm&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">@</span><span class="mtk7">Entity</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">Player</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  @</span><span class="mtk7">PrimaryGeneratedColumn</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  id</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">number</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  @</span><span class="mtk7">Column</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  name</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">string</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  @</span><span class="mtk7">Column</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  age</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">number</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  @</span><span class="mtk7">Column</span><span class="mtk1">()</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  position</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">string</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>Entity เปรียบเสมือนตารางเก็บข้อมูล โดยตามที่ผมเขียนไว้ข้างบนก็ตรงไปตรงมาครับว่า ข้อมูลของแต่ละ <code>Column</code> คือ id, name, age และ position ของนักฟุตบอล โดยที่มี <code>id</code> เป็น <code>PrimaryGeneratedColumn</code> นั่นเอง</p>
-<h2 id="create-player">Create Player</h2>
+<h2>Create Player</h2>
 <p>ต่อไปเราก็สร้างข้อมูลโดยเขียนคำสั่งใน controllers แบบนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// controllers/player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> getRepository <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'typeorm'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Request<span class="token punctuation">,</span> Response <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Player <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../entity/Player'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createPlayer</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> player <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Player</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  player <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>req<span class="token punctuation">.</span>body <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// controllers/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">getRepository</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;typeorm&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Request</span><span class="mtk1">, </span><span class="mtk7">Response</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Player</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../entity/Player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">createPlayer</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">new</span><span class="mtk1"> </span><span class="mtk7">Player</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> { </span><span class="mtk8">...</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1"> };</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p>จากนั้นกลับไปแก้ player route ก่อนนะครับ</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Router <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createPlayer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../controllers/player'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> router<span class="token operator">:</span> Router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> createPlayer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk5">*</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Router</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">createPlayer</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../controllers/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Router</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">.</span><span class="mtk7">Router</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">post</span><span class="mtk1">(</span><span class="mtk11">&#39;/&#39;</span><span class="mtk1">, </span><span class="mtk7">createPlayer</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk1">;</span></span></span></code></pre>
 <p>จากนั้นก็ใช้ Postman ทำการ <code>POST request</code> ไปที่ <code>http://localhost:8080</code> เพื่อเพิ่มข้อมูลของนักฟุตบอลลงไป แล้วลองยิงดู</p>
-<p><img  src="/_assets/create.Uj2sLo0I_1WQw25.webp" alt="create player" width="1274" height="1002" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 78.72340425531915%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACW0lEQVQ4y4WS63KbMBCFeY7a2BgESOiCjBEIDI6bOrY70/d/ndNZYadtZtL8+GZXmr0caTc6nU54fX3FOI6Ypin4l8slcL1e8fb2Boo5jiOOx2OIe/I8/22j8/kckulAiVSACt1uN9x/3nG/3zG/nDEcj6HhR+Z5/uccOefQti32+z2GYUDXdTC1Cda6BkoJ/HqZ8H1q0TxiCMqjnGfuOE2w1iKiQ0i2ewx+gPcD6toGn57hfY8fpxlD12J0BxwOB3jvQ07TNEHVoWngawmjFSK6pC5SSmijYGsNQ9YaGGOglIZUBqKSMEotcVpDPfy6rqGkhBIclRCI+r4DLyv4c4n5qjCNPebJYhxqWCshJQ/PriqOoixRfqAoisXnHJzzRaGsFHTD0PgC0nBoLeCchGslOicx9KRcgDH2JRFJJumMFWBZgTzPA4wtZBnBgk9qviLSpgbnIsgmyWQFF+8+WSHEQvCXpz0JMSUPkB9dzi/wfYfe+7AKwzhCN8va0JRpqjSEAA3JmDCIgLXoaUO6BrXbw7UtotuxxzwOaJ0LRXrfw3UuFH8WJD+sSnsIq1NVMnzTc+JSK0gtoZVCZPcNpnleFtTasFtd18OYOiwwKaFGfhjQNnuMTQ2W//nP558XDxsl2y3SNEWWZcgrDVYK8CxByVLkaYJ1HOPbahVYrddYrWNsNptPiXa7HYg4jmH6CebgIKVAkaUQBQNLd+/skgSbOA6xnxGROtqfJElghxNq58FoaiyFLBhkmUPzHKrMUbAsJH2pkP5CVOJx+ei22WAdP4kDdLfdbv/Lbz+q6G5HAZ4/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="create player"
+        title="create player"
+        src="/static/ba4abe5632ce3f3e9081db2307629b04/1d69c/create.png"
+        srcset="/static/ba4abe5632ce3f3e9081db2307629b04/4dcb9/create.png 188w,
+/static/ba4abe5632ce3f3e9081db2307629b04/5ff7e/create.png 375w,
+/static/ba4abe5632ce3f3e9081db2307629b04/1d69c/create.png 750w,
+/static/ba4abe5632ce3f3e9081db2307629b04/78797/create.png 1125w,
+/static/ba4abe5632ce3f3e9081db2307629b04/7960f/create.png 1274w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>ลองเพิ่มอีกสัก 2-3 คนนะครับ แล้วไปเช็คที่ database ดู</p>
-<p><img  src="/_assets/mysql.qcimJ5pn_15exbW.webp" alt="mysql" width="1220" height="438" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.638297872340424%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABVklEQVQozz1R2VLCQBDkwdsIVIkc4QpRrnAaCBICCiSAEbzwqFJe/P+faKsnwMPU7s5O9/RMh266z0jX50jVPKTrM8SK4+BteMg0Fsg05si3feRaj5JnLt/yEdWHUPIDXDC0AcKag5N0DyEWEnzdWSFZdXGW7cvnLlgc0YfQzaUQFsyl1PJOskjBEfLL4kNASJKk4aHUe4V2+yTBoh2xIqAh1Jq3b1y0XsDJiNE7K7nHSmMcqxZCicoUieoUNecDVfsdxmAddNccHKa6OFItnGbuhJDjV/pvsLwNGsNPhAsOznO21FLlXqFam6E5+oI5+YHlbtB1fwXQuv+GYa/ln02onk0d/0/2fZAwRRWJovooIKTCeHkiICrINhcC5qm1fVkHd3hVnkgkDVcMilemgSk0hHu83hISxL3Q5Swd3DpKJ8PbXRKk5G0hUHK25GRUvrdO85+E/7QV05kfTaQOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="mysql"
+        title="mysql"
+        src="/static/788541a9177fab39bf01876560387425/1d69c/mysql.png"
+        srcset="/static/788541a9177fab39bf01876560387425/4dcb9/mysql.png 188w,
+/static/788541a9177fab39bf01876560387425/5ff7e/mysql.png 375w,
+/static/788541a9177fab39bf01876560387425/1d69c/mysql.png 750w,
+/static/788541a9177fab39bf01876560387425/78797/mysql.png 1125w,
+/static/788541a9177fab39bf01876560387425/cd138/mysql.png 1220w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>เรียบร้อยยยย สังเกตว่า <code>id</code> ถูกเพิ่มให้อัตโนมัติเลยครับ</p>
-<h2 id="get-players">Get players</h2>
+<h2>Get players</h2>
 <p>อยากเรียกดู players ทั้งหมดที่สร้างไว้ ก็ทำแบบนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// controllers/player.ts</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getAllPlayers</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> players <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>players<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// controllers/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">getAllPlayers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">players</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">players</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p>แล้วไปเพิ่ม ที่ <code>routes/player.ts</code> แบบนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createPlayer<span class="token punctuation">,</span> getAllPlayers <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../controllers/player'</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> getAllPlayers<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">createPlayer</span><span class="mtk1">, </span><span class="mtk7">getAllPlayers</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../controllers/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;/&#39;</span><span class="mtk1">, </span><span class="mtk7">getAllPlayers</span><span class="mtk1">);</span></span></span></code></pre>
 <p>จากนั้นก็ลอง Test ที่ Postman เหมือนเดิมด้วย GET method</p>
-<p><img  src="/_assets/read.Dx6fYnfA_ZgbrA.webp" alt="Get player" width="1034" height="1602" loading="lazy" decoding="async"></p>
-<h2 id="update-player">Update player</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 154.7872340425532%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAACXBIWXMAABYlAAAWJQFJUiTwAAADuklEQVRIx41V23ajRhDUZ1gCxHVmuCNAXARYkpNYTmI/5NibZP//R2pPN0Iry7K8D6WZQdB0dVU3szyL8Puuwj+PDyMOv+HbX494+/MPPA0tDusE60yiLRXyvERRFCjLElW1RlmukSUxqsRHnKZYZRlmeVmg6Ttsuh6bnjBg2G4xbHdoux7dpsXQt+i7Bm27QdM0jLZt0bQt6rpCW69R1TXqusbsfrvF6+srdtstHvZ7xsvLC18jvL294f/v3/Ht3//w/Pw3drsd9vv9GR4YD8fzrC1zNGXBVC5B1GjN85z305nXCRfPzLI0xcvzM/q+xzAMvBKdx8dHpkbnw+GA9XqNruvw9PSEfrjHvq1w6Cp4UsL3FZQaMaOfOI6RpinCMITv+wiCgPe0Tnu6TmuSJAijCFEQIA4DuK4Hz/uJmWVZME0Ttm3zSmdN00bo+ojjXj/u9Wmv6zAM4x1mFMhxHA60XC45sJ8WiLIVpBSwLZPh2hYs0+R7boEDTuCLhoGk7rDqdoh8gTLy4XsuQunxSxfamBmtlBE9M62ngJThFNAwdGTtPVabLdJ1BSkVQuEiVgKR9JD4gveJL+HY1rtg7wLS2y3bhhAebCq0CuBKn/+jDAPhQXku75XnIBAul+BmQNuyIKXE0iShxmwXmoa5puFucSbSmSBXKQshTpQpUFTUWDUdQl8yTcqKaNILLzO6qjJlxQFNk62TNj3XMVvFSEIf0nWYsjMJ95XKZNiJtuPYSKoNVs2AtGoglY9VqFBEAco4ZDOPTMyr4IDULVxD8qBSbN6RzvhWKj558Zd9ONVw6hhXBRBKwbatY4cYP3FRs6s1VPzwVB+DKRf9DnEgUYTq6D+JlERS4oOyHzI8iUI36jp3Sd7tkJUFApokrsOdQv4zj7RvBpwypJtJHBklCNIcKs7gCcHB0kCyma/Z5mrASRTaL+Z30OZzaIs5C0R9O19op/7Vz3DuxauUKctgtUZSVvCVhGdb8BwbwnV44jjHM+HTXn4nimEgrXvk3RZxpNiDRJWGAgmSqHEC5aFCGigYx2c+FYX+zJoBWTsgq2tINU6bSArOcLLOl5SnGpInTRoYQsJ2x/4Vjs39PBnb/BVRaKWgY0CHTb1cjtOGxLg7ijLh5rS5rGFctsg39zxtqGZsG1/yxMkCyaBrn2ZIXzTy30mUYw2TNEbkSzY2TZtpuBJI9S8pT7aheUjtFxUVhFSIpcdqh8I7DVcS5yZl+qaO48uBrmsfmv6zdrua4RTo/IZbLfZZH1PAH9rOfXYi35ViAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Get player"
+        title="Get player"
+        src="/static/ae17ae5dfa8287fbda810fd1988e7415/1d69c/read.png"
+        srcset="/static/ae17ae5dfa8287fbda810fd1988e7415/4dcb9/read.png 188w,
+/static/ae17ae5dfa8287fbda810fd1988e7415/5ff7e/read.png 375w,
+/static/ae17ae5dfa8287fbda810fd1988e7415/1d69c/read.png 750w,
+/static/ae17ae5dfa8287fbda810fd1988e7415/709cb/read.png 1034w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<h2>Update player</h2>
 <p>ถ้าอยากแก้่ไขข้อมูลของนักเตะตาม <code>id</code> ก็ทำได้โดยดึงข้อมูลตาม <code>id</code> ที่ต้องการแก้ไขออกมาก่อน จากนั้นค่อยทำการ update อีกที</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// controllers/player.ts</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">updatePlayerById</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> position <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    name<span class="token punctuation">,</span>
-    position
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> updatedPlayer <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    id<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>updatedPlayer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// controllers/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">updatePlayerById</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">name</span><span class="mtk1">, </span><span class="mtk7">position</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">update</span><span class="mtk1">(</span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">), {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">position</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">updatedPlayer</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">({</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">updatedPlayer</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p>แล้วก็แก้ไขที่ <code>routes/player.ts</code></p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  createPlayer<span class="token punctuation">,</span>
-  getAllPlayers<span class="token punctuation">,</span>
-  updatePlayerById
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../controllers/player'</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> updatePlayerById<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">createPlayer</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">getAllPlayers</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">updatePlayerById</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">} </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../controllers/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">put</span><span class="mtk1">(</span><span class="mtk11">&#39;/:id&#39;</span><span class="mtk1">, </span><span class="mtk7">updatePlayerById</span><span class="mtk1">);</span></span></span></code></pre>
 <p>ทดสอบที่ Postman และลองเช็คที่ database ดู</p>
-<p><img  src="/_assets/update.Dtp3RhzA_JF659.webp" alt="update player" width="1076" height="1232" loading="lazy" decoding="async"></p>
-<p><img  src="/_assets/update_sql.am9npgLZ_1f7Ejw.webp" alt="update sql" width="1154" height="370" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 114.36170212765957%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABYlAAAWJQFJUiTwAAADWklEQVQ4y42U+XLiRhCH9RzGWPd9zKUTCTACAza7SSWV93+VX6qbhbUTu3b/+Kp7ptTndMsyQmA/TvhzXuOPeYO/jjP+nkdMukAsC2itoZSCMQa1MWiqHI2K0JoCSmloraCNQa9KiLKAVXc9puc9dvOM7W7GME6o6xpaClRKsMMbhpAVjCpgtLg6VApKa9RKQAoBaz1NOOz3eDkccD6d0DQN8jxHVVWoygplWd6hOyElhLgh3iEhpYS1Wq2wPxwwDANI32w2OJ/Pdy6XC94ub6wfDgdM04T1ev0l1jiO9w9v0Pl0OuF4PLJ8e33F+fUV680WwzBinCYOfoN83LDatmUn1CPKkqLQR5R+3/dYjSvkpkItBS7HPVZTDaMNf0fVkC21iSB7i/pCB3JATruuQ9e1EKICBRuGHqapsekafH8eMfcavbm+LD0SBSVbmgKytYqiYM90KSqJru04QJblqOsGfT+w1KaBaXqUQmIw11ESVcW2lBQ55AxJIdI0gaxj5GUMLQt0bQklM0brHF1boK1z5HmKIIwQxzEThiHLKIpYt9q24QhJGuP4T4JpllhPI1aDwPNGY7uhGSygVcEyzzMkSfIlFs0QlRvHEQrpo5ABkiJAnsfo2hxapQjDAK7rwfN8+L6PwL/Kz+BHqaqS0w78iAmDCEEQwvevUDkUkOSv4AxpM65GMRsSSZy8O8e/jdX2A0zd8MPQy/HO1galrPjMe6019/nDGr7TCUqMvre+z2ts+4bniYxplobVgFyVfKZRoDsyoBG77XTJrar4niQ54zlcGYlvpxceYloduqRN2W63PI+3HSWD/X6P3W6HvutwWfcoixxxkiBNU35hLjlOUyh9nUWKlGXZvQTSb38TMuDhp55nGVSRIwpDBEHwActxbCyXSx5K13WxXD5hsXjEYrHA4vERDw8PzAd9scDD4pHt/ovlOA7Pj23bIJ0oTIe0KBD4HnzX+YELz3HuZ8e2OfjT00fYoed5nB1f2jbM9gWlaaDyGFUSIQ19lEmILAog0hgyixF4Hmf0pUPKkC5sx4GeZohuRFk3iHwPKosh05izolKp/JuzT0smh0F4bSqX7XpwPJ+l6zgIPReB5/4M+vT/Un9m6DpcbiUreL736UfLH1A77F/wL5cOwCuTPBCCAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="update player"
+        title="update player"
+        src="/static/6c1572c6e9682bf86c1ab817d4517eed/1d69c/update.png"
+        srcset="/static/6c1572c6e9682bf86c1ab817d4517eed/4dcb9/update.png 188w,
+/static/6c1572c6e9682bf86c1ab817d4517eed/5ff7e/update.png 375w,
+/static/6c1572c6e9682bf86c1ab817d4517eed/1d69c/update.png 750w,
+/static/6c1572c6e9682bf86c1ab817d4517eed/84ee5/update.png 1076w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.914893617021278%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABIUlEQVQY032PW0/CUBCEm6hUIfHBKKX0xrVALRRaToFgIlKhpaVF4///LWN2kcuTD5M9yZn5Zlcavv2gNzug6acYzL9gejHaQQY7LGCLHM7iG12Rw10efST+Cwv0Zwf2GqMtNHeDF3sFyfIS6MMt9GGMxjjFgz5D2Ziz6E2qmAvUXzdo+hk0d4uWn8HydlAGEWQtREmdolQXkOsCEpGf7RVDTS/hJmMUM8AYJWhMUjx13tlDMPJ1RYHmJEW1v0bFvBSTJGuccNga79CZ5mgH+3OANqFJMFJtEDG0Pc2PwN4HX3KvhReg6kRQnU++nxqV/ppDNSfCY2OJG8XnAEn+O+tWCXBXC/h9gp2m1BF76E6MaiRQbgnIang2Xjf/p+sNfwHxU7KGLXib2AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="update sql"
+        title="update sql"
+        src="/static/7d6495b45bf75785dba58124123a659f/1d69c/update_sql.png"
+        srcset="/static/7d6495b45bf75785dba58124123a659f/4dcb9/update_sql.png 188w,
+/static/7d6495b45bf75785dba58124123a659f/5ff7e/update_sql.png 375w,
+/static/7d6495b45bf75785dba58124123a659f/1d69c/update_sql.png 750w,
+/static/7d6495b45bf75785dba58124123a659f/78797/update_sql.png 1125w,
+/static/7d6495b45bf75785dba58124123a659f/0940f/update_sql.png 1154w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>ก็เป็นไปตามที่แก้ไขครับ</p>
-<h2 id="delete-player">Delete player</h2>
+<h2>Delete player</h2>
 <p>สุดท้าย ถ้าอยาก delete ก็ทำคล้ายๆ update เลยครับ หาจาก <code>id</code> ก่อนจากนั้นก็ค่อยทำการลบออกไป</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// controllers/player.ts</span>
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">deletePlayerById</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> player <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    id<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Player id </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> has been deleted.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// controllers/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">deletePlayerById</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">({</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">remove</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk11">`Player id ${</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk11">} has been deleted.`</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p>แล้วก็ที่ <code>routes/player.ts</code> จะได้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  createPlayer<span class="token punctuation">,</span>
-  getAllPlayers<span class="token punctuation">,</span>
-  updatePlayerById<span class="token punctuation">,</span>
-  deletePlayerById
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../controllers/player'</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> deletePlayerById<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">createPlayer</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">getAllPlayers</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">updatePlayerById</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">deletePlayerById</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">} </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../controllers/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">delete</span><span class="mtk1">(</span><span class="mtk11">&#39;/:id&#39;</span><span class="mtk1">, </span><span class="mtk7">deletePlayerById</span><span class="mtk1">);</span></span></span></code></pre>
 <p>เหมือนเดิมครับบบบ ใช้ Postman</p>
-<p><img  src="/_assets/delete_method.DdKUty4J_ZCIx0h.webp" alt="delete player" width="1042" height="792" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 76.06382978723406%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACOElEQVQ4y22T6XajMAyFeZGmbTIFwuINmzUhQEKWTnj/x7lzpAYmJ6c/vmNZlmSha7wyiTCVGaZTh79Di6kxSIVGpBxsZmCMQSFjxCqGMApZlsEaDSdi5NpH6RJoY2G1RC4ieFVZ4dgPGMYR/fGEqiwgpILUGYzR0MYgUxJSSyitobWGIZSE0SkyI6G1gdYKRgl4zW6HruvQ9z0u5zOKskSaphAi5ZVIaJ8KCCEgpYRU6oGGlApK/fd5TdNgut+5YFVVaNsW1+sV39/fzP1+xzRNbJN/v98z7WN9xavqGtfbDV3fg4oTx+MR5/MZ4zgyt+uViw3DsMTUdb3w7PMOTY3beESeGZRlicPhwDfRrIqi4I5VYZBKwUnky/Oc4wg6pz356dwbywz3tkSX/yiqlGJ+5ii4cCJTJEnCflpn+zmWoPl6YRzDWAeb5+zwfR9BECAMQ179wEf42NMZi5QkS9wrXhD4yIyBc46DoijCdrv9FUrY7XY8K7J/i/E2X18It1suNN9ChcMgZMjmfRgycRwz8/4Z7vB2GtA2Nd9MotDToWELp2CdZYHojP6Q5R1KCfFgniP56Cu9W+NwaWtY61gtZy0r5goH81CeLqEkKkoxJF6mNaxWiKJ46Zrm6yVSYrxclkRKILs7dJy4dCwEd0vvsqob9JXDqXL48/Uj2iLKZr3G5+cn30CdzfIT1louOhcmdd/f37GmnAfrF7yPjw+sVisO3Gw2XJx8r4F0Rv63t7eF1ZM98w/3rtndmiQ6pAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="delete player"
+        title="delete player"
+        src="/static/d60050e395fc3a5506ef8dbc9332ce1b/1d69c/delete_method.png"
+        srcset="/static/d60050e395fc3a5506ef8dbc9332ce1b/4dcb9/delete_method.png 188w,
+/static/d60050e395fc3a5506ef8dbc9332ce1b/5ff7e/delete_method.png 375w,
+/static/d60050e395fc3a5506ef8dbc9332ce1b/1d69c/delete_method.png 750w,
+/static/d60050e395fc3a5506ef8dbc9332ce1b/5819f/delete_method.png 1042w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>ลองเช็คดูว่าหายมั้ย</p>
-<p><img  src="/_assets/delete_sql.JrC1X39p_fA6ST.webp" alt="delete sql" width="1196" height="482" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40.42553191489361%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABa0lEQVQoz5VRyVLCUBDMyQ2QoIISyEaEIFtCwpoFAsZAAJcqLZWT/v9PtDVDeddD17yXTPf09BNqzhaqlUJqx6h2VyiZC64EmdBbQbVTUJ9irfm73t/iurlERpkip3nIqR5Xugvl1j0q3YRJcm+NjDLhn+eaz8jrAbLqFJVOgvrwCVL7AYa7Q83dQTTCg6Dmo2CEEGshhGIj4mmavYFipUwsGDOcVsc4kycMclA0F+z4phVD72/YrdbfwBg8snvikTgLUlM3eIOz2MOef7CDi9sZSs0lrhoRjqUhLutzNEbPTPbWX/DTbxbMqh7ytYA3yes+BCJSs+5smWCOX9D2Xvluzd7hRJ+cMQmTG8rQXey5jwadVEZcaRMS5QxpknSXHB6it2KHmp2i3IrZKa1LQ+lMcYic18EV5UZnypCiEUpmxPsXnQCFesgEEiBHlAlN/3XyFwjVTgKpE0OcuDiWhzgqEwYMaqDH+Q9+AAs77iOt06RzAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="delete sql"
+        title="delete sql"
+        src="/static/d7a120bee90727e24490c78b241ed101/1d69c/delete_sql.png"
+        srcset="/static/d7a120bee90727e24490c78b241ed101/4dcb9/delete_sql.png 188w,
+/static/d7a120bee90727e24490c78b241ed101/5ff7e/delete_sql.png 375w,
+/static/d7a120bee90727e24490c78b241ed101/1d69c/delete_sql.png 750w,
+/static/d7a120bee90727e24490c78b241ed101/78797/delete_sql.png 1125w,
+/static/d7a120bee90727e24490c78b241ed101/51800/delete_sql.png 1196w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>เรียบร้อยยย โดนลบไปแล้ววววว</p>
 <p>Code ทั้งหมดของ routes และ controllers ก็จะได้เป็นแบบนี้</p>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// routes/player.ts</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Router <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  createPlayer<span class="token punctuation">,</span>
-  getAllPlayers<span class="token punctuation">,</span>
-  updatePlayerById<span class="token punctuation">,</span>
-  deletePlayerById
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../controllers/player'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> router<span class="token operator">:</span> Router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> createPlayer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> getAllPlayers<span class="token punctuation">)</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> updatePlayerById<span class="token punctuation">)</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'/:id'</span><span class="token punctuation">,</span> deletePlayerById<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span>
-</code></pre>
-<pre class="language-typescript" data-language="typescript"><code is:raw="" class="language-typescript"><span class="token comment">// controllers/player.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> getRepository <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'typeorm'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Request<span class="token punctuation">,</span> Response <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Player <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../entity/Player'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createPlayer</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> player <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Player</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  player <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>req<span class="token punctuation">.</span>body <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getAllPlayers</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> players <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>players<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">updatePlayerById</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> position <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    name<span class="token punctuation">,</span>
-    position
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> updatedPlayer <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    id<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>updatedPlayer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">deletePlayerById</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> res<span class="token operator">:</span> Response<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> playerRepository <span class="token operator">=</span> <span class="token function">getRepository</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> player <span class="token operator">=</span> <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    id<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> playerRepository<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Player id </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> has been deleted.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// routes/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> </span><span class="mtk5">*</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1"> </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Router</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">createPlayer</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">getAllPlayers</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">updatePlayerById</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">deletePlayerById</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">} </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../controllers/player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Router</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">express</span><span class="mtk1">.</span><span class="mtk7">Router</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">post</span><span class="mtk1">(</span><span class="mtk11">&#39;/&#39;</span><span class="mtk1">, </span><span class="mtk7">createPlayer</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;/&#39;</span><span class="mtk1">, </span><span class="mtk7">getAllPlayers</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">put</span><span class="mtk1">(</span><span class="mtk11">&#39;/:id&#39;</span><span class="mtk1">, </span><span class="mtk7">updatePlayerById</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">router</span><span class="mtk1">.</span><span class="mtk7">delete</span><span class="mtk1">(</span><span class="mtk11">&#39;/:id&#39;</span><span class="mtk1">, </span><span class="mtk7">deletePlayerById</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk8">default</span><span class="mtk1"> </span><span class="mtk7">router</span><span class="mtk1">;</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="typescript" data-index="23"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// controllers/player.ts</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">getRepository</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;typeorm&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Request</span><span class="mtk1">, </span><span class="mtk7">Response</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;express&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">import</span><span class="mtk1"> { </span><span class="mtk7">Player</span><span class="mtk1"> } </span><span class="mtk8">from</span><span class="mtk1"> </span><span class="mtk11">&#39;../entity/Player&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">createPlayer</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">let</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">new</span><span class="mtk1"> </span><span class="mtk7">Player</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> { </span><span class="mtk8">...</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1"> };</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">getAllPlayers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">players</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">players</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">updatePlayerById</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">name</span><span class="mtk1">, </span><span class="mtk7">position</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">body</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">update</span><span class="mtk1">(</span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">), {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">name</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">position</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">updatedPlayer</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">({</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk7">updatedPlayer</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">export</span><span class="mtk1"> </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">deletePlayerById</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk13 mtkb">async</span><span class="mtk1"> (req</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Request</span><span class="mtk1">, res</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk7">Response</span><span class="mtk1">) </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">getRepository</span><span class="mtk1">(</span><span class="mtk7">Player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">player</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">find</span><span class="mtk1">({</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    id: </span><span class="mtk8">Number</span><span class="mtk1">(</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">await</span><span class="mtk1"> </span><span class="mtk7">playerRepository</span><span class="mtk1">.</span><span class="mtk7">remove</span><span class="mtk1">(</span><span class="mtk7">player</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">send</span><span class="mtk1">(</span><span class="mtk11">`Player id ${</span><span class="mtk7">req</span><span class="mtk1">.</span><span class="mtk7">params</span><span class="mtk1">.</span><span class="mtk7">id</span><span class="mtk11">} has been deleted.`</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p>Blog นี้ก็ขอจบเพียงเท่านี้ก่อนนะครับ หวังว่าจะเป็นประโยชน์ต่อผู้ที่สนใจทุกท่าน อาจจะไม่สมบูรณ์เท่าไหร่ เพราะผมเองก็ยังใหม่กับ Typescript แต่ก็จะพยายามฝึกฝนให้เขียนดีกว่านี้ และอธิบายได้ดีกว่านี้นะครับ Blog ต่อไปอาจจะมาเพิ่มเติมเกี่ยว User authentication ดูครับผมมม</p>
-<p>Happy Coding :)</p>  </div> </article> <div class="comments-section" data-astro-cid-bvzihdzo> <section class="comments" data-astro-cid-on2fnc7p> <h2 class="comments-title" data-astro-cid-on2fnc7p>Comments</h2> <div class="giscus-container" data-astro-cid-on2fnc7p> <script src="https://giscus.app/client.js" data-repo="xeusteerapat/xeusteerapat.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyMTkyNTY4NzY=" data-category="General" data-category-id="DIC_kwDODRGYLM4COf8-" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async>
-    </script> </div> </section>  </div>  </main> </div> <footer class="footer" data-astro-cid-sz7xmlte> <div class="container-main footer-content" data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://github.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>GitHub</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://twitter.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Twitter</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://www.linkedin.com/in/teerapat-prommarak/" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>LinkedIn</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-sz7xmlte></path> </svg> </a> </div> <p class="copyright" data-astro-cid-sz7xmlte>
-Created by Teerapat Prommarak, © 2025 </p> </div> </footer>  </body></html> 
+<p>Happy Coding :)</p>
+<style class="grvsc-styles">
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line > * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: ' ';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .mtk5 { color: #B58900; }
+  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+</style></div></div><footer class="footer-module--footer--675c6"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/rest-api-with-node-typescript";window.___webpackCompilationHash="94e20cd6aa9c4a3eeb94";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0331ad3611257a24bd80.js"],"component---src-pages-404-js":["/component---src-pages-404-js-0e6af2cd7680156ccdc5.js"],"component---src-pages-about-js":["/component---src-pages-about-js-12ba874488f09c48bf7d.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-3c426355a62e6db94474.js"],"component---src-pages-index-js":["/component---src-pages-index-js-5b1974ddbc88df87e727.js"],"component---src-pages-project-js":["/component---src-pages-project-js-cc21247651fca94b9a7c.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-2e70681adbedcac4fe6a.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-4928e115e0ce8d207656.js"]};/*]]>*/</script><script src="/app-0331ad3611257a24bd80.js" async=""></script><script src="/framework-28b1dd818f52b3fd496a.js" async=""></script><script src="/webpack-runtime-91a77cf6ee6c05287092.js" async=""></script></body></html>

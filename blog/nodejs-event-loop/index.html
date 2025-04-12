@@ -1,65 +1,62 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-37fxchfa> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>Node.js Event Loop | Hello, World</title><meta name="description"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_assets/_slug_.5Zos-WDK.css">
-<link rel="stylesheet" href="/_assets/_slug_.rCULUuHh.css"></head> <body style="min-height: 100vh; display: flex; flex-direction: column; background-color: #f9fafb;" data-astro-cid-37fxchfa> <div class="container-main" style="flex-grow: 1;" data-astro-cid-37fxchfa> <header class="header" data-astro-cid-3ef6ksr2> <div class="header-container" data-astro-cid-3ef6ksr2> <div class="brand" data-astro-cid-3ef6ksr2> <a href="/" class="site-title" data-astro-cid-3ef6ksr2>Hello, World</a> <a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" class="webring" data-astro-cid-3ef6ksr2> <img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg" class="webring-image" data-astro-cid-3ef6ksr2> </a> </div> <nav data-astro-cid-3ef6ksr2> <ul class="nav-list" data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-item" data-astro-cid-3ef6ksr2>Home</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-item" data-astro-cid-3ef6ksr2>Blog</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/about" class="nav-item" data-astro-cid-3ef6ksr2>About</a> </li> <li data-astro-cid-3ef6ksr2> <a href="/contact" class="nav-item" data-astro-cid-3ef6ksr2>Contact</a> </li> </ul> </nav> </div> </header>  <script type="module" src="/_assets/Header.astro_astro_type_script_index_0_lang.DT_jaKul.js"></script> <main style="padding-top: 2rem; padding-bottom: 2rem;" data-astro-cid-37fxchfa>  <article class="blog-post" data-astro-cid-bvzihdzo> <h1 class="blog-title" data-astro-cid-bvzihdzo>Node.js Event Loop</h1> <time class="blog-date" data-astro-cid-bvzihdzo>October 10, 2020</time> <div class="blog-content" data-astro-cid-bvzihdzo>  <p>สวัสดีครับ ไม่ได้เขียน blog มานานเป็นเดือนละ เนื่องจากผมค่อนข้างยุ่งกับการเปลี่ยนงานใหม่และงานก็ค่อนข้างถาโถมเข้ามาแบบเยอะเลยทีเดียว (555) แต่ก็ยังพอมีเวลาไปศึกษา <code>node.js</code> เพิ่มเติมอยู่บ้าง โดยเฉพาะการทำงานภายในของตัว <code>node.js</code> เอง ซึ่ง blog นี้ก็จะนำเสนอเกี่ยวกับ <strong>Event Loop</strong> ซึ่งมีบทบาทสำคัญเป็นอย่างมากในตัว <code>node.js</code> core หวังว่าจะเป็นประโยชน์ต่อคนที่กำลังศึกษา <code>node.js</code> อยู่นะครับ code และเนื้อหาหลักๆ ผมจะอ้างอิงจาก <a href="https://www.udemy.com/course/advanced-node-for-developers/">Node JS: Advanced Concepts</a> ของ <a href="https://twitter.com/ste_grider">Stephen Grider</a> ครับผม</p>
-<h2 id="prerequisite">Prerequisite</h2>
+<!DOCTYPE html><html lang="th"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.9"/><meta data-react-helmet="true" name="description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" property="og:url" content="https://curiousdev.in.th/blog/nodejs-event-loop"/><meta data-react-helmet="true" property="og:title" content="Node.js Event Loop"/><meta data-react-helmet="true" property="og:description" content="Full-stack web developer who always curiosity and learn new things."/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@xeusteerapat"/><meta data-react-helmet="true" name="twitter:title" content="Node.js Event Loop"/><meta data-react-helmet="true" name="twitter:description" content="Full-stack web developer who always curiosity and learn new things."/><style data-href="/styles.b74fcce386d682139b69.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#fafafa;color:#90a4ae;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5em;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{background:#cceae7;color:#263238}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#cceae7;color:#263238}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#7c4dff}.token.attr-name{color:#39adb5}.token.attr-value,.token.attribute{color:#f6a434}.token.boolean{color:#7c4dff}.token.builtin,.token.cdata,.token.char,.token.class{color:#39adb5}.token.class-name{color:#6182b8}.token.comment{color:#aabfc9}.token.constant{color:#7c4dff}.token.deleted{color:#e53935}.token.doctype{color:#aabfc9}.token.entity{color:#e53935}.token.function{color:#7c4dff}.token.hexcode{color:#f76d47}.token.id,.token.important{color:#7c4dff;font-weight:700}.token.inserted{color:#39adb5}.token.keyword{color:#7c4dff}.token.number{color:#f76d47}.token.operator{color:#39adb5}.token.prolog{color:#aabfc9}.token.property{color:#39adb5}.token.pseudo-class,.token.pseudo-element{color:#f6a434}.token.punctuation{color:#39adb5}.token.regex{color:#6182b8}.token.selector{color:#e53935}.token.string{color:#f6a434}.token.symbol{color:#7c4dff}.token.tag{color:#e53935}.token.unit{color:#f76d47}.token.url,.token.variable{color:#e53935}.header-module--header--92758{padding:1rem 0 3rem}.header-module--title--68ad3{color:#000;font-size:3rem;text-decoration:none}.header-module--nav-list--2b881{display:flex;list-style-type:none;margin:0}.header-module--nav-item--da873{color:#999;font-size:.9rem;margin-right:1.3rem;text-decoration:none}.header-module--nav-item--da873:hover{color:#666}.header-module--active-nav-item--6ecf9{color:#333}.footer-module--footer--675c6{margin-top:3rem}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{-webkit-text-decoration-skip:objects;background-color:transparent;text-decoration:underline}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font:112.5%/1.45em georgia,serif;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{word-wrap:break-word;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt";color:rgba(0,0,0,.8);font-family:sans-serif;font-kerning:normal;font-weight:400}img{margin:0 0 1.45rem;max-width:100%;padding:0}h1{font-size:2.25rem}h1,h2{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h2{font-size:1.62671rem}h3{font-size:1.38316rem}h3,h4{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h4{font-size:1rem}h5{font-size:.85028rem}h5,h6{color:inherit;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-weight:700;line-height:1.1;margin:0 0 1.45rem;padding:0;text-rendering:optimizeLegibility}h6{font-size:.78405rem}hgroup{margin:0 0 1.45rem;padding:0}ol,ul{list-style-image:none;list-style-position:outside;margin:0 0 1.45rem 1.45rem;padding:0}dd,dl,figure,p{margin:0 0 1.45rem;padding:0}pre{word-wrap:normal;background:rgba(0,0,0,.04);border-radius:3px;font-size:.85rem;line-height:1.42;margin:0 0 1.45rem;overflow:auto;padding:1.45rem}table{border-collapse:collapse;font-size:1rem;line-height:1.45rem;width:100%}fieldset,table{margin:0 0 1.45rem;padding:0}blockquote{margin:0 1.45rem 1.45rem;padding:0}form,iframe,noscript{margin:0 0 1.45rem;padding:0}hr{background:rgba(0,0,0,.2);border:none;height:1px;margin:0 0 calc(1.45rem - 1px);padding:0}address{margin:0 0 1.45rem;padding:0}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-bottom:.725rem;margin-left:1.45rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";border-bottom:1px solid rgba(0,0,0,.12);padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{content:" ";letter-spacing:-.2em}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.layout-module--container--46809{display:flex;flex-direction:column;margin:0 auto;max-width:750px;min-height:100vh;padding:1rem}.layout-module--container--46809 a,.layout-module--container--46809 a:visited{color:#000}.layout-module--container--46809 a:hover{color:#474444}.layout-module--content--1704e{flex-grow:1}.project-module--header--6a610{margin-top:3rem}.project-module--wrapper--ad517{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin:0;max-width:1100px;padding:0}.project-module--wrapper--ad517 .project-module--item--e74c2{background:#f4f4f4;display:block;margin:.5rem;padding:1rem;width:330px}.project-module--wrapper--ad517 .project-module--item--e74c2 p{margin-bottom:5px}.project-module--wrapper--ad517 .project-module--item--e74c2 a{display:inline-block;margin-top:.75rem;text-decoration:none}.blog-module--posts--a78be{list-style-type:none;margin:0}.blog-module--post--0206a{margin:1rem 0}.blog-module--post--0206a a{background:#f4f4f4;color:#000;display:block;padding:1rem;text-decoration:none}.blog-module--post--0206a a:hover{background:#e4e4e4}.blog-module--post--0206a h2{margin-bottom:0}.blog-module--post--0206a p{color:#777;font-size:.8rem;font-style:italic}</style><title data-react-helmet="true">Node.js Event Loop | Hello, World</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--46809"><div class="layout-module--content--1704e"><header class="header-module--header--92758"><h1><a class="header-module--title--68ad3" href="/">Hello, World</a><a href="https://webring.wonderful.software#curiousdev.in.th" title="วงแหวนเว็บ" style="position:absolute;top:47px;display:inline-block"><img alt="วงแหวนเว็บ" width="32" height="32" src="https://webring.wonderful.software/webring.black.svg"/></a></h1><nav><ul class="header-module--nav-list--2b881"><li><a class="header-module--nav-item--da873" href="/">Home</a></li><li><a class="header-module--nav-item--da873" href="/blog">Blog</a></li><li><a class="header-module--nav-item--da873" href="/about">About</a></li><li><a class="header-module--nav-item--da873" href="/project">Projects</a></li><li><a class="header-module--nav-item--da873" href="/contact">Contact</a></li></ul></nav></header><h1>Node.js Event Loop</h1><p>2020-10-10</p><div><p>สวัสดีครับ ไม่ได้เขียน blog มานานเป็นเดือนละ เนื่องจากผมค่อนข้างยุ่งกับการเปลี่ยนงานใหม่และงานก็ค่อนข้างถาโถมเข้ามาแบบเยอะเลยทีเดียว (555) แต่ก็ยังพอมีเวลาไปศึกษา <code>node.js</code> เพิ่มเติมอยู่บ้าง โดยเฉพาะการทำงานภายในของตัว <code>node.js</code> เอง ซึ่ง blog นี้ก็จะนำเสนอเกี่ยวกับ <strong>Event Loop</strong> ซึ่งมีบทบาทสำคัญเป็นอย่างมากในตัว <code>node.js</code> core หวังว่าจะเป็นประโยชน์ต่อคนที่กำลังศึกษา <code>node.js</code> อยู่นะครับ code และเนื้อหาหลักๆ ผมจะอ้างอิงจาก <a href="https://www.udemy.com/course/advanced-node-for-developers/">Node JS: Advanced Concepts</a> ของ <a href="https://twitter.com/ste_grider">Stephen Grider</a> ครับผม</p>
+<h2>Prerequisite</h2>
 <ul>
 <li>Intermediate Javascript (asynchronous, callbacks)</li>
 </ul>
-<h2 id="what-is-the-event-loop">What is the Event Loop?</h2>
+<h2>What is the Event Loop?</h2>
 <p>Node.js คือ runtime environment เพื่อดำเนินการ run Javascript ฝั่ง server side เราทราบกันดีอยู่แล้วว่า Javascript ทำงานบน <strong>Single-Threaded</strong> ดังนั้น Event Loop คือสิ่งที่คอยจัดการ <strong>asynchronous non-blocking I/O operations</strong> ใน node นั่นเอง เปรียบเสมือนเป็นโครงสร้างที่ควบคุมและตัดสินใจว่าจะทำ task ใดในช่วงเวลาหนึ่งบน thread นั้นๆ ซึ่งการทำงานของ Event Loop จะทำงานอยู่บน thread เดียวโดยมีวัฏจักรการทำงานตาม diagram รูปล่าง</p>
-<pre class="language-bash" data-language="bash"><code is:raw="" class="language-bash">   ┌───────────────────────────┐
-┌─<span class="token operator">></span>│           timers          │
-│  └─────────────┬─────────────┘
-│  ┌─────────────┴─────────────┐
-│  │     pending callbacks     │
-│  └─────────────┬─────────────┘
-│  ┌─────────────┴─────────────┐
-│  │       idle, prepare       │
-│  └─────────────┬─────────────┘      ┌───────────────┐
-│  ┌─────────────┴─────────────┐      │   incoming:   │
-│  │           poll            │<span class="token operator">&#x3C;</span>─────┤  connections, │
-│  └─────────────┬─────────────┘      │   data, etc.  │
-│  ┌─────────────┴─────────────┐      └───────────────┘
-│  │           check           │
-│  └─────────────┬─────────────┘
-│  ┌─────────────┴─────────────┐
-└──┤      close callbacks      │
-   └───────────────────────────┘
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   ┌───────────────────────────┐</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">┌─</span><span class="mtk8">&gt;</span><span class="mtk1">│           timers          │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  └─────────────┬─────────────┘</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  ┌─────────────┴─────────────┐</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  │     pending callbacks     │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  └─────────────┬─────────────┘</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  ┌─────────────┴─────────────┐</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  │       idle, prepare       │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  └─────────────┬─────────────┘      ┌───────────────┐</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  ┌─────────────┴─────────────┐      │   incoming:   │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  │           poll            │</span><span class="mtk8">&lt;</span><span class="mtk1">─────┤  connections, │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  └─────────────┬─────────────┘      │   data, etc.  │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  ┌─────────────┴─────────────┐      └───────────────┘</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  │           check           │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  └─────────────┬─────────────┘</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">│  ┌─────────────┴─────────────┐</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">└──┤      close callbacks      │</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   └───────────────────────────┘</span></span></span></code></pre>
 <p><em>Ref: <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">The Node.js Event Loop, Timers, and <code>process.nextTick()</code></a></em></p>
 <p>สมมติว่าเราเขียน code ในไฟล์ <code>index.js</code> แล้วเราจะใช้คำสั่ง run <code>node index.js</code> แต่ละช่วง Event Loop จะมีการทำงานดังต่อไปนี้</p>
 <ul>
 <li><strong>Timers</strong>: เป็นการจัดการเกี่ยวกับเวลา เช่น <code>setTimeout()</code> หรือ <code>setInterval()</code></li>
 <li><strong>Pending callbacks</strong>: เป็นช่วงที่ต้องจัดการเกี่ยวกับ callbacks ต่างๆ</li>
-<li><strong>Idle, prepare</strong>: เป็นช่วงเวลาที่ event loop กลับไปอยู่ที่สถานะ “รอ” เพื่อให้ tasks ใดๆ ดำเนินการเสร็จ เดี๋ยวผมจะลงรายละเอียดอีกทีนะครับ</li>
+<li><strong>Idle, prepare</strong>: เป็นช่วงเวลาที่ event loop กลับไปอยู่ที่สถานะ "รอ" เพื่อให้ tasks ใดๆ ดำเนินการเสร็จ เดี๋ยวผมจะลงรายละเอียดอีกทีนะครับ</li>
 <li><strong>Poll</strong>: จัดการเกี่ยวกับ I/O event ต่างๆ</li>
 <li><strong>Check</strong>: <code>setImmediate()</code> callbacks</li>
 <li><strong>Close callbacks</strong>: close event ต่างๆ เช่น <code>socket.on('close', ...)</code></li>
 </ul>
 <p>ทีนี้อาจจะยังมองภาพไม่ออกว่าแต่ละช่วงนั้น Event Loop มันทำงานของมันยังไงกันแน่ ต่อไปผมจะเอาแต่ละช่วงมาเขียนเป็น psuedo code ดูนะครับ เพื่อให้เข้าใจมากขึ้น</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">//----- Totally FAKE code -----//</span>
-
-<span class="token comment">// สมมติว่า run node index.js</span>
-
-<span class="token comment">// Tasks ต่างๆ ที่ Event Loop ต้องทำการตรวจสอบ</span>
-<span class="token comment">// และตัดสินใจว่าจะดำเนินการอย่างไรต่อไป</span>
-<span class="token keyword">const</span> pendingTimers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> pendingOSTasks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> pendingOperations <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment">// shouldContinue() คือตัวแทนการทำงานของ Event Loop</span>
-<span class="token comment">// ซึ่ง function นี้จะคืนค่า truthy หรือ falsy</span>
-<span class="token keyword">function</span> <span class="token function">shouldContinue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    pendingTimers<span class="token punctuation">.</span>length <span class="token operator">||</span> pendingOSTasks<span class="token punctuation">.</span>length <span class="token operator">||</span> pendingOperations<span class="token punctuation">.</span>length
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment">// เข้าสู่ Event Loop</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">shouldContinue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-
-<span class="token comment">// exit back to terminal</span>
-</code></pre>
-<h2 id="event-loops-phases-in-detail">Event Loop’s phases in Detail</h2>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">//----- Totally FAKE code -----//</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// สมมติว่า run node index.js</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// Tasks ต่างๆ ที่ Event Loop ต้องทำการตรวจสอบ</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// และตัดสินใจว่าจะดำเนินการอย่างไรต่อไป</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingTimers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingOSTasks</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">pendingOperations</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// shouldContinue() คือตัวแทนการทำงานของ Event Loop</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// ซึ่ง function นี้จะคืนค่า truthy หรือ falsy</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">shouldContinue</span><span class="mtk1">() {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">return</span><span class="mtk1"> (</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk7">pendingTimers</span><span class="mtk1">.length </span><span class="mtk8">||</span><span class="mtk1"> </span><span class="mtk7">pendingOSTasks</span><span class="mtk1">.length </span><span class="mtk8">||</span><span class="mtk1"> </span><span class="mtk7">pendingOperations</span><span class="mtk1">.length</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  );</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// เข้าสู่ Event Loop</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">while</span><span class="mtk1"> (</span><span class="mtk7">shouldContinue</span><span class="mtk1">()) {}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// exit back to terminal</span></span></span></code></pre>
+<h2>Event Loop's phases in Detail</h2>
 <p>รายละเอียดการทำงานในแต่ละช่วงของ Event Loop มีดังนี้</p>
 <ol>
 <li><strong>Event Loop</strong> จะตรวจสอบว่ามี task ใน <code>pendingTimers</code> หรือไม่ ซึ่งก็คือ <code>setTimeout()</code> และ <code>setInterval()</code> ถ้ามี ก็จะทำการ execute callbacks function ที่อยู่ใน <code>pendingTimers</code> เหล่านั้น</li>
@@ -75,10 +72,10 @@
 <li>จัดการ <code>close event</code> เช่น <code>socket.on('close', ...)</code> หรือ <code>readStream.on('close', ...)</code></li>
 </ol>
 <p>ถ้ามี <code>pendingTask</code> ใดใดสักอันหนึ่งที่มี task อยู่ข้างใน (length > 0) <code>shouldContinue()</code> ก็จะคืนค่าเป็น <code>true</code> Event Loop ก็จะดำเนินวัฏจักรของมันไปเรื่อยๆ (<code>while (true) {}</code>) จนกว่าทุก ๆ <code>pendingTask</code> หมดไป <code>shouldContinue()</code> ก็จะคืนค่าเป็น <code>false</code> และออกมาจาก loop นั่นเอง</p>
-<h2 id="is-nodejs-single-threaded">Is Node.js single-threaded?</h2>
+<h2>Is Node.js single-threaded?</h2>
 <p>มาถึงตรงนี้ อยากจะตั้งคำถามกับคุณผู้อ่านสักหน่อยว่า Node.js เป็น single-thread หรือไม่?</p>
-<p>คำตอบคือ…</p>
-<p><strong><em>ทั้งใช่ และไม่ใช่…</em></strong></p>
+<p>คำตอบคือ...</p>
+<p><strong><em>ทั้งใช่ และไม่ใช่...</em></strong></p>
 <p>เริ่มงงกันแล้วใช่มั้ยครับ 555</p>
 <p>ผมจะแบ่งเป็น 2 ประเด็นหลักๆ ละกันนะครับ</p>
 <ol>
@@ -87,91 +84,277 @@
 </ol>
 <p>บางคนอาจจะสงสัย ว่าอ้าว javascript เป็น single-threaded นี่ node เองก็ใช้ javascript แล้วทำไมไม่ใช่ single-thread ทั้งหมดล่ะ</p>
 <p>ลองมาดูตัวอย่างกันครับ</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// thread.js</span>
-<span class="token keyword">const</span> <span class="token punctuation">{</span> pbkdf2 <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> start <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">pbkdf2</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'salt'</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">1: Done in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// thread.js</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">pbkdf2</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;crypto&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`1: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">);</span></span></span></code></pre>
 <p><code>pdkdf2</code> เป็น function ที่ใช้ทำการเข้ารหัส ในตัวอย่างจะใช้ <code>sha512</code> เป็น secure hash algorithm ทีนี้ลอง run <code>node thread.js</code> ดูครับ ก็จะได้ผลลัพธ์ประมาณนี้</p>
-<p><img  src="/_assets/first_threaded.Otrj1AHB_ZsPPIM.webp" alt="hash" width="1102" height="404" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.702127659574465%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5UlEQVQoz52Oy06DUBRFb1+XW8CLFi4WebVQK4LgwCaOTPwFR8aRP+EH+OfL2NCERG1MBytn5zz2PuL545NtU/NQ59yWMbuuoKtW3F2n1JuIIroizAx+7uO7Dk1Z0t1saS4znlYtj2nFfbQm8RYsHBuxe30nyzPaTUwWnlOtl9RFShEHGC25sBTKmTJzJ9jjMZYQyB5rwKEn2pc3tKdZaknoKeLAxpxJQm2RGIfAcXE8hfIkWkrmQhxFRPacySBhOtCzvqp+2Rro3/ieicSY/aE9Gh1NVn/oHx8mQbA3PNXg34an8gX6up4tzYWYjwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="hash"
+        title="hash"
+        src="/static/e0c5b766eea639660b8bf06ff4e25daf/1d69c/first_threaded.png"
+        srcset="/static/e0c5b766eea639660b8bf06ff4e25daf/4dcb9/first_threaded.png 188w,
+/static/e0c5b766eea639660b8bf06ff4e25daf/5ff7e/first_threaded.png 375w,
+/static/e0c5b766eea639660b8bf06ff4e25daf/1d69c/first_threaded.png 750w,
+/static/e0c5b766eea639660b8bf06ff4e25daf/26a94/first_threaded.png 1102w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>ทีนี้ลองเพิ่มไปอีก 3 ชุดคำสั่ง</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> pbkdf2 <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> start <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">pbkdf2</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'salt'</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">1: Done in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">pbkdf2</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'salt'</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">2: Done in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">pbkdf2</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'salt'</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">3: Done in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">pbkdf2</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'salt'</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">4: Done in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> { </span><span class="mtk7">pbkdf2</span><span class="mtk1"> } </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;crypto&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`1: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`2: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`3: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">pbkdf2</span><span class="mtk1">(</span><span class="mtk11">&#39;pwd&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;salt&#39;</span><span class="mtk1">, </span><span class="mtk6">100000</span><span class="mtk1">, </span><span class="mtk6">512</span><span class="mtk1">, </span><span class="mtk11">&#39;sha512&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk11">`4: Done in ${</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk11">}ms`</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">);</span></span></span></code></pre>
 <p>แล้ว run ดูอีกครั้งครับจะได้</p>
-<p><img  src="/_assets/more_hash.BfoE3Yx-_Z1HG03q.webp" alt="more hash" width="1148" height="740" loading="lazy" decoding="async"></p>
-<p>อ้าววววว ทำไมเหมือนกับว่าเกิดขึ้นพร้อมกันเลยล่ะ? ถ้า node เป็น single-threaded จริง มันต้องทำตามลำดับ 1 —> 2 —> 3 —> 4 ใช้มั้ยครับ ดูจากรูปผม run หลายๆ ครั้งให้ดูเลย เพื่อให้เห็นชัดเจนว่ามันเกิดขึ้น ๆ พร้อมๆ กัน</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.36170212765958%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIklEQVQ4y32SyW7bQBBEuYkc7ospUhQ5pGSK1GYZ3g7+knyAD7nmkj/Ih7+AY8WQhCSHQs0Aje7qqtYef/5i3cw59CW7dcFpW9E3dxz6gvtlTrMo8LuIJA+p04zH3cgwr3gu1rwtNuzvapogJZhZRLaNJtsVY9cyyIYmT9l2kqf9jjxw8XQNzzBwLB0xvTWd0LLwdYPYsEhNm9iYqb+jaQhNQyt9j0FK+rqhCCPulzVP+wOx7WCfi9wzprdzhn2Gc1OjtY1UCsdOssxSxW+nI5nnqsJJoTA03EmhrhOYpmJf0xWLi2Gq4eH7T9b1nP26YGjvOG4WjF3Jpk2ps4B5EmOXAj90yD1fDZdRxj6uOGWSPpxT2L5SqhrWi4pBtmyahipJFL+dTmSuOK/x6d8fBZOqyctANwgNU2H6fymso5DtasXYdiySVDV/f34hcQSzi1XEGfZ/PFShyH5kkLXCMksY2imUrUrZN3QCy0LMdFzz07/YsQkMk8iwFKaErxTuP36wWuaMXU7fpDyMS4a2pG+SGw9tcs9j6CQyTP/tYZWmat0JVZLS1zWvDw+kQlydjbg4m8szmdRdpaw87Do2jaSME8XPhyOR7Vx56F54djlA3Hq4en1n7Bp264a2zNjfN7wct1RZQGxbxI6D8EyEpVNGEZnrqsbuDb4Urr59UMQecu4ji4BuEVJEjuJlFpBHIc5cYDs6j8PIuqowz+fj/qXxbzSaM4UL4x9DAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="more hash"
+        title="more hash"
+        src="/static/70d930be9810164569504d3a46260d5a/1d69c/more_hash.png"
+        srcset="/static/70d930be9810164569504d3a46260d5a/4dcb9/more_hash.png 188w,
+/static/70d930be9810164569504d3a46260d5a/5ff7e/more_hash.png 375w,
+/static/70d930be9810164569504d3a46260d5a/1d69c/more_hash.png 750w,
+/static/70d930be9810164569504d3a46260d5a/78797/more_hash.png 1125w,
+/static/70d930be9810164569504d3a46260d5a/e6c84/more_hash.png 1148w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>อ้าววววว ทำไมเหมือนกับว่าเกิดขึ้นพร้อมกันเลยล่ะ? ถ้า node เป็น single-threaded จริง มันต้องทำตามลำดับ 1 --> 2 --> 3 --> 4 ใช้มั้ยครับ ดูจากรูปผม run หลายๆ ครั้งให้ดูเลย เพื่อให้เห็นชัดเจนว่ามันเกิดขึ้น ๆ พร้อมๆ กัน</p>
 <p>สาเหตุที่เป็นแบบนี้ ก็เพราะว่า standard module บางตัว (เช่น crypto) ที่มีการใช้ cpu ประมวลผลสูง node จะไม่ได้ run แค่ single-threaded แต่จะอาศัยตัวช่วยอย่าง <a href="http://docs.libuv.org/en/v1.x/threadpool.html">uv thread pool</a> โดยที่ค่าเริ่มต้นของ <code>uv_thread_pool</code> ก็คือ 4 ถ้าเราอยากให้มัน run แค่ thread เดียว ก็สามารถทำได้แบบนี้ครับ</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// กำหนด UV_THREADPOOL_SIZE แบบนี้</span>
-<span class="token comment">// ใส่ไว้ข้างบนสุดของ code เมื่อกี้</span>
-process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">UV_THREADPOOL_SIZE</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// กำหนด UV_THREADPOOL_SIZE แบบนี้</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// ใส่ไว้ข้างบนสุดของ code เมื่อกี้</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">process.env.</span><span class="mtk7">UV_THREADPOOL_SIZE</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk6">1</span><span class="mtk1">;</span></span></span></code></pre>
 <p>แล้วทีนี้ลอง run ดูอีกครั้งครับ ผลที่ได้คือ</p>
-<p><img  src="/_assets/single_thread.CIyWu-35_Z1pJ08R.webp" alt="single threaded" width="1072" height="596" loading="lazy" decoding="async"></p>
+<p><img src="/path/to/dir/4fc972c7e6d9bf2c9b5336eea433f01a/single_thread.gif" alt="single threaded"></p>
 <p>ถ้าลองไปอ่านที่ <a href="http://docs.libuv.org/en/v1.x/threadpool.html">doc</a> ของ libuv จะพบว่าเราสามารถกำหนด <code>UV_THREADPOOL_SIZE</code> ได้ถึง 1024 ลองไปเล่นๆ กันดูได้ครับ สรุปคือ node จะใช้ Event Loop บน main thread และจะมี threadpool จาก libuv เอาไว้คอยจัดการพวก cpu intensive task</p>
-<h2 id="os-operations">OS Operations</h2>
+<h2>OS Operations</h2>
 <p>ต่อไปก็มาทำความเข้าใจเกี่ยวกับ <code>os operations</code> หรือ <code>pendingOSTasks</code> ที่ผมเขียนไว้ใน psuedo code ตัวอย่างนะครับ ซึ่งเป็นอีกตัวที่น่าสนใจเช่นกัน ลองดู code ตัวอย่างกันครับ</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// async.js</span>
-<span class="token keyword">const</span> https <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'https'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> start <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  https
-    <span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token string">'https://www.google.com'</span><span class="token punctuation">,</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-      res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// async.js</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">https</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk7">require</span><span class="mtk1">(</span><span class="mtk11">&#39;https&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">const</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">doRequest</span><span class="mtk1">() {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk7">https</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    .</span><span class="mtk7">request</span><span class="mtk1">(</span><span class="mtk11">&#39;https://www.google.com&#39;</span><span class="mtk1">, res </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;data&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {});</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk7">res</span><span class="mtk1">.</span><span class="mtk7">on</span><span class="mtk1">(</span><span class="mtk11">&#39;end&#39;</span><span class="mtk1">, () </span><span class="mtk13 mtkb">=&gt;</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk8">console</span><span class="mtk1">.</span><span class="mtk7">log</span><span class="mtk1">(</span><span class="mtk8">Date</span><span class="mtk1">.</span><span class="mtk7">now</span><span class="mtk1">() </span><span class="mtk8">-</span><span class="mtk1"> </span><span class="mtk7">start</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    })</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    .</span><span class="mtk7">end</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span></code></pre>
 <p>แล้ว run <code>node async.js</code> จะได้เป็น</p>
-<p><img  src="/_assets/async_request.CO6Y1jw4_Z1GLpQ3.webp" alt="async request" width="1102" height="590" loading="lazy" decoding="async"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.72340425531915%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABAklEQVQoz82OwU6DQBRFHwUGGBiYUIZSxCmlsVTUik1MXBjjFxh/wB9x5Z9fk0lriGmURRddnNzk5d3zHr1+fmHdLnHfVthuNPpO43ZdoVuV6G80rusa1bKE2hS4KBS6psHTrseDvsJLs8WjbnFX1siTGIWUoN3bM8qZD+nZmIYulHCRcgfSt5FFLiRjCDwbDrfAnQkCoh9Cskz6RGB7qH7/wDSVWOQhLnMBPROoshDzlGNRCMyTBCIJ4CkfMffAyTKCIcMjlNgTuEQGtk93cJENSt4RwYHDnPI4NiVuHV/8XQj+kBphFkVGGND/Qn+MUEXhKOFYSEX8tMI8Fmf+4amF39IQ8ENUkGSPAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="async request"
+        title="async request"
+        src="/static/86f5cea69326b3d90a69403b541aa03b/1d69c/async_request.png"
+        srcset="/static/86f5cea69326b3d90a69403b541aa03b/4dcb9/async_request.png 188w,
+/static/86f5cea69326b3d90a69403b541aa03b/5ff7e/async_request.png 375w,
+/static/86f5cea69326b3d90a69403b541aa03b/1d69c/async_request.png 750w,
+/static/86f5cea69326b3d90a69403b541aa03b/26a94/async_request.png 1102w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>ทีนี้ลองเพิ่มการเรียก function <code>doRequest()</code> ให้เป็นสัก 7 ครั้ง</p>
-<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">doRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img  src="/_assets/more_async.CFdQN8of_hrsXJ.webp" alt="more async" width="1100" height="628" loading="lazy" decoding="async"></p>
+<pre class="grvsc-container solarized-light" data-language="javascript" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">doRequest</span><span class="mtk1">();</span></span></span></code></pre>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.91489361702128%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBUlEQVQoz62RzUrDQBRGb9OY9E5+m6RtksZqSkSCtCC6c+8TuPUVXPn+R5qkIEVSiy4O353hcuCbkcePT66rjG0RUpcx97cp1SJgu46526SUcUKYB3i5x1yVplp3tHHJPtvQRCtyDTDWBH86RXaNkEeCLYKKMBPBHXIMPckj0tY2mddL9AJO5Ufkea+Uc8ERwUzGBT/Np3eyuxGWvmBJL7WHvBpwvi0fWkxHpJ3w6f2NYulTzJU8VqrMYxG43blIDKkaTOjihDaJMTw0zejzSPHySuwb8shlFc1Ypx6Z73RzmRiSTujgBgeh0tb1uNAZqhwr/rmyWtavf1XPyHrhmYVL+XfhF1oL7nCvXSCqAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="more async"
+        title="more async"
+        src="/static/9d289272a042c451f4845892768d7318/1d69c/more_async.png"
+        srcset="/static/9d289272a042c451f4845892768d7318/4dcb9/more_async.png 188w,
+/static/9d289272a042c451f4845892768d7318/5ff7e/more_async.png 375w,
+/static/9d289272a042c451f4845892768d7318/1d69c/more_async.png 750w,
+/static/9d289272a042c451f4845892768d7318/99f37/more_async.png 1100w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
 <p>อ้าวววว เรียกไปตั้ง 6 ครั้ง แต่ก็ run พร้อมๆ กันแหะ! ยังไงเนี่ยยยย</p>
 <p>คำตอบก็คือเมื่อมีการทำ network request แบบ code ข้างบน node จะไม่ได้ใช้ <code>UV_THREADPOOL</code> แต่จะไปเรียกใช้ <strong>asynchronous interface</strong> ซึ่งแต่ละระบบปฏิบัติการมีให้อยู่แล้วแทน ถ้าเป็น linux ก็จะเป็น <a href="https://man7.org/linux/man-pages/man7/aio.7.html">AIO</a> เป็นต้น</p>
 <p>หวังว่าจะช่วยคลายข้อสงสัยเกี่ยวกับการทำงานของ Event Loop ไม่มากก็น้อยนะครับ ถ้ามีเวลา ผมจะมาเขียนเกี่ยวกับสิ่งที่น่าสนใจของ Node.js อีกเรื่อยๆ นะครับ</p>
 <p>Happy Coding :)</p>
-<h2 id="references">References</h2>
+<h2>References</h2>
 <ul>
 <li><a href="https://www.udemy.com/course/advanced-node-for-developers/">Node JS: Advanced Concepts</a></li>
 <li><a href="http://docs.libuv.org/en/v1.x/threadpool.html">Thread pool work scheduling</a></li>
 <li><a href="https://www.dynatrace.com/news/blog/all-you-need-to-know-to-really-understand-the-node-js-event-loop-and-its-metrics/#disqus_thread">All you need to know to really understand the Node.js Event Loop and its Metrics</a></li>
 <li><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">The Node.js Event Loop, Timers, and <code>process.nextTick()</code></a></li>
 <li><a href="https://www.youtube.com/watch?v=PNa9OMajw9w">Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder</a></li>
-</ul>  </div> </article> <div class="comments-section" data-astro-cid-bvzihdzo> <section class="comments" data-astro-cid-on2fnc7p> <h2 class="comments-title" data-astro-cid-on2fnc7p>Comments</h2> <div class="giscus-container" data-astro-cid-on2fnc7p> <script src="https://giscus.app/client.js" data-repo="xeusteerapat/xeusteerapat.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyMTkyNTY4NzY=" data-category="General" data-category-id="DIC_kwDODRGYLM4COf8-" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async>
-    </script> </div> </section>  </div>  </main> </div> <footer class="footer" data-astro-cid-sz7xmlte> <div class="container-main footer-content" data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://github.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>GitHub</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://twitter.com/xeusteerapat" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Twitter</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" data-astro-cid-sz7xmlte></path> </svg> </a> <a href="https://www.linkedin.com/in/teerapat-prommarak/" target="_blank" rel="noopener noreferrer" class="social-link" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>LinkedIn</span> <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-sz7xmlte> <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-sz7xmlte></path> </svg> </a> </div> <p class="copyright" data-astro-cid-sz7xmlte>
-Created by Teerapat Prommarak, © 2025 </p> </div> </footer>  </body></html> 
+</ul>
+<style class="grvsc-styles">
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line > * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: ' ';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+</style></div></div><footer class="footer-module--footer--675c6"><p>Created by <!-- -->Teerapat Prommarak<!-- -->, © 2019</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/nodejs-event-loop";window.___webpackCompilationHash="94e20cd6aa9c4a3eeb94";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0331ad3611257a24bd80.js"],"component---src-pages-404-js":["/component---src-pages-404-js-0e6af2cd7680156ccdc5.js"],"component---src-pages-about-js":["/component---src-pages-about-js-12ba874488f09c48bf7d.js"],"component---src-pages-contact-js":["/component---src-pages-contact-js-3c426355a62e6db94474.js"],"component---src-pages-index-js":["/component---src-pages-index-js-5b1974ddbc88df87e727.js"],"component---src-pages-project-js":["/component---src-pages-project-js-cc21247651fca94b9a7c.js"],"component---src-templates-blog-js":["/component---src-templates-blog-js-2e70681adbedcac4fe6a.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-4928e115e0ce8d207656.js"]};/*]]>*/</script><script src="/app-0331ad3611257a24bd80.js" async=""></script><script src="/framework-28b1dd818f52b3fd496a.js" async=""></script><script src="/webpack-runtime-91a77cf6ee6c05287092.js" async=""></script></body></html>
