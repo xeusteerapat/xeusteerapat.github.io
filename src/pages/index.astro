@@ -4,192 +4,219 @@ import { SITE } from '../config';
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">Hello</h1>
-      <h2 class="hero-subtitle">I'm Teerapat</h2>
-      <p class="hero-description">
-        Full-stack web developer passionate about creating clean, efficient web applications.
-      </p>
-      <div class="hero-buttons">
-        <a href="/blog" class="primary-button">Read My Blog</a>
-        <a href="/about" class="secondary-button">About Me</a>
-      </div>
-    </div>
-    
-    <div class="featured-section">
-      <h2 class="featured-title">Latest Content</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3 class="feature-title">Web Development Articles</h3>
-          <p class="feature-description">Explore articles about Node.js, React, TypeScript and other web technologies.</p>
-          <a href="/blog" class="feature-link">
-            Read Blog Posts
-            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-        <div class="feature-card">
-          <h3 class="feature-title">Get in Touch</h3>
-          <p class="feature-description">Have a question or want to collaborate? I'd love to hear from you.</p>
-          <a href="/contact" class="feature-link">
-            Contact Me
-            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+	<section class='hero-section'>
+		<div class='hero-content'>
+			<h1 class='hero-title'>Hello</h1>
+			<h2 class='hero-subtitle'>I'm Teerapat</h2>
+			<p class='hero-description'>
+				Software Engineer passionate about technologies
+			</p>
+			<div class='hero-buttons'>
+				<a href='/blog' class='primary-button'>Read My Blog</a>
+				<a href='/about' class='secondary-button'>About Me</a>
+			</div>
+		</div>
+
+		<div class='featured-section'>
+			<h2 class='featured-title'>Latest Content</h2>
+			<div class='feature-grid'>
+				<div class='feature-card'>
+					<h3 class='feature-title'>Web Development Articles</h3>
+					<p class='feature-description'>
+						Explore articles about Node.js, React, TypeScript and other web
+						technologies.
+					</p>
+					<a href='/blog' class='feature-link'>
+						Read Blog Posts
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							class='arrow-icon'
+							fill='none'
+							viewBox='0 0 24 24'
+							stroke='currentColor'
+						>
+							<path
+								stroke-linecap='round'
+								stroke-linejoin='round'
+								stroke-width='2'
+								d='M9 5l7 7-7 7'></path>
+						</svg>
+					</a>
+				</div>
+				<div class='feature-card'>
+					<h3 class='feature-title'>Get in Touch</h3>
+					<p class='feature-description'>
+						Contact me with questions or to discuss working together.
+					</p>
+					<a href='/contact' class='feature-link'>
+						Contact Me
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							class='arrow-icon'
+							fill='none'
+							viewBox='0 0 24 24'
+							stroke='currentColor'
+						>
+							<path
+								stroke-linecap='round'
+								stroke-linejoin='round'
+								stroke-width='2'
+								d='M9 5l7 7-7 7'></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 </BaseLayout>
 
 <style>
-  .hero-section {
-    padding: 3rem 0;
-  }
-  
-  .hero-content {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .hero-title {
-      font-size: 3rem;
-    }
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (min-width: 640px) {
-    .hero-subtitle {
-      font-size: 1.875rem;
-    }
-  }
-  
-  .hero-description {
-    font-size: 1.125rem;
-    color: #4b5563;
-    max-width: 36rem;
-    margin: 0 auto 2rem auto;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .primary-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #0284c7;
-    color: white;
-    font-weight: 500;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
-  
-  .primary-button:hover {
-    background-color: #0369a1;
-  }
-  
-  .secondary-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #f3f4f6;
-    color: #1f2937;
-    font-weight: 500;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
-  
-  .secondary-button:hover {
-    background-color: #e5e7eb;
-  }
-  
-  .featured-section {
-    margin-top: 4rem;
-  }
-  
-  .featured-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .feature-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  .feature-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  
-  .feature-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-  
-  .feature-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
-  }
-  
-  .feature-description {
-    color: #6b7280;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-link {
-    display: inline-flex;
-    align-items: center;
-    color: #0284c7;
-    font-weight: 500;
-    text-decoration: none;
-  }
-  
-  .feature-link:hover {
-    color: #0369a1;
-  }
-  
-  .arrow-icon {
-    width: 1rem;
-    height: 1rem;
-    margin-left: 0.25rem;
-  }
+	.hero-section {
+		padding: 3rem 0;
+	}
+
+	.hero-content {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1f2937;
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 640px) {
+		.hero-title {
+			font-size: 3rem;
+		}
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #374151;
+		margin-bottom: 1.5rem;
+	}
+
+	@media (min-width: 640px) {
+		.hero-subtitle {
+			font-size: 1.875rem;
+		}
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		color: #4b5563;
+		max-width: 36rem;
+		margin: 0 auto 2rem auto;
+	}
+
+	.hero-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.primary-button {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background-color: #0284c7;
+		color: white;
+		font-weight: 500;
+		border-radius: 0.375rem;
+		text-decoration: none;
+		transition: background-color 0.2s;
+	}
+
+	.primary-button:hover {
+		background-color: #0369a1;
+	}
+
+	.secondary-button {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background-color: #f3f4f6;
+		color: #1f2937;
+		font-weight: 500;
+		border-radius: 0.375rem;
+		text-decoration: none;
+		transition: background-color 0.2s;
+	}
+
+	.secondary-button:hover {
+		background-color: #e5e7eb;
+	}
+
+	.featured-section {
+		margin-top: 4rem;
+	}
+
+	.featured-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #1f2937;
+		margin-bottom: 1.5rem;
+		text-align: center;
+	}
+
+	.feature-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.feature-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.feature-card {
+		background-color: white;
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid #e5e7eb;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		transition:
+			box-shadow 0.2s,
+			transform 0.2s;
+	}
+
+	.feature-card:hover {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+	}
+
+	.feature-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin-bottom: 0.5rem;
+	}
+
+	.feature-description {
+		color: #6b7280;
+		margin-bottom: 1rem;
+	}
+
+	.feature-link {
+		display: inline-flex;
+		align-items: center;
+		color: #0284c7;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	.feature-link:hover {
+		color: #0369a1;
+	}
+
+	.arrow-icon {
+		width: 1rem;
+		height: 1rem;
+		margin-left: 0.25rem;
+	}
 </style>
