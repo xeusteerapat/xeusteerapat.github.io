@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ title, description, date, href }) =
       </div>
       <div className="flex items-center p-6 pt-0">
         <a href={href} className={buttonStyles}>
-          Read More
+          {href === '/blog' ? 'Read my posts' : 'Contact me'}
         </a>
       </div>
     </div>
