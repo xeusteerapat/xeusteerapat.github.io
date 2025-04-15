@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
+import { Github, Twitter, Linkedin, Facebook, FileText, Mail, Globe2 } from 'lucide-react';
 ---
 
 <BaseLayout
@@ -23,20 +23,7 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 					<ul class='contact-list'>
 						<li class='contact-item'>
 							<div class='contact-icon-wrapper'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									class='contact-icon'
-									fill='none'
-									viewBox='0 0 24 24'
-									stroke='currentColor'
-								>
-									<path
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										stroke-width='2'
-										d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-									></path>
-								</svg>
+								<Mail class='contact-icon' />
 							</div>
 							<div class='contact-detail'>
 								<span class='contact-label'>Email</span>
@@ -47,20 +34,7 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 						</li>
 						<li class='contact-item'>
 							<div class='contact-icon-wrapper'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									class='contact-icon'
-									fill='none'
-									viewBox='0 0 24 24'
-									stroke='currentColor'
-								>
-									<path
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										stroke-width='2'
-										d='M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-									></path>
-								</svg>
+								<Globe2 class='contact-icon' />
 							</div>
 							<div class='contact-detail'>
 								<span class='contact-label'>Location</span>
@@ -212,7 +186,7 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 	}
 
 	.contact-icon-wrapper {
-		background-color: #f3f4f6;
+		background-color: var(--accent);
 		border-radius: 9999px;
 		padding: 0.75rem;
 		margin-right: 1rem;
@@ -221,7 +195,7 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 	.contact-icon {
 		width: 1.5rem;
 		height: 1.5rem;
-		color: #0284c7;
+		color: var(--primary);
 	}
 
 	.contact-detail {
@@ -236,10 +210,13 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 	}
 
 	.contact-link {
+		color: var(--primary);
 		text-decoration: none;
+		transition: color 0.2s;
 	}
 
 	.contact-link:hover {
+		color: var(--primary-hover);
 		text-decoration: underline;
 	}
 
@@ -309,7 +286,8 @@ import { Github, Twitter, Linkedin, Facebook, FileText } from 'lucide-react';
 	}
 
 	.resume-button:hover {
-		background-color: var(--primary-hover);
+		opacity: 0.9;
+		transform: translateY(-1px);
 	}
 
 	.resume-icon {
