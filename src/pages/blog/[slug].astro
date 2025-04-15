@@ -1,32 +1,34 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 
-export async function getStaticPaths(): Promise<Array<{
-  params: { slug: string };
-  props: { post: any };
-}>> {
-  const posts = await Astro.glob('../../posts/**/*.md');
-  
-  return posts.map(post => {
-    // Extract post slug from file path
-    // Format: /Users/.../src/posts/2019-11-03/first-post.md -> first-post
-    const pathParts = post.file.split('/');
-    const fileName = pathParts[pathParts.length - 1];
-    const slug = fileName.replace('.md', '');
-    
-    // Process image paths to make them relative to post directory
-    const content = post.compiledContent();
-    const updatedPost = {
-      ...post,
-      // Add metadata about the post directory to use for image resolution
-      postDirectory: pathParts.slice(-2)[0]
-    };
-    
-    return {
-      params: { slug },
-      props: { post: updatedPost }
-    };
-  });
+type ParamsProps = {
+	params: { slug: string };
+	props: { post: any };
+};
+
+export async function getStaticPaths(): Promise<ParamsProps[]> {
+	const posts = await Astro.glob('../../posts/**/*.md');
+
+	return posts.map((post) => {
+		// Extract post slug from file path
+		// Format: /Users/.../src/posts/2019-11-03/first-post.md -> first-post
+		const pathParts = post.file.split('/');
+		const fileName = pathParts[pathParts.length - 1];
+		const slug = fileName.replace('.md', '');
+
+		// Process image paths to make them relative to post directory
+		const content = post.compiledContent();
+		const updatedPost = {
+			...post,
+			// Add metadata about the post directory to use for image resolution
+			postDirectory: pathParts.slice(-2)[0],
+		};
+
+		return {
+			params: { slug },
+			props: { post: updatedPost },
+		};
+	});
 }
 
 const { post } = Astro.props;
@@ -34,5 +36,5 @@ const { Content } = post;
 ---
 
 <BlogPost content={post.frontmatter}>
-  <Content />
+	<Content />
 </BlogPost>
