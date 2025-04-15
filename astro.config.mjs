@@ -2,11 +2,12 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://curiousdev.in.th',
   trailingSlash: 'ignore',
-  integrations: [mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     build: {

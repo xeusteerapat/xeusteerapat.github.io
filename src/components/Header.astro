@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../config';
+import Navigation from './Navigation';
 ---
 
 <header class="header">
@@ -21,22 +22,7 @@ import { SITE } from '../config';
       </a>
     </div>
     
-    <nav>
-      <ul class="nav-list">
-        <li>
-          <a href={import.meta.env.BASE_URL} class="nav-item">Home</a>
-        </li>
-        <li>
-          <a href={import.meta.env.BASE_URL + 'blog'} class="nav-item">Blog</a>
-        </li>
-        <li>
-          <a href={import.meta.env.BASE_URL + 'about'} class="nav-item">About</a>
-        </li>
-        <li>
-          <a href={import.meta.env.BASE_URL + 'contact'} class="nav-item">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    <Navigation client:load basePath={import.meta.env.BASE_URL} />
   </div>
 </header>
 
@@ -50,6 +36,9 @@ import { SITE } from '../config';
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
   
   @media (min-width: 768px) {
@@ -74,7 +63,7 @@ import { SITE } from '../config';
   .site-title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1f2937;
+    color: hsl(var(--primary));
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -86,7 +75,8 @@ import { SITE } from '../config';
   }
   
   .site-title:hover {
-    color: #0284c7;
+    color: hsl(var(--primary));
+    opacity: 0.8;
   }
   
   .webring {
@@ -101,44 +91,40 @@ import { SITE } from '../config';
   .webring-image:hover {
     opacity: 0.8;
   }
-  
-  .nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    gap: 1.5rem;
-  }
-  
-  .nav-item {
-    color: #6b7280;
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: hsl(var(--foreground));
     text-decoration: none;
     transition: color 0.2s;
+    border-radius: var(--radius);
   }
-  
-  .nav-item:hover {
-    color: #0284c7;
+
+  .nav-link:hover {
+    color: hsl(var(--primary));
+    background: hsl(var(--accent));
   }
-  
-  .nav-item[aria-current="page"] {
-    color: #0284c7;
+
+  .nav-link.active {
+    color: hsl(var(--primary));
     font-weight: 500;
   }
 </style>
 
 <script>
-  // Add aria-current="page" to active nav links
-  const navLinks = document.querySelectorAll('nav a');
-  const basePath = import.meta.env.BASE_URL;
+  // Add active class to current navigation item
   const currentPath = window.location.pathname;
+  const basePath = import.meta.env.BASE_URL;
+  const navLinks = document.querySelectorAll('.nav-link');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPath || 
         href === basePath && (currentPath === basePath || currentPath === '/') ||
         href === basePath + 'blog' && currentPath.startsWith(basePath + 'blog')) {
-      link.setAttribute('aria-current', 'page');
+      link.classList.add('active');
     }
   });
 </script>
