@@ -1,9 +1,11 @@
 ---
+import type { GetStaticPathsResult, Page, PaginateFunction } from 'astro';
+import type { MarkdownInstance } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Paginator from '../../components/Paginator.astro';
 import { SITE } from '../../config';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }): Promise<GetStaticPathsResult> {
 	const allPosts = await Astro.glob('../../posts/**/*.md');
 	const filteredPosts = allPosts
 		.filter((post) => post.frontmatter.published !== false)
@@ -16,7 +18,7 @@ export async function getStaticPaths({ paginate }) {
 	return paginate(filteredPosts, { pageSize: SITE.postsPerPage });
 }
 
-const { page } = Astro.props;
+const { page } = Astro.props as { page: Page<MarkdownInstance<Record<string, any>>> };
 ---
 
 <BaseLayout

@@ -1,7 +1,10 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<Array<{
+  params: { slug: string };
+  props: { post: any };
+}>> {
   const posts = await Astro.glob('../../posts/**/*.md');
   
   return posts.map(post => {
