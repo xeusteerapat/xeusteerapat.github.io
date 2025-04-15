@@ -4,13 +4,13 @@ import { SITE } from '../config';
 import GiscusComment from '../components/GiscusComment.astro';
 
 export interface Props {
-  content: {
-    title: string;
-    date: string;
-    description?: string;
-    image?: string;
-    published?: boolean;
-  };
+	content: {
+		title: string;
+		date: string;
+		description?: string;
+		image?: string;
+		published?: boolean;
+	};
 }
 
 const { content } = Astro.props;
@@ -18,103 +18,108 @@ const { title, date, description, image } = content;
 
 // Format date
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
 });
 ---
 
-<BaseLayout title={`${title} | ${SITE.title}`} description={description} image={image}>
-  <article class="blog-post">
-    <h1 class="blog-title">{title}</h1>
-    <time class="blog-date">{formattedDate}</time>
-    <div class="blog-content">
-      <slot />
-    </div>
-  </article>
-  <div class="comments-section">
-    <GiscusComment />
-  </div>
+<BaseLayout
+	title={`${title} | ${SITE.title}`}
+	description={description}
+	image={image}
+>
+	<article class='blog-post'>
+		<h1 class='blog-title'>{title}</h1>
+		<time class='blog-date'>{formattedDate}</time>
+		<div class='blog-content'>
+			<slot />
+		</div>
+	</article>
+	<div class='comments-section'>
+		<GiscusComment />
+	</div>
 </BaseLayout>
 
 <style>
-  .blog-post {
-    margin-bottom: 2rem;
-  }
-  
-  .blog-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .blog-title {
-      font-size: 2.25rem;
-    }
-  }
-  
-  .blog-date {
-    display: block;
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 2rem;
-  }
-  
-  .blog-content {
-    margin-top: 1.5rem;
-    line-height: 1.7;
-  }
-  
-  .blog-content :global(h2) {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 2rem 0 1rem;
-  }
-  
-  .blog-content :global(h3) {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 1.5rem 0 1rem;
-  }
-  
-  .blog-content :global(p) {
-    margin-bottom: 1.25rem;
-  }
-  
-  .blog-content :global(img) {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 2rem auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .blog-content :global(ul), .blog-content :global(ol) {
-    margin-left: 2rem;
-    margin-bottom: 1.25rem;
-  }
-  
-  .blog-content :global(li) {
-    margin-bottom: 0.5rem;
-  }
-  
-  .blog-content :global(a) {
-    color: #0284c7;
-    text-decoration: none;
-  }
-  
-  .blog-content :global(a:hover) {
-    text-decoration: underline;
-  }
-  
-  .comments-section {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e7eb;
-  }
+	.blog-post {
+		margin-bottom: 2rem;
+	}
+
+	.blog-title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #1f2937;
+		margin-bottom: 0.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.blog-title {
+			font-size: 2.25rem;
+		}
+	}
+
+	.blog-date {
+		display: block;
+		font-size: 0.875rem;
+		color: #6b7280;
+		margin-bottom: 2rem;
+	}
+
+	.blog-content {
+		margin-top: 1.5rem;
+		line-height: 1.7;
+	}
+
+	.blog-content :global(h2) {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin: 2rem 0 1rem;
+	}
+
+	.blog-content :global(h3) {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #1f2937;
+		margin: 1.5rem 0 1rem;
+	}
+
+	.blog-content :global(p) {
+		margin-bottom: 1.25rem;
+	}
+
+	.blog-content :global(img) {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 2rem auto;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.blog-content :global(ul),
+	.blog-content :global(ol) {
+		margin-left: 2rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.blog-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	.blog-content :global(a) {
+		color: #0284c7;
+		text-decoration: none;
+	}
+
+	.blog-content :global(a:hover) {
+		text-decoration: underline;
+	}
+
+	.comments-section {
+		margin-top: 4rem;
+		padding-top: 2rem;
+		border-top: 1px solid #e5e7eb;
+	}
 </style>

@@ -1,13 +1,4 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from './components/ui/card';
-import { Button } from './components/ui/button';
 import { cn } from '../lib/utils';
 
 interface BlogCardProps {
@@ -18,6 +9,11 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ title, description, date, href }) => {
+  const buttonStyles = cn(
+    'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors',
+    'h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground'
+  );
+
   return (
     <div className={cn('rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col')}>
       <div className="flex flex-col space-y-1.5 p-6">
@@ -28,13 +24,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ title, description, date, href }) =
         <p className="text-sm text-foreground/80">{description}</p>
       </div>
       <div className="flex items-center p-6 pt-0">
-        <a
-          href={href}
-          className={cn(
-            'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors',
-            'h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground'
-          )}
-        >
+        <a href={href} className={buttonStyles}>
           Read More
         </a>
       </div>
