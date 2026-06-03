@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Github, Twitter, Linkedin, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import githubIcon from '../images/icons/github.svg?raw';
+import linkedinIcon from '../images/icons/linkedin.svg?raw';
+import xIcon from '../images/icons/x.svg?raw';
 ---
 
 <BaseLayout
@@ -63,16 +66,19 @@ import { Github, Twitter, Linkedin, FileText } from 'lucide-react';
 								<li>Node.js</li>
 								<li>Express.js</li>
 								<li>GraphQL</li>
-								<li>MongoDB, MySQL</li>
+								<li>NoSQL: MongoDB, Redis</li>
+								<li>PostgreSQL, MySQL</li>
 							</ul>
 						</div>
 
 						<div class='skill-category'>
 							<h4 class='category-title'>DevOps & Cloud</h4>
 							<ul class='skills-list'>
-								<li>AWS</li>
+								<li>AWS Web Services</li>
+								<li>Google Cloud</li>
 								<li>Docker</li>
-								<li>CI/CD</li>
+								<li>Kubernetes</li>
+								<li>CI/CD pipelines</li>
 								<li>Git/GitHub</li>
 							</ul>
 						</div>
@@ -88,7 +94,7 @@ import { Github, Twitter, Linkedin, FileText } from 'lucide-react';
 							rel='noopener noreferrer'
 							class='social-button github-button'
 						>
-							<Github class='social-icon' />
+							<span class='social-icon' set:html={githubIcon} />
 							GitHub
 						</a>
 						<a
@@ -97,17 +103,17 @@ import { Github, Twitter, Linkedin, FileText } from 'lucide-react';
 							rel='noopener noreferrer'
 							class='social-button linkedin-button'
 						>
-							<Linkedin class='social-icon' />
+							<span class='social-icon' set:html={linkedinIcon} />
 							LinkedIn
 						</a>
 						<a
-							href='https://twitter.com/xeusteerapat'
+							href='https://x.com/xeusteerapat'
 							target='_blank'
 							rel='noopener noreferrer'
 							class='social-button twitter-button'
 						>
-							<Twitter class='social-icon' />
-							Twitter
+							<span class='social-icon' set:html={xIcon} />
+							X
 						</a>
 					</div>
 
@@ -288,9 +294,17 @@ import { Github, Twitter, Linkedin, FileText } from 'lucide-react';
 	}
 
 	.social-icon {
+		display: inline-flex;
 		width: 1.25rem;
 		height: 1.25rem;
 		margin-right: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.social-icon svg {
+		width: 100%;
+		height: 100%;
+		fill: currentColor;
 	}
 
 	.resume-link {
