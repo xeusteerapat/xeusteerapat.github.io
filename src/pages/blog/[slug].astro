@@ -7,7 +7,9 @@ type ParamsProps = {
 };
 
 export async function getStaticPaths(): Promise<ParamsProps[]> {
-	const posts = await Astro.glob('../../posts/**/*.md');
+	const posts = Object.values(
+		import.meta.glob('../../posts/**/*.md', { eager: true }),
+	);
 
 	return posts.map((post) => {
 		// Extract post slug from file path

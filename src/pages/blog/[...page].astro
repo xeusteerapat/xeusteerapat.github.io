@@ -5,20 +5,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Paginator from '../../components/Paginator.astro';
 import { SITE } from '../../config';
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }): Promise<GetStaticPathsResult> {
-	const allPosts = await Astro.glob('../../posts/**/*.md');
+export async function getStaticPaths({
+	paginate,
+}: {
+	paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> {
+	const allPosts = Object.values(
+		import.meta.glob('../../posts/**/*.md', { eager: true }),
+	);
+
 	const filteredPosts = allPosts
 		.filter((post) => post.frontmatter.published !== false)
 		.sort(
 			(a, b) =>
 				new Date(b.frontmatter.date).valueOf() -
-				new Date(a.frontmatter.date).valueOf()
+				new Date(a.frontmatter.date).valueOf(),
 		);
 
 	return paginate(filteredPosts, { pageSize: SITE.postsPerPage });
 }
 
-const { page } = Astro.props as { page: Page<MarkdownInstance<Record<string, any>>> };
+const { page } = Astro.props as {
+	page: Page<MarkdownInstance<Record<string, any>>>;
+};
 ---
 
 <BaseLayout
@@ -39,7 +48,7 @@ const { page } = Astro.props as { page: Page<MarkdownInstance<Record<string, any
 
 					// Format date
 					const formattedDate = new Date(
-						post.frontmatter.date
+						post.frontmatter.date,
 					).toLocaleDateString('en-US', {
 						year: 'numeric',
 						month: 'long',
