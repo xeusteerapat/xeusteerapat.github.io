@@ -11,7 +11,7 @@ export async function getStaticPaths({
 	paginate: PaginateFunction;
 }): Promise<GetStaticPathsResult> {
 	const allPosts = Object.values(
-		import.meta.glob('../../posts/**/*.md', { eager: true }),
+		import.meta.glob<MarkdownInstance<Record<string, any>>>('../../posts/**/*.md', { eager: true }),
 	);
 
 	const filteredPosts = allPosts
