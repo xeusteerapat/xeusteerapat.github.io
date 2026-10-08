@@ -1,130 +1,98 @@
 ---
-import { SITE } from '../config';
-import Navigation from './Navigation';
+import { NAV, SITE, SOCIAL } from '../config';
+import githubIcon from '../images/icons/github.svg?raw';
+import linkedinIcon from '../images/icons/linkedin.svg?raw';
+import xIcon from '../images/icons/x.svg?raw';
+
+const base = import.meta.env.BASE_URL;
+const icons: Record<string, string> = {
+  GitHub: githubIcon,
+  X: xIcon,
+  LinkedIn: linkedinIcon,
+};
 ---
 
-<header class="header">
-  <div class="header-container">
-    <div class="brand">
-      <a href={import.meta.env.BASE_URL} class="site-title">{SITE.title}</a>
-      <a
-        href="https://webring.wonderful.software#curiousdev.in.th"
-        title="วงแหวนเว็บ"
-        class="webring"
-      >
-        <img
-          alt="วงแหวนเว็บ"
-          width="32"
-          height="32"
-          src="https://webring.wonderful.software/webring.black.svg"
-          class="webring-image"
-        />
-      </a>
+<header class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl font-medium" href={base}>{SITE.title}</a>
+    <div
+      class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] [background:url(/theme.svg)_left_center/cover_no-repeat] dark:[background-position:right] dark:invert"
+      role="button"
+      aria-label="Toggle dark mode"
+    >
     </div>
-    
-    <Navigation client:load basePath={import.meta.env.BASE_URL} />
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  >
+  </div>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"
+  >
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10">
+      {
+        NAV.map((item) => (
+          <a
+            class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+            href={base + item.href}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </nav>
+
+    <nav class="mt-12 flex justify-center space-x-10 lg:mt-0 lg:ml-14 lg:items-center dark:invert">
+      {
+        SOCIAL.map((item) => (
+          <a
+            class="h-7 w-7 lg:h-6 lg:w-6 [&>svg]:h-full [&>svg]:w-full"
+            href={item.href}
+            target="_blank"
+            rel="me noopener noreferrer"
+            aria-label={item.name}
+            set:html={icons[item.name]}
+          />
+        ))
+      }
+    </nav>
   </div>
 </header>
 
-<style>
-  .header {
-    padding: 1.5rem 0;
-  }
-  
-  .header-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .header-container {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-  
-  .brand {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .brand {
-      margin-bottom: 0;
-    }
-  }
-  
-  .site-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: hsl(var(--primary));
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  
-  @media (min-width: 768px) {
-    .site-title {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .site-title:hover {
-    color: hsl(var(--primary));
-    opacity: 0.8;
-  }
-  
-  .webring {
-    margin-left: 0.75rem;
-  }
-  
-  .webring-image {
-    opacity: 1;
-    transition: opacity 0.2s;
-  }
-  
-  .webring-image:hover {
-    opacity: 0.8;
-  }
-
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    color: hsl(var(--foreground));
-    text-decoration: none;
-    transition: color 0.2s;
-    border-radius: var(--radius);
-  }
-
-  .nav-link:hover {
-    color: hsl(var(--primary));
-    background: hsl(var(--accent));
-  }
-
-  .nav-link.active {
-    color: hsl(var(--primary));
-    font-weight: 500;
-  }
-</style>
-
 <script>
-  // Add active class to current navigation item
-  const currentPath = window.location.pathname;
-  const basePath = import.meta.env.BASE_URL;
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || 
-        href === basePath && (currentPath === basePath || currentPath === '/') ||
-        href === basePath + 'blog' && currentPath.startsWith(basePath + 'blog')) {
-      link.classList.add('active');
-    }
+  const htmlClass = document.documentElement.classList;
+
+  // Re-enable transitions once the first paint is done
+  setTimeout(() => htmlClass.remove('not-ready'), 10);
+
+  // Mobile menu
+  document.querySelector('.btn-menu')?.addEventListener('click', () => {
+    htmlClass.toggle('open');
+  });
+
+  // Dark mode
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  const lightBg = '#faf8f1';
+  const setDark = (isDark: boolean) => {
+    metaTheme?.setAttribute('content', isDark ? 'rgb(0 0 0 / 85%)' : lightBg);
+    htmlClass.toggle('dark', isDark);
+    try {
+      localStorage.setItem('dark', String(isDark));
+    } catch (e) {}
+  };
+
+  const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  setDark(htmlClass.contains('dark'));
+
+  // Follow the system setting
+  darkScheme.addEventListener('change', (event) => setDark(event.matches));
+
+  // Manual switch
+  document.querySelector('.btn-dark')?.addEventListener('click', () => {
+    setDark(!htmlClass.contains('dark'));
   });
 </script>

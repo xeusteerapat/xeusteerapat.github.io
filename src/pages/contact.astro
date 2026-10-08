@@ -1,306 +1,62 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {
-	Github,
-	Twitter,
-	Linkedin,
-	Facebook,
-	FileText,
-	Mail,
-	Globe2,
-} from 'lucide-react';
+import { SOCIAL } from '../config';
+
+const links = [
+	...SOCIAL,
+	{ name: 'Facebook', href: 'https://www.facebook.com/curiousdevxeus' },
+];
 ---
 
-<BaseLayout
-	title='Contact | Hello, World'
-	description='Contact Teerapat Prommarak'
->
-	<div class='contact-container'>
-		<h1 class='contact-title'>Contact Me</h1>
+<BaseLayout title='Contact | Hello, World' description='Contact Teerapat Prommarak'>
+	<article>
+		<header class='mb-14'>
+			<h1 class='my-0! pb-2.5'>Contact Me</h1>
+		</header>
 
-		<div class='contact-card'>
-			<p class='contact-intro'>
+		<section>
+			<p>
 				I'd love to hear from you! Whether you have a question, project idea, or
 				just want to connect, please feel free to reach out through any of the
 				channels below.
 			</p>
 
-			<div class='contact-grid'>
-				<div class='contact-info'>
-					<h2 class='section-title'>Get in Touch</h2>
-					<ul class='contact-list'>
-						<li class='contact-item'>
-							<div class='contact-icon-wrapper'>
-								<Mail class='contact-icon' />
-							</div>
-							<div class='contact-detail'>
-								<span class='contact-label'>Email</span>
-								<a href='mailto:xeus085@gmail.com' class='contact-link'
-									>xeus085@gmail.com</a
-								>
-							</div>
-						</li>
-						<li class='contact-item'>
-							<div class='contact-icon-wrapper'>
-								<Globe2 class='contact-icon' />
-							</div>
-							<div class='contact-detail'>
-								<span class='contact-label'>Location</span>
-								<span class='contact-value'>Bangkok, Thailand</span>
-							</div>
-						</li>
-					</ul>
-				</div>
+			<h2>Get in Touch</h2>
+			<ul>
+				<li>
+					Email: <a href='mailto:xeus085@gmail.com'>xeus085@gmail.com</a>
+				</li>
+				<li>Location: Bangkok, Thailand</li>
+			</ul>
 
-				<div class='social-accounts'>
-					<h2 class='section-title'>Social Media</h2>
-					<ul class='social-list'>
-						<li class='social-item'>
-							<a
-								href='https://github.com/xeusteerapat'
-								target='_blank'
-								rel='noopener noreferrer'
-								class='social-link'
-							>
-								<div class='social-icon-wrapper'>
-									<Github class='social-icon' />
-								</div>
-								<span>GitHub</span>
+			<h2>Social Media</h2>
+			<ul>
+				{
+					links.map((item) => (
+						<li>
+							<a href={item.href} target='_blank' rel='noopener noreferrer'>
+								{item.name}
 							</a>
 						</li>
-						<li class='social-item'>
-							<a
-								href='https://twitter.com/xeusteerapat'
-								target='_blank'
-								rel='noopener noreferrer'
-								class='social-link'
-							>
-								<div class='social-icon-wrapper'>
-									<Twitter class='social-icon' />
-								</div>
-								<span>Twitter/X</span>
-							</a>
-						</li>
-						<li class='social-item'>
-							<a
-								href='https://www.linkedin.com/in/teerapat-prommarak/'
-								target='_blank'
-								rel='noopener noreferrer'
-								class='social-link'
-							>
-								<div class='social-icon-wrapper'>
-									<Linkedin class='social-icon' />
-								</div>
-								<span>LinkedIn</span>
-							</a>
-						</li>
-						<li class='social-item'>
-							<a
-								href='https://www.facebook.com/curiousdevxeus'
-								target='_blank'
-								rel='noopener noreferrer'
-								class='social-link'
-							>
-								<div class='social-icon-wrapper'>
-									<Facebook class='social-icon' />
-								</div>
-								<span>Facebook</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+					))
+				}
+			</ul>
 
-			<div class='resume-section'>
-				<h2 class='section-title'>My Resume</h2>
-				<p class='resume-description'>
-					Want to learn more about my experience and background? Check out my
-					resume for a detailed overview of my skills and professional history.
-				</p>
+			<h2>My Resume</h2>
+			<p>
+				Want to learn more about my experience and background? Check out my
+				resume for a detailed overview of my skills and professional history.
+			</p>
+			<p class='mt-12'>
 				<a
+					class='btn not-prose'
 					href='https://teerapat-prommarak-resume.netlify.app/'
 					target='_blank'
 					rel='noopener noreferrer'
-					class='resume-button'
 				>
-					<FileText class='resume-icon' />
 					View My Resume
 				</a>
-			</div>
-		</div>
-	</div>
+			</p>
+		</section>
+	</article>
 </BaseLayout>
-
-<style>
-	.contact-container {
-		max-width: 48rem;
-		margin: 0 auto;
-	}
-
-	.contact-title {
-		font-size: 2rem;
-		font-weight: 700;
-		color: #1f2937;
-		margin-bottom: 1.5rem;
-	}
-
-	.contact-card {
-		background-color: white;
-		border-radius: 0.5rem;
-		border: 1px solid #e5e7eb;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-		padding: 2rem;
-	}
-
-	.contact-intro {
-		font-size: 1.125rem;
-		color: #4b5563;
-		line-height: 1.6;
-		margin-bottom: 2rem;
-	}
-
-	.contact-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	@media (min-width: 768px) {
-		.contact-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	.section-title {
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: #1f2937;
-		margin-bottom: 1.25rem;
-		padding-bottom: 0.5rem;
-		border-bottom: 1px solid #e5e7eb;
-	}
-
-	.contact-list {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.contact-item {
-		display: flex;
-		align-items: flex-start;
-		margin-bottom: 1.5rem;
-	}
-
-	.contact-icon-wrapper {
-		background-color: var(--accent);
-		border-radius: 9999px;
-		padding: 0.75rem;
-		margin-right: 1rem;
-	}
-
-	.contact-icon {
-		width: 1.5rem;
-		height: 1.5rem;
-		color: var(--primary);
-	}
-
-	.contact-detail {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.contact-label {
-		font-size: 0.875rem;
-		color: #6b7280;
-		margin-bottom: 0.25rem;
-	}
-
-	.contact-link {
-		color: var(--primary);
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	.contact-link:hover {
-		color: var(--primary-hover);
-		text-decoration: underline;
-	}
-
-	.contact-value {
-		color: #4b5563;
-	}
-
-	.social-list {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.social-item {
-		margin-bottom: 1rem;
-	}
-
-	.social-link {
-		display: flex;
-		align-items: center;
-		color: var(--muted-foreground);
-		text-decoration: none;
-		padding: 0.75rem;
-		border-radius: 0.375rem;
-		transition: all 0.2s;
-	}
-
-	.social-link:hover {
-		color: var(--primary);
-		background-color: var(--accent);
-	}
-
-	.social-icon-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		margin-right: 1rem;
-	}
-
-	.social-icon {
-		width: 1.5rem;
-		height: 1.5rem;
-	}
-
-	.resume-section {
-		border-top: 1px solid #e5e7eb;
-		padding-top: 2rem;
-	}
-
-	.resume-description {
-		color: #4b5563;
-		margin-bottom: 1.5rem;
-	}
-
-	.resume-button {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.75rem 1.5rem;
-		background-color: var(--primary);
-		color: var(--primary-foreground);
-		font-weight: 500;
-		border-radius: 0.375rem;
-		text-decoration: none;
-		transition: all 0.2s;
-	}
-
-	.resume-button:hover {
-		opacity: 0.9;
-		transform: translateY(-1px);
-	}
-
-	.resume-icon {
-		width: 1.25rem;
-		height: 1.25rem;
-		margin-right: 0.5rem;
-	}
-</style>

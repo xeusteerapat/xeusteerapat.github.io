@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { SITE } from '../config';
 import GiscusComment from '../components/GiscusComment.astro';
+import { formatDate } from '../lib/posts';
 
 export interface Props {
 	content: {
@@ -11,17 +12,13 @@ export interface Props {
 		image?: string;
 		published?: boolean;
 	};
+	// Adjacent published posts, for the Paper-style post navigation
+	older?: { title: string; href: string };
+	newer?: { title: string; href: string };
 }
 
-const { content } = Astro.props;
+const { content, older, newer } = Astro.props;
 const { title, date, description, image } = content;
-
-// Format date
-const formattedDate = new Date(date).toLocaleDateString('en-US', {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-});
 ---
 
 <BaseLayout
@@ -29,107 +26,39 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 	description={description}
 	image={image}
 >
-	<article class='blog-post'>
-		<h1 class='blog-title'>{title}</h1>
-		<time class='blog-date'>{formattedDate}</time>
-		<div class='blog-content'>
+	<article>
+		<header class='mb-14'>
+			<h1 class='my-0! pb-2.5'>{title}</h1>
+			<div class='text-xs antialiased opacity-60'>
+				<time>{formatDate(date)}</time>
+				<span class='mx-1'>&middot;</span>
+				<span>{SITE.author}</span>
+			</div>
+		</header>
+
+		<section>
 			<slot />
-		</div>
-	</article>
-	<div class='comments-section'>
-		<GiscusComment />
-	</div>
-</BaseLayout>
+		</section>
 
-<style>
-	.blog-post {
-		margin-bottom: 2rem;
-	}
-
-	.blog-title {
-		font-size: 2rem;
-		font-weight: 700;
-		color: #1f2937;
-		margin-bottom: 0.5rem;
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-		text-align: center;
-	}
-
-	@media (min-width: 768px) {
-		.blog-title {
-			font-size: 2.25rem;
+		{
+			(older || newer) && (
+				<nav class='not-prose mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]'>
+					{older && (
+						<a class='pr-3' href={older.href}>
+							<span class='mr-1.5'>←</span>
+							<span>{older.title}</span>
+						</a>
+					)}
+					{newer && (
+						<a class='ml-auto justify-end pl-3' href={newer.href}>
+							<span>{newer.title}</span>
+							<span class='ml-1.5'>→</span>
+						</a>
+					)}
+				</nav>
+			)
 		}
-	}
 
-	.blog-date {
-		display: block;
-		font-size: 0.875rem;
-		color: #6b7280;
-		margin-bottom: 2rem;
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-		text-align: center;
-	}
-
-	.blog-content {
-		margin-top: 1.5rem;
-		line-height: 1.7;
-		max-width: 800px;
-		margin: 0 auto;
-	}
-
-	.blog-content :global(h2) {
-		font-size: 1.5rem;
-		font-weight: 600;
-		color: #1f2937;
-		margin: 2rem 0 1rem;
-	}
-
-	.blog-content :global(h3) {
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: #1f2937;
-		margin: 1.5rem 0 1rem;
-	}
-
-	.blog-content :global(p) {
-		margin-bottom: 1.25rem;
-	}
-
-	.blog-content :global(img) {
-		max-width: 100%;
-		height: auto;
-		display: block;
-		margin: 2rem auto;
-		border-radius: 4px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	}
-
-	.blog-content :global(ul),
-	.blog-content :global(ol) {
-		margin-left: 2rem;
-		margin-bottom: 1.25rem;
-	}
-
-	.blog-content :global(li) {
-		margin-bottom: 0.5rem;
-	}
-
-	.blog-content :global(a) {
-		color: #0284c7;
-		text-decoration: none;
-	}
-
-	.blog-content :global(a:hover) {
-		text-decoration: underline;
-	}
-
-	.comments-section {
-		margin-top: 4rem;
-		padding-top: 2rem;
-		border-top: 1px solid #e5e7eb;
-	}
-</style>
+		<GiscusComment />
+	</article>
+</BaseLayout>

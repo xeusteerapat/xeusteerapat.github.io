@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-// Import Prism CSS theme
 import '../styles/prism.css';
 
 export interface Props {
@@ -12,47 +11,43 @@ export interface Props {
 }
 
 const { title, description, image } = Astro.props;
-
-// Ensure dark mode is handled properly
-const theme = Astro.cookies.get('theme')?.value || 'light';
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="light">
+<!doctype html>
+<html class="not-ready" lang="en" style="--bg: #faf8f1">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#faf8f1" />
     <link rel="icon" type="image/x-icon" href={import.meta.env.BASE_URL + 'favicon.ico'} />
     <title>{title}</title>
     <meta name="description" content={description} />
     {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Set the theme before first paint to avoid a light/dark flash -->
+    <script is:inline>
+      (() => {
+        let saved = null;
+        try {
+          saved = localStorage.getItem('dark');
+        } catch (e) {}
+        const isDark = saved
+          ? saved === 'true'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', isDark);
+      })();
+    </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-background font-sans antialiased">
-    <div class="container mx-auto px-4 flex-grow">
-      <Header />
-      <main class="py-8">
-        <slot />
-      </main>
-    </div>
+  <body
+    class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
+  >
+    <Header />
+
+    <main
+      class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"
+    >
+      <slot />
+    </main>
+
     <Footer />
   </body>
 </html>
-
-<style>
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .container-main {
-    flex-grow: 1;
-  }
-  
-  main {
-    padding: 2rem 0;
-  }
-</style>

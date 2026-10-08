@@ -1,15 +1,23 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
+import { getPosts, getSlug } from '../../lib/posts';
+
+type PostLink = { title: string; href: string };
 
 type ParamsProps = {
 	params: { slug: string };
-	props: { post: any };
+	props: { post: any; older?: PostLink; newer?: PostLink };
 };
 
 export async function getStaticPaths(): Promise<ParamsProps[]> {
 	const posts = Object.values(
 		import.meta.glob('../../posts/**/*.md', { eager: true }),
 	);
+
+	// Published posts, newest first, used to find each post's neighbours
+	const published = getPosts();
+	const toLink = (p?: (typeof published)[number]): PostLink | undefined =>
+		p && { title: p.frontmatter.title, href: `/blog/${getSlug(p)}` };
 
 	return posts.map((post) => {
 		// Extract post slug from file path
@@ -26,17 +34,23 @@ export async function getStaticPaths(): Promise<ParamsProps[]> {
 			postDirectory: pathParts.slice(-2)[0],
 		};
 
+		const index = published.findIndex((p) => getSlug(p) === slug);
+
 		return {
 			params: { slug },
-			props: { post: updatedPost },
+			props: {
+				post: updatedPost,
+				older: index === -1 ? undefined : toLink(published[index + 1]),
+				newer: index === -1 ? undefined : toLink(published[index - 1]),
+			},
 		};
 	});
 }
 
-const { post } = Astro.props;
+const { post, older, newer } = Astro.props;
 const { Content } = post;
 ---
 
-<BlogPost content={post.frontmatter}>
+<BlogPost content={post.frontmatter} older={older} newer={newer}>
 	<Content />
 </BlogPost>

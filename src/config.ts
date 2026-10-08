@@ -7,3 +7,17 @@ export const SITE = {
   twitterUsername: '@xeusteerapat',
   postsPerPage: 6,
 };
+
+// Header navigation (the site title already links home)
+export const NAV = [
+  { name: 'Blog', href: 'blog' },
+  { name: 'About', href: 'about' },
+  { name: 'Contact', href: 'contact' },
+];
+
+// Social links shown in the header
+export const SOCIAL = [
+  { name: 'GitHub', href: 'https://github.com/xeusteerapat' },
+  { name: 'X', href: 'https://x.com/xeusteerapat' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/teerapat-prommarak/' },
+];
