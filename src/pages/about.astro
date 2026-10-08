@@ -67,18 +67,20 @@ const skills = [
 			</p>
 
 			<h2>Technical Skills</h2>
-			{
-				skills.map((category) => (
-					<>
-						<h3>{category.title}</h3>
-						<ul>
-							{category.items.map((item) => (
-								<li>{item}</li>
-							))}
-						</ul>
-					</>
-				))
-			}
+			<div class='grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2'>
+				{
+					skills.map((category) => (
+						<div>
+							<h3 class='mt-0!'>{category.title}</h3>
+							<ul>
+								{category.items.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
 
 			<h2>Connect With Me</h2>
 			<ul>
